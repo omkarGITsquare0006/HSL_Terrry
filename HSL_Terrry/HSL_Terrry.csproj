@@ -79,6 +79,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="frmUserLogin.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
+    <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
+    <Content Include="HomePages\frmProcessOne.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -141,6 +143,20 @@
     </Compile>
     <Compile Include="HomePages\frmHome.aspx.designer.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmLengthSlittingMachine.aspx.cs">
+      <DependentUpon>frmLengthSlittingMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmLengthSlittingMachine.aspx.designer.cs">
+      <DependentUpon>frmLengthSlittingMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmProcessOne.aspx.cs">
+      <DependentUpon>frmProcessOne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmProcessOne.aspx.designer.cs">
+      <DependentUpon>frmProcessOne.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\HomeMaster.Master.cs">
       <DependentUpon>HomeMaster.Master</DependentUpon>
