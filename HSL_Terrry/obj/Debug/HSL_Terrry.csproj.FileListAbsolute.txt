@@ -278,3 +278,16 @@ E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\obj\Debug\HSL_Terrry.c
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\obj\Debug\HSL_Terrry.csproj.CopyComplete
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\obj\Debug\HSL_Terrry.dll
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\obj\Debug\HSL_Terrry.pdb
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\Microsoft.Web.Infrastructure.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Helpers.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Mvc.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Razor.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.Deployment.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.Razor.dll
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Helpers.xml
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Mvc.xml
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.Razor.xml
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.xml
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.Deployment.xml
+E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry_110319\HSL_Terrry\bin\System.Web.WebPages.Razor.xml
