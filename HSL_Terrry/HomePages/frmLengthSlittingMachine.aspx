@@ -23,7 +23,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtpono" class="col-form-label">PO Number:</label>
+                                <label for="txtpono" class="col-form-label">PO No:</label>
                                 <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
@@ -36,7 +36,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtpoodesc" class="col-form-label">PO Description</label>
+                                <label for="txtpoodesc" class="col-form-label">PO Desc</label>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
                                 <asp:TextBox ID="txtpoodesc" class="form-control" placeholder="PO Description" runat="server" />
@@ -47,7 +47,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtcustno" class="col-form-label">Customer No</label>
+                                <label for="txtcustno" class="col-form-label">Cust No</label>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
                                 <asp:TextBox ID="txtcustno" class="form-control" placeholder="Customer Number" runat="server" />
@@ -72,7 +72,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtorderqty" class="col-form-label">Order Quantity</label>
+                                <label for="txtorderqty" class="col-form-label">Order Qty</label>
                                 <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
@@ -96,7 +96,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtitemdesc" class="col-form-label">Item Description</label>
+                                <label for="txtitemdesc" class="col-form-label">Item Desc</label>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
                                 <asp:TextBox ID="txtitemdesc" class="form-control" placeholder="Item Description" runat="server" />
@@ -122,7 +122,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtlotqty" class="col-form-label">Lot Quantity</label>
+                                <label for="txtlotqty" class="col-form-label">Lot Qty</label>
                                 <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
@@ -146,7 +146,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtsono" class="col-form-label">SO Number</label>
+                                <label for="txtsono" class="col-form-label">SO No.</label>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
                                 <asp:TextBox ID="txtsono" class="form-control" placeholder="SO Number" runat="server" />
@@ -171,7 +171,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtpcslen" class="col-form-label">Pcs Length</label>
+                                <label for="txtpcslen" class="col-form-label">Pcs Lgth</label>
                                 <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
@@ -184,7 +184,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                         <div class="form-group">
 <%--                            <div class="col">--%>
-                                <label for="txtpcswidth" class="col-form-label">Pcs Width</label>
+                                <label for="txtpcswidth" class="col-form-label">Pcs Wdth</label>
 <%--                            </div>--%>
 <%--                            <div class="col">--%>
                                 <asp:TextBox ID="txtpcswidth" class="form-control" placeholder="Pcs Width" runat="server" />
