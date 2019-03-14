@@ -9,17 +9,34 @@
     </head>
 
     <body>
-        <div class="mypanel"></div>
+        <div class="container">
+            <h1 class="mt-xl-5">List of data</h1>
+            <ul class="list-group" id="lists">
+                
+            </ul>
+        </div>
 
         <script>
-            $.getJSON('http://time.jsontest.com', function (data) {
-
-                var text = `Date: ${data.date}<br>
-                    Time: ${data.time}<br>
-                    Unix time: ${data.milliseconds_since_epoch}`
-
-
-                $(".mypanel").html(text);
+            $(document).ready(function () {
+                $.getJSON('http://localhost:8081/hplant/englab/tranformer_etp/get/all', function (data) {
+                    var text = '';
+                    $.each(data, function (key, value) {
+                        text += '<li class="list-group-item list-group-item-warning">';
+                        text += '<div class="row">';
+                        text += '<div class="col">';
+                        text += '<a href="frmLengthSlittingMachine.aspx">' + this.dateTime + '</a>';
+                        text += '</div>';
+                        text += '<div class="col">';
+                        text += '<a>' + this.operatorName + '</a>';
+                        text += '</div>';
+                        text += '<div class="col">';
+                        text += '<a>' + this.remarks + '</a>';
+                        text += '</div>';
+                        text += '</div>';
+                        text += '</li>';
+                    });
+                    $('#lists').append(text);
+                });
             });
         </script>
 

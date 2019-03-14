@@ -13,5 +13,12 @@ namespace HSL_Terrry
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            String username = txtmobile.Text.ToString();
+            Session["username"] = username;
+            Response.Redirect("HomePages/frmHome.aspx");
+        }
     }
 }

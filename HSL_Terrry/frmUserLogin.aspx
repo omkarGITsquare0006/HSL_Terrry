@@ -22,7 +22,7 @@
                         <div class="panel-heading h4 text-primary text-center card-header">
                             Login panel
                         </div>
-                        <%--<form action="/action_page.php" runat="server" class="card-body">--%>
+                        <form runat="server" class="card-body">
                             <div class="form-group">
                                 <label for="email">Username:</label>
                                 <asp:TextBox class="form-control" ID="txtmobile" placeholder="Enter Username" runat="server"></asp:TextBox>
@@ -31,8 +31,8 @@
                                 <label for="pwd">Password:</label>
                                 <asp:TextBox class="form-control" ID="txtpwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
-                            <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Submit"></asp:Button>
-                        <%--</form>--%>
+                            <asp:Button class="btn btn-success btn-md btn-block" ID="btnLogin" runat="server" Text="Submit" OnClick="btnLogin_Click"></asp:Button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
