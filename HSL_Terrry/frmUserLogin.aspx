@@ -31,7 +31,11 @@
                                 <label for="pwd">Password:</label>
                                 <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
+<<<<<<< HEAD
                             <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClick="btn_signin"></asp:Button>
+=======
+                            <asp:Button class="btn btn-success btn-md btn-block" ID="btnLogin" runat="server" Text="Submit" OnClick="btnLogin_Click"></asp:Button>
+>>>>>>> 27f41312f913066f567e2f0a74ae6a2f96b010ca
                         </form>
                     </div>
                 </div>

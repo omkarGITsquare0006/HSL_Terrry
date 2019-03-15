@@ -17,6 +17,7 @@ namespace HSL_Terrry
         {
 
         }
+<<<<<<< HEAD
         protected void btn_signin(object sender, EventArgs e)
         {
 
@@ -62,6 +63,14 @@ namespace HSL_Terrry
                 return;
             }
 
+=======
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            String username = txtmobile.Text.ToString();
+            Session["username"] = username;
+            Response.Redirect("HomePages/frmHome.aspx");
+>>>>>>> 27f41312f913066f567e2f0a74ae6a2f96b010ca
         }
     }
 }

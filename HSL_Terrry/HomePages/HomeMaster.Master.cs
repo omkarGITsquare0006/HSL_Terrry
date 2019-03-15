@@ -11,6 +11,22 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String username = String.Empty;
+            username = Session["username"].ToString();
+            navbarDropdown.InnerText = username;
+        }
+        protected void Anchor_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["username"].ToString();
+            if (username.Equals("akshay"))
+            {
+                Response.Redirect("frmLengthSlittingMachineSup.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmLengthSlittingMachine.aspx");
+            }
 
         }
     }
