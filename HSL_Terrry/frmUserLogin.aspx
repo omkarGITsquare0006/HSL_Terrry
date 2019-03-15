@@ -9,10 +9,10 @@
     <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body class="align-middle">
+<body background="images/bg3.png" style="background-size: 100% 155%" >
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="row">
+            <div class="row" style= "margin-left: -20%; ">
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-5">
                     <div class="mt-5">
@@ -22,17 +22,17 @@
                         <div class="panel-heading h4 text-primary text-center card-header">
                             Login panel
                         </div>
-                        <%--<form action="/action_page.php" runat="server" class="card-body">--%>
+                        <form runat="server" class="card-body">
                             <div class="form-group">
                                 <label for="email">Username:</label>
-                                <asp:TextBox class="form-control" ID="txtmobile" placeholder="Enter Username" runat="server"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="username" placeholder="Enter Username" runat="server"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Password:</label>
-                                <asp:TextBox class="form-control" ID="txtpwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                             </div>
-                            <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Submit"></asp:Button>
-                        <%--</form>--%>
+                            <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClick="btn_signin"></asp:Button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
