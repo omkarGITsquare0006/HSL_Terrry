@@ -13,22 +13,22 @@ namespace HSL_Terrry {
     public partial class frmUserLogin {
         
         /// <summary>
-        /// txtmobile control.
+        /// username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmobile;
+        protected global::System.Web.UI.WebControls.TextBox username;
         
         /// <summary>
-        /// txtpwd control.
+        /// pwd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpwd;
+        protected global::System.Web.UI.WebControls.TextBox pwd;
         
         /// <summary>
         /// btnLogin control.
