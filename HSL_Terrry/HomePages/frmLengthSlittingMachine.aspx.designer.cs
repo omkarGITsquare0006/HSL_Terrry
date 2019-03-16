@@ -235,7 +235,34 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtshift;
+        protected global::System.Web.UI.WebControls.TextBox TextLotNo;
+        
+        /// <summary>
+        /// TextLotQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextLotQty;
+        
+        /// <summary>
+        /// TextLotProd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextLotProd;
+        
+        /// <summary>
+        /// TextLotBal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextLotBal;
         
         /// <summary>
         /// txttrollyno control.
@@ -256,15 +283,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txttrollyqty;
         
         /// <summary>
-        /// txtbalqty2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbalqty2;
-        
-        /// <summary>
         /// txtnoofslits control.
         /// </summary>
         /// <remarks>
@@ -274,13 +292,13 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtnoofslits;
         
         /// <summary>
-        /// txtmachinestop control.
+        /// Textprodmtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmachinestop;
+        protected global::System.Web.UI.WebControls.TextBox Textprodmtr;
         
         /// <summary>
         /// txtpcslength2 control.
@@ -301,58 +319,31 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtpcswidth2;
         
         /// <summary>
-        /// txtstopreason control.
+        /// Textpcswt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtstopreason;
+        protected global::System.Web.UI.WebControls.TextBox Textpcswt;
         
         /// <summary>
-        /// TextBox14 control.
+        /// TextrejQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox14;
+        protected global::System.Web.UI.WebControls.TextBox TextrejQty;
         
         /// <summary>
-        /// TextBox15 control.
+        /// Textrejreason control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox15;
-        
-        /// <summary>
-        /// TextBox16 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox16;
-        
-        /// <summary>
-        /// txttotalmaterial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttotalmaterial;
-        
-        /// <summary>
-        /// txtprodpcs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprodpcs;
+        protected global::System.Web.UI.WebControls.TextBox Textrejreason;
         
         /// <summary>
         /// txtprodwt control.
@@ -364,13 +355,40 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtprodwt;
         
         /// <summary>
-        /// txttotalpcs control.
+        /// txtprodpcs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttotalpcs;
+        protected global::System.Web.UI.WebControls.TextBox txtprodpcs;
+        
+        /// <summary>
+        /// txtbalqty2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbalqty2;
+        
+        /// <summary>
+        /// txtmachinestop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtmachinestop;
+        
+        /// <summary>
+        /// txtstopreason control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtstopreason;
         
         /// <summary>
         /// txtremarks control.
@@ -380,6 +398,24 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtremarks;
+        
+        /// <summary>
+        /// txttotalmaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttotalmaterial;
+        
+        /// <summary>
+        /// txttotalpcs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttotalpcs;
         
         /// <summary>
         /// btnSave control.
