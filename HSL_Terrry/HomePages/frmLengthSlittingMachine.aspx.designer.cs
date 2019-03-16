@@ -13,13 +13,13 @@ namespace HSL_Terrry.HomePages {
     public partial class frmLengthSlittingMachine {
         
         /// <summary>
-        /// txtpono control.
+        /// txtPONo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpono;
+        protected global::System.Web.UI.WebControls.TextBox txtPONo;
         
         /// <summary>
         /// txtpoodesc control.
@@ -193,13 +193,22 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtstatus;
         
         /// <summary>
-        /// txtmachineno control.
+        /// txtdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmachineno;
+        protected global::System.Web.UI.WebControls.TextBox txtdate;
+        
+        /// <summary>
+        /// txtshift control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtshift;
         
         /// <summary>
         /// txtoperator control.
@@ -220,16 +229,16 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtsupervisor;
         
         /// <summary>
-        /// txtdate control.
+        /// txtmachineno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdate;
+        protected global::System.Web.UI.WebControls.TextBox txtmachineno;
         
         /// <summary>
-        /// txtshift control.
+        /// TextLotNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

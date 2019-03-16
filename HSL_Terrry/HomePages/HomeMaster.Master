@@ -14,8 +14,8 @@
         void Anchor_Click(Object sender, EventArgs e)
         {
             String username = String.Empty;
-            username = Session["username"].ToString();
-            if (username.Equals("akshay"))
+            username = Session["UserDetail"].ToString();
+            if (username.Equals("Admin"))
             {
                 Response.Redirect("frmLengthSlittingMachineSup.aspx");
             }
@@ -73,7 +73,7 @@
                                     <%--<a class="dropdown-item" href="#">Action</a>
                                     <a class="dropdown-item" href="#">Another action</a>
                                     <div class="dropdown-divider"></div>--%>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a class="dropdown-item" runat="server" onserverclick="btn_LogOut">Logout</a>
                                 </div>
                             </li>
                         </ul>

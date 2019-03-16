@@ -8,6 +8,8 @@ using System.Web.Security;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.Net;
+using System.IO;
 
 namespace HSL_Terrry
 {
@@ -17,7 +19,6 @@ namespace HSL_Terrry
         {
 
         }
-<<<<<<< HEAD
         protected void btn_signin(object sender, EventArgs e)
         {
 
@@ -63,14 +64,68 @@ namespace HSL_Terrry
                 return;
             }
 
-=======
-
-        protected void btnLogin_Click(object sender, EventArgs e)
+        }
+        private void Download()
         {
-            String username = txtmobile.Text.ToString();
-            Session["username"] = username;
-            Response.Redirect("HomePages/frmHome.aspx");
->>>>>>> 27f41312f913066f567e2f0a74ae6a2f96b010ca
+            try
+            {
+                string uri = "ftp://" + "192.168.1.29" + "/" + "warp_set.txt";
+                Uri serverUri = new Uri(uri);
+                if (serverUri.Scheme != Uri.UriSchemeFtp)
+                {
+                    return;
+                }
+                FtpWebRequest reqFTP;
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "warp_set.txt"));
+                reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098");
+                reqFTP.KeepAlive = false;
+                reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+                reqFTP.UseBinary = true;
+                reqFTP.Proxy = null;
+                reqFTP.UsePassive = false;
+                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+                Stream responseStream = response.GetResponseStream();
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
+                // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
+                FileStream writeStream = new FileStream(@"E:\D_ione\Terry" + "po.txt", FileMode.Create);
+
+
+                int Length = 2048;
+                Byte[] buffer = new Byte[Length];
+                int bytesRead = responseStream.Read(buffer, 0, Length);
+                while (bytesRead > 0)
+                {
+                    writeStream.Write(buffer, 0, bytesRead);
+                    bytesRead = responseStream.Read(buffer, 0, Length);
+                }
+                writeStream.Close();
+                response.Close();
+            }
+            catch (WebException wEx)
+            {
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void btnImportPONumber(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start("D:\\D-Ione\\Himatsinka\\po\\PODownload.bat");
+            //Download();
+            DataTable dt = CRUDApplication.InserPOfromtxt();
+            if (dt.Rows.Count > 0)
+            {
+                //alert.Visible = true;
+            }
+            else
+            {
+                MsgBox1.MessageBox.Show("PO Number Not Updated!!!");
+                return;
+            }
         }
     }
 }
