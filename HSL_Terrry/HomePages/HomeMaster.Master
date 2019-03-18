@@ -24,7 +24,6 @@
                 Response.Redirect("frmLengthSlittingMachine.aspx");
             }
         }
-
     </script>
 
 </head>
@@ -37,7 +36,7 @@
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
-                    <a href="frmHome.aspx" class="list-group-item list-group-item-action bg-light">PO Manage</a>
+                    <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">PO Manage</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
                     <a href="frmProcessOne.aspx" class="list-group-item list-group-item-action bg-light">LHM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">ACCHM</a>
@@ -53,7 +52,9 @@
             <div id="page-content-wrapper">
 
                 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark border-bottom">
-                    <button runat="server" class="btn btn-primary" id="toggle">Toggle Menu</button>
+                    <button runat="server" type="button" id="toggle">
+                        <span class="navbar-toggler-icon bg-white border-white"></span>
+                    </button>
 
                     <button runat="server" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
