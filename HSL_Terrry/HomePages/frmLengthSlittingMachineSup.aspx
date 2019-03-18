@@ -45,17 +45,22 @@
                 <%--<div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
                     </div>--%>
     <h2 class="panel-title" > 
-                       SERVER ENTRY</h2>
+                       LENGTH SLITTING MACHINE</h2>
              </div>
         <br />
         <br />
-          <div class="container" style="width: 90%; overflow: auto; height: 100%;">
+          <div class="container" style="width: 100%; overflow: auto; height: 100%;">
         <div class="panel panel-primary" style="border-color: #fff;">
+            <div class="panel-heading">
+                <h2 class="panel-title" > 
+                       LENGTH SLITTING MACHINE</h2>
+             </div>
+            <br />
             <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
                 AllowSorting="true" CssClass="Gridview" HeaderStyle-BackColor="orange" ForeColor="white"
                 OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                 OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
-                HeaderStyle-Height="35px" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="14px"
+                HeaderStyle-Height="35px" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="20px"
                 HeaderStyle-Width="100px" Style="text-align: center;">
                 <RowStyle ForeColor="Black" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px">
                 </RowStyle>
@@ -64,6 +69,12 @@
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
                             <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("~/frmLengthSlittingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Po Number">
+                        <HeaderStyle CssClass="small" />
+                        <ItemTemplate>
+                            <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("PO_No") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Date">
@@ -78,19 +89,25 @@
                             <asp:Label ID="lblMachineNo" runat="server" Text='<%#Eval("Machine_No") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <%--<asp:TemplateField HeaderText="Purpose of Visit">
+                    <asp:TemplateField HeaderText=" Shift ">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
-                            <asp:Label ID="lblPurpose" runat="server" Text='<%#Eval("Purpose") %>' />
+                            <asp:Label ID="lblShift" runat="server" Text='<%#Eval("Shift") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Company Name">
+                    <asp:TemplateField HeaderText="Lot No">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
-                            <asp:Label ID="lblCompany" runat="server" Text='<%#Eval("Company") %>' />
+                            <asp:Label ID="lblLotNo" runat="server" Text='<%#Eval("Lot_No") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                   <asp:TemplateField HeaderText="Time-In">
+                    <asp:TemplateField HeaderText="Trolly No">
+                        <HeaderStyle CssClass="small" />
+                        <ItemTemplate>
+                            <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("Trolly_No") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                   <%--<asp:TemplateField HeaderText="Time-In">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
                             <asp:Label ID="lblTimeIn" runat="server" Text='<%#Eval("Time_In") %>' />
@@ -119,12 +136,12 @@
                             <asp:CheckBox ID="CheckBox1" runat="server" />
                         </ItemTemplate>--%>
                     <%--</asp:TemplateField>--%>
-                    <asp:TemplateField HeaderText="Active">
+                    <%--<asp:TemplateField HeaderText="Active">
                         <HeaderTemplate>
                         </HeaderTemplate>
                         <ItemTemplate>
                         </ItemTemplate>
-                    </asp:TemplateField>
+                    </asp:TemplateField>--%>
                     <%--<asp:TemplateField>
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
