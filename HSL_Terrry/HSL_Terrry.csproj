@@ -99,9 +99,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="frmUserLogin.aspx" />
+    <Content Include="HomePages\AdminSupPanel.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
+    <Content Include="HomePages\frmManageUsers.aspx" />
+    <Content Include="HomePages\frmPOManage.aspx" />
     <Content Include="HomePages\frmProcessOne.aspx" />
     <Content Include="images\bg3.png" />
     <Content Include="images\ui-icons_444444_256x240.png" />
@@ -111,6 +114,8 @@
     <Content Include="images\ui-icons_cc0000_256x240.png" />
     <Content Include="images\ui-icons_ffffff_256x240.png" />
     <Content Include="jquery-1.10.2.js" />
+    <Content Include="images\orders.png" />
+    <Content Include="images\users.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -179,6 +184,13 @@
     <Compile Include="frmUserLogin.aspx.designer.cs">
       <DependentUpon>frmUserLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HomePages\AdminSupPanel.aspx.cs">
+      <DependentUpon>AdminSupPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\AdminSupPanel.aspx.designer.cs">
+      <DependentUpon>AdminSupPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePages\frmHome.aspx.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,6 +211,20 @@
     </Compile>
     <Compile Include="HomePages\frmLengthSlittingMachineSup.aspx.designer.cs">
       <DependentUpon>frmLengthSlittingMachineSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageUsers.aspx.cs">
+      <DependentUpon>frmManageUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageUsers.aspx.designer.cs">
+      <DependentUpon>frmManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmPOManage.aspx.cs">
+      <DependentUpon>frmPOManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmPOManage.aspx.designer.cs">
+      <DependentUpon>frmPOManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmProcessOne.aspx.cs">
       <DependentUpon>frmProcessOne.aspx</DependentUpon>

@@ -53,9 +53,15 @@ namespace HSL_Terrry.HomePages
                 String username = String.Empty;
                 username = Session["UserDetail"].ToString();
                 navbarDropdown.InnerText = username;
+                //Hiding PO MANAGE Item from sidebar for operators
+                if (Session["UserDetail"].ToString().Equals("Akshay"))
+                {
+                    poAnch.Visible = false;
+                }
+                //
 
             }
-            
+
         }
 
         protected void btn_LogOut(object sender, EventArgs e)
