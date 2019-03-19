@@ -5,31 +5,76 @@
 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title></title>
+        <title>HIMATSINGKA</title>
         <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
         <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
-        <%--        <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+        <%--    <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+        <script src="ScriptBoot/Jquery_1_10.js" type="text/javascript"></script>
+        <script src="ScriptBoot/Jquery_1_11.js" type="text/javascript"></script>
+        <link href="ScriptBoot/JqueryUI.css" rel="Stylesheet" type="text/css" />
+        <script src="jquery-ui.js" type="text/javascript"></script>
+        <link href="jquery-ui.css" rel="stylesheet" />
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+     <style type="text/css">
+        .row
+        {
+            margin-right: 20px;
+        }
+        td[id*=’oReportCell’]
+        {
+            width: 100% !important;
+        }
+    </style>
+        
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#txtPO_No').autocomplete({
+                source: 'PoHandler.ashx'
+            });
+        });
+     </script>
+    
     </head>
     <body>
         <div class="container">
             <div class="row justify-content-center mt-xl-5">
                 <h3 class="mt-xl-3">Length Slitting Machine</h3>
+
             </div>
         </div>
+        <div>
+        <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="PO_No" AutoGenerateColumns="false"
+                AllowSorting="true" CssClass="Gridview" HeaderStyle-BackColor="orange" ForeColor="white"
+                CellPadding="5" HeaderStyle-Font-Bold="true"
+                HeaderStyle-Height="30px" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="20px"
+                HeaderStyle-Width="100px" Style="text-align: center;">
+                <RowStyle ForeColor="Black" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px">
+                </RowStyle>
+                <Columns>
+                    <asp:TemplateField HeaderText="Po Number" visible="false">
+                        <HeaderStyle CssClass="small" Width="15%" />
+                        <ItemTemplate>
+                            <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("PO_No") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    </Columns>
+            </asp:GridView>
+            </div>
         <br />
         <div class="row pr-0">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="row">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
+
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpono" class="col-form-label">PO No:</label>
+                            <label for="txtPO_No" class="col-form-label">PO No:</label>
                             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:TextBox ID="txtPONo" class="form-control" placeholder="PO Number" runat="server" />
+                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -289,7 +334,7 @@
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
                                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                            <%--<asp:TextBox ID="textID" class="form-control .form-control-sm" placeholder="ID" runat="server" visible="true"/>--%>
+                                            <asp:TextBox ID="textID" class="form-control .form-control-sm" placeholder="ID" runat="server" visible="false"/>
                                             <%--                            </div>--%>
                                         <%--</div>
                                     </div>--%>

@@ -20,7 +20,7 @@ namespace HSL_Terrry.HomePages
     {
         try
         {
-                DataTable dt = CRUDApplication.AddNewrecord(txtPONo.Text, Convert.ToDateTime(txtdate.Text.Trim()), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
+                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.Text, Convert.ToDateTime(txtdate.Text.Trim()), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
                     txtsupervisor.Text.Trim(), txtmachineno.Text.Trim(), TextLotNo.Text.Trim(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),  
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),  txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()),  Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()), 
@@ -29,8 +29,8 @@ namespace HSL_Terrry.HomePages
                 {
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record" + txtPONo.Text.Trim() + "Created successfully ");
-                    txtPONo.Text = "";
+                    MsgBox1.MessageBox.Show("Record"  + txtPO_No.Text.Trim()  +  "Created successfully ");
+                    txtPO_No.Text = "";
                     txtmachineno.Text = "";
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -39,6 +39,22 @@ namespace HSL_Terrry.HomePages
                     txttrollyno.Text = "";
                     txttrollyqty.Text = "";
                     txtbalqty2.Text = "";
+                    TextLotNo.Text = "";
+                    TextLotQty.Text = "";
+                    TextLotProd.Text = "";
+                    TextLotBal.Text = "";
+                    txtnoofslits.Text = "";
+                    Textprodmtr.Text = "";
+                    txtpcslength2.Text = "";
+                    txtpcswidth2.Text = "";
+                    Textpcswt.Text = "";
+                    TextrejQty.Text = "";
+                    Textrejreason.Text = "";
+                    txtprodwt.Text = "";
+                    txtprodpcs.Text = "";
+                    txtmachinestop.Text = "";
+                    txtremarks.Text = "";
+
                 }
             }
      

@@ -17,11 +17,12 @@ namespace HSL_Terrry
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void btn_signin(object sender, EventArgs e)
         {
-
+            //Download();
+            ImportPONumber();
             DataTable dtLogin = CRUDApplication.CheckLoginCredential(username.Text.Trim(), pwd.Text.Trim());
             if (dtLogin.Rows.Count == 1)
             {
@@ -88,7 +89,7 @@ namespace HSL_Terrry
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
                 // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-                FileStream writeStream = new FileStream(@"E:\D_ione\Terry" + "po.txt", FileMode.Create);
+                FileStream writeStream = new FileStream(@"E:\D_ione\Terry" + "PO.txt", FileMode.Create);
 
 
                 int Length = 2048;
@@ -112,7 +113,7 @@ namespace HSL_Terrry
             }
         }
 
-        protected void btnImportPONumber(object sender, EventArgs e)
+        protected void ImportPONumber()
         {
             //System.Diagnostics.Process.Start("D:\\D-Ione\\Himatsinka\\po\\PODownload.bat");
             //Download();

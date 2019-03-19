@@ -13,13 +13,22 @@ namespace HSL_Terrry.HomePages {
     public partial class frmLengthSlittingMachine {
         
         /// <summary>
-        /// txtPONo control.
+        /// gvBeamList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPONo;
+        protected global::System.Web.UI.WebControls.GridView gvBeamList;
+        
+        /// <summary>
+        /// txtPO_No control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPO_No;
         
         /// <summary>
         /// txtpoodesc control.
@@ -191,6 +200,15 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtstatus;
+        
+        /// <summary>
+        /// textID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textID;
         
         /// <summary>
         /// txtdate control.
