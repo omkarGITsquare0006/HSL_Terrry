@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmPOManage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmPOManage" %>
+﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="frmPOManage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmPOManage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">--%>
     <!DOCTYPE html>
 
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,9 +9,23 @@
         <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
         <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
         <%--        <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+        <script src="Scripts/Jquery_1_11.js" type="text/javascript"></script>
+        <script src="Scripts/Jquery_1_10.js" type="text/javascript"></script>
+        <script src="jquery-1.10.2.js"></script>
+        <link href="jquery-ui.css" rel="stylesheet" />
+        <script src="jquery-ui.js" type="text/javascript"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#txtPO_No').autocomplete({
+                source: 'PoHandler.ashx'
+            });
+        });
+     </script>
     </head>
     <body>
+        <form id="frm" runat="server">
         <div class="container">
             <div class="row justify-content-center mt-xl-5">
                 <h3 class="mt-xl-3">Length Slitting Machine</h3>
@@ -29,7 +43,9 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:TextBox ID="txtpono" class="form-control" placeholder="PO Number" runat="server" />
+                            
+                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server" />
+                               
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -105,17 +121,6 @@
                         </div>
                     </div>
 
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
-                        <div class="form-group">
-                            <%--                            <div class="col">--%>
-                            <label for="txtbalqty" class="col-form-label">Balance Qty</label>
-                            <%--                            </div>--%>
-                            <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtbalqty" class="form-control" placeholder="Balance Quantity" runat="server" />
-                            <%--                            </div>--%>
-                        </div>
-                    </div>
-
                 </div>
 
 
@@ -156,7 +161,7 @@
                 </div>
                 <div class="row">
                     <div class="col-4">
-                        <asp:Button class="btn btn-success btn-block" ID="btnRelease" runat="server" Text="Release"></asp:Button>
+                        <asp:Button class="btn btn-success btn-block" ID="btnRelease" runat="server" Text="Release" OnClick="btn_Release"></asp:Button>
                     </div>
                 </div>
 
@@ -164,8 +169,8 @@
         </div>
 
 
-
+            </form>
 
     </body>
     </html>
-</asp:Content>
+

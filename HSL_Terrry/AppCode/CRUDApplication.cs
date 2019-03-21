@@ -134,6 +134,44 @@ using System.Collections;
 
     }
 
+    
+        public static DataTable RelesePo(string strPO_No, string lotno, Int32 lotqty, Int32 pobal, Int32 lotprod, Int32 lotbal, string operation)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_PO_Release", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "Insert";
+            //cmdDistrict.Parameters.Add("@ID", SqlDbType.Int).Value = Lot_Qty;
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = strPO_No;
+            //cmdDistrict.Parameters.Add("@Date", SqlDbType.DateTime).Value = Date;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = lotno;
+            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = lotqty;
+            cmdDistrict.Parameters.Add("@PO_Balnce", SqlDbType.Int).Value = pobal;
+            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = lotprod;
+            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = lotbal;
+            cmdDistrict.Parameters.Add("@Operation", SqlDbType.NVarChar).Value = operation;
+
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+
+    }
     public static DataTable Load_LSMApproval()
     {
 

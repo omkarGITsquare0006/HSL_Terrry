@@ -19,10 +19,11 @@
      <script type="text/javascript">
         $(document).ready(function () {
             $('#txtPO_No').autocomplete({
-                source: 'PoHandler.ashx'
+                source: '~/HomePages/PoHandler.ashx'
             });
         });
      </script>
+    
     </head>
     <body>
         <div class="container">

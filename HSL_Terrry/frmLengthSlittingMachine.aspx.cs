@@ -12,7 +12,7 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoadPODetails(txtPO_No);
+            //LoadPODetails_OnSelectedIndexChanged(txtPO_No);
         }
 
         //protected void LoadPODetails_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace HSL_Terrry.HomePages
         //}
 
         protected void Btn_submit(object sender, EventArgs e)
-       {
+    {
         try
         {
                 DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.Text, Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
