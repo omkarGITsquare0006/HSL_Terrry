@@ -58,8 +58,7 @@
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
 
-                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server" OnTextChanged="LoadPODetails_OnSelectedIndexChanged"
-                                    />
+                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server"/>
                              
                             <%--                            </div>--%>
                         </div>
