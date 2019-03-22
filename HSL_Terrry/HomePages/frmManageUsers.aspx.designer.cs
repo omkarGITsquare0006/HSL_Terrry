@@ -31,15 +31,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtSupID;
         
         /// <summary>
-        /// reqSupId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqSupId;
-        
-        /// <summary>
         /// lblSupName control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSupName;
-        
-        /// <summary>
-        /// reqSupName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqSupName;
         
         /// <summary>
         /// lblPwd control.
@@ -85,15 +67,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// reqPwd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqPwd;
-        
-        /// <summary>
         /// lblDept control.
         /// </summary>
         /// <remarks>
@@ -112,15 +85,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.DropDownList ddlDept;
         
         /// <summary>
-        /// reqDept control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqDept;
-        
-        /// <summary>
         /// lblEmailID control.
         /// </summary>
         /// <remarks>
@@ -137,24 +101,6 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailID;
-        
-        /// <summary>
-        /// reqEmailID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqEmailID;
-        
-        /// <summary>
-        /// REVEmailId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator REVEmailId;
         
         /// <summary>
         /// lblAdmin control.
