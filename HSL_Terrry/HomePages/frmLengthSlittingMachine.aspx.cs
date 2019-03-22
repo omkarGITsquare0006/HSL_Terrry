@@ -12,61 +12,99 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //LoadPODetails(txtPO_No);
+            if (!Page.IsPostBack)
+            {
+                Load_PONumber();
+            }
+               
+
         }
 
-        //protected void LoadPODetails_OnSelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
+        protected void Load_PONumber()
+        {
+            try
+            {
+                txtPO_No.DataSource = CRUDApplication.Load_PONumber();
+                txtPO_No.DataTextField = "PO_No";
+                txtPO_No.DataValueField = "PO_No";
+                txtPO_No.DataBind();
+                ListItem itm2 = new ListItem();
+                itm2.Text = "--------Select PO Number--------";
+                itm2.Value = "-1";
+                itm2.Selected = true;
+                txtPO_No.Items.Insert(0, itm2);
+                txtPO_No.SelectedIndex = 0;
 
-        //        DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(ddlPONumber.SelectedValue.Trim());
-        //        if (dtPODetails.Rows.Count > 0)
-        //        {
-        //            txtPoQty.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Quantity"]);
-        //            txtStyleNo.Text = Convert.ToString(dtPODetails.Rows[0]["Style_No"]);
-        //            txtTotalEnds.Text = Convert.ToString(dtPODetails.Rows[0]["Total_NoOfEnds"]);
-        //            txtCount.Text = Convert.ToString(dtPODetails.Rows[0]["Count"]);
-        //            txtYarnSupplier.Text = Convert.ToString(dtPODetails.Rows[0]["Yarn_Suppler"]);
-        //            txtLotNo.Text = Convert.ToString(dtPODetails.Rows[0]["Yarn_lot_Num"]);
-        //            txtConeColor.Text = Convert.ToString(dtPODetails.Rows[0]["Cone_Tip_Color"]);
-        //            txtConeWeight.Text = Convert.ToString(dtPODetails.Rows[0]["Cone_NetWt"]);
-        //            txtSetlenght.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Quantity"]);
-        //            1.1 changes starts -->
-        //            chkMachines.SelectedIndex = -1;
-        //            txtSetlenght.Text = "";
-        //            txtNoCreel.Text = "";
-        //            txtNoBPC.Text = "";
-        //            txtNoEPB.Text = "";
-        //            txtSelvCount.Text = "";
-        //            txtSelvEnds.Text = "";
-        //            txtYarnCode.Text = "";
-        //            txtYarnDesc.Text = "";
-        //            ddlSetNo.SelectedIndex = -1;
-        //            Load_SetNo(ddlPONumber.SelectedValue.Trim());
-        //            EnableDisableFields(0);
-        //            1.1 chnages Ends<--
+            }
+            catch (Exception ex)
+            {
+                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
+                return;
+            }
+        }
 
-        //        }
-        //        else
-        //        {
-        //            MsgBox1.MessageBox.Show("No Record Found or Something is going wrong...!");
-        //            return;
-        //        }
+        protected void LoadPODetails_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
-        //        return;
-        //    }
-        //}
+                DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.SelectedValue.Trim());
+                if (dtPODetails.Rows.Count > 0)
+                {
+                    txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);
+                    txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Cust_No"]);
+                    txtorderkg.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Kg"]);
+                    txtorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
+                    txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Item_No"]);
+                    txtitemdesc.Text= Convert.ToString(dtPODetails.Rows[0]["Item_Desc"]);
+                    txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Wt"]);
+                    txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
+                    txtshade.Text = Convert.ToString(dtPODetails.Rows[0]["Shade"]);
+                    txtpcslen.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Length"]);
+                    txtpcswidth.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Width"]);
+                    txtorderuom.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Uom"]);
+                    txtoperation.Text = Convert.ToString(dtPODetails.Rows[0]["Operation"]);
+                    txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Processed_Qty"]);
+                    txtbalqty.Text = Convert.ToString(dtPODetails.Rows[0]["Balance_Qty"]);
+                    txtUdf1.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_1"]);
+                    txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
+                    txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
+                    txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
+                    //1.1 changes starts -->
+                    //chkMachines.SelectedIndex = -1;
+                    //txtSetlenght.Text = "";
+                    //txtNoCreel.Text = "";
+                    //txtNoBPC.Text = "";
+                    //txtNoEPB.Text = "";
+                    //txtSelvCount.Text = "";
+                    //txtSelvEnds.Text = "";
+                    //txtYarnCode.Text = "";
+                    //txtYarnDesc.Text = "";
+                    //ddlSetNo.SelectedIndex = -1;
+                    //Load_SetNo(ddlPONumber.SelectedValue.Trim());
+                    //EnableDisableFields(0);
+                    //1.1 chnages Ends<--
+
+                }
+                else
+                {
+                    MsgBox1.MessageBox.Show("No Record Found or Something is going wrong...!");
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
+                return;
+            }
+        }
 
         protected void Btn_submit(object sender, EventArgs e)
        {
         try
         {
-                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.Text, Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
+                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
                     txtsupervisor.Text.Trim(), txtmachineno.Text.Trim(), TextLotNo.Text.Trim(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),  
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),  txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()),  Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()), 
@@ -75,8 +113,8 @@ namespace HSL_Terrry.HomePages
                 {
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record"  + txtPO_No.Text.Trim()  +  "Created successfully ");
-                    txtPO_No.Text = "";
+                    MsgBox1.MessageBox.Show("Record"  + txtPO_No.SelectedValue.Trim() +  "Created successfully ");
+                    //txtPO_No.Text = "";
                     txtmachineno.Text = "";
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";

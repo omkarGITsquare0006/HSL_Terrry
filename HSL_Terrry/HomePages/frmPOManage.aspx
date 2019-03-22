@@ -1,34 +1,48 @@
-﻿<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="frmPOManage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmPOManage" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="frmPOManage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmPOManage" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">--%>
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title></title>
-        <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
-        <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
-        <%--        <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
-        <script src="Scripts/Jquery_1_11.js" type="text/javascript"></script>
-        <script src="Scripts/Jquery_1_10.js" type="text/javascript"></script>
-        <script src="jquery-1.10.2.js"></script>
-        <link href="jquery-ui.css" rel="stylesheet" />
-        <script src="jquery-ui.js" type="text/javascript"></script>
-        <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
+    <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
+    <%--        <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+    <%--<script src="Scripts/Jquery_1_11.js" type="text/javascript"></script>
+        <script src="Scripts/Jquery_1_10.js" type="text/javascript"></script>--%>
+    <script src="jquery-1.10.2.js"></script>
+    <script src="jquery-ui.js" type="text/javascript"></script>
+    <link href="jquery-ui.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
-     <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#txtPO_No').autocomplete({
                 source: 'PoHandler.ashx'
             });
         });
-     </script>
-    </head>
-    <body>
-        <form id="frm" runat="server">
+    </script>
+    <script>
+        $(".autosearch-smart").autocomplete('PoHandler.ashx', {
+            minChars: 1,
+            width: 402,
+            //matchContains: "word",
+            autoFill: true,
+            select: function (event, ui) {
+                var label = ui.item.label;
+                var value = ui.item.valueSelectedForAutocomplete;
+                //store in session
+                document.valueSelectedForAutocomplete = value
+            }
+        });
+    </script>
+</head>
+<body>
+    <form id="frm" runat="server">
         <div class="container">
             <div class="row justify-content-center mt-xl-5">
-                <h3 class="mt-xl-3">Length Slitting Machine</h3>
+                <h3 class="mt-xl-3">PO RELEASE</h3>
             </div>
         </div>
         <br />
@@ -43,9 +57,10 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            
-                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server" />
-                               
+
+                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server" OnTextChanged="LoadPODetails_OnSelectedIndexChanged"
+                                    />
+                             
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -169,8 +184,9 @@
         </div>
 
 
-            </form>
+    </form>
 
-    </body>
-    </html>
+</body>
+</html>
+<%-- </asp:Content>--%>
 

@@ -62,9 +62,12 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server">
+                            <%--<asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server">
 
-                            </asp:TextBox>
+                            </asp:TextBox>--%>
+                            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                AutoPostBack="true">
+            </asp:DropDownList>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -146,7 +149,7 @@
                             <label for="txtpcswt" class="col-form-label">Pcs/Wt</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="TextBox1" class="form-control" ReadOnly="true" placeholder="Pieces/Weight" runat="server" />
+                            <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/Weight" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -161,7 +164,7 @@
                             <label for="txtsono" class="col-form-label">SO No.</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="TextBox2" class="form-control" ReadOnly="true" placeholder="SO Number" runat="server" />
+                            <asp:TextBox ID="txtsono" class="form-control" ReadOnly="true" placeholder="SO Number" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -254,7 +257,7 @@
                             <label for="txtextra" class="col-form-label">Extra Field</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txUdf1" class="form-control" ReadOnly="true" placeholder="Extra Field" runat="server" />
+                            <asp:TextBox ID="txtUdf1" class="form-control" ReadOnly="true" placeholder="Extra Field" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
