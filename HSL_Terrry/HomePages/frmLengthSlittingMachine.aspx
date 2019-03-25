@@ -27,7 +27,7 @@
                 var calendarBehavior1 = $find("calendar1");
                 var d = calendarBehavior1._selectedDate;
                 var now = new Date();
-                calendarBehavior1.get_element().value = d.format("dd/MM/yyyy") + " " + now.format("HH:mm:ss")
+                calendarBehavior1.get_element().value = d.format("dd-MM-yyyy") + " " + now.format("HH:mm:ss")
             }
         </script>
     </head>
@@ -437,7 +437,7 @@
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
                                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                            <asp:DropDownList ID="ddLotNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="true">
+                                            <asp:DropDownList ID="ddLotNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddLotNo_OnSelectedIndexChanged">
                                             </asp:DropDownList>
                                             <%--                            </div>--%>
                                         </div>
@@ -457,22 +457,24 @@
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
-                                            <label for="txtLotProd" class="col-form-label">Lot Prodution</label>
+                                            <label for="txtLotBal" class="col-form-label">Lot Balance</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextLotProd" class="form-control" placeholder="Lot Produced" runat="server" />
+                                            <asp:TextBox ID="TextLotBal" class="form-control" placeholder="Lot Balance" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
+
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
-                                            <label for="txtLotBal" class="col-form-label">Bal Lot</label>
+                                            <label for="txtLotProd" class="col-form-label">Lot Produced</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextLotBal" class="form-control" placeholder="Balance Lots" runat="server" />
+                                            <asp:TextBox ID="TextLotProd" class="form-control" placeholder="Lot Produced" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>

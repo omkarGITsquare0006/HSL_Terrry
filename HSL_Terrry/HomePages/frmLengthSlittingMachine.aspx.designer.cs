@@ -301,15 +301,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox TextLotQty;
         
         /// <summary>
-        /// TextLotProd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextLotProd;
-        
-        /// <summary>
         /// TextLotBal control.
         /// </summary>
         /// <remarks>
@@ -317,6 +308,15 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextLotBal;
+        
+        /// <summary>
+        /// TextLotProd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextLotProd;
         
         /// <summary>
         /// txtnoofslits control.

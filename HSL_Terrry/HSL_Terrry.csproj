@@ -188,6 +188,7 @@
     <Compile Include="AppCode\ClsSupervisorMasters.cs" />
     <Compile Include="AppCode\ConnectionProvider.cs" />
     <Compile Include="AppCode\CRUDApplication.cs" />
+    <Compile Include="AppCode\DateTimeClass.cs" />
     <Compile Include="AppCode\ErrorHandler.cs" />
     <Compile Include="AppCode\MsgBox1.cs" />
     <Compile Include="frmUserLogin.aspx.cs">

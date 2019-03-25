@@ -168,7 +168,6 @@ public class CRUDApplication
 
     }
 
-
     public static DataTable RelesePo(string strPO_No, string lotno, Int32 lotqty, Int32 pobal)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -241,6 +240,35 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoad";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = "Lsm_status";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_ChangeLotNumber(string PONum, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ChangeLotNumLoad";
+            cmdDistrict.Parameters.Add("@PoNo", SqlDbType.Char).Value = PONum;
+            cmdDistrict.Parameters.Add("@LotNo", SqlDbType.Char).Value = LotNum;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -296,7 +324,7 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "POReleaseDetailLoad";
-            cmdDistrict.Parameters.Add("@PONo", SqlDbType.NVarChar).Value = PONumber;
+            cmdDistrict.Parameters.Add("@PONo", SqlDbType.Char).Value = PONumber;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
