@@ -55,36 +55,28 @@ namespace HSL_Terrry.HomePages
                     txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Cust_No"]);
                     txtorderkg.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Kg"]);
                     txtorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
-                    txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Item_No"]);
-                    txtitemdesc.Text= Convert.ToString(dtPODetails.Rows[0]["Item_Desc"]);
+                    txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_No"]);
+                    txtitemdesc.Text= Convert.ToString(dtPODetails.Rows[0]["Prod_Desc"]);
                     txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Wt"]);
                     txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
-                    txtshade.Text = Convert.ToString(dtPODetails.Rows[0]["Shade"]);
-                    txtpcslen.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Length"]);
-                    txtpcswidth.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Width"]);
-                    txtorderuom.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Uom"]);
-                    txtoperation.Text = Convert.ToString(dtPODetails.Rows[0]["Operation"]);
-                    txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Processed_Qty"]);
-                    txtbalqty.Text = Convert.ToString(dtPODetails.Rows[0]["Balance_Qty"]);
+                    txtshade.Text = Convert.ToString(dtPODetails.Rows[0]["Color"]);
+                    txtcolordesc.Text = Convert.ToString(dtPODetails.Rows[0]["Color_Desc"]);
+                    txtsize.Text = Convert.ToString(dtPODetails.Rows[0]["Size"]);
+                    txtszdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Size_Desc"]);
+                    txtorderuom.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Desc"]);
+                    txtoperation.Text = Convert.ToString(dtPODetails.Rows[0]["Program"]);
+                    txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["GSM"]);
+                    //txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Processed_Qty"]);
+                    txtbalqty.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Balance"]);
                     txtUdf1.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_1"]);
                     txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
                     txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
                     txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
-                    //1.1 changes starts -->
-                    //chkMachines.SelectedIndex = -1;
-                    //txtSetlenght.Text = "";
-                    //txtNoCreel.Text = "";
-                    //txtNoBPC.Text = "";
-                    //txtNoEPB.Text = "";
-                    //txtSelvCount.Text = "";
-                    //txtSelvEnds.Text = "";
-                    //txtYarnCode.Text = "";
-                    //txtYarnDesc.Text = "";
-                    //ddlSetNo.SelectedIndex = -1;
-                    //Load_SetNo(ddlPONumber.SelectedValue.Trim());
-                    //EnableDisableFields(0);
-                    //1.1 chnages Ends<--
-
+                    ddLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue);
+                    ddLotNo.DataTextField = "Lot_No";
+                    ddLotNo.DataValueField = "Lot_No";
+                    ddLotNo.DataBind();
+                    ddLotNo.SelectedIndex = 0;
                 }
                 else
                 {
@@ -104,8 +96,8 @@ namespace HSL_Terrry.HomePages
        {
         try
         {
-                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), txtshift.Text.Trim(), txtoperator.Text.Trim(), 
-                    txtsupervisor.Text.Trim(), txtmachineno.Text.Trim(), TextLotNo.Text.Trim(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),  
+                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), ddShift.SelectedValue, txtoperator.Text.Trim(), 
+                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, ddLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),  
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),  txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()),  Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()), 
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim()); 
@@ -115,15 +107,15 @@ namespace HSL_Terrry.HomePages
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record"  + txtPO_No.SelectedValue.Trim() +  "Created successfully ");
                     //txtPO_No.Text = "";
-                    txtmachineno.Text = "";
+                    ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
                     txtdate.Text = "";
-                    txtshift.Text = "";
+                    ddShift.SelectedIndex = 0;
                     txttrollyno.Text = "";
                     txttrollyqty.Text = "";
                     txtbalqty2.Text = "";
-                    TextLotNo.Text = "";
+                    ddLotNo.Text = "";
                     TextLotQty.Text = "";
                     TextLotProd.Text = "";
                     TextLotBal.Text = "";

@@ -12,34 +12,49 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        protected void LoadPODetails_OnSelectedIndexChanged(object sender, EventArgs e)
+
+        protected void btn_Release(object sender, EventArgs e)
+        {
+            try
+            {
+                int PoBalance = Convert.ToInt32(txtpobal.Text) - Convert.ToInt32(txtlotqty.Text);
+                DataTable dt = CRUDApplication.RelesePo(txtPO_No.Text, txtlotno.Text, Convert.ToInt32(txtlotqty.Text), Convert.ToInt32(PoBalance));
+                if (dt.Rows.Count > 0)
+                {
+                    //divmsg.visible = true;
+                    //lblmsg.text = " user - " + txtsupid.text.trim() + " added successfully!";
+                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "relesed successfully ");
+                    txtPO_No.Text = "";
+                    txtlotno.Text = "";
+                    txtlotqty.Text = "";
+                    txtpobal.Text = "";
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MsgBox1.MessageBox.Show("error while adding supervisor!!!");
+                return;
+                //lblerrmessage.text = "user already exists. please add different user.!!!";
+            }
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
         {
             try
             {
 
-                DataTable dtPODetails = CRUDApplication.Load_POReleseDetailsOnPONumber(txtPO_No.Text.Trim());
-                if (dtPODetails.Rows.Count > 0)
+                int dtPODetails = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text);
+                if (dtPODetails > 0)
                 {
-                    txtlotno.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_No"]);
-                    txtlotqty.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_Qty"]);
-                    txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
-                    //1.1 changes starts -->
-                    //chkMachines.SelectedIndex = -1;
-                    //txtSetlenght.Text = "";
-                    //txtNoCreel.Text = "";
-                    //txtNoBPC.Text = "";
-                    //txtNoEPB.Text = "";
-                    //txtSelvCount.Text = "";
-                    //txtSelvEnds.Text = "";
-                    //txtYarnCode.Text = "";
-                    //txtYarnDesc.Text = "";
-                    //ddlSetNo.SelectedIndex = -1;
-                    //Load_SetNo(ddlPONumber.SelectedValue.Trim());
-                    //EnableDisableFields(0);
-                    //1.1 chnages Ends<--
+                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ");
+                    txtPO_No.Text = "";
+                    txtlotno.Text = "";
+                    txtlotqty.Text = "";
+                    txtpobal.Text = "";
 
                 }
                 else
@@ -55,34 +70,47 @@ namespace HSL_Terrry.HomePages
                 return;
             }
         }
-        protected void btn_Release(object sender, EventArgs e)
+
+        protected void btnPoSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable dt = CRUDApplication.RelesePo(txtPO_No.Text,
-                    txtlotno.Text, Convert.ToInt32(txtlotqty.Text), Convert.ToInt32(txtpobal.Text), Convert.ToInt32(txtlotprod.Text),
-                    Convert.ToInt32(txtlotbal.Text), txtoperation.Text);
-                if (dt.Rows.Count > 0)
+
+                DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.Text);
+                if (dtPODetails.Rows.Count > 0)
                 {
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("PO#" + txtPO_No.Text.Trim() + "Relesed successfully ");
-                    txtPO_No.Text = "";
-                    txtlotno.Text = "";
-                    txtlotqty.Text = "";
-                    txtpobal.Text = "";
-                    txtlotprod.Text = "";
-                    txtlotbal.Text = "";
-                    txtoperation.Text = "";
+                    txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);
+                    txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Cust_No"]);
+                    txtorderkg.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Kg"]);
+                    txtorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
+                    txtprodcode.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_No"]);
+                    txtproddesc.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_Desc"]);
+                    txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Wt"]);
+                    txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
+                    txtcolor.Text = Convert.ToString(dtPODetails.Rows[0]["Color"]);
+                    txtcolordesc.Text = Convert.ToString(dtPODetails.Rows[0]["Color_Desc"]);
+                    txtsize.Text = Convert.ToString(dtPODetails.Rows[0]["Size"]);
+                    txtszdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Size_Desc"]);
+                    txtoperation.Text = Convert.ToString(dtPODetails.Rows[0]["Program"]);
+                    txtopdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Desc"]);
+                    txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["GSM"]);
+                    txtpobal.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Balance"]);
+                    //txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
+                    //txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
+                    //txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
 
                 }
-            }
+                else
+                {
+                    MsgBox1.MessageBox.Show("No Record Found or Something is going wrong...!");
+                    return;
+                }
 
+            }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Adding Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
                 return;
-                //lblErrMessage.Text = "User already exists. Please add different user.!!!";
             }
         }
     }

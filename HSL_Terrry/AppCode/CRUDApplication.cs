@@ -15,8 +15,8 @@ using System.Web.UI.HtmlControls;
 using System.Collections;
 
 
-    public class CRUDApplication
-    {
+public class CRUDApplication
+{
     private static object Terry;
     private CRUDApplication()
     {
@@ -77,9 +77,43 @@ using System.Collections;
         }
     }
 
+    //Closing PO No by supervisor or admin
+    public static int Close_PODetailsOnPONumber(string poNumber)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ClosePo";
+            cmdDistrict.Parameters.Add("@PoNo", SqlDbType.NVarChar).Value = poNumber;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    private static void Da_RowUpdated(object sender, SqlRowUpdatedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
     public static DataTable AddNewrecord(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
        string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks )
+       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -114,7 +148,7 @@ using System.Collections;
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-            
+
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
@@ -134,8 +168,8 @@ using System.Collections;
 
     }
 
-    
-        public static DataTable RelesePo(string strPO_No, string lotno, Int32 lotqty, Int32 pobal, Int32 lotprod, Int32 lotbal, string operation)
+
+    public static DataTable RelesePo(string strPO_No, string lotno, Int32 lotqty, Int32 pobal)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -150,9 +184,6 @@ using System.Collections;
             cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = lotno;
             cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = lotqty;
             cmdDistrict.Parameters.Add("@PO_Balnce", SqlDbType.Int).Value = pobal;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = lotprod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = lotbal;
-            cmdDistrict.Parameters.Add("@Operation", SqlDbType.NVarChar).Value = operation;
 
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
@@ -171,6 +202,33 @@ using System.Collections;
                 connGetDistrict.Close();
         }
 
+    }
+
+    public static DataTable Load_LotNumber(string PoNo)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "LotNumLoad";
+            cmdDistrict.Parameters.Add("@PONo", SqlDbType.Char).Value = PoNo;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
     }
 
     public static DataTable Load_PONumber()

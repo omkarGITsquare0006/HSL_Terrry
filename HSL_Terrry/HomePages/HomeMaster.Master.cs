@@ -54,7 +54,7 @@ namespace HSL_Terrry.HomePages
                 username = Session["UserDetail"].ToString();
                 navbarDropdown.InnerText = username;
                 //Hiding PO MANAGE Item from sidebar for operators
-                if (Session["UserDetail"].ToString().Equals("Akshay"))
+                if (Session["RoleID"].ToString().Equals("3"))
                 {
                     poAnch.Visible = false;
                 }

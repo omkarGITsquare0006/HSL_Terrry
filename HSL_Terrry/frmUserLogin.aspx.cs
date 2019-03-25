@@ -27,6 +27,7 @@ namespace HSL_Terrry
             if (dtLogin.Rows.Count == 1)
             {
                 Session["UserDetail"] = dtLogin.Rows[0]["Sup_Name"];
+                Session["RoleID"] = dtLogin.Rows[0]["RoleId"];
                 Session["UserID"] = username.Text;
                 Session["Usernm"] = username.Text.Trim();
                 Session["IsAdmin"] = dtLogin.Rows[0]["IsAdmin"];
