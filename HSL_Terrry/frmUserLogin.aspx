@@ -8,6 +8,15 @@
     <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
     <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            $('#btnLogin').click(function () {
+                $('#DisableDiv').fadeTo('slow', .6);
+                $('#DisableDiv').append('<div style="background-color:#E6E6E6;position: absolute;top:0;left:0;width: 100%;height:300%;z-index:1001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);"><img src="loading.gif" style="background-color:Aqua;position:fixed; top:40%; left:46%;"/></div>');
+                setTimeout(1000)
+            });
+        });
+    </script>
 </head>
 
 <body background="images/bg3.png" style="background-size: 100% 155%">
