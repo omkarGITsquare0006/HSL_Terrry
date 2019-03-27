@@ -263,7 +263,7 @@ public class CRUDApplication
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
         {
-            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_LSM", connGetDistrict);
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ChangeLotNumLoad";
