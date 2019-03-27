@@ -6,6 +6,7 @@
     <head>
         <title>JavaScript - read JSON from URL</title>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
+        <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -50,25 +51,25 @@
         <br />
         <br />
           <div class="container" style="width: 100%; overflow: auto; height: 100%;">
-        <div class="panel panel-primary" style="border-color: #fff;">
+        <div class="panel panel-primary table-responsive" style="border-color: #fff;">
             <div class="panel-heading">
                 <h2 class="panel-title" > 
                        LENGTH SLITTING MACHINE</h2>
              </div>
             <br />
             <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
-                AllowSorting="true" CssClass="Gridview" HeaderStyle-BackColor="orange" ForeColor="white"
+                AllowSorting="true" CssClass="table table-striped table-bordered table-hover thead-dark" ForeColor="white"
                 OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                 OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
-                HeaderStyle-Height="30px" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="20px"
-                HeaderStyle-Width="100px" Style="text-align: center;">
+                HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="20px"
+                HeaderStyle-Width="100px" Style="text-align: center;" AllowPaging="True">
                 <RowStyle ForeColor="Black" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px">
                 </RowStyle>
                 <Columns>
                     <asp:TemplateField HeaderText="Transaction #">
                         <HeaderStyle CssClass="small" Width="15%" />
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("~/frmLengthSlittingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                            <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthSlittingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Po Number" >
@@ -149,6 +150,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>--%>
                 </Columns>
+                <PagerSettings Mode="Numeric" />
                 <AlternatingRowStyle BackColor="#E5E4E4" ForeColor="Black" />
             </asp:GridView>
         </div>

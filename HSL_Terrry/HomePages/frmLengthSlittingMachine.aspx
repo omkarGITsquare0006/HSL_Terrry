@@ -5,21 +5,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!DOCTYPE html>
 
-    <html>
+    <html lang="en">
     <head>
         <title>HIMATSINGKA</title>
 
         <%--dfg--%>
+        <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-        <script src="jquery-1.10.2.js"></script>
-        <script src="jquery-ui.js"></script>
-        <link href="jquery-ui.css" rel="stylesheet" />
 
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#txtPO_No').autocomplete({
-                    source: 'PoHandler.ashx'
-                });
+                if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
+                    $("#sup1").hide();
+                    $("#sup2").hide();
+                    alert('session is true');
+                } else {
+                    $("#op1").hide();
+                    $("#op2").hide();
+                alert('session is false');
+                }
+                alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');
             });
         </script>
         <script type="text/javascript">
@@ -69,9 +74,6 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <%--<asp:TextBox ID="txtPO_No" class="form-control" placeholder="PO Number" runat="server">
-
-                            </asp:TextBox>--%>
                             <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
                                 AutoPostBack="true">
                             </asp:DropDownList>
@@ -333,14 +335,14 @@
             </div>
 
 
-            <div class="container-fluid">
+            <div class="container">
                 <div id="accordion">
                     <div class="card border-warning">
-                        <div class="card-header bg-warning">
+                        <div class="card-header bg-warning" data-toggle="collapse" href="#collapseOne">
                             <a class="card-link" data-toggle="collapse" href="#collapseOne">Finished Goods Details
                             </a>
                         </div>
-                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div id="collapseOne" class="collapse show">
                             <div class="card-body">
                                 <%-- Card 1 Body --%>
                                 <%-- Row1 --%>
@@ -503,11 +505,11 @@
                         </div>
                     </div>
                     <div class="card mt-1 border-warning">
-                        <div class="card-header bg-warning">
+                        <div class="card-header bg-warning" data-toggle="collapse" href="#collapseTwo">
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Production Output
                             </a>
                         </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div id="collapseTwo" class="collapse">
                             <div class="card-body">
                                 <%-- Card 2 --%>
                                 <%-- Row1 --%>
@@ -731,14 +733,17 @@
                         </div>
                     </div>
                     <div class="row pt-3 mb-5">
-                        <div class="col-3 pr-1">
+                        <div id="op1" class="col-3 pr-1">
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>
-                        <div class="col-3 pr-1">
+                        <div id="op2" class="col-3 pr-1">
                             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                         </div>
-                        <div class="col-3 pr-1">
+                        <div id="sup1" class="col-3 pr-1">
                             <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block" />
+                        </div>
+                        <div id="sup2" class="col-3 pr-1">
+                            <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close" data-toggle="modal" data-target="#myModal"></asp:Button>
                         </div>
                     </div>
                 </div>
