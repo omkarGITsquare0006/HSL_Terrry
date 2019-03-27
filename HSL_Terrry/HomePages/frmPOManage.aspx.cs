@@ -76,7 +76,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.Text);
+                DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberRelese(txtPO_No.Text);
                 if (dtPODetails.Rows.Count > 0)
                 {
                     txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);

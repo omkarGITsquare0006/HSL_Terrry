@@ -101,16 +101,16 @@ namespace HSL_Terrry.HomePages
                     //txtLotNo.DataBind();
                     //txtLotNo.SelectedIndex = 0;
                     Load_LotNo(txtPO_No.SelectedValue);
-                    ddLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue);
-                    ddLotNo.DataTextField = "Lot_No";
-                    ddLotNo.DataValueField = "Lot_No";
-                    ddLotNo.DataBind();
+                    txtLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue);
+                    txtLotNo.DataTextField = "Lot_No";
+                    txtLotNo.DataValueField = "Lot_No";
+                    txtLotNo.DataBind();
                     ListItem itm2 = new ListItem();
                     itm2.Text = "Select Lot Number";
                     itm2.Value = "-1";
                     itm2.Selected = true;
-                    ddLotNo.Items.Insert(0, itm2);
-                    ddLotNo.SelectedIndex = 0;
+                    txtLotNo.Items.Insert(0, itm2);
+                    txtLotNo.SelectedIndex = 0;
                 }
                 else
                 {
@@ -135,32 +135,10 @@ namespace HSL_Terrry.HomePages
                 if (dtPODetails.Rows.Count > 0)
                 {
                     txtdate.Text = DateTimeClass.CurrentDateTime();
-                    txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);
-                    txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Cust_No"]);
-                    txtorderkg.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Kg"]);
-                    txtorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
-                    txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_No"]);
-                    txtitemdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_Desc"]);
-                    txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Wt"]);
-                    txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
-                    txtshade.Text = Convert.ToString(dtPODetails.Rows[0]["Color"]);
-                    txtcolordesc.Text = Convert.ToString(dtPODetails.Rows[0]["Color_Desc"]);
-                    txtsize.Text = Convert.ToString(dtPODetails.Rows[0]["Size"]);
-                    txtszdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Size_Desc"]);
-                    txtorderuom.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Desc"]);
-                    txtoperation.Text = Convert.ToString(dtPODetails.Rows[0]["Program"]);
-                    txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["GSM"]);
-                    //txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Processed_Qty"]);
-                    txtbalqty.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Balance"]);
-                    txtUdf1.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_1"]);
-                    txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
-                    txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
-                    txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
-                    txtLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue);
-                    txtLotNo.DataTextField = "Lot_No";
-                    txtLotNo.DataValueField = "Lot_No";
-                    txtLotNo.DataBind();
-                    txtLotNo.SelectedIndex = 0;
+                    TextLotQty.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_Qty"]);
+                    TextLotBal.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_blnc"]);
+                    TextLotProd.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_Prod"]);
+
                 }
                 else
                 {
@@ -190,7 +168,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record" + txtPO_No.SelectedValue.Trim() + "Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
                     //txtPO_No.Text = "";
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
