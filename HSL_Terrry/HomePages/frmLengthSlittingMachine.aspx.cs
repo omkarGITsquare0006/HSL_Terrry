@@ -76,6 +76,11 @@ namespace HSL_Terrry.HomePages
                     ddLotNo.DataTextField = "Lot_No";
                     ddLotNo.DataValueField = "Lot_No";
                     ddLotNo.DataBind();
+                    ListItem itm2 = new ListItem();
+                    itm2.Text = "Select Lot Number";
+                    itm2.Value = "-1";
+                    itm2.Selected = true;
+                    ddLotNo.Items.Insert(0, itm2);
                     ddLotNo.SelectedIndex = 0;
                 }
                 else

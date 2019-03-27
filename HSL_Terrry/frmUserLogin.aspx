@@ -22,20 +22,20 @@
 <body background="images/bg3.png" style="background-size: 100% 155%">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="row" style= "margin-left: -20%; ">
+            <div class="row" style="margin-left: -20%;">
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-5">
                     <div class="mt-5">
                         <img src="Assets/logo.png" class="rounded" alt="Cinque Terre" />
                     </div>
                     <div class="card">
-                        <div class="panel-heading h4 text-primary text-center card-header">
+                        <div class="panel-heading h4 text-body text-center card-header">
                             Login panel
                         </div>
                         <form runat="server" class="card-body">
                             <div class="form-group">
                                 <label for="email">Username:</label>
-                                <asp:TextBox class="form-control" ID="username" placeholder="Enter Username" runat="server"></asp:TextBox>
+                                <asp:TextBox class="form-control" ID="username" placeholder="Enter Username" runat="server" AutoComplete="Off"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Password:</label>
