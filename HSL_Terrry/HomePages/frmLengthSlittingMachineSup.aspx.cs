@@ -40,6 +40,8 @@ namespace HSL_Terrry.HomePages
             }
         }
 
+        
+
         protected void gvDetails_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
         {
             //NewEditIndex property used to determine the index of the row being edited.  

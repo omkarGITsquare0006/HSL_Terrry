@@ -69,7 +69,7 @@
                     <asp:TemplateField HeaderText="Transaction #">
                         <HeaderStyle CssClass="small" Width="15%" />
                         <ItemTemplate>
-                            <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthSlittingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                            <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthSlittingMachineOPDetail.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Po Number" >

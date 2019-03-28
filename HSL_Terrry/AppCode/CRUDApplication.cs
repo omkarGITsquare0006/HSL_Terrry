@@ -131,7 +131,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
             cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
             cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Prod_pcs;
+            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
             cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
@@ -267,8 +267,8 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ChangeLotNumLoad";
-            cmdDistrict.Parameters.Add("@PONo", SqlDbType.Char).Value = PONum;
-            cmdDistrict.Parameters.Add("@LotNo", SqlDbType.Char).Value = LotNum;
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.Char).Value = PONum;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.Char).Value = LotNum;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -396,4 +396,34 @@ public class CRUDApplication
                 connGetDistrict.Close();
         }
     }
+
+    public static DataTable GetOperatorByID(string strID)
+    {
+
+        SqlConnection connGetSup = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdSup = new SqlCommand("SP_DT_Tbl_LSM", connGetSup);
+            cmdSup.CommandType = CommandType.StoredProcedure;
+            cmdSup.CommandTimeout = 250;
+            cmdSup.Parameters.Add("@Flag", SqlDbType.Char).Value = "SelectBySupID";
+            cmdSup.Parameters.Add("@ID", SqlDbType.NChar).Value = strID;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdSup);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetSup.State == ConnectionState.Open)
+                connGetSup.Close();
+        }
+    }
+
 }

@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmLengthSlittingMachine.aspx.cs" Inherits="HSL_Terrry.HomePages.frmLengthSlittingMachine" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmLengthSlittingMachineOPDetail.aspx.cs" Inherits="HSL_Terrry.HomePages.frmLengthSlittingMachineOPDetail" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -74,7 +73,7 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" 
                                 AutoPostBack="true">
                             </asp:DropDownList>
                             <%--                            </div>--%>
@@ -439,7 +438,7 @@
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
                                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                            <asp:DropDownList ID="txtLotNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddLotNo_OnSelectedIndexChanged">
+                                            <asp:DropDownList ID="txtLotNo" class="form-control dropdown-toggle" runat="server" >
                                             </asp:DropDownList>
                                             <%--                            </div>--%>
                                         </div>
@@ -756,3 +755,4 @@
     </body>
     </html>
 </asp:Content>
+
