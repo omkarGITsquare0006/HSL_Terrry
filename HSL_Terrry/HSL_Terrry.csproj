@@ -106,6 +106,7 @@
     <Content Include="HomePages\AdminSupPanel.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
+    <Content Include="HomePages\frmLengthSlittingMachineOPDetail.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="HomePages\frmLengthSlittingMachine.aspx.designer.cs">
       <DependentUpon>frmLengthSlittingMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmLengthSlittingMachineOPDetail.aspx.cs">
+      <DependentUpon>frmLengthSlittingMachineOPDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmLengthSlittingMachineOPDetail.aspx.designer.cs">
+      <DependentUpon>frmLengthSlittingMachineOPDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmLengthSlittingMachineSup.aspx.cs">
       <DependentUpon>frmLengthSlittingMachineSup.aspx</DependentUpon>
