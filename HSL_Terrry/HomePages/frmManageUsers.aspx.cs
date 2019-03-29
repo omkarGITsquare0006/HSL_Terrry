@@ -29,7 +29,7 @@ namespace HSL_Terrry.HomePages
                     Session.Clear();
                     Session.Abandon();
                     Session.RemoveAll();
-                    Response.Redirect("LogIN.aspx");
+                    Response.Redirect("~/frmUserLogin.aspx");
                 }
                 if (!Page.IsPostBack)
                 {
@@ -46,7 +46,7 @@ namespace HSL_Terrry.HomePages
                         Response.Cookies["LOGINAUTH"].Expires = DateTime.Now.AddDays(-1);
                         Session.Clear();
                         Session.Abandon();
-                        Response.Redirect("LogIN.aspx");
+                        Response.Redirect("~/frmUserLogin.aspx");
                     }
                 }
                 Load_Department();

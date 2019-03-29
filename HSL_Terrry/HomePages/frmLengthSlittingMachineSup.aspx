@@ -43,8 +43,8 @@
         <div class="container" style="width: 100%">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <%--<div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
-                    </div>--%>
+                <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
+                    </div>
     <h2 class="panel-title" > 
                        LENGTH SLITTING MACHINE</h2>
              </div>

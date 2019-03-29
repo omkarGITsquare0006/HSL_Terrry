@@ -19,7 +19,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtPO_No;
+        protected global::System.Web.UI.WebControls.TextBox txtPO_No;
         
         /// <summary>
         /// txtpoodesc control.
