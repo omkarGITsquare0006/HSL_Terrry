@@ -16,13 +16,18 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
+                    $("#sup0").hide();
                     $("#sup1").hide();
                     $("#sup2").hide();
                     //alert('session is true');
                 } else {
                     $("#op1").hide();
                     $("#op2").hide();
-                //alert('session is false');
+                    $(function hideBtn() {
+                        $('[id*=sup0]').attr('style', 'display: none;');
+                        ev.preventDefault();
+                    });
+                    //alert('session is false');
                 }
                 //alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');
             });
@@ -32,7 +37,7 @@
                 var calendarBehavior1 = $find("calendar1");
                 var d = calendarBehavior1._selectedDate;
                 var now = new Date();
-                calendarBehavior1.get_element().value = d.format("dd-MM-yyyy") + " " + now.format("HH:mm:ss")
+                calendarBehavior1.get_element().value = d.format("yyyy-MM-dd") + " " + now.format("HH:mm:ss")
             }
         </script>
     </head>
@@ -382,9 +387,9 @@
                                             <%--                            <div class="col">--%>
                                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                                             <asp:DropDownList ID="ddShift" class="form-control dropdown-toggle" runat="server" AutoPostBack="true" aria-haspopup="true" aria-expanded="false">
-                                                <asp:ListItem Text="First Shift" Value="First Shift"></asp:ListItem>
-                                                <asp:ListItem Text="Second Shift" Value="Second Shift"></asp:ListItem>
-                                                <asp:ListItem Text="Third Shift" Value="Third Shift"></asp:ListItem>
+                                                <asp:ListItem Text="1st Shift" Value="1st Shift"></asp:ListItem>
+                                                <asp:ListItem Text="2nd Shift" Value="2nd Shift"></asp:ListItem>
+                                                <asp:ListItem Text="3rd Shift" Value="3rd Shift"></asp:ListItem>
                                             </asp:DropDownList>
                                             <%--                            </div>--%>
                                         </div>
@@ -473,7 +478,7 @@
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
-                                            <label for="txtLotProd" class="col-form-label">Lot Produced</label>
+                                            <label for="TextLotProd" class="col-form-label">Lot Produced</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
                                             <asp:TextBox ID="TextLotProd" class="form-control" placeholder="Lot Produced" runat="server" />
@@ -739,11 +744,14 @@
                         <div id="op2" class="col-3 pr-1">
                             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                         </div>
+                        <div id="sup0" class="col-3 pr-1">
+                            <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClientClick=" return hideBtn();" OnClick="btnEdit_Click" data-toggle="modal" data-target="#myModal"></asp:Button>
+                        </div>
                         <div id="sup1" class="col-3 pr-1">
-                            <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block" />
+                            <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" />
                         </div>
                         <div id="sup2" class="col-3 pr-1">
-                            <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close" data-toggle="modal" data-target="#myModal"></asp:Button>
+                            <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close"></asp:Button>
                         </div>
                     </div>
                 </div>

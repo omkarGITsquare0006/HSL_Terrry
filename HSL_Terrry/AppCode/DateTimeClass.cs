@@ -10,7 +10,7 @@ namespace HSL_Terrry.AppCode
         internal static string CurrentDateTime()
         {
             DateTime now = DateTime.Now;
-            return now.ToString("dd/MM/yyyy HH:mm:ss");
+            return now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }
