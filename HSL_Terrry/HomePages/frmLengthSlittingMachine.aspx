@@ -23,10 +23,10 @@
                 } else {
                     $("#op1").hide();
                     $("#op2").hide();
-                    $(function hideBtn() {
-                        $('[id*=sup0]').attr('style', 'display: none;');
-                        ev.preventDefault();
-                    });
+                    //$(function hideBtn() {
+                    //    $('[id*=sup0]').attr('style', 'display: none;');
+                    //    ev.preventDefault();
+                    //});
                     //alert('session is false');
                 }
                 //alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');
@@ -748,7 +748,7 @@
                             <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClientClick=" return hideBtn();" OnClick="btnEdit_Click" data-toggle="modal" data-target="#myModal"></asp:Button>
                         </div>
                         <div id="sup1" class="col-3 pr-1">
-                            <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" />
+                            <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" OnClick="btn_Update" />
                         </div>
                         <div id="sup2" class="col-3 pr-1">
                             <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close"></asp:Button>

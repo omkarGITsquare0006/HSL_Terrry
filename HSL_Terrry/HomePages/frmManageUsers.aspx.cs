@@ -92,7 +92,7 @@ namespace HSL_Terrry.HomePages
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
-                        //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " updated successfully!";
+                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " updated successfully!");
                     }
                 }
                 else
@@ -102,7 +102,7 @@ namespace HSL_Terrry.HomePages
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
-                        //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
+                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " added successfully!");
                         txtSupID.Text = "";
                         txtSupName.Text = "";
                         txtPassword.Text = "";
