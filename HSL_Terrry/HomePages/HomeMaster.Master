@@ -33,6 +33,8 @@
 
             <!-- Sidebar -->
             <div class="bg-light border-right mt-xl-5" id="sidebar-wrapper">
+                <br />
+                <br />
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">

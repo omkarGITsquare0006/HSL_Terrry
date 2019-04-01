@@ -268,7 +268,7 @@
                         <asp:Button class="btn btn-success btn-block" ID="btnRelease" runat="server" Text="Release" OnClick="btn_Release"></asp:Button>
                     </div>
                     <div class="col-4">
-                        <asp:Button class="btn btn-danger btn-block" runat="server" ID="btnClose" OnClick="btnClose_Click" Text="Short-Close" data-toggle="modal" data-target="#myModal"></asp:Button>
+                        <asp:Button class="btn btn-danger btn-block" runat="server" ID="btnClose" OnClick="btnClose_Click" Text="Close" data-toggle="modal" data-target="#myModal"></asp:Button>
                     </div>
                 </div>
 
