@@ -7,6 +7,8 @@
     <title></title>
     <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
     <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script type="text/javascript">
         $(function () {
@@ -15,6 +17,24 @@
                 $('#DisableDiv').append('<div style="background-color:#E6E6E6;position: absolute;top:0;left:0;width: 100%;height:300%;z-index:1001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);"><img src="loading.gif" style="background-color:Aqua;position:fixed; top:40%; left:46%;"/></div>');
                 setTimeout(1000)
             });
+        });
+    </script>
+    <script type="text/javascript">                
+        $(document).ready(function () {
+            $("#form1").validate({
+                rules: {
+                    //This section we need to place our custom rule for the control.  
+                    <%=username.UniqueID %>:{
+                    required: true
+                },   
+                },
+            messages: {
+                    //This section we need to place our custom validation message for each control.  
+                      <%=username.UniqueID %>:{
+                required: "Name is required."
+            },  
+                },  
+            });  
         });
     </script>
 </head>
