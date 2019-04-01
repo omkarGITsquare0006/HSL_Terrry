@@ -13,7 +13,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-center mt-xl-5">
-                <h3 class="mt-xl-3">Length Slitting Machine</h3>
+                <h3 class="mt-xl-3"></h3>
             </div>
         </div>
         <br />
@@ -23,7 +23,7 @@
                 <%-- <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
                     -</div>--%>
                 <h3 class="panel-title">
-                    Supervisor Details</h3>
+                    Operator Details</h3>
             </div>
             <div class="row" style="padding-top: 20px;">
                 <div class="col-md-2">
