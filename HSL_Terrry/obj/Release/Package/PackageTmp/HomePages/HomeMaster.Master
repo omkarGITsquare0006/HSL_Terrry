@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HomeMaster.master.cs" Inherits="HSL_Terrry.HomePages.HomeMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <script src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+    <script runat="server">
+
+        void Anchor_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmLengthSlittingMachine.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmLengthSlittingMachineSup.aspx");
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="d-flex" id="wrapper">
+
+            <!-- Sidebar -->
+            <div class="bg-light border-right mt-xl-5" id="sidebar-wrapper">
+                <br />
+                <br />
+                <img src="../Assets/logo.png" class="sidebar-heading" />
+                <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
+                <div class="list-group list-group-flush">
+                    <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">PO Manage</a>
+                    <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
+                    <a href="frmProcessOne.aspx" class="list-group-item list-group-item-action bg-light">LHM</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">ACCHM</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">MCC</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">MCH</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">EM</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">PP</a>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark border-bottom">
+                    <button runat="server" type="button" id="toggle">
+                        <span class="navbar-toggler-icon bg-white border-white"></span>
+                    </button>
+
+                    <button runat="server" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <%--<li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>--%>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" runat="server" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[username]</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <%--<a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>--%>
+                                    <a class="dropdown-item" runat="server" onserverclick="btn_LogOut">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="container-fluid">
+                    <%--<h1 class="mt-4">Simple Sidebar</h1>
+                    <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+                    <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+                    --%>
+                    <asp:ContentPlaceHolder ID="head" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+    </form>
+    <script>
+        $("#toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(function () {
+            $("a.list-group-item list-group-item-action bg-light").click(function () {
+                return false; // prevent default browser refresh on "#" link
+            });
+        });
+    </script>
+</body>
+</html>
