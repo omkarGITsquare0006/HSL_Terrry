@@ -18,6 +18,15 @@ namespace HSL_Terrry.HomePages
             {
                 if (strID != null)
                 {
+                    txtdate.ReadOnly = true;
+                    ddShift.Enabled = false;
+                    txtoperator.ReadOnly = true;
+                    txtsupervisor.ReadOnly = true;
+                    ddMachineNo.Enabled = false;
+                    txtLotNo.Enabled = false;
+                    TextLotQty.ReadOnly = true;
+                    TextLotBal.ReadOnly = true;
+                    TextLotProd.ReadOnly = true;
                     Boolean edit = true;
                     LoadOprDetail(strID[0].ToString().Trim());
                     makeReadOnlyFields(edit);
@@ -273,6 +282,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+            sup0.Visible = false;
             makeReadOnlyFields(false);
         }
 

@@ -23,10 +23,6 @@
                 } else {
                     $("#op1").hide();
                     $("#op2").hide();
-                    $(function hideBtn() {
-                        $('[id*=sup0]').attr('style', 'display: none;');
-                        ev.preventDefault();
-                    });
                     //alert('session is false');
                 }
                 //alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');
@@ -514,7 +510,7 @@
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Production Output
                             </a>
                         </div>
-                        <div id="collapseTwo" class="collapse">
+                        <div id="collapseTwo" class="collapse show">
                             <div class="card-body">
                                 <%-- Card 2 --%>
                                 <%-- Row1 --%>
@@ -744,8 +740,8 @@
                         <div id="op2" class="col-3 pr-1">
                             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                         </div>
-                        <div id="sup0" class="col-3 pr-1">
-                            <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClientClick=" return hideBtn();" OnClick="btnEdit_Click" data-toggle="modal" data-target="#myModal"></asp:Button>
+                        <div id="sup0" runat="server" class="col-3 pr-1">
+                            <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click" data-toggle="modal"></asp:Button>
                         </div>
                         <div id="sup1" class="col-3 pr-1">
                             <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" />
