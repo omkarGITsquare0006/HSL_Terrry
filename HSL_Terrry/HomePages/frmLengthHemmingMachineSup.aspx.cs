@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace HSL_Terrry.HomePages
 {
-    public partial class frmProcessOne : System.Web.UI.Page
+    public partial class frmLengthHemmingMachineSup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

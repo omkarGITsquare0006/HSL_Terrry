@@ -10,7 +10,7 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class frmLengthSlittingMachine {
+    public partial class frmLengthHemmingMachine {
         
         /// <summary>
         /// txtPO_No control.

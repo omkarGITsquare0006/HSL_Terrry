@@ -87,6 +87,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Validate, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Validate.1.0.3\lib\net452\Validate.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -105,13 +108,14 @@
     <Content Include="frmUserLogin.aspx" />
     <Content Include="HomePages\AdminSupPanel.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
+    <Content Include="HomePages\frmLengthHemmingMachine.aspx" />
+    <Content Include="HomePages\frmLengthHemmingMachineSup.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineOPDetail.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmManageUsersList.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
-    <Content Include="HomePages\frmProcessOne.aspx" />
     <Content Include="HomePages\jquery-1.10.2.js" />
     <Content Include="HomePages\jquery-ui.css" />
     <Content Include="HomePages\jquery-ui.js" />
@@ -160,6 +164,12 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.bootstrap.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Jquery_1_11.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -215,6 +225,20 @@
     <Compile Include="HomePages\frmHome.aspx.designer.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HomePages\frmLengthHemmingMachine.aspx.cs">
+      <DependentUpon>frmLengthHemmingMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmLengthHemmingMachine.aspx.designer.cs">
+      <DependentUpon>frmLengthHemmingMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmLengthHemmingMachineSup.aspx.cs">
+      <DependentUpon>frmLengthHemmingMachineSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmLengthHemmingMachineSup.aspx.designer.cs">
+      <DependentUpon>frmLengthHemmingMachineSup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePages\frmLengthSlittingMachine.aspx.cs">
       <DependentUpon>frmLengthSlittingMachine.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,13 +280,6 @@
     </Compile>
     <Compile Include="HomePages\frmPOManage.aspx.designer.cs">
       <DependentUpon>frmPOManage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HomePages\frmProcessOne.aspx.cs">
-      <DependentUpon>frmProcessOne.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HomePages\frmProcessOne.aspx.designer.cs">
-      <DependentUpon>frmProcessOne.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\HomeMaster.Master.cs">
       <DependentUpon>HomeMaster.Master</DependentUpon>

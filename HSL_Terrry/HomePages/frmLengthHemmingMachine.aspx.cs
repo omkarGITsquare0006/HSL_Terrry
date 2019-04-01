@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace HSL_Terrry.HomePages
 {
-    public partial class frmLengthSlittingMachine : System.Web.UI.Page
+    public partial class frmLengthHemmingMachine : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -177,7 +177,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
                 return;
             }
         }
@@ -194,12 +194,10 @@ namespace HSL_Terrry.HomePages
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
-                    
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
                     //txtPO_No.Text = "";
-                    
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -225,7 +223,6 @@ namespace HSL_Terrry.HomePages
                     txtremarks.Text = "";
 
                 }
-                Response.Redirect("frmHome.aspx");
             }
 
             catch (Exception ex)
@@ -248,12 +245,10 @@ namespace HSL_Terrry.HomePages
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
-                   
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ");
                     //txtPO_No.Text = "";
-                    Response.Redirect("frmHome.aspx");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -348,12 +343,6 @@ namespace HSL_Terrry.HomePages
 
         private void makeReadOnlyFields(Boolean edit)
         {
-            txtdate.ReadOnly = true;
-            txtoperator.ReadOnly = true;
-            txtsupervisor.ReadOnly = true;
-            TextLotQty.ReadOnly = true;
-            TextLotProd.ReadOnly = true;
-            TextLotBal.ReadOnly = true;
             txttrollyno.ReadOnly = edit;
             txttrollyqty.ReadOnly = edit;
             txtnoofslits.ReadOnly = edit;
