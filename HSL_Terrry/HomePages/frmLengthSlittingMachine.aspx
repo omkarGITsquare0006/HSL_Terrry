@@ -23,6 +23,13 @@
                 } else {
                     $("#op1").hide();
                     $("#op2").hide();
+<<<<<<< HEAD
+=======
+                    //$(function hideBtn() {
+                    //    $('[id*=sup0]').attr('style', 'display: none;');
+                    //    ev.preventDefault();
+                    //});
+>>>>>>> 0eb233c27e1b0577becc143ebc06ddd1202cc69b
                     //alert('session is false');
                 }
                 //alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');

@@ -73,9 +73,8 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" 
-                                AutoPostBack="true">
-                            </asp:DropDownList>
+                            <asp:TextBox ID="txtPO_No" class="form-control" runat="server" />
+                            
                             <%--                            </div>--%>
                         </div>
                     </div>

@@ -109,6 +109,7 @@
     <Content Include="HomePages\frmLengthSlittingMachineOPDetail.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
+    <Content Include="HomePages\frmManageUsersList.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
     <Content Include="HomePages\frmProcessOne.aspx" />
     <Content Include="HomePages\jquery-1.10.2.js" />
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="HomePages\frmManageUsers.aspx.designer.cs">
       <DependentUpon>frmManageUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageUsersList.aspx.cs">
+      <DependentUpon>frmManageUsersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageUsersList.aspx.designer.cs">
+      <DependentUpon>frmManageUsersList.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmPOManage.aspx.cs">
       <DependentUpon>frmPOManage.aspx</DependentUpon>
