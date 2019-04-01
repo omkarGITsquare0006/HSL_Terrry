@@ -11,7 +11,10 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            System.Threading.Thread.Sleep(100);
+            string date = System.DateTime.Now.ToLongDateString();
+            string time = System.DateTime.Now.ToLongTimeString();
+            lbltime.Text = date+" "+time;
         }
     }
 }

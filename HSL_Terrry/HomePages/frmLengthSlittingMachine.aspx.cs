@@ -20,10 +20,13 @@ namespace HSL_Terrry.HomePages
                 {
                     txtdate.ReadOnly = true;
                     ddShift.Enabled = false;
+                    ddShift.CssClass = "form-control dropdown-toggle disabled";
                     txtoperator.ReadOnly = true;
                     txtsupervisor.ReadOnly = true;
                     ddMachineNo.Enabled = false;
+                    ddMachineNo.CssClass = "form-control dropdown-toggle disabled";
                     txtLotNo.Enabled = false;
+                    txtLotNo.CssClass = "form-control dropdown-toggle disabled";
                     TextLotQty.ReadOnly = true;
                     TextLotBal.ReadOnly = true;
                     TextLotProd.ReadOnly = true;
