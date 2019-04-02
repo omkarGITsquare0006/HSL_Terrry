@@ -39,7 +39,7 @@
     </script>
 </head>
 
-<body background="images/bg3.png" style="background-size: 100% 155%">
+<body background="images/bg3.png" style="background-repeat: no-repeat; background-size: 100% ">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row" style="margin-left: -20%;">
