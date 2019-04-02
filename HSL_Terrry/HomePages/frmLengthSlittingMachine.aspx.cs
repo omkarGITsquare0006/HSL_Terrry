@@ -30,6 +30,7 @@ namespace HSL_Terrry.HomePages
                     TextLotQty.ReadOnly = true;
                     TextLotBal.ReadOnly = true;
                     TextLotProd.ReadOnly = true;
+                    txtnoofslits.ReadOnly = true;
                     Boolean edit = true;
                     LoadOprDetail(strID[0].ToString().Trim());
                     makeReadOnlyFields(edit);
@@ -344,7 +345,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            sup0.Visible = false;
+            btnEdit.Visible = false;
             makeReadOnlyFields(false);
         }
 
@@ -358,7 +359,6 @@ namespace HSL_Terrry.HomePages
             TextLotBal.ReadOnly = true;
             txttrollyno.ReadOnly = edit;
             txttrollyqty.ReadOnly = edit;
-            txtnoofslits.ReadOnly = edit;
             Textprodmtr.ReadOnly = edit;
             txtpcslength2.ReadOnly = edit;
             txtpcswidth2.ReadOnly = edit;
