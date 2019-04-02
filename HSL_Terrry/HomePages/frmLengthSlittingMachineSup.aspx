@@ -60,7 +60,7 @@
                             OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                             OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
                             HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="20px"
-                            HeaderStyle-Width="100px" AllowPaging="True">
+                            HeaderStyle-Width="100px" >
 
                             <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px"></HeaderStyle>
 

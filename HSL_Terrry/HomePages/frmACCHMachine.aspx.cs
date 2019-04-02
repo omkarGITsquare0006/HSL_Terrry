@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace HSL_Terrry.HomePages
 {
-    public partial class frmLengthSlittingMachine : System.Web.UI.Page
+    public partial class ACCHMachine : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                txtPO_No.DataSource = CRUDApplication.Load_PONumber();
+                txtPO_No.DataSource = CRUDApplication.Load_PONumberAcc();
                 txtPO_No.DataTextField = "PO_No";
                 txtPO_No.DataValueField = "PO_No";
                 txtPO_No.DataBind();
@@ -104,7 +104,7 @@ namespace HSL_Terrry.HomePages
         //CALLING LOAD PO DETAIL METHOD FOR FETCHING PO DETAILS
         private void LoadPODetail()
         {
-            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.SelectedValue.Trim());
+            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberAcc(txtPO_No.SelectedValue.Trim());
             if (dtPODetails.Rows.Count > 0)
             {
                 txtdate.Text = DateTimeClass.CurrentDateTime();
@@ -159,7 +159,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumber(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
+                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumberAcc(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
                 if (dtPODetails.Rows.Count > 0)
                 {
                     txtdate.Text = DateTimeClass.CurrentDateTime();
@@ -187,19 +187,19 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.AddNewrecordAcc(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, txtLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
-                    
+
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
                     //txtPO_No.Text = "";
-                    
+
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -241,19 +241,19 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.UpdaterecordAcc(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, txtLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
-                   
+
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ");
                     //txtPO_No.Text = "";
-                    
+
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -279,7 +279,7 @@ namespace HSL_Terrry.HomePages
                     txtremarks.Text = "";
 
                 }
-                
+
             }
 
             catch (Exception ex)
@@ -296,7 +296,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dtSupDetails = CRUDApplication.GetOperatorByID(strId);
+                DataTable dtSupDetails = CRUDApplication.GetOperatorByIDAcc(strId);
                 if (dtSupDetails.Rows.Count > 0)
                 {
                     //txtPO_No.ReadOnly = true;

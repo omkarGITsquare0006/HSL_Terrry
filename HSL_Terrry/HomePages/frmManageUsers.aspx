@@ -34,8 +34,8 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupID" class="form-control" runat="server" MaxLength="10"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator runat="server" ID="reqSupId" ControlToValidate="txtSupID"
-                        ErrorMessage="Enter ID!" Style="color: Red;" />--%>
+                    <asp:RequiredFieldValidator runat="server" ID="reqSupId" ControlToValidate="txtSupID"
+                        ErrorMessage="Enter ID!" Style="color: Red;" />
                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSupID"
                         ErrorMessage="Enter ID!" Style="color: Red;"></asp:RequiredFieldValidator>--%>
                 </div>

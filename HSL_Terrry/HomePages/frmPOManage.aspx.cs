@@ -26,7 +26,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //divmsg.visible = true;
                     //lblmsg.text = " user - " + txtsupid.text.trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "relesed successfully ");
+                    MsgBox1.MessageBox.Show("Po#" + txtPO_No.Text.Trim() + "relesed successfully ");
                     txtPO_No.Text = "";
                     txtlotno.Text = "";
                     txtlotqty.Text = "";
@@ -36,7 +36,7 @@ namespace HSL_Terrry.HomePages
 
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("error while adding supervisor!!!");
+                MsgBox1.MessageBox.Show("error while Releasing PO!!!");
                 return;
                 //lblerrmessage.text = "user already exists. please add different user.!!!";
             }
@@ -50,7 +50,7 @@ namespace HSL_Terrry.HomePages
                 int dtPODetails = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text);
                 if (dtPODetails > 0)
                 {
-                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ");
+                    MsgBox1.MessageBox.Show("Po#" + txtPO_No.Text.Trim() + "closed successfully ");
                     txtPO_No.Text = "";
                     txtlotno.Text = "";
                     txtlotqty.Text = "";
