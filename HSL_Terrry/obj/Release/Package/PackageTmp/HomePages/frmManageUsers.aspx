@@ -27,6 +27,7 @@
                 <h3 class="panel-title">
                     Operator Details</h3>
             </div>
+            </div>
             <div class="row" style="padding-top: 20px;">
                 <div class="col-md-2">
                     <asp:Label ID="lblSupId" runat="server" Text="User ID"></asp:Label>
@@ -45,7 +46,7 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupName" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator runat="server" ID="reqSupName" ControlToValidate="txtSupName"
+                   <%-- <asp:RequiredFieldValidator runat="server" ID="reqSupName" ControlToValidate="txtSupName"
                         ErrorMessage="Enter Name!" Style="color: Red;" />--%>
                 </div>
                 <div class="col-md-1">
@@ -108,22 +109,37 @@
                 <div class="col-md-3">
                     <asp:CheckBox ID="chkActive" runat="server" Checked="true" />
                 </div>
-                <div class="col-md-1">
+                <%--<div class="col-md-1">
+                </div>--%>
+                <%--<div class="col-md-2">
+                </div>--%>
+                <%--<div class="col-md-1">
                 </div>
                 <div class="col-md-2">
+                    <asp:Label ID="Label1" runat="server" Text="Role"></asp:Label>
+                </div>
+                <div class="col-md-3">
+                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server">
+                    </asp:DropDownList>--%>
+                    <%--<asp:RequiredFieldValidator ID="reqDept" runat="server" ControlToValidate="ddlDept"
+                        ErrorMessage="Select Department!" InitialValue="-1" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                </div>
+                <div class="col-md-1">
                 </div>
                 <div class="col-md-3">
                 </div>
-                <div class="col-md-1">
-                </div>
+                <%--<div class="col-md-1">
+                </div>--%>
             </div>
             <br />
             <div class="row">
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-2">
-                    <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
-                        Style="width: 100px; font-size: 16px; margin-left: 155%;" Text="Save" />
+                   <%-- <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
+                        Style="width: 100px; font-size: 16px; margin-left: 155%;" Text="Save" />--%>
+                    <asp:Button ID="btnAdd" runat="server" class="btn btn-success" Text="Save" OnClick="btnAdd_Click"
+                        />
                 </div>
                 <div class="col-md-3">
                 </div>
@@ -135,7 +151,7 @@
             <br />
             <asp:Label ID="lblErrMessage" runat="server" Text="" Visible="true" ForeColor="Red"
                 Style="padding-left: 30px;"></asp:Label>
-        </div>
+        
     </div>
         </body>
         </html>

@@ -67,3 +67,5 @@ E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Te
 E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.csproj.CopyComplete
 E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.dll
 E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.pdb
+E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\bin\Validate.dll
+E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\bin\Validate.xml
