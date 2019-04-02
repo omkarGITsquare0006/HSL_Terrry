@@ -24,6 +24,20 @@
                 Response.Redirect("frmLengthSlittingMachineSup.aspx");
             }
         }
+        //LHM CLICK EVENT
+        void Lhm_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmLengthHemmingMachine.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmLengthHemmingMachineSup.aspx");
+            }
+        }
     </script>
 
 </head>
@@ -40,7 +54,7 @@
                 <div class="list-group list-group-flush">
                     <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">PO Manage</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
-                    <a href="frmProcessOne.aspx" class="list-group-item list-group-item-action bg-light">LHM</a>
+                    <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">ACCHM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">MCC</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">MCH</a>
