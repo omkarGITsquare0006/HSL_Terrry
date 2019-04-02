@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmLengthSlittingMachineSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmLengthSlittingMachineSup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmLengthHemmingMachineSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmLengthHemmingMachineSup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!DOCTYPE html>
-    <html>
+    <html lang="en">
     <head>
         <title>JavaScript - read JSON from URL</title>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
@@ -56,20 +56,17 @@
                         </div>
                         <br />
                         <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
-                            AllowSorting="true" CssClass="table table-striped w-auto" ForeColor="white"
+                            AllowSorting="true" CssClass="table table-striped table-bordered table-hover thead-dark" ForeColor="white"
                             OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                             OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
                             HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="20px"
-                            HeaderStyle-Width="100px" AllowPaging="True">
-
-                            <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px"></HeaderStyle>
-
-                            <RowStyle ForeColor="Black" CssClass="table-hover" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px"></RowStyle>
+                            HeaderStyle-Width="100px" Style="text-align: center;" AllowPaging="True">
+                            <RowStyle ForeColor="Black" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px"></RowStyle>
                             <Columns>
                                 <asp:TemplateField HeaderText="Transaction #">
                                     <HeaderStyle CssClass="small" Width="15%" />
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthSlittingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                                        <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthHemmingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Po Number">
@@ -151,7 +148,7 @@
                     </asp:TemplateField>--%>
                             </Columns>
                             <PagerSettings Mode="Numeric" />
-                            <AlternatingRowStyle BackColor="White" ForeColor="Black" />
+                            <AlternatingRowStyle BackColor="#E5E4E4" ForeColor="Black" />
                         </asp:GridView>
                     </div>
                 </div>
