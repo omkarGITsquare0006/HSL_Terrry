@@ -265,11 +265,11 @@ public class CRUDApplication
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
         {
-            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_LSM", connGetDistrict);
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "LotNumLoad";
-            cmdDistrict.Parameters.Add("@PONo", SqlDbType.Char).Value = PoNo;
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.Char).Value = PoNo;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -480,6 +480,35 @@ public class CRUDApplication
         {
             if (connGetSup.State == ConnectionState.Open)
                 connGetSup.Close();
+        }
+    }
+
+    public static int Close_LotNumber(string PoNo,string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_LSM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
         }
     }
 
