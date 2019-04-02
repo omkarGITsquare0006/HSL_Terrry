@@ -106,6 +106,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="frmUserLogin.aspx" />
+    <Content Include="HomePages\frmACCHMachine.aspx" />
     <Content Include="HomePages\AdminSupPanel.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
     <Content Include="HomePages\frmLengthHemmingMachine.aspx" />
@@ -119,6 +120,8 @@
     <Content Include="HomePages\jquery-1.10.2.js" />
     <Content Include="HomePages\jquery-ui.css" />
     <Content Include="HomePages\jquery-ui.js" />
+    <Content Include="images\bg2.png" />
+    <Content Include="images\bg22.png" />
     <Content Include="images\bg3.png" />
     <Content Include="images\ui-icons_444444_256x240.png" />
     <Content Include="images\ui-icons_555555_256x240.png" />
@@ -210,6 +213,13 @@
     </Compile>
     <Compile Include="frmUserLogin.aspx.designer.cs">
       <DependentUpon>frmUserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmACCHMachine.aspx.cs">
+      <DependentUpon>frmACCHMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmACCHMachine.aspx.designer.cs">
+      <DependentUpon>frmACCHMachine.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\AdminSupPanel.aspx.cs">
       <DependentUpon>AdminSupPanel.aspx</DependentUpon>

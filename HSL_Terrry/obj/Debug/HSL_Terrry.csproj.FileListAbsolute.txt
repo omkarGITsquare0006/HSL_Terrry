@@ -155,6 +155,6 @@ E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.dll
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.pdb
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry\HSL_Terrry\bin\Validate.dll
 E:\D-ione\Backups\GIT ORIGIN\HSL_Terrry\HSL_Terrry\bin\Validate.xml
-E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.csprojAssemblyReference.cache
 E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\bin\Validate.dll
 E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\bin\Validate.xml
+E:\D_ione\Terry\GitSol\HSL_Terry_Up_New\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.csprojAssemblyReference.cache
