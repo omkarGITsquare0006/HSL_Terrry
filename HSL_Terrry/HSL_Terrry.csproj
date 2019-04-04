@@ -108,7 +108,9 @@
     <Content Include="frmUserLogin.aspx" />
     <Content Include="HomePages\frmACCHMachine.aspx" />
     <Content Include="HomePages\AdminSupPanel.aspx" />
+    <Content Include="HomePages\frmACCHMachineSup.aspx" />
     <Content Include="HomePages\frmEmbroideryMachine.aspx" />
+    <Content Include="HomePages\frmEmbroideryMachineSup.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
     <Content Include="HomePages\frmLengthHemmingMachine.aspx" />
     <Content Include="HomePages\frmLengthHemmingMachineSup.aspx" />
@@ -118,7 +120,9 @@
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmManageUsersList.aspx" />
     <Content Include="HomePages\frmMCrossCutting.aspx" />
+    <Content Include="HomePages\frmMCrossCuttingSup.aspx" />
     <Content Include="HomePages\frmMCrossHemming.aspx" />
+    <Content Include="HomePages\frmMCrossHemmingSup.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
     <Content Include="HomePages\jquery-1.10.2.js" />
     <Content Include="HomePages\jquery-ui.css" />
@@ -231,12 +235,26 @@
     <Compile Include="HomePages\AdminSupPanel.aspx.designer.cs">
       <DependentUpon>AdminSupPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HomePages\frmACCHMachineSup.aspx.cs">
+      <DependentUpon>frmACCHMachineSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmACCHMachineSup.aspx.designer.cs">
+      <DependentUpon>frmACCHMachineSup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePages\frmEmbroideryMachine.aspx.cs">
       <DependentUpon>frmEmbroideryMachine.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HomePages\frmEmbroideryMachine.aspx.designer.cs">
       <DependentUpon>frmEmbroideryMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmEmbroideryMachineSup.aspx.cs">
+      <DependentUpon>frmEmbroideryMachineSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmEmbroideryMachineSup.aspx.designer.cs">
+      <DependentUpon>frmEmbroideryMachineSup.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmHome.aspx.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
@@ -301,12 +319,26 @@
     <Compile Include="HomePages\frmMCrossCutting.aspx.designer.cs">
       <DependentUpon>frmMCrossCutting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HomePages\frmMCrossCuttingSup.aspx.cs">
+      <DependentUpon>frmMCrossCuttingSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmMCrossCuttingSup.aspx.designer.cs">
+      <DependentUpon>frmMCrossCuttingSup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePages\frmMCrossHemming.aspx.cs">
       <DependentUpon>frmMCrossHemming.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="HomePages\frmMCrossHemming.aspx.designer.cs">
       <DependentUpon>frmMCrossHemming.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmMCrossHemmingSup.aspx.cs">
+      <DependentUpon>frmMCrossHemmingSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmMCrossHemmingSup.aspx.designer.cs">
+      <DependentUpon>frmMCrossHemmingSup.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmPOManage.aspx.cs">
       <DependentUpon>frmPOManage.aspx</DependentUpon>

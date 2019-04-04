@@ -1030,7 +1030,7 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoad";
-            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = "Lsm_status";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = "Lhm_status";
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1300,6 +1300,33 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable Load_ChangeLotNumberEmm(string PONum, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_EMM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ChangeLotNumLoad";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.Char).Value = PONum;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.Char).Value = LotNum;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
 
     public static DataTable Load_PODetailsOnPONumberRelese(string PONumber)
     {
@@ -1553,6 +1580,141 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable Load_LHMApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_LHM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_ACCApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_ACCH", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_EMMApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_EMM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_MCCApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_MCC", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_MCHApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_MCH", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable GetOperatorByID(string strID)
     {
 
@@ -1698,6 +1860,34 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable GetOperatorByIDEmm(string strID)
+    {
+
+        SqlConnection connGetSup = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdSup = new SqlCommand("SP_DT_Tbl_EMM", connGetSup);
+            cmdSup.CommandType = CommandType.StoredProcedure;
+            cmdSup.CommandTimeout = 250;
+            cmdSup.Parameters.Add("@Flag", SqlDbType.Char).Value = "SelectBySupID";
+            cmdSup.Parameters.Add("@ID", SqlDbType.NChar).Value = strID;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdSup);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetSup.State == ConnectionState.Open)
+                connGetSup.Close();
+        }
+    }
     public static int Close_LotNumber(string PoNo, string LotNum)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1726,7 +1916,147 @@ public class CRUDApplication
                 connGetDistrict.Close();
         }
     }
+    public static int Close_LotNumberLhm(string PoNo, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_LHM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
     }
+    public static int Close_LotNumberAcc(string PoNo, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_ACCH", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+    public static int Close_LotNumberEmm(string PoNo, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_EMM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+    public static int Close_LotNumberMcc(string PoNo, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_MCC", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+    public static int Close_LotNumberMch(string PoNo, string LotNum)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_MCH", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "CloseLot";
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = PoNo;
+            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = LotNum;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+}
 
 
 
