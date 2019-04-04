@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>HIMATSINGKA</title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -38,6 +38,19 @@
                 Response.Redirect("frmLengthHemmingMachineSup.aspx");
             }
         }
+        void Acch_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmACCHMachine.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmACCHMachineSup.aspx");
+            }
+        }
     </script>
 
 </head>
@@ -45,17 +58,14 @@
     <form id="form1" runat="server">
         <div class="d-flex" id="wrapper">
 
-            <!-- Sidebar -->
             <div class="bg-light border-right mt-xl-5" id="sidebar-wrapper">
-                <br />
-                <br />
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
                     <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">PO Manage</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
                     <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">ACCHM</a>
+                    <a onserverclick="Acch_Click" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">MCC</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">MCH</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">EM</a>
@@ -106,21 +116,8 @@
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            <!-- /#page-content-wrapper -->
 
         </div>
     </form>
-    <script>
-        $("#toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $(function () {
-            $("a.list-group-item list-group-item-action bg-light").click(function () {
-                return false; // prevent default browser refresh on "#" link
-            });
-        });
-    </script>
 </body>
 </html>

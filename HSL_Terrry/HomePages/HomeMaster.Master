@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>Himatsingka | Terry</title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -38,7 +38,7 @@
                 Response.Redirect("frmLengthHemmingMachineSup.aspx");
             }
         }
-         void Acch_Click(Object sender, EventArgs e)
+        void Acch_Click(Object sender, EventArgs e)
         {
             String username = String.Empty;
             username = Session["RoleID"].ToString();
@@ -58,10 +58,7 @@
     <form id="form1" runat="server">
         <div class="d-flex" id="wrapper">
 
-            <!-- Sidebar -->
             <div class="bg-light border-right mt-xl-5" id="sidebar-wrapper">
-                <br />
-                <br />
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
@@ -119,21 +116,8 @@
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-            <!-- /#page-content-wrapper -->
 
         </div>
     </form>
-    <script>
-        $("#toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $(function () {
-            $("a.list-group-item list-group-item-action bg-light").click(function () {
-                return false; // prevent default browser refresh on "#" link
-            });
-        });
-    </script>
 </body>
 </html>

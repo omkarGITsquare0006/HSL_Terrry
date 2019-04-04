@@ -193,12 +193,14 @@ namespace HSL_Terrry.HomePages
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
+                
                 if (dt.Rows.Count > 0)
                 {
-                    
+                    textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
+                    //string a = dt.CreateDataReader();
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
                     //txtPO_No.Text = "";
                     
                     ddMachineNo.SelectedIndex = 0;

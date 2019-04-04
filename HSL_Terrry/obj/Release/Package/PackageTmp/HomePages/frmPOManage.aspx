@@ -5,7 +5,7 @@
 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title></title>
+        <title>HIMATSINGKA</title>
         <script src="jquery-1.10.2.js"></script>
         <link href="jquery-ui.css" rel="stylesheet" />
         <script src="jquery-ui.js"></script>
@@ -14,12 +14,12 @@
 
     </head>
     <body>
+        <br />
         <div class="container">
             <div class="row justify-content-center mt-xl-5">
                 <h3 class="mt-xl-3">PO RELEASE</h3>
             </div>
         </div>
-        <br />
         <asp:RequiredFieldValidator ID="user" runat="server" ControlToValidate="txtPO_No" EnableClientScript="false"
             ErrorMessage="Please enter PO Number" ForeColor="Red"></asp:RequiredFieldValidator>
         <div class="row pr-0">
@@ -46,7 +46,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpoodesc" class="col-form-label">PO Desc</label>
+                            <label for="txtpoodesc" class="col-form-label">PO Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtpoodesc" class="form-control" ReadOnly="true" placeholder="PO Description" runat="server" />
@@ -57,7 +57,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtcustno" class="col-form-label">Cust No</label>
+                            <label for="txtcustno" class="col-form-label">Cust Number</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtcustno" class="form-control" ReadOnly="true" placeholder="Customer Number" runat="server" />
@@ -96,7 +96,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtprodcode" class="col-form-label">Prod code</label>
+                            <label for="txtprodcode" class="col-form-label">Product code</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtprodcode" class="form-control" ReadOnly="true" placeholder="Product code" runat="server" />
@@ -107,7 +107,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtproddesc" class="col-form-label">Product Desc</label>
+                            <label for="txtproddesc" class="col-form-label">Product Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtproddesc" class="form-control" ReadOnly="true" placeholder="Product Description" runat="server" />
@@ -117,10 +117,10 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpcswt" class="col-form-label">Pcs/Wt</label>
+                            <label for="txtpcswt" class="col-form-label">Pieces/KG</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/Weight" runat="server" />
+                            <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtshade" class="col-form-label">Color Desc</label>
+                            <label for="txtshade" class="col-form-label">Color Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtcolordesc" class="form-control" ReadOnly="true" placeholder="Color Description" runat="server" />
@@ -154,12 +154,12 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtsize" class="col-form-label">Size</label>
+                            <label for="txtsize" class="col-form-label">Size(CMS)</label>
                             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:TextBox ID="txtsize" class="form-control" ReadOnly="true" placeholder="Size" runat="server" />
+                            <asp:TextBox ID="txtsize" class="form-control" ReadOnly="true" placeholder="Size(CMS)" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtszdesc" class="col-form-label">Size Desc</label>
+                            <label for="txtszdesc" class="col-form-label">Size Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtszdesc" class="form-control" ReadOnly="true" placeholder="Size Description" runat="server" />
@@ -205,7 +205,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtopdesc" class="col-form-label">Program Desc</label>
+                            <label for="txtopdesc" class="col-form-label">Program Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtopdesc" class="form-control" ReadOnly="true" placeholder="Program Description" runat="server" />
@@ -230,7 +230,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpobal" class="col-form-label">PO Bal.</label>
+                            <label for="txtpobal" class="col-form-label">PO Balance</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtpobal" class="form-control" ReadOnly="true" placeholder="PO Balance" runat="server" />

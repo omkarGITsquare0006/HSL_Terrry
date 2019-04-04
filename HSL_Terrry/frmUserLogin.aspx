@@ -51,7 +51,7 @@
 <%--<body >
     <div class="Container-fluid imgBackground">--%>
         <%--background="images/bg3.png" style="background-repeat: no-repeat; background-size: 100% auto">--%>
-        <body background="images/bg2.png" style="background-size: 100% 200%">
+        <body background="images/bg2.png" style="background-size: 100% 200%" class="img-fluid">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row" style="margin-left: -30%;">

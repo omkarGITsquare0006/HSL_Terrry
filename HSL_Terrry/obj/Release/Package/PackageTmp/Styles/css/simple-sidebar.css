@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 body {
+    padding-top: 30px;
     overflow-x: hidden;
 }
 
@@ -87,7 +88,7 @@ body {
 
 /* Style the back side */
 .flip-card-back {
-    background-color:darkorange;
+    background-color:orange;
     color: white;
     transform: rotateY(180deg);
 }

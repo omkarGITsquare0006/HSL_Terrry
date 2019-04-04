@@ -18,14 +18,13 @@
         </div>
         <br />
         <br />
-        <br />
         <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
                  <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
                     </div>
                 <h3 class="panel-title">
-                    Operator Details</h3>
+                    OPERATOR DETAILS</h3>
             </div>
             </div>
             <div class="row" style="padding-top: 20px;">
@@ -34,8 +33,8 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupID" class="form-control" runat="server" MaxLength="10"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ID="reqSupId" ControlToValidate="txtSupID"
-                        ErrorMessage="Enter ID!" Style="color: Red;" />
+                    <%--<asp:RequiredFieldValidator runat="server" ID="reqSupId" ControlToValidate="txtSupID"
+                        ErrorMessage="Enter ID!" Style="color: Red;" />--%>
                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSupID"
                         ErrorMessage="Enter ID!" Style="color: Red;"></asp:RequiredFieldValidator>--%>
                 </div>

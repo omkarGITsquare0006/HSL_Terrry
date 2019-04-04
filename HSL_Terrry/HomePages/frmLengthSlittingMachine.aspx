@@ -38,9 +38,10 @@
         </script>
     </head>
     <body>
+        <br />
         <div class="container">
-            <div class="row justify-content-center mt-xl-5">
-                <h3 class="mt-xl-3">Length Slitting Machine</h3>
+            <div class="row justify-content-left mt-xl-5">
+                <h3 class="mt-xl-3">LENGTH SLITTING REPORT</h3>
 
             </div>
         </div>
@@ -156,10 +157,10 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpcswt" class="col-form-label">Pieces/Wt</label>
+                            <label for="txtpcswt" class="col-form-label">Pieces/KG</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/Weight" runat="server" />
+                            <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -194,12 +195,12 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtsize" class="col-form-label">Size</label>
+                            <label for="txtsize" class="col-form-label">Size(CMS)</label>
                             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:TextBox ID="txtsize" class="form-control" ReadOnly="true" placeholder="Size" runat="server" />
+                            <asp:TextBox ID="txtsize" class="form-control" ReadOnly="true" placeholder="Size(CMS)" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -282,10 +283,10 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtbalqty" class="col-form-label">Balance Qty</label>
+                            <label for="txtbalqty" class="col-form-label">Unrelesed PO-Qty</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtbalqty" class="form-control" ReadOnly="true" placeholder="Balance Quantity" runat="server" />
+                            <asp:TextBox ID="txtbalqty" class="form-control" ReadOnly="true" placeholder="Unrelesed PO-Qty" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -578,7 +579,7 @@
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
-                                            <label for="txtpcswt" class="col-form-label">Pcs Weight(Gms)</label>
+                                            <label for="txtpcswt" class="col-form-label">Weight/Pcs(Gms)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
                                             <asp:TextBox ID="Textpcswt" class="form-control" placeholder="Pieces Weight" runat="server" />
@@ -743,9 +744,9 @@
                         <div id="sup1" class="col-3 pr-1">
                             <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" OnClick="btn_Update" />
                         </div>
-                        <div id="sup2" class="col-3 pr-1">
+                        <%--<div id="sup2" class="col-3 pr-1">
                             <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close"></asp:Button>
-                        </div>
+                        </div>--%>
                         <div id="sup0" class="col-3 pr-1">
                             <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                         </div>

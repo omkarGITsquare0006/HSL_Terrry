@@ -43,10 +43,11 @@
 
         <%--Lot Manage--%>
         <div class="mt-xl-5"></div>
+        <br />
         <div class="container-fluid mt-lg-5">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>Lot Short Close</p>
+                    <p>LOT SHORT CLOSE</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -122,12 +123,7 @@
                             </div>
                         </div>
                         <br />
-                        <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
-                            AllowSorting="true" CssClass="table table-striped w-auto" ForeColor="white"
-                            OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
-                            OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
-                            HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="20px"
-                            HeaderStyle-Width="100px" >
+                        
 
                     </div>
                 </div>
@@ -137,19 +133,19 @@
         <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>LENGTH SLITTING MACHINE</p>
+                    <p>LENGTH SLITTING REPORT</p>
                 </div>
                 <div class="card-body">
                     <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
                         AllowSorting="true" CssClass="table table-striped w-auto" ForeColor="white"
                         OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                         OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
-                        HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="20px"
-                        HeaderStyle-Width="100px" AllowPaging="True">
+                        HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="10px"
+                        HeaderStyle-Width="100px" >
 
-                        <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px"></HeaderStyle>
+                        <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px" HorizontalAlign="Center"></HeaderStyle>
 
-                        <RowStyle ForeColor="Black" CssClass="table-hover" BackColor="#E5E4E4" HorizontalAlign="Center" Height="10px"></RowStyle>
+                        <RowStyle ForeColor="Black" CssClass="table-hover" BackColor="#E5E4E4" HorizontalAlign="Center" Height="1px" Font-Size="Small"></RowStyle>
                         <Columns>
                             <asp:TemplateField HeaderText="Transaction #">
                                 <HeaderStyle CssClass="small" Width="15%" />
@@ -241,7 +237,7 @@
                 </div>
             </div>
         </div>
-
+       
 
     </body>
     </html>
