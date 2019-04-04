@@ -51,6 +51,45 @@
                 Response.Redirect("frmACCHMachineSup.aspx");
             }
         }
+        void Emm_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmEmbroideryMachine.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmEmbroideryMachineSup.aspx");
+            }
+        }
+        void Mcc_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmMCrossCutting.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmMCrossCuttingSup.aspx");
+            }
+        }
+        void Mch_Click(Object sender, EventArgs e)
+        {
+            String username = String.Empty;
+            username = Session["RoleID"].ToString();
+            if (username.Equals("3"))
+            {
+                Response.Redirect("frmMCrossHemming.aspx");
+            }
+            else
+            {
+                Response.Redirect("frmMCrossHemmingSup.aspx");
+            }
+        }
     </script>
 
 </head>
@@ -66,9 +105,9 @@
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
                     <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
                     <a onserverclick="Acch_Click" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">MCC</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">MCH</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">EM</a>
+                    <a onserverclick="Mcc_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
+                    <a onserverclick="Mch_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
+                    <a onserverclick="Emm_Click" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">PP</a>
                 </div>
             </div>

@@ -83,7 +83,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Set Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
                 return;
             }
         }
@@ -339,7 +339,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Details!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }

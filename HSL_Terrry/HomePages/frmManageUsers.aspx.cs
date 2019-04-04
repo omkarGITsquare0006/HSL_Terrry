@@ -113,7 +113,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Adding Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Adding User!!!");
                 return;
                 //lblErrMessage.Text = "User already exists. Please add different user.!!!";
             }
@@ -141,7 +141,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting User!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }

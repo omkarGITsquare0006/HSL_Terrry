@@ -10,7 +10,7 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class frmLengthHemmingMachineSup {
+    public partial class frmMCrossHemmingSup {
         
         /// <summary>
         /// txtPO_No control.

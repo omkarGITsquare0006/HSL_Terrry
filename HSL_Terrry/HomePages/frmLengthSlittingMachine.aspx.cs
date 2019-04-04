@@ -83,7 +83,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Set Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
                 return;
             }
         }
@@ -197,12 +197,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    //string a = dt.CreateDataReader();
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
-                    //txtPO_No.Text = "";
-                    
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -339,7 +334,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Details!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }

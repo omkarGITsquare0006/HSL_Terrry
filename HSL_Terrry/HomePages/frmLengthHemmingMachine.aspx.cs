@@ -82,7 +82,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Set Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
                 return;
             }
         }
@@ -187,16 +187,16 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dt = CRUDApplication.AddNewrecordLhm(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(DateTime.Today.ToString("yyyy-MM-dd HH:mm:ss")), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.AddNewrecordLhm(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, txtLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtbalqty2.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
+                    textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
+                    //Response.Write("<script type=\"text/javascript\">alert('Record ' + textID.Text + ' Created successfully');location.href='frmHome.aspx'</script>");
                     //txtPO_No.Text = "";
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
@@ -329,7 +329,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Details!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }

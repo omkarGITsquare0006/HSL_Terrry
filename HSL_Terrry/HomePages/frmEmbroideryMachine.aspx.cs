@@ -83,7 +83,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Set Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
                 return;
             }
         }
@@ -136,7 +136,7 @@ namespace HSL_Terrry.HomePages
                 //txtLotNo.DataBind();
                 //txtLotNo.SelectedIndex = 0;
                 Load_LotNo(txtPO_No.SelectedValue);
-                txtLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue.Trim());
+                txtLotNo.DataSource = CRUDApplication.Load_LotNumberEmm(txtPO_No.SelectedValue.Trim());
                 txtLotNo.DataTextField = "Lot_No";
                 txtLotNo.DataValueField = "Lot_No";
                 txtLotNo.DataBind();
@@ -160,7 +160,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumber(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
+                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumberEmm(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
                 if (dtPODetails.Rows.Count > 0)
                 {
                     txtdate.Text = DateTimeClass.CurrentDateTime();
@@ -197,12 +197,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    //string a = dt.CreateDataReader();
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
                     MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
-                    //txtPO_No.Text = "";
-
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -299,7 +294,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dtSupDetails = CRUDApplication.GetOperatorByID(strId);
+                DataTable dtSupDetails = CRUDApplication.GetOperatorByIDEmm(strId);
                 if (dtSupDetails.Rows.Count > 0)
                 {
                     //txtPO_No.ReadOnly = true;
@@ -339,7 +334,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Details!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }

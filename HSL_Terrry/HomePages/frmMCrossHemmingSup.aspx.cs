@@ -8,22 +8,22 @@ using System.Web.UI.WebControls;
 
 namespace HSL_Terrry.HomePages
 {
-    public partial class frmLengthHemmingMachineSup : System.Web.UI.Page
+    public partial class frmMCrossHemmingSup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindLHMData();
+            BindMCHData();
             if (!Page.IsPostBack)
             {
                 Load_PONumber();
             }
         }
 
-        protected void BindLHMData()
+        protected void BindMCHData()
         {
             DataTable dtBeam = new DataTable();
 
-            dtBeam = CRUDApplication.Load_LHMApproval();
+            dtBeam = CRUDApplication.Load_MCHApproval();
 
             if (dtBeam.Rows.Count > 0)
             {
@@ -68,7 +68,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                txtPO_No.DataSource = CRUDApplication.Load_PONumberLhm();
+                txtPO_No.DataSource = CRUDApplication.Load_PONumberMch();
                 txtPO_No.DataTextField = "PO_No";
                 txtPO_No.DataValueField = "PO_No";
                 txtPO_No.DataBind();
@@ -104,11 +104,11 @@ namespace HSL_Terrry.HomePages
         //CALLING LOAD PO DETAIL METHOD FOR FETCHING PO DETAILS
         private void LoadPODetail()
         {
-            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberLhm(txtPO_No.SelectedValue.Trim());
+            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberMch(txtPO_No.SelectedValue.Trim());
             if (dtPODetails.Rows.Count > 0)
             {
                 //Load_LotNo(txtPO_No.SelectedValue);
-                txtLotNo.DataSource = CRUDApplication.Load_LotNumberLhm(txtPO_No.SelectedValue.Trim());
+                txtLotNo.DataSource = CRUDApplication.Load_LotNumberMch(txtPO_No.SelectedValue.Trim());
                 txtLotNo.DataTextField = "Lot_No";
                 txtLotNo.DataValueField = "Lot_No";
                 txtLotNo.DataBind();
@@ -132,7 +132,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumberLhm(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
+                DataTable dtPODetails = CRUDApplication.Load_ChangeLotNumberMch(txtPO_No.SelectedValue.Trim(), txtLotNo.SelectedValue.Trim());
                 if (dtPODetails.Rows.Count > 0)
                 {
                     TextLotQty.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_Qty"]);
@@ -159,7 +159,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                int dtLotClose = CRUDApplication.Close_LotNumberLhm(txtPO_No.Text, txtLotNo.Text);
+                int dtLotClose = CRUDApplication.Close_LotNumberMch(txtPO_No.Text, txtLotNo.Text);
                 if (dtLotClose > 0)
                 {
                     MsgBox1.MessageBox.Show("po#" + txtLotNo.Text.Trim() + "closed successfully ");

@@ -82,7 +82,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Set Number!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Lot Number!!!");
                 return;
             }
         }
@@ -135,7 +135,7 @@ namespace HSL_Terrry.HomePages
                 //txtLotNo.DataBind();
                 //txtLotNo.SelectedIndex = 0;
                 Load_LotNo(txtPO_No.SelectedValue);
-                txtLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue.Trim());
+                txtLotNo.DataSource = CRUDApplication.Load_LotNumberAcc(txtPO_No.SelectedValue.Trim());
                 txtLotNo.DataTextField = "Lot_No";
                 txtLotNo.DataValueField = "Lot_No";
                 txtLotNo.DataBind();
@@ -195,11 +195,8 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
 
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Created successfully ");
-                    //txtPO_No.Text = "";
-
+                    textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -336,7 +333,7 @@ namespace HSL_Terrry.HomePages
             }
             catch (Exception ex)
             {
-                MsgBox1.MessageBox.Show("Error while Getting Supervisor!!!");
+                MsgBox1.MessageBox.Show("Error while Getting Details!!!");
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }
