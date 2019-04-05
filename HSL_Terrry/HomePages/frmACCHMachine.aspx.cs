@@ -196,7 +196,7 @@ namespace HSL_Terrry.HomePages
                 {
 
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -341,7 +341,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            sup0.Visible = false;
+            btnEdit.Visible = false;
             makeReadOnlyFields(false);
         }
 

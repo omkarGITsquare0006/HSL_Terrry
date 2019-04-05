@@ -200,7 +200,7 @@ namespace HSL_Terrry.HomePages
                     //string a = dt.CreateDataReader();
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
                     //txtPO_No.Text = "";
 
                     ddMachineNo.SelectedIndex = 0;

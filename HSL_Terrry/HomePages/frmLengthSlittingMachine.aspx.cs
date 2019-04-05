@@ -197,7 +197,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";

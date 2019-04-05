@@ -40,8 +40,8 @@
     <body>
         <br />
         <div class="container">
-            <div class="row justify-content-center mt-xl-5">
-                <h3 class="mt-xl-3">Length Slitting Machine</h3>
+            <div class="row justify-content-left mt-xl-5">
+                <h3 class="mt-xl-3">LENGTH SLITTING REPORT</h3>
 
             </div>
         </div>

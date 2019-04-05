@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmLengthHemmingMachineSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmLengthHemmingMachineSup" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmMCrossHemmingSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmMCrossHemmingSup" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!DOCTYPE html>
     <html>
@@ -133,7 +132,7 @@
         <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>LENGTH HEMMING REPORT</p>
+                    <p>MANUAL CROSS HEMMING REPORT</p>
                 </div>
                 <div class="card-body">
                     <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
@@ -150,7 +149,7 @@
                             <asp:TemplateField HeaderText="Transaction #">
                                 <HeaderStyle CssClass="small" Width="15%" />
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmLengthHemmingMachine.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmMCrossHemming.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Po Number">

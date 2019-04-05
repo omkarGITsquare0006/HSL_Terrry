@@ -195,7 +195,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ","frmHome.aspx");
                     //Response.Write("<script type=\"text/javascript\">alert('Record ' + textID.Text + ' Created successfully');location.href='frmHome.aspx'</script>");
                     //txtPO_No.Text = "";
                     ddMachineNo.SelectedIndex = 0;
@@ -247,7 +247,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //divMsg.Visible = true;
                     //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ");
+                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ","frmHome.aspx");
                     //txtPO_No.Text = "";
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
@@ -337,7 +337,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            sup0.Visible = false;
+            btnEdit.Visible = false;
             makeReadOnlyFields(false);
         }
 

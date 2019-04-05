@@ -188,7 +188,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.AddNewrecordEmm(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, txtLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(TextLotProd.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
@@ -197,7 +197,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ");
+                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -239,7 +239,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.UpdaterecordEmm(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, txtLotNo.SelectedValue.ToString(), Convert.ToInt32(TextLotQty.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()), Convert.ToInt32(TextLotBal.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),

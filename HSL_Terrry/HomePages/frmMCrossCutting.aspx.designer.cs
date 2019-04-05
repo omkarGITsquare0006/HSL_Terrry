@@ -454,15 +454,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtremarks;
         
         /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
@@ -470,24 +461,6 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
-        /// <summary>
-        /// sup0 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sup0;
-        
-        /// <summary>
-        /// btnEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
         
         /// <summary>
         /// btnUpdate control.
@@ -499,12 +472,12 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
-        /// btnClose control.
+        /// btnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClose;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
     }
 }
