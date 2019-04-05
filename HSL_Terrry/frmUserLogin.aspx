@@ -10,15 +10,14 @@
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/jquery.validate.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
-    .imgBackground {
-    background-image: url('images/bg2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-   
-}
-        </style>
+        .imgBackground {
+            background-image: url('images/bg2.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
     <script type="text/javascript">
         $(function () {
             $('#btnLogin').click(function () {
@@ -50,39 +49,40 @@
 
 <%--<body >
     <div class="Container-fluid imgBackground">--%>
-        <%--background="images/bg3.png" style="background-repeat: no-repeat; background-size: 100% auto">--%>
-        <body background="images/bg2.png" style="background-size: 100% 200%" class="img-fluid">
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <div class="row" style="margin-left: -30%;">
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-5">
-                    <div class="mt-5">
-                        <img src="Assets/logo.png" class="rounded" alt="Cinque Terre" />
-                    </div>
-                    <div class="card">
-                        <div class="panel-heading h4 text-body text-center card-header">
-                            Login panel
+<%--background="images/bg3.png" style="background-repeat: no-repeat; background-size: 100% auto">--%>
+<body>
+    <div class="justify-content-center align-items-center align-self-center">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="row">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+                    <div class="container-fluid col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+                        <div class="mt-5">
+                            <img src="Assets/logo.png" class="rounded" alt="Cinque Terre" />
                         </div>
-                        <form runat="server" class="card-body">
-                            <div class="form-group">
-                                <label for="email">Username:</label>
-                                <asp:TextBox class="form-control" ID="username" placeholder="Enter Username" runat="server" AutoComplete="Off"></asp:TextBox>
+                        <div class="card">
+                            <div class="panel-heading h4 text-body text-center card-header">
+                                Login panel
                             </div>
-                            <div class="form-group">
-                                <label for="pwd">Password:</label>
-                                <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
-                            </div>
-                            <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClick="btn_signin"></asp:Button>
+                            <form runat="server" class="card-body">
+                                <div class="form-group">
+                                    <label for="email">Username:</label>
+                                    <asp:TextBox class="form-control" ID="username" placeholder="Enter Username" runat="server" AutoComplete="Off"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
+                                </div>
+                                <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClick="btn_signin"></asp:Button>
 
-                        </form>
+                            </form>
+                        </div>
                     </div>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
                 </div>
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"></div>
             </div>
         </div>
-    
-   </div>     
-<%-- </div>--%>
+    </div>
+    <%-- </div>--%>
 </body>
 </html>

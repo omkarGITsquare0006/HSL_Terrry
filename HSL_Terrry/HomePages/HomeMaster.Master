@@ -97,7 +97,7 @@
     <form id="form1" runat="server">
         <div class="d-flex" id="wrapper">
 
-            <div class="bg-light border-right mt-xl-5" id="sidebar-wrapper">
+            <div class="bg-light border-right" id="sidebar-wrapper">
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
@@ -116,12 +116,12 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark border-bottom">
-                    <button runat="server" type="button" id="toggle">
-                        <span class="navbar-toggler-icon bg-white border-white"></span>
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+                    <button runat="server" type="button" class="larr collapsed" id="toggle">
+                        <span class="navbar-toggler-icon larr collapsed "></span>
                     </button>
 
-                    <button runat="server" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button runat="server" class="navbar-toggler navbar-inverse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -158,5 +158,17 @@
 
         </div>
     </form>
+    <script>
+        $("#toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(function () {
+            $("a.list-group-item list-group-item-action bg-light").click(function () {
+                return false; // prevent default browser refresh on "#" link
+            });
+        });
+    </script>
 </body>
 </html>

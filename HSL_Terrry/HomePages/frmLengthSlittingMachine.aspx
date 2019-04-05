@@ -38,11 +38,9 @@
         </script>
     </head>
     <body>
-        <br />
         <div class="container">
-            <div class="row justify-content-left mt-xl-5">
-                <h3 class="mt-xl-3">LENGTH SLITTING REPORT</h3>
-
+            <div class="row justify-content-center">
+                <h3>LENGTH SLITTING REPORT</h3>
             </div>
         </div>
         <%--<div>
@@ -63,7 +61,6 @@
                     </Columns>
             </asp:GridView>
             </div>--%>
-        <br />
         <div class="row pr-0">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="row">
