@@ -24,7 +24,7 @@
                  <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
                     </div>
                 <h3 class="panel-title">
-                    Operator Details</h3>
+                    OPERATOR DETAILS</h3>
             </div>
             </div>
             <div class="row" style="padding-top: 20px;">

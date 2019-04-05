@@ -37,9 +37,10 @@
         </script>
     </head>
     <body>
+        <br />
         <div class="container">
-            <div class="row justify-content-center mt-xl-5">
-                <h3 class="mt-xl-3">Length Slitting Machine</h3>
+            <div class="row justify-content-left mt-xl-5">
+                <h3 class="mt-xl-3">AUTOMATIC CROSS CUTTING AND CROSS HEMMING REPORT</h3>
 
             </div>
         </div>
@@ -342,7 +343,7 @@
                             <a class="card-link" data-toggle="collapse" href="#collapseOne">Finished Goods Details
                             </a>
                         </div>
-                        <div id="collapseOne" class="collapse show">
+                        <div id="collapseOne" class="collapse">
                             <div class="card-body">
                                 <%-- Card 1 Body --%>
                                 <%-- Row1 --%>
@@ -451,7 +452,7 @@
                                             <label for="txtLotQty" class="col-form-label">Lot Qty</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextLotQty" class="form-control" placeholder="Lot Qty" runat="server" />
+                                            <asp:TextBox ID="TextLotQty" class="form-control" ReadOnly="true" placeholder="Lot Qty" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -462,7 +463,7 @@
                                             <label for="txtLotBal" class="col-form-label">Lot Balance</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextLotBal" class="form-control" placeholder="Lot Balance" runat="server" />
+                                            <asp:TextBox ID="TextLotBal" class="form-control" ReadOnly="true" placeholder="Lot Balance" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -476,7 +477,7 @@
                                             <label for="TextLotProd" class="col-form-label">Lot Produced</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextLotProd" class="form-control" placeholder="Lot Produced" runat="server" />
+                                            <asp:TextBox ID="TextLotProd" class="form-control" ReadOnly="true" placeholder="Lot Produced" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -509,7 +510,7 @@
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Production Output
                             </a>
                         </div>
-                        <div id="collapseTwo" class="collapse show">
+                        <div id="collapseTwo" class="collapse">
                             <div class="card-body">
                                 <%-- Card 2 --%>
                                 <%-- Row1 --%>

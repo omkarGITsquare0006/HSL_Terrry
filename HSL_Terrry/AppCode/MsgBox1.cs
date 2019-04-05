@@ -145,14 +145,13 @@ using System.Text;
                 // Loop round registered messages
                 string sMsg, sRedirectUrl;
 
-                while (iMsgCount-- > 0)
-                {
+                
                     sMsg = (string)queue.Dequeue();
                     sRedirectUrl = System.Convert.ToString(queue.Dequeue());
                     sMsg = sMsg.Replace("\n", "\\n");
                     sMsg = sMsg.Replace("\"", "'");
                     sb.Append(@"alert( """ + sMsg + @""" );location.href='" + sRedirectUrl + "'");
-                }
+                
 
                 // Close our JS
                 sb.Append(@"</script>");
