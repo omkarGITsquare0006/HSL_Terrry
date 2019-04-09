@@ -89,7 +89,7 @@ namespace HSL_Terrry.HomePages
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
-                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " updated successfully!");
+                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " updated successfully!", "frmManageUsersList.aspx");
                     }
                 }
                 else
@@ -99,7 +99,7 @@ namespace HSL_Terrry.HomePages
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
-                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " added successfully!");
+                        MsgBox1.MessageBox.Show(" User - " + txtSupID.Text.Trim() + " added successfully!", "frmManageUsersList.aspx");
                         txtSupID.Text = "";
                         txtSupName.Text = "";
                         txtPassword.Text = "";
