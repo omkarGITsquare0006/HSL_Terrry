@@ -27,24 +27,7 @@
             });
         });
     </script>
-    <script type="text/javascript">                
-        $(document).ready(function () {
-            $("#form1").validate({
-                rules: {
-                    //This section we need to place our custom rule for the control.  
-                    <%=username.UniqueID %>:{
-                    required: true
-                },   
-                },
-            messages: {
-                    //This section we need to place our custom validation message for each control.  
-                      <%=username.UniqueID %>:{
-                required: "Name is required."
-            },  
-                },  
-            });  
-        });
-    </script>
+    <script type="text/javascript" src="ValidationScript.js"></script>
 </head>
 
 <%--<body >
@@ -73,7 +56,7 @@
                                     <label for="pwd">Password:</label>
                                     <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                                 </div>
-                                <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClick="btn_signin"></asp:Button>
+                                <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClientClick="javascript:return userValid();" OnClick="btn_signin"></asp:Button>
 
                             </form>
                         </div>

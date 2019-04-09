@@ -42,9 +42,7 @@
         </script>--%>
 
         <%--Lot Manage--%>
-        <div class="mt-xl-5"></div>
-        <br />
-        <div class="container-fluid mt-lg-5">
+        <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
                     <p>LOT SHORT CLOSE</p>

@@ -1,13 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageUsers.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageUsers" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!DOCTYPE html>
 
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title></title>
-            <script src="Scripts/jquery-3.3.1.min.js"></script>
+        <script src="Scripts/jquery-3.3.1.min.js"></script>
         <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
         <%--        <link href="Content/bootstrap.min.css" rel="stylesheet" />--%>
+        <script type="text/javascript" src="../ValidationScript.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     </head>
     <body>
@@ -16,16 +18,13 @@
                 <h3 class="mt-xl-3"></h3>
             </div>
         </div>
-        <br />
-        <br />
         <div class="container">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                 <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
                     </div>
-                <h3 class="panel-title">
-                    OPERATOR DETAILS</h3>
-            </div>
+                    <h3 class="panel-title">OPERATOR DETAILS</h3>
+                </div>
             </div>
             <div class="row" style="padding-top: 20px;">
                 <div class="col-md-2">
@@ -45,7 +44,7 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupName" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
-                   <%-- <asp:RequiredFieldValidator runat="server" ID="reqSupName" ControlToValidate="txtSupName"
+                    <%-- <asp:RequiredFieldValidator runat="server" ID="reqSupName" ControlToValidate="txtSupName"
                         ErrorMessage="Enter Name!" Style="color: Red;" />--%>
                 </div>
                 <div class="col-md-1">
@@ -92,10 +91,10 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-2">
-                <asp:Label ID="lblAdmin" runat="server" Text="Administrator"></asp:Label>
+                    <asp:Label ID="lblAdmin" runat="server" Text="Administrator"></asp:Label>
                 </div>
                 <div class="col-md-3">
-                <asp:CheckBox ID="chkAdmin" runat="server" Checked="false" />
+                    <asp:CheckBox ID="chkAdmin" runat="server" Checked="false" />
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -120,39 +119,37 @@
                 <div class="col-md-3">
                     <asp:DropDownList ID="DropDownList1" class="form-control" runat="server">
                     </asp:DropDownList>--%>
-                    <%--<asp:RequiredFieldValidator ID="reqDept" runat="server" ControlToValidate="ddlDept"
+                <%--<asp:RequiredFieldValidator ID="reqDept" runat="server" ControlToValidate="ddlDept"
                         ErrorMessage="Select Department!" InitialValue="-1" ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                </div>
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-3">
-                </div>
-                <%--<div class="col-md-1">
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-3">
+            </div>
+            <%--<div class="col-md-1">
                 </div>--%>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
             </div>
-            <br />
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                   <%-- <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
+            <div class="col-md-2">
+                <%-- <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
                         Style="width: 100px; font-size: 16px; margin-left: 155%;" Text="Save" />--%>
-                    <asp:Button ID="btnAdd" runat="server" class="btn btn-success" Text="Save" OnClick="btnAdd_Click"
-                        />
-                </div>
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-3">
-                </div>
+                <asp:Button ID="btnAdd" runat="server" class="btn btn-success" Text="Save" OnClientClick="return Validate();" OnClick="btnAdd_Click" />
             </div>
-            <br />
-            <asp:Label ID="lblErrMessage" runat="server" Text="" Visible="true" ForeColor="Red"
-                Style="padding-left: 30px;"></asp:Label>
-        
-    </div>
-        </body>
-        </html>
-    
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+        <br />
+        <asp:Label ID="lblErrMessage" runat="server" Text="" Visible="true" ForeColor="Red"
+            Style="padding-left: 30px;"></asp:Label>
+
+    </body>
+    </html>
+
 </asp:Content>

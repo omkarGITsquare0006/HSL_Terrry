@@ -8,10 +8,9 @@
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
     </head>
     <body>
-        <br />
         <div class="container">
-            <div class="row justify-content-left mt-xl-5">
-                <h3 class="mt-xl-3">MANAGEMENT PANEL</h3>
+            <div class="row justify-content-left">
+                <h3>MANAGEMENT PANEL</h3>
             </div>
         </div>
         <br />
