@@ -101,7 +101,7 @@
                 <img src="../Assets/logo.png" class="sidebar-heading" />
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
-                    <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">PO Manage</a>
+                    <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">Administration</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
                     <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
                     <a onserverclick="Acch_Click" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>

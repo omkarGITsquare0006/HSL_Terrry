@@ -77,18 +77,15 @@ namespace HSL_Terrry.HomePages
                 lblErrMessage.Text = "";
                 string[] strSupID = Request.QueryString.GetValues("Sup_Id");
                 Int16 intActive;
-                Int16 intAdmin;
+                string intRole;
                 if (chkActive.Checked)
                     intActive = 1;
                 else
                     intActive = 0;
-                if (chkAdmin.Checked)
-                    intAdmin = 1;
-                else
-                    intAdmin = 0;
+                intRole = ddlRole.SelectedItem.Value;
                 if (strSupID != null)
                 {
-                    DataTable dt = ClsSupervisorMasters.UpdateSupervisor(txtSupID.Text.Trim(), txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intAdmin);
+                    DataTable dt = ClsSupervisorMasters.UpdateSupervisor(txtSupID.Text.Trim(), txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole);
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
@@ -98,7 +95,7 @@ namespace HSL_Terrry.HomePages
                 else
                 {
 
-                    DataTable dt = ClsSupervisorMasters.AddNewSupervisor(txtSupID.Text, txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intAdmin);
+                    DataTable dt = ClsSupervisorMasters.AddNewSupervisor(txtSupID.Text, txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole);
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
@@ -136,7 +133,7 @@ namespace HSL_Terrry.HomePages
                     else
                         ddlDept.SelectedIndex = -1;
                     chkActive.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["Active"]);
-                    chkAdmin.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["IsAdmin"]);
+                   // chkAdmin.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["IsAdmin"]);
                 }
             }
             catch (Exception ex)

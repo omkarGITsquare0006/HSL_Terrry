@@ -72,7 +72,7 @@ using System.Web;
     }
 
     // Function to add new Supervisor
-    public static DataTable AddNewSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, Int16 intAdmin)
+    public static DataTable AddNewSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intAdmin)
     {
 
         SqlConnection connGetSup = ConnectionProvider.GetConnection();
@@ -88,7 +88,7 @@ using System.Web;
             cmdSup.Parameters.Add("@Dept_Id", SqlDbType.NChar).Value = strDeptId;
             cmdSup.Parameters.Add("@EmailID", SqlDbType.VarChar).Value = strEmailId;
             cmdSup.Parameters.Add("@Active", SqlDbType.Bit).Value = intActive;
-            cmdSup.Parameters.Add("@IsAdmin", SqlDbType.Bit).Value = intAdmin;
+            cmdSup.Parameters.Add("@RoleId", SqlDbType.NChar).Value = intAdmin;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdSup);
             DataTable dt = new DataTable();
@@ -108,7 +108,7 @@ using System.Web;
     }
 
     // Function to Update Supervisor By ID
-    public static DataTable UpdateSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, Int16 intAdmin)
+    public static DataTable UpdateSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intRole)
     {
 
         SqlConnection connGetSup = ConnectionProvider.GetConnection();
@@ -124,7 +124,7 @@ using System.Web;
             cmdSup.Parameters.Add("@Dept_Id", SqlDbType.NChar).Value = strDeptId;
             cmdSup.Parameters.Add("@EmailID", SqlDbType.VarChar).Value = strEmailId;
             cmdSup.Parameters.Add("@Active", SqlDbType.Bit).Value = intActive;
-            cmdSup.Parameters.Add("IsAdmin", SqlDbType.Bit).Value = intAdmin;
+            cmdSup.Parameters.Add("@RoleId", SqlDbType.NChar).Value = intRole;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdSup);
             DataTable dt = new DataTable();

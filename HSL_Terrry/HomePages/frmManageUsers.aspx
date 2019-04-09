@@ -32,10 +32,6 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupID" class="form-control" runat="server" MaxLength="10"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator runat="server" ID="reqSupId" ControlToValidate="txtSupID"
-                        ErrorMessage="Enter ID!" Style="color: Red;" />--%>
-                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtSupID"
-                        ErrorMessage="Enter ID!" Style="color: Red;"></asp:RequiredFieldValidator>--%>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -44,8 +40,6 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtSupName" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
-                    <%-- <asp:RequiredFieldValidator runat="server" ID="reqSupName" ControlToValidate="txtSupName"
-                        ErrorMessage="Enter Name!" Style="color: Red;" />--%>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -57,8 +51,6 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtPassword" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator runat="server" ID="reqPwd" ControlToValidate="txtPassword"
-                        ErrorMessage="Enter Password!" Style="color: Red;" />--%>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -66,10 +58,8 @@
                     <asp:Label ID="lblDept" runat="server" Text="Department"></asp:Label>
                 </div>
                 <div class="col-md-3">
-                    <asp:DropDownList ID="ddlDept" class="form-control" runat="server">
+                    <asp:DropDownList ID="ddlDept" class="form-control dropdown-toggle" runat="server">
                     </asp:DropDownList>
-                    <%--<asp:RequiredFieldValidator ID="reqDept" runat="server" ControlToValidate="ddlDept"
-                        ErrorMessage="Select Department!" InitialValue="-1" ForeColor="Red"></asp:RequiredFieldValidator>--%>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -81,20 +71,18 @@
                 </div>
                 <div class="col-md-3">
                     <asp:TextBox ID="txtEmailID" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
-                    <%--<asp:RequiredFieldValidator runat="server" ID="reqEmailID" ControlToValidate="txtEmailID"
-                        ErrorMessage="Enter Email Id!" Style="color: Red;" />--%>
-                    <br />
-                    <%--<asp:RegularExpressionValidator ID="REVEmailId" runat="server" ControlToValidate="txtEmailID"
-                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ErrorMessage="Invalid Email Format!"
-                        Style="color: Red;" />--%>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-2">
-                    <asp:Label ID="lblAdmin" runat="server" Text="Administrator"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Role"></asp:Label>
                 </div>
                 <div class="col-md-3">
-                    <asp:CheckBox ID="chkAdmin" runat="server" Checked="false" />
+                    <asp:DropDownList ID="ddlRole" class="form-control" runat="server">
+                        <asp:ListItem Text="Admin" Value=1></asp:ListItem>
+                        <asp:ListItem Text="Supervisor" Value=2></asp:ListItem>
+                        <asp:ListItem Text="Operator" Value=3></asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -107,35 +95,17 @@
                 <div class="col-md-3">
                     <asp:CheckBox ID="chkActive" runat="server" Checked="true" />
                 </div>
-                <%--<div class="col-md-1">
-                </div>--%>
-                <%--<div class="col-md-2">
-                </div>--%>
-                <%--<div class="col-md-1">
-                </div>
-                <div class="col-md-2">
-                    <asp:Label ID="Label1" runat="server" Text="Role"></asp:Label>
-                </div>
-                <div class="col-md-3">
-                    <asp:DropDownList ID="DropDownList1" class="form-control" runat="server">
-                    </asp:DropDownList>--%>
-                <%--<asp:RequiredFieldValidator ID="reqDept" runat="server" ControlToValidate="ddlDept"
-                        ErrorMessage="Select Department!" InitialValue="-1" ForeColor="Red"></asp:RequiredFieldValidator>--%>
             </div>
             <div class="col-md-1">
             </div>
             <div class="col-md-3">
             </div>
-            <%--<div class="col-md-1">
-                </div>--%>
         </div>
         <br />
         <div class="row">
             <div class="col-md-2">
             </div>
             <div class="col-md-2">
-                <%-- <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
-                        Style="width: 100px; font-size: 16px; margin-left: 155%;" Text="Save" />--%>
                 <asp:Button ID="btnAdd" runat="server" class="btn btn-success" Text="Save" OnClientClick="return Validate();" OnClick="btnAdd_Click" />
             </div>
             <div class="col-md-3">

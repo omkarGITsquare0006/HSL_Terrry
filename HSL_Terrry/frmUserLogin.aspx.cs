@@ -30,7 +30,7 @@ namespace HSL_Terrry
                 Session["RoleID"] = dtLogin.Rows[0]["RoleId"];
                 Session["UserID"] = username.Text;
                 Session["Usernm"] = username.Text.Trim();
-                Session["IsAdmin"] = dtLogin.Rows[0]["IsAdmin"];
+                //Session["IsAdmin"] = dtLogin.Rows[0]["IsAdmin"];
                 if (HttpContext.Current.Session["Usernm"] != null)
                 {
                     ////Start here

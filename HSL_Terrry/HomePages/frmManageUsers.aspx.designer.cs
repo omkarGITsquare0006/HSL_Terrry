@@ -103,22 +103,22 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtEmailID;
         
         /// <summary>
-        /// lblAdmin control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdmin;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// chkAdmin control.
+        /// ddlRole control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkAdmin;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
         
         /// <summary>
         /// lblActive control.

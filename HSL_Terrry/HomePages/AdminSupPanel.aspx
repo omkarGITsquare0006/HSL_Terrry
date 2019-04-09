@@ -15,7 +15,7 @@
         </div>
         <br />
         <div class="row">
-            <div class="col">
+            <div class="col" hidden>
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
