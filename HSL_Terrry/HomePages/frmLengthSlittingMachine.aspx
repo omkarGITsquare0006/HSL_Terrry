@@ -343,7 +343,7 @@
                             <%--                            </div>--%>
                         </div>
                     </div>
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1"hidden>
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1" hidden>
                         <div class="form-group">
                             <%--                            <div class="col">--%>
                             <label for="txtstatus" class="col-form-label">Status</label>
@@ -386,7 +386,7 @@
                             <%--                            </div>--%>
                         </div>
                     </div>
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1" >
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
                             <label for="txtpcsperkg" class="col-form-label">Pcs/KG</label>
@@ -400,7 +400,7 @@
 
                 <div class="row mt-1">
 
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1" >
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
                             <label for="txtworkcentre" class="col-form-label">Work Centre</label>
@@ -410,7 +410,7 @@
                             <%--                            </div>--%>
                         </div>
                     </div>
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1" >
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
                             <label for="txttotalconfirm" class="col-form-label">Total confirmed Qty</label>
@@ -632,7 +632,7 @@
                                             <label for="txtprodwt" class="col-form-label">Produced Weight(Kgs)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="txtprodwt" class="form-control" placeholder="Produced Weight(KG)" runat="server" />
+                                            <asp:TextBox ID="Textprodmtr" onchange="return Calculate();" class="form-control" placeholder="Production(Mtr)" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -715,10 +715,10 @@
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
                         <div id="op1" class="col-3 pr-1">
-                            <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block"  OnClick="btnCalculate" />
+                            <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block" OnClick="btnCalculate" />
                         </div>
                         <div id="op2" class="col-3 pr-1">
-                            <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block"  OnClick="Btn_submit" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                         </div>
                         <%--OnClientClick="javascript:return Validate();"--%>
                         <div id="sup1" class="col-3 pr-1">
@@ -730,7 +730,7 @@
                         <div id="sup0" class="col-3 pr-1">
                             <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -740,5 +740,16 @@
 
 
     </body>
+
+    <script type="text/javascript">
+        function Calculate() {
+            var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
+                var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value);
+                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+                var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
+            prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
+        }
+    </script>
+
     </html>
 </asp:Content>
