@@ -432,7 +432,7 @@
                             <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">Production Output
                             </a>
                         </div>
-                        <div id="collapseTwo" class="collapse">
+                        <div id="collapseTwo" class="collapse show">
                             <div class="card-body">
                                 <%-- Card 2 --%>
                                 <%-- Row1 --%>
@@ -543,13 +543,14 @@
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
-                                            <label for="txtprodpcs" class="col-form-label">Produced Pcs</label>
+                                            <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="txtprodpcs" class="form-control" placeholder="Produced Pieces" runat="server" />
+                                            <asp:TextBox ID="Textprodmtr" class="form-control" placeholder="Production(Mtr)"   runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
+                                    
 
 
                                 </div>
@@ -612,6 +613,16 @@
                                     <%--                            </div>--%>
                                     <%--</div>
                                     </div>--%>
+                                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
+                                        <div class="form-group">
+                                            <%--                            <div class="col">--%>
+                                            <label for="txtprodpcs" class="col-form-label">Produced Pcs</label>
+                                            <%--                            </div>--%>
+                                            <%--                            <div class="col">--%>
+                                            <asp:TextBox ID="txtprodpcs" class="form-control" ReadOnly="true" placeholder="Produced Pieces" runat="server" />
+                                            <%--                            </div>--%>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
 
@@ -626,16 +637,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
-                                        <div class="form-group">
-                                            <%--                            <div class="col">--%>
-                                            <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label>
-                                            <%--                            </div>--%>
-                                            <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textprodmtr" class="form-control" placeholder="Production(Mtr)"   runat="server" />
-                                            <%--                            </div>--%>
-                                        </div>
-                                    </div>
+                                    
 
 
 
@@ -650,8 +652,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="row">
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
                                         <div class="form-group">
                                             <%--                            <div class="col">--%>
@@ -664,6 +664,9 @@
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    
                                 </div>
 
                                 <%-- Row1 --%>

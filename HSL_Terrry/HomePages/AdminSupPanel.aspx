@@ -42,6 +42,21 @@
                     </div>
                 </div>
             </div>
+
+            <%-- Managing PO (Closing) Card --%>
+            <div class="col">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="../images/orders.png" alt="Avatar" style="width: 250px; height: 250px;">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Manage PO</h1>
+                            <a href="frmPOManageClose.aspx">click for PO Manage(Close)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col"></div>
         </div>
     </body>

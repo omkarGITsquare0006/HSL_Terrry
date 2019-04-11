@@ -373,13 +373,13 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txttrollyqty;
         
         /// <summary>
-        /// txtprodpcs control.
+        /// Textprodmtr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprodpcs;
+        protected global::System.Web.UI.WebControls.TextBox Textprodmtr;
         
         /// <summary>
         /// Textpcswt control.
@@ -409,6 +409,15 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox Textrejreason;
         
         /// <summary>
+        /// txtprodpcs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtprodpcs;
+        
+        /// <summary>
         /// txtprodwt control.
         /// </summary>
         /// <remarks>
@@ -416,15 +425,6 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtprodwt;
-        
-        /// <summary>
-        /// Textprodmtr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Textprodmtr;
         
         /// <summary>
         /// txtmachinestop control.

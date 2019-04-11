@@ -78,7 +78,7 @@ public class CRUDApplication
     }
 
     //Closing PO No by supervisor or admin
-    public static int Close_PODetailsOnPONumber(string poNumber)
+    public static int Close_PODetailsOnPONumber(string poNumber,string remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -88,6 +88,7 @@ public class CRUDApplication
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ClosePo";
             cmdDistrict.Parameters.Add("@PoNo", SqlDbType.NVarChar).Value = poNumber;
+            cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = remarks;
             int exc = cmdDistrict.ExecuteNonQuery();
             //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             //DataTable dt = new DataTable();

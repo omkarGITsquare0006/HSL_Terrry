@@ -45,7 +45,7 @@ function Validate() {
                 inputs[i].style.borderColor = "";
             }
         }
-    } 
+    }
     if (isValid == false) {
         alert('Please enter all fields');
     } else {
@@ -53,7 +53,3 @@ function Validate() {
     }
     return isValid;
 };
-
-function ValidateAcountDetails() {
-
-}

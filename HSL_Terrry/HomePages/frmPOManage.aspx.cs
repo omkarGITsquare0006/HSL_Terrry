@@ -47,7 +47,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                int dtPODetails = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text);
+                int dtPODetails = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text,"");
                 if (dtPODetails > 0)
                 {
                     MsgBox1.MessageBox.Show("Po#" + txtPO_No.Text.Trim() + "closed successfully ");

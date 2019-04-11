@@ -248,8 +248,9 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
+                //txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim()) / 100)) * (Convert.ToInt32(txtnoofslits.Text.Trim()) + 1));
                 DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
-                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
+                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim()) / 100)) * (Convert.ToInt32(txtnoofslits.Text.Trim()) + 1)),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
@@ -353,7 +354,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnCalculate(object sender, EventArgs e)
         {
-            txtprodpcs.Text = Convert.ToString(Convert.ToDecimal(Textprodmtr.Text.Trim()) / Convert.ToDecimal(txtpcslength2.Text.Trim()));
+            txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim())/100))*(Convert.ToInt32(txtnoofslits.Text.Trim())+1));
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -373,14 +374,10 @@ namespace HSL_Terrry.HomePages
             txttrollyno.ReadOnly = edit;
             txttrollyqty.ReadOnly = edit;
             Textprodmtr.ReadOnly = edit;
-            txtpcslength2.ReadOnly = edit;
-            txtpcswidth2.ReadOnly = edit;
             Textpcswt.ReadOnly = edit;
             TextrejQty.ReadOnly = edit;
             Textrejreason.ReadOnly = edit;
             txtprodwt.ReadOnly = edit;
-            txtprodpcs.ReadOnly = edit;
-            txtopenorderqty.ReadOnly = edit;
             txtmachinestop.ReadOnly = edit;
             txtstopreason.ReadOnly = edit;
             txtremarks.ReadOnly = edit;
