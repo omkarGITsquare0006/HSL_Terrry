@@ -124,6 +124,7 @@
     <Content Include="HomePages\frmMCrossHemming.aspx" />
     <Content Include="HomePages\frmMCrossHemmingSup.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
+    <Content Include="HomePages\frmPOManageClose.aspx" />
     <Content Include="HomePages\jquery-1.10.2.js" />
     <Content Include="HomePages\jquery-ui.css" />
     <Content Include="HomePages\jquery-ui.js" />
@@ -347,6 +348,13 @@
     </Compile>
     <Compile Include="HomePages\frmPOManage.aspx.designer.cs">
       <DependentUpon>frmPOManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmPOManageClose.aspx.cs">
+      <DependentUpon>frmPOManageClose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmPOManageClose.aspx.designer.cs">
+      <DependentUpon>frmPOManageClose.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\HomeMaster.Master.cs">
       <DependentUpon>HomeMaster.Master</DependentUpon>
