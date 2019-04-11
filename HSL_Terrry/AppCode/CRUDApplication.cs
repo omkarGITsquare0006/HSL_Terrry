@@ -111,8 +111,7 @@ public class CRUDApplication
         throw new NotImplementedException();
     }
 
-    public static DataTable AddNewrecord(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
+    public static DataTable AddNewrecord(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
        string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -129,10 +128,10 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
+            //cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
+            //cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
+            //cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
+            //cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
             cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
@@ -225,8 +224,7 @@ public class CRUDApplication
 
     }
 
-    public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
+    public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
        string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -243,7 +241,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
+            //cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
             cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
             cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
             cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
