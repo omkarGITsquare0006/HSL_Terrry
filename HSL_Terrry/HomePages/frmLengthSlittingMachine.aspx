@@ -727,7 +727,6 @@
                         <div id="sup0" class="col-3 pr-1">
                             <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                         </div>
-                        
                     </div>
                 </div>
             </div>
