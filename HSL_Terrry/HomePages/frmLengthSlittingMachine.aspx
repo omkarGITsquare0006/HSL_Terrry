@@ -410,7 +410,16 @@
                             <%--                            </div>--%>
                         </div>
                     </div>
-
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1" >
+                        <div class="form-group">
+                            <%--                            <div class="col">--%>
+                            <label for="txttotalconfirm" class="col-form-label">Total confirmed Qty</label>
+                            <%--                            </div>--%>
+                            <%--                            <div class="col">--%>
+                            <asp:TextBox ID="txttotalconfirm" class="form-control" ReadOnly="true" placeholder="Total Confirmed" runat="server" />
+                            <%--                            </div>--%>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -623,7 +632,7 @@
                                             <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textprodmtr" class="form-control" placeholder="Production(Mtr)" runat="server" />
+                                            <asp:TextBox ID="Textprodmtr" class="form-control" placeholder="Production(Mtr)"   runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -702,6 +711,9 @@
                         <%--<div id="op1" class="col-3 pr-1">
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
+                        <div id="op1" class="col-3 pr-1">
+                            <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block"  OnClick="btnCalculate" />
+                        </div>
                         <div id="op2" class="col-3 pr-1">
                             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block"  OnClick="Btn_submit" />
                         </div>
@@ -715,6 +727,7 @@
                         <div id="sup0" class="col-3 pr-1">
                             <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                         </div>
+                        
                     </div>
                 </div>
             </div>

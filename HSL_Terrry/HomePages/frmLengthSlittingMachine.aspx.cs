@@ -123,16 +123,17 @@ namespace HSL_Terrry.HomePages
                 txtszdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Size_Desc"]);
                 txtlotno.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_No"]);
                 txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["GSM"]);
-                txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Code"]);
-                txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Name"]);
-                txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["Product"]);
-                txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["PcsPer_Kg"]);
-                txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["Work_Centre"]);
+                txtpcode.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Code"]);
+                txtpname.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Name"]);
+                txtproduct.Text = Convert.ToString(dtPODetails.Rows[0]["Product"]);
+                txtpcsperkg.Text = Convert.ToString(dtPODetails.Rows[0]["PcsPer_Kg"]);
+                txtworkcentre.Text = Convert.ToString(dtPODetails.Rows[0]["Work_Centre"]);
                 txtpcslength2.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Length"]);
                 txtpcswidth2.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Width"]);
                 txtnoofslits.Text = Convert.ToString(dtPODetails.Rows[0]["No_Of_Slit"]);
                 txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_pcs"]);
                 txtopenorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Po_blnc"]);
+                txttotalconfirm.Text = Convert.ToString(dtPODetails.Rows[0]["TotProd"]);
                 txtUdf1.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_1"]);
                 txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
                 txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
@@ -198,7 +199,7 @@ namespace HSL_Terrry.HomePages
             {
                 DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.Text.Trim()), Convert.ToInt32(txttrollyqty.Text.Trim()),
-                    Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
+                    Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), Convert.ToDecimal(txtpcslength2.Text.Trim()), txtpcswidth2.Text.Trim(),
                     Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 
@@ -245,57 +246,57 @@ namespace HSL_Terrry.HomePages
 
         protected void btn_Update(object sender, EventArgs e)
         {
-            //    try
-            //    {
-            //        DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
-            //            txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
-            //            txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), txtpcslength2.Text.Trim(), txtpcswidth2.Text.Trim(),
-            //            Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
-            //            Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
-            //        if (dt.Rows.Count > 0)
-            //        {
+            try
+            {
+                DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
+                    txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),
+                    Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
+                if (dt.Rows.Count > 0)
+                {
 
-            //            //divMsg.Visible = true;
-            //            //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
-            //            MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ");
-            //            //txtPO_No.Text = "";
+                    //divMsg.Visible = true;
+                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
+                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ", "frmHome.aspx");
+                    //txtPO_No.Text = "";
 
-            //            ddMachineNo.SelectedIndex = 0;
-            //            txtoperator.Text = "";
-            //            txtsupervisor.Text = "";
-            //            txtdate.Text = "";
-            //            ddShift.SelectedIndex = 0;
-            //            txttrollyno.Text = "";
-            //            txttrollyqty.Text = "";
-            //            txtbalqty2.Text = "";
-            //            //txtLotNo.SelectedIndex = 0;
-            //            TextLotQty.Text = "";
-            //            TextLotProd.Text = "";
-            //            TextLotBal.Text = "";
-            //            txtnoofslits.Text = "";
-            //            Textprodmtr.Text = "";
-            //            txtpcslength2.Text = "";
-            //            txtpcswidth2.Text = "";
-            //            Textpcswt.Text = "";
-            //            TextrejQty.Text = "";
-            //            Textrejreason.Text = "";
-            //            txtprodwt.Text = "";
-            //            txtprodpcs.Text = "";
-            //            txtmachinestop.Text = "";
-            //            txtremarks.Text = "";
+                    ddMachineNo.SelectedIndex = 0;
+                    txtoperator.Text = "";
+                    txtsupervisor.Text = "";
+                    txtdate.Text = "";
+                    ddShift.SelectedIndex = 0;
+                    txttrollyno.Text = "";
+                    txttrollyqty.Text = "";
+                    //txtbalqty2.Text = "";
+                    //txtLotNo.SelectedIndex = 0;
+                    //TextLotQty.Text = "";
+                    //TextLotProd.Text = "";
+                    //TextLotBal.Text = "";
+                    txtnoofslits.Text = "";
+                    Textprodmtr.Text = "";
+                    txtpcslength2.Text = "";
+                    txtpcswidth2.Text = "";
+                    Textpcswt.Text = "";
+                    TextrejQty.Text = "";
+                    Textrejreason.Text = "";
+                    txtprodwt.Text = "";
+                    txtprodpcs.Text = "";
+                    txtmachinestop.Text = "";
+                    txtremarks.Text = "";
 
-            //        }
+                }
 
-            //    }
+            }
 
-            //    catch (Exception ex)
-            //    {
-            //        MsgBox1.MessageBox.Show("Error while Submitting!!!");
-            //        ex.StackTrace.ToString();
-            //        return;
-            //        //lblErrMessage.Text = "User already exists. Please add different user.!!!";
-            //    }
-            //    //Response.Redirect("frmHome.aspx");
+            catch (Exception ex)
+            {
+                MsgBox1.MessageBox.Show("Error while Submitting!!!");
+                ex.StackTrace.ToString();
+                return;
+                //lblErrMessage.Text = "User already exists. Please add different user.!!!";
+            }
+            //Response.Redirect("frmHome.aspx");
         }
 
         protected void LoadOprDetail(string strId)
@@ -325,16 +326,18 @@ namespace HSL_Terrry.HomePages
                     //TextLotBal.Text = Convert.ToString(dtSupDetails.Rows[0]["Lot_blnc"]);
                     txttrollyno.Text = Convert.ToString(dtSupDetails.Rows[0]["Trolly_no"]);
                     txttrollyqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Trolly_Qty"]);
-                    txtnoofslits.Text = Convert.ToString(dtSupDetails.Rows[0]["No_Of_Slits"]);
+                    //txtnoofslits.Text = Convert.ToString(dtSupDetails.Rows[0]["No_Of_Slits"]);
                     Textprodmtr.Text = Convert.ToString(dtSupDetails.Rows[0]["Pod_mtr"]);
-                    txtpcslength2.Text = Convert.ToString(dtSupDetails.Rows[0]["Length"]);
-                    txtpcswidth2.Text = Convert.ToString(dtSupDetails.Rows[0]["Width"]);
+                    //txtpcslength2.Text = Convert.ToString(dtSupDetails.Rows[0]["Length"]);
+                    //txtpcswidth2.Text = Convert.ToString(dtSupDetails.Rows[0]["Width"]);
                     Textpcswt.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_Wt"]);
                     TextrejQty.Text = Convert.ToString(dtSupDetails.Rows[0]["Rejected_Qty"]);
                     Textrejreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason_Rej"]);
                     txtprodwt.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Kg"]);
                     txtprodpcs.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_pcs"]);
+                    txtprocessedqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_pcs1"]);
                     txtopenorderqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Bal_Pcs"]);
+                    txttotalconfirm.Text = Convert.ToString(dtSupDetails.Rows[0]["TotProd"]);
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
                     txtstopreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason"]);
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
@@ -346,6 +349,11 @@ namespace HSL_Terrry.HomePages
                 return;
                 //lblErrMessage.Text = "Error while Getting Supervisor Details!!!";
             }
+        }
+
+        protected void btnCalculate(object sender, EventArgs e)
+        {
+            txtprodpcs.Text = Convert.ToString(Convert.ToDecimal(Textprodmtr.Text.Trim()) / Convert.ToDecimal(txtpcslength2.Text.Trim()));
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
