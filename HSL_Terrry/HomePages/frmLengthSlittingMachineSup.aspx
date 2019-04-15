@@ -51,7 +51,7 @@
                 </div>
                 <div class="card-body">
                     <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
-                        AllowSorting="true" CssClass="table table-striped w-auto" ForeColor="white"
+                        AllowSorting="true" CssClass="table-responsive table-striped w-auto" ForeColor="white"
                         OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                         OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
                         HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="10px"
