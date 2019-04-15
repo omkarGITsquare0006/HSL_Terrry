@@ -154,7 +154,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpcswt" class="col-form-label">Pieces/KG</label>
+                            <label for="txtpcswt" class="col-form-label">Per Pcs Weight</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
@@ -389,10 +389,10 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpcsperkg" class="col-form-label">Pcs/KG</label>
+                            <label for="txtpcsperkg" class="col-form-label">Pieces/KG</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Pcs/Kg" runat="server" />
+                            <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Per Pcs Weight" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -400,16 +400,16 @@
 
                 <div class="row mt-1">
 
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
+                    <%--<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
-                            <%--                            <div class="col">--%>
-                            <label for="txtworkcentre" class="col-form-label">Work Centre</label>
+                            <%--  <div class="col">--%>
+                           <%-- <label for="txtworkcentre" class="col-form-label">Work Centre</label>--%>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="txtworkcentre" class="form-control" ReadOnly="true" placeholder="Work Centre" runat="server" />
+                          <%--  <asp:TextBox ID="txtworkcentre" class="form-control" ReadOnly="true" placeholder="Work Centre" runat="server" />--%>
                             <%--                            </div>--%>
-                        </div>
-                    </div>
+                        <%--</div>
+                    </div>--%>
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
@@ -546,7 +546,7 @@
                                             <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textprodmtr" class="form-control" placeholder="Production(Mtr)"   runat="server" />
+                                            <asp:TextBox ID="Textprodmtr" class="form-control" oninput="return Calculate();" placeholder="Production(Mtr)"   runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -559,16 +559,7 @@
 
 
 
-                                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
-                                        <div class="form-group">
-                                            <%--                            <div class="col">--%>
-                                            <label for="txtpcswt" class="col-form-label">Weight/Pcs(Gms)</label>
-                                            <%--                            </div>--%>
-                                            <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textpcswt" class="form-control" placeholder="Pieces Weight" runat="server" />
-                                            <%--                            </div>--%>
-                                        </div>
-                                    </div>
+                                    
 
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
@@ -591,6 +582,8 @@
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
+
+                                    
 
                                     <%--<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1 invisible">
                                         <div class="form-group">--%>
@@ -619,12 +612,10 @@
                                             <label for="txtprodpcs" class="col-form-label">Produced Pcs</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="txtprodpcs" class="form-control" ReadOnly="true" placeholder="Produced Pieces" runat="server" />
+                                            <asp:TextBox ID="txtprodpcs" class="form-control" placeholder="Produced Pieces" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
 
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
@@ -632,14 +623,13 @@
                                             <label for="txtprodwt" class="col-form-label">Produced Weight(Kgs)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textprodmtr" onchange="return Calculate();" class="form-control" placeholder="Production(Mtr)" runat="server" />
+                                            <asp:TextBox ID="txtprodwt"  class="form-control" placeholder="Production(Mtr)" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
 
-                                    
-
-
+                                </div>
+                                <div class="row">
 
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">
                                         <div class="form-group">
@@ -714,9 +704,6 @@
                         <%--<div id="op1" class="col-3 pr-1">
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
-                        <div id="op1" class="col-3 pr-1">
-                            <asp:Button ID="Button1" runat="server" Text="UPDATE" class="btn btn-outline-warning btn-md btn-block" OnClick="btnCalculate" />
-                        </div>
                         <div id="op2" class="col-3 pr-1">
                             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                         </div>
@@ -744,10 +731,14 @@
     <script type="text/javascript">
         function Calculate() {
             var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
-                var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value);
-                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
-                var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
-            prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
+            var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value/100);
+            var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+            var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
+            var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
+            var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+            //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
+            prodpcs.value = (prodmtr * noofslit)/pcslen;
+            prodweiht.value = ((perpcsweight * prodpcs.value)/1000);
         }
     </script>
 

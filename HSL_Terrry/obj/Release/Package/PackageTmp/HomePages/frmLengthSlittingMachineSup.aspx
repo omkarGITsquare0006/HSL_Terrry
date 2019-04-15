@@ -42,93 +42,7 @@
         </script>--%>
 
         <%--Lot Manage--%>
-        <div class="mt-xl-5"></div>
-        <br />
-        <div class="container-fluid mt-lg-5">
-            <div class="card border-warning">
-                <div class="card-header bg-warning" style="height: 50px;">
-                    <p>LOT SHORT CLOSE</p>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-1">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="txtPO_No" class="col-form-label">PO No:</label>
-                                <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
-                                    AutoPostBack="true">
-                                </asp:DropDownList>
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-0">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="txtLotNo" class="col-form-label">Lot No</label>
-                                <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                <asp:DropDownList ID="txtLotNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddLotNo_OnSelectedIndexChanged">
-                                </asp:DropDownList>
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-0">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="txtLotQty" class="col-form-label">Lot Qty</label>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <asp:TextBox ID="TextLotQty" class="form-control" ReadOnly="true" placeholder="Lot Qty" runat="server" />
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-0">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="TextLotProd" class="col-form-label">Lot Produced</label>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <asp:TextBox ID="TextLotProd" class="form-control" ReadOnly="true" placeholder="Lot Produced" runat="server" />
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-1">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="txtLotBal" class="col-form-label">Lot Balance</label>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <asp:TextBox ID="TextLotBal" class="form-control" ReadOnly="true" placeholder="Lot Balance" runat="server" />
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-
-                        <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 pr-1">
-                            <div class="form-group">
-                                <%--                            <div class="col">--%>
-                                <label for="txtLotBal" class="col-form-label invisible">Lot Balance</label>
-                                <%--                            </div>--%>
-                                <%--                            <div class="col">--%>
-                                <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" OnClick="btnClose_Click" Text="Short-Close"></asp:Button>
-                                <%--                            </div>--%>
-                            </div>
-                        </div>
-                        <br />
-                        
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <br />
         <div class="container-fluid">
             <div class="card border-warning">
@@ -171,24 +85,25 @@
                                     <asp:Label ID="lblMachineNo" runat="server" Text='<%#Eval("Machine_No") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Shift">
-                                <HeaderStyle CssClass="small" Width="12%" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblShift" runat="server" Text='<%#Eval("Shift") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Lot No">
-                                <HeaderStyle CssClass="small" Width="15%" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblLotNo" runat="server" Text='<%#Eval("Lot_No") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Trolly No">
                                 <HeaderStyle CssClass="small" Width="15%" />
                                 <ItemTemplate>
                                     <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("Trolly_No") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Confirmed Qty">
+                                <HeaderStyle CssClass="small" Width="12%" />
+                                <ItemTemplate>
+                                    <asp:Label ID="lblProd_pcs" runat="server" Text='<%#Eval("Prod_pcs") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Scrapped Qty">
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <ItemTemplate>
+                                    <asp:Label ID="lblRejected_Qty" runat="server" Text='<%#Eval("Rejected_Qty") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            
                             <%--<asp:TemplateField HeaderText="Time-In">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>

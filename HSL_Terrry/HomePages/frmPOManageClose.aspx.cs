@@ -65,6 +65,8 @@ namespace HSL_Terrry.HomePages
                 txtPOQty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
                 TextPoBal.Text = Convert.ToString(dtPODetails.Rows[0]["Po_blnc"]);
                 TextPoProd.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_pcs"]);
+                txtscrap.Text = Convert.ToString(dtPODetails.Rows[0]["Scrap"]);
+                txttotconfirm.Text = Convert.ToString(dtPODetails.Rows[0]["TotProd"]);
             }
             else
             {
@@ -82,8 +84,8 @@ namespace HSL_Terrry.HomePages
                 int dtLotClose = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text, txtpocloseremark.Text);
                 if (dtLotClose > 0)
                 {
-                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ");
-                    txtPO_No.Text = "";
+                    MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ", "AdminSupPanel.aspx");
+                    //txtPO_No.Text = "";
                     //txtlotno.Text = "";
                     //txtlotqty.Text = "";
                     //txtpobal.Text = "";

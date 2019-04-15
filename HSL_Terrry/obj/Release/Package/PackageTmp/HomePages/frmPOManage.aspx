@@ -14,10 +14,9 @@
 
     </head>
     <body>
-        <br />
         <div class="container">
-            <div class="row justify-content-left mt-xl-5">
-                <h3 class="mt-xl-3">PO RELEASE</h3>
+            <div class="row justify-content-left">
+                <h3>PO RELEASE</h3>
             </div>
         </div>
         <asp:RequiredFieldValidator ID="user" runat="server" ControlToValidate="txtPO_No" EnableClientScript="false"

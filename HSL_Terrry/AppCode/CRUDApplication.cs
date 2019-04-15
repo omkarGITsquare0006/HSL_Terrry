@@ -113,7 +113,7 @@ public class CRUDApplication
     }
 
     public static DataTable AddNewrecord(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, decimal Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+       string Width,Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -139,7 +139,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
             cmdDistrict.Parameters.Add("@Length", SqlDbType.Decimal).Value = Length;
             cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            //cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
@@ -226,7 +226,7 @@ public class CRUDApplication
     }
 
     public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-       decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg,  Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg,  Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -252,7 +252,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
             //cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
             //cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            //cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;

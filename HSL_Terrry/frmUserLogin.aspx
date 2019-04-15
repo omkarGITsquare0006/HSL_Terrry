@@ -10,7 +10,7 @@
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/jquery.validate.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
     <style>
         .imgBackground {
             background-image: url('images/bg2.png');

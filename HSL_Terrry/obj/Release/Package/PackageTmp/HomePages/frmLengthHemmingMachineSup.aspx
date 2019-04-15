@@ -133,7 +133,7 @@
         <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>LENGTH SLITTING REPORT</p>
+                    <p>LENGTH HEMMING REPORT</p>
                 </div>
                 <div class="card-body">
                     <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"

@@ -79,11 +79,10 @@
                             <asp:Label ID="lblEmailID" runat="server" Text='<%#Eval("EmailID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Administrator">
+                    <asp:TemplateField HeaderText="Role Name">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkAdmin" runat="server" Width="120px" Checked='<%# bool.Parse(Eval("IsAdmin").ToString()) %>'
-                                Enabled="false" />
+                            <asp:Label ID="chkAdmin" runat="server" Width="120px" Text='<%# Eval("RoleName").ToString() %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Active">

@@ -85,24 +85,25 @@
                                     <asp:Label ID="lblMachineNo" runat="server" Text='<%#Eval("Machine_No") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Shift">
-                                <HeaderStyle CssClass="small" Width="12%" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblShift" runat="server" Text='<%#Eval("Shift") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
-                            <%--<asp:TemplateField HeaderText="Lot No">
-                                <HeaderStyle CssClass="small" Width="15%" />
-                                <ItemTemplate>
-                                    <asp:Label ID="lblLotNo" runat="server" Text='<%#Eval("Lot_No") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>--%>
                             <asp:TemplateField HeaderText="Trolly No">
                                 <HeaderStyle CssClass="small" Width="15%" />
                                 <ItemTemplate>
                                     <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("Trolly_No") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Confirmed Qty">
+                                <HeaderStyle CssClass="small" Width="12%" />
+                                <ItemTemplate>
+                                    <asp:Label ID="lblProd_pcs" runat="server" Text='<%#Eval("Prod_pcs") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Scrapped Qty">
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <ItemTemplate>
+                                    <asp:Label ID="lblRejected_Qty" runat="server" Text='<%#Eval("Rejected_Qty") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            
                             <%--<asp:TemplateField HeaderText="Time-In">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>

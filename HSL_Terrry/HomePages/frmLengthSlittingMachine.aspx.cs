@@ -13,6 +13,8 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtprodpcs.Attributes.Add("readonly", "readonly");
+            txtprodwt.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
             if (!Page.IsPostBack)
             {
@@ -31,6 +33,7 @@ namespace HSL_Terrry.HomePages
                     //TextLotBal.ReadOnly = true;
                     //TextLotProd.ReadOnly = true;
                     txtnoofslits.ReadOnly = true;
+                    
                     Boolean edit = true;
                     LoadOprDetail(strID[0].ToString().Trim());
                     makeReadOnlyFields(edit);
@@ -127,7 +130,7 @@ namespace HSL_Terrry.HomePages
                 txtpname.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Name"]);
                 txtproduct.Text = Convert.ToString(dtPODetails.Rows[0]["Product"]);
                 txtpcsperkg.Text = Convert.ToString(dtPODetails.Rows[0]["PcsPer_Kg"]);
-                txtworkcentre.Text = Convert.ToString(dtPODetails.Rows[0]["Work_Centre"]);
+                //txtworkcentre.Text = Convert.ToString(dtPODetails.Rows[0]["Work_Centre"]);
                 txtpcslength2.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Length"]);
                 txtpcswidth2.Text = Convert.ToString(dtPODetails.Rows[0]["Pcs_Width"]);
                 txtnoofslits.Text = Convert.ToString(dtPODetails.Rows[0]["No_Of_Slit"]);
@@ -197,10 +200,11 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
+                string produced = txtprodpcs.Text.Trim();
                 DataTable dt = CRUDApplication.AddNewrecord(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.Text.Trim()), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), Convert.ToDecimal(txtpcslength2.Text.Trim()), txtpcswidth2.Text.Trim(),
-                    Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
+                     Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 
                 if (dt.Rows.Count > 0)
@@ -223,7 +227,7 @@ namespace HSL_Terrry.HomePages
                     Textprodmtr.Text = "";
                     txtpcslength2.Text = "";
                     txtpcswidth2.Text = "";
-                    Textpcswt.Text = "";
+                    //Textpcswt.Text = "";
                     TextrejQty.Text = "";
                     Textrejreason.Text = "";
                     txtprodwt.Text = "";
@@ -250,9 +254,9 @@ namespace HSL_Terrry.HomePages
             {
                 //txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim()) / 100)) * (Convert.ToInt32(txtnoofslits.Text.Trim()) + 1));
                 DataTable dt = CRUDApplication.Updaterecord(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
-                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim()) / 100)) * (Convert.ToInt32(txtnoofslits.Text.Trim()) + 1)),
+                    txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),
-                    Convert.ToDecimal(Textpcswt.Text.Trim()), Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
+                    Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
                 {
@@ -278,7 +282,7 @@ namespace HSL_Terrry.HomePages
                     Textprodmtr.Text = "";
                     txtpcslength2.Text = "";
                     txtpcswidth2.Text = "";
-                    Textpcswt.Text = "";
+                    //Textpcswt.Text = "";
                     TextrejQty.Text = "";
                     Textrejreason.Text = "";
                     txtprodwt.Text = "";
@@ -331,7 +335,7 @@ namespace HSL_Terrry.HomePages
                     Textprodmtr.Text = Convert.ToString(dtSupDetails.Rows[0]["Pod_mtr"]);
                     //txtpcslength2.Text = Convert.ToString(dtSupDetails.Rows[0]["Length"]);
                     //txtpcswidth2.Text = Convert.ToString(dtSupDetails.Rows[0]["Width"]);
-                    Textpcswt.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_Wt"]);
+                    //Textpcswt.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_Wt"]);
                     TextrejQty.Text = Convert.ToString(dtSupDetails.Rows[0]["Rejected_Qty"]);
                     Textrejreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason_Rej"]);
                     txtprodwt.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Kg"]);
@@ -352,10 +356,10 @@ namespace HSL_Terrry.HomePages
             }
         }
 
-        protected void btnCalculate(object sender, EventArgs e)
-        {
-            txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim())/100))*(Convert.ToInt32(txtnoofslits.Text.Trim())+1));
-        }
+        //protected void btnCalculate(object sender, EventArgs e)
+        //{
+        //    txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim())/100))*(Convert.ToInt32(txtnoofslits.Text.Trim())+1));
+        //}
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
@@ -374,7 +378,7 @@ namespace HSL_Terrry.HomePages
             txttrollyno.ReadOnly = edit;
             txttrollyqty.ReadOnly = edit;
             Textprodmtr.ReadOnly = edit;
-            Textpcswt.ReadOnly = edit;
+            //Textpcswt.ReadOnly = edit;
             TextrejQty.ReadOnly = edit;
             Textrejreason.ReadOnly = edit;
             txtprodwt.ReadOnly = edit;

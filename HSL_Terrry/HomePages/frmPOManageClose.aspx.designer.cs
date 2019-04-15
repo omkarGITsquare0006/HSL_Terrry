@@ -49,6 +49,24 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox TextPoBal;
         
         /// <summary>
+        /// txtscrap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtscrap;
+        
+        /// <summary>
+        /// txttotconfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txttotconfirm;
+        
+        /// <summary>
         /// txtpocloseremark control.
         /// </summary>
         /// <remarks>
