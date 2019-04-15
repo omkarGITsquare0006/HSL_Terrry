@@ -103,12 +103,13 @@
                 <div class="list-group list-group-flush">
                     <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">Administration</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
-                    <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
-                    <a onserverclick="Acch_Click" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
-                    <a onserverclick="Mcc_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
-                    <a onserverclick="Mch_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
-                    <a onserverclick="Emm_Click" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
+                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
+                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
+                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
+                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
+                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">PP</a>
+<%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
