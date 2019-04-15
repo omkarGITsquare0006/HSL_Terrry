@@ -71,14 +71,14 @@ namespace HSL_Terrry
         {
             try
             {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "warp_set.txt";
+                string uri = "ftp://" + "192.168.1.29" + "/" + "terry_po.txt";
                 Uri serverUri = new Uri(uri);
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
                 {
                     return;
                 }
                 FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "warp_set.txt"));
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "terry_po.txt"));
                 reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098");
                 reqFTP.KeepAlive = false;
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -90,7 +90,7 @@ namespace HSL_Terrry
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
                 // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-                FileStream writeStream = new FileStream(@"E:\D_ione\Terry" + "PO.txt", FileMode.Create);
+                FileStream writeStream = new FileStream(@"E:\po\" + "terry_po.txt", FileMode.Create);
 
 
                 int Length = 2048;
