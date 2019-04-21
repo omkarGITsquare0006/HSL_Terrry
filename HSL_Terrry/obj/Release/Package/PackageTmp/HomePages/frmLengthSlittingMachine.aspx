@@ -161,11 +161,6 @@
                             <%--                            </div>--%>
                         </div>
                     </div>
-                </div>
-
-
-
-                <div class="row mt-1">
 
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
