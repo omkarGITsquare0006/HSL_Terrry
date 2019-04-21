@@ -22,15 +22,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.DropDownList txtPO_No;
         
         /// <summary>
-        /// txtpoodesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtpoodesc;
-        
-        /// <summary>
         /// txtcustno control.
         /// </summary>
         /// <remarks>
@@ -94,15 +85,6 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.TextBox txtshade;
         
         /// <summary>
-        /// txtcolordesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcolordesc;
-        
-        /// <summary>
         /// txtsize control.
         /// </summary>
         /// <remarks>
@@ -119,24 +101,6 @@ namespace HSL_Terrry.HomePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtszdesc;
-        
-        /// <summary>
-        /// txtsono control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsono;
-        
-        /// <summary>
-        /// txtlotno control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtlotno;
         
         /// <summary>
         /// txtgsm control.
