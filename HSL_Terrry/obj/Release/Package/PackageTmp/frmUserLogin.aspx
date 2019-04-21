@@ -40,11 +40,12 @@
                 <div class="row">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
                     <div class="container-fluid col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
-                        <div class="mt-5">
-                            <img src="Assets/logo.png" class="rounded" alt="Cinque Terre" />
+                        <div class="mt-5 bg-warning rounded-right">
+                            <img src="Assets/logo.png" class="rounded mt-1 mb-1" alt="Cinque Terre" />
+                            <span class="h2 align-middle text-white">OCTANE</span>
                         </div>
                         <div class="card">
-                            <div class="panel-heading h4 text-body text-center card-header">
+                            <div class="panel-heading h4 text-body card-header">
                                 Login panel
                             </div>
                             <form runat="server" class="card-body">

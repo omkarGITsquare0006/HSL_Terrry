@@ -313,7 +313,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //txtPO_No.ReadOnly = true;
                     ListItem itm2 = new ListItem();
-                    txtPO_No.Items.Insert(0, Convert.ToString(dtSupDetails.Rows[0]["PO_No"]));
+                    txtPO_No.Items.Insert(0, Convert.ToString(dtSupDetails.Rows[0]["Prod_Order_no"]));
                     txtPO_No.SelectedIndex = 0;
                     LoadPODetail();
 
