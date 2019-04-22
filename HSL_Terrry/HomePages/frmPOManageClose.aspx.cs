@@ -23,8 +23,8 @@ namespace HSL_Terrry.HomePages
             try
             {
                 txtPO_No.DataSource = CRUDApplication.Load_PONumber();
-                txtPO_No.DataTextField = "PO_No";
-                txtPO_No.DataValueField = "PO_No";
+                txtPO_No.DataTextField = "Prod_Order_no";
+                txtPO_No.DataValueField = "Prod_Order_no";
                 txtPO_No.DataBind();
                 ListItem itm2 = new ListItem();
                 itm2.Text = "Select PO Number";
