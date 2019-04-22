@@ -50,8 +50,8 @@ namespace HSL_Terrry.HomePages
             try
             {
                 txtPO_No.DataSource = CRUDApplication.Load_PONumber();
-                txtPO_No.DataTextField = "PO_No";
-                txtPO_No.DataValueField = "PO_No";
+                txtPO_No.DataTextField = "Prod_Order_no";
+                txtPO_No.DataValueField = "Prod_Order_no";
                 txtPO_No.DataBind();
                 ListItem itm2 = new ListItem();
                 itm2.Text = "--------Select PO Number--------";
@@ -112,19 +112,19 @@ namespace HSL_Terrry.HomePages
             if (dtPODetails.Rows.Count > 0)
             {
                 txtdate.Text = DateTimeClass.CurrentDateTime();
-                txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);
-                txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Cust_No"]);
+                //txtpoodesc.Text = Convert.ToString(dtPODetails.Rows[0]["PO_Desc"]);
+                txtcustno.Text = Convert.ToString(dtPODetails.Rows[0]["Customer"]);
                 txtorderkg.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Kg"]);
                 txtorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
-                txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_No"]);
-                txtitemdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_Desc"]);
-                txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["PerPcs_Wt"]);
-                txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
+                txtitemno.Text = Convert.ToString(dtPODetails.Rows[0]["Mateiral_code"]);
+                txtitemdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Mateiral_Desc"]);
+                txtpcswt.Text = Convert.ToString(dtPODetails.Rows[0]["Per_piece_weight"]);
+                //txtsono.Text = Convert.ToString(dtPODetails.Rows[0]["SO_No"]);
                 txtshade.Text = Convert.ToString(dtPODetails.Rows[0]["Color"]);
-                txtcolordesc.Text = Convert.ToString(dtPODetails.Rows[0]["Color_Desc"]);
+                //txtcolordesc.Text = Convert.ToString(dtPODetails.Rows[0]["Color_Desc"]);
                 txtsize.Text = Convert.ToString(dtPODetails.Rows[0]["Size"]);
                 txtszdesc.Text = Convert.ToString(dtPODetails.Rows[0]["Size_Desc"]);
-                txtlotno.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_No"]);
+                //txtlotno.Text = Convert.ToString(dtPODetails.Rows[0]["Lot_No"]);
                 txtgsm.Text = Convert.ToString(dtPODetails.Rows[0]["GSM"]);
                 txtpcode.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Code"]);
                 txtpname.Text = Convert.ToString(dtPODetails.Rows[0]["Program_Name"]);
@@ -313,7 +313,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //txtPO_No.ReadOnly = true;
                     ListItem itm2 = new ListItem();
-                    txtPO_No.Items.Insert(0, Convert.ToString(dtSupDetails.Rows[0]["PO_No"]));
+                    txtPO_No.Items.Insert(0, Convert.ToString(dtSupDetails.Rows[0]["Prod_Order_no"]));
                     txtPO_No.SelectedIndex = 0;
                     LoadPODetail();
 

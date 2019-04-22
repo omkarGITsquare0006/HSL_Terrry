@@ -156,7 +156,7 @@
                             <asp:TemplateField HeaderText="Po Number">
                                 <HeaderStyle CssClass="small" Width="15%" />
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("PO_No") %>' />
+                                    <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("Prod_Order_no") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField ItemStyle-Wrap="false" HeaderText="Date">
