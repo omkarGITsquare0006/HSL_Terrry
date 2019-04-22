@@ -117,7 +117,7 @@
             <!-- Page Content -->
             <div id="page-content-wrapper">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+                <nav class="navbar navbar-expand-lg navbar-light bg-warning border-bottom">
                     <button runat="server" type="button" class="larr collapsed" id="toggle">
                         <span class="navbar-toggler-icon larr collapsed "></span>
                     </button>
@@ -135,7 +135,7 @@
                                 <a class="nav-link" href="#">Link</a>
                             </li>--%>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" runat="server" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[username]</a>
+                                <a class="nav-link dropdown-toggle text-white font-weight-bold" href="#" runat="server" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[username]</a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <%--<a class="dropdown-item" href="#">Action</a>
                                     <a class="dropdown-item" href="#">Another action</a>

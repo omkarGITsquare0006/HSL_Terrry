@@ -40,7 +40,7 @@
     </head>
     <body>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-left">
                 <h3>LENGTH SLITTING REPORT</h3>
             </div>
         </div>
@@ -379,6 +379,10 @@
                 </div>
             </div>
 
+            <div class="myAlert-top alert alert-danger hide">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Warning!</strong><span id="errmsg"></span>
+            </div>
 
             <div class="container-fluid">
                 <div id="accordion">
@@ -676,10 +680,7 @@
             </div>
         </div>
 
-        <div class="myAlert-top alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Warning!</strong><span id="errmsg"></span>
-        </div>
+
 
 
 
