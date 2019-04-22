@@ -135,8 +135,8 @@ E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\bin\System.Web.WebPa
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\bin\System.Web.WebPages.Razor.xml
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\bin\Validate.xml
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.csprojAssemblyReference.cache
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.csproj.CoreCompileInputs.cache
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.csproj.CopyComplete
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.dll
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.pdb
+E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terrry\HSL_Terrry\obj\Release\HSL_Terrry.csprojAssemblyReference.cache
