@@ -13,6 +13,7 @@
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <script type="text/javascript" src="../ValidationScript.js"></script>
+        <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -154,7 +155,7 @@
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--                            <div class="col">--%>
-                            <label for="txtpcswt" class="col-form-label">Per Pcs Weight</label>
+                            <label for="txtpcswt" class="col-form-label">Per Pcs Weight(GMS)</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
@@ -403,12 +404,12 @@
                     <%--<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
                             <%--  <div class="col">--%>
-                           <%-- <label for="txtworkcentre" class="col-form-label">Work Centre</label>--%>
-                            <%--                            </div>--%>
-                            <%--                            <div class="col">--%>
-                          <%--  <asp:TextBox ID="txtworkcentre" class="form-control" ReadOnly="true" placeholder="Work Centre" runat="server" />--%>
-                            <%--                            </div>--%>
-                        <%--</div>
+                    <%-- <label for="txtworkcentre" class="col-form-label">Work Centre</label>--%>
+                    <%--                            </div>--%>
+                    <%--                            <div class="col">--%>
+                    <%--  <asp:TextBox ID="txtworkcentre" class="form-control" ReadOnly="true" placeholder="Work Centre" runat="server" />--%>
+                    <%--                            </div>--%>
+                    <%--</div>
                     </div>--%>
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                         <div class="form-group">
@@ -535,7 +536,7 @@
                                             <label for="txttrollyqty" class="col-form-label">Trolley Qty(Pcs)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="txttrollyqty" class="form-control" placeholder="Trolley Quantity" runat="server" />
+                                            <asp:TextBox ID="txttrollyqty" TextMode="Number" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Trolley Quantity" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -546,11 +547,11 @@
                                             <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="Textprodmtr" class="form-control" oninput="return Calculate();" placeholder="Production(Mtr)"   runat="server" />
+                                            <asp:TextBox ID="Textprodmtr" class="form-control" onkeypress="return isDecimalKey(event)" oninput="return Calculate();" placeholder="Production(Mtr)" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
-                                    
+
 
 
                                 </div>
@@ -559,7 +560,7 @@
 
 
 
-                                    
+
 
                                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">
                                         <div class="form-group">
@@ -567,7 +568,7 @@
                                             <label for="txtrejQty" class="col-form-label">Rejected Qty(No's)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="TextrejQty" class="form-control" placeholder="Qty" runat="server" />
+                                            <asp:TextBox ID="TextrejQty" TextMode="Number" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Qty" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -583,7 +584,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                     <%--<div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1 invisible">
                                         <div class="form-group">--%>
@@ -623,7 +624,7 @@
                                             <label for="txtprodwt" class="col-form-label">Produced Weight(Kgs)</label>
                                             <%--                            </div>--%>
                                             <%--                            <div class="col">--%>
-                                            <asp:TextBox ID="txtprodwt"  class="form-control" placeholder="Production(Mtr)" runat="server" />
+                                            <asp:TextBox ID="txtprodwt" class="form-control" placeholder="Production(Mtr)" runat="server" />
                                             <%--                            </div>--%>
                                         </div>
                                     </div>
@@ -656,7 +657,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    
                                 </div>
 
                                 <%-- Row1 --%>
@@ -723,6 +723,11 @@
             </div>
         </div>
 
+        <div class="myAlert-top alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
+
 
 
 
@@ -731,14 +736,51 @@
     <script type="text/javascript">
         function Calculate() {
             var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
-            var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value/100);
+            var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
             var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
             var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
             var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
             var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
             //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
-            prodpcs.value = (prodmtr * noofslit)/pcslen;
-            prodweiht.value = ((perpcsweight * prodpcs.value)/1000);
+            prodpcs.value = (prodmtr * noofslit) / pcslen;
+            prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+        }
+
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                $(".myAlert-top").show();
+                $("#errmsg").text(" Special charecters and Alphabets are not allowed");
+                setTimeout(function () {
+                    $(".myAlert-top").hide();
+                }, 5000);
+                return false;
+            }
+            return true;
+        }
+
+        function isDecimalKey(evt) {
+            var prodmtr = document.getElementById('<%=Textprodmtr.ClientID %>');
+            if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) {
+                //alert(prodmtr.id.toString());
+                $(".myAlert-top").show();
+                $("#errmsg").text(" Alphabets are not allowed");
+                setTimeout(function () {
+                    $(".myAlert-top").hide();
+                }, 2000);
+                return false;
+            }
+            var parts = evt.srcElement.value.split('.');
+            if (parts.length > 2) return false;
+            if (evt.keyCode == 46) return (parts.length == 1);
+            if (parts.length == 2 && parts[1].length >= 2) {
+                $(".myAlert-top").show();
+                $("#errmsg").text(" Accept two decimal points only");
+                setTimeout(function () {
+                    $(".myAlert-top").hide();
+                }, 2000);
+                return false;
+            }
         }
     </script>
 

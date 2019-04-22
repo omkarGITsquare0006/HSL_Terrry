@@ -40,12 +40,13 @@
                 <div class="row">
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
                     <div class="container-fluid col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
-                        <div class="mt-5">
-                            <img src="Assets/logo.png" class="rounded" alt="Cinque Terre" />
-                        </div>
-                        <div class="card">
-                            <div class="panel-heading h4 text-body text-center card-header">
-                                Login panel
+
+                        <div class="card border-dark mt-5">
+                            <%--<div class="panel-heading h4 text-body  border-dark">--%>
+                                <div class="panel-heading bg-warning card-header flex-fill">
+                                    <img src="Assets/logo.png" class="rounded mt-0 mb-0" alt="Cinque Terre" />
+                                    <span class="h2 align-middle text-white">OCTANE</span>
+                                <%--</div>--%>
                             </div>
                             <form runat="server" class="card-body">
                                 <div class="form-group">
@@ -56,7 +57,7 @@
                                     <label for="pwd">Password:</label>
                                     <asp:TextBox class="form-control" ID="pwd" placeholder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
                                 </div>
-                                <asp:Button class="btn btn-success" ID="btnLogin" runat="server" Text="Sign in" OnClientClick="javascript:return userValid();" OnClick="btn_signin"></asp:Button>
+                                <asp:Button class="btn btn-warning" ID="btnLogin" runat="server" Text="Sign in" OnClientClick="javascript:return userValid();" OnClick="btn_signin"></asp:Button>
 
                             </form>
                         </div>
