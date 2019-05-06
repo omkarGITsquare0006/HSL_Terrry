@@ -21,7 +21,7 @@ namespace HSL_Terrry
         }
         protected void btn_signin(object sender, EventArgs e)
         {
-            //Download();
+            Download();
             ImportPONumber();
             DataTable dtLogin = CRUDApplication.CheckLoginCredential(username.Text.Trim(), pwd.Text.Trim());
             if (dtLogin.Rows.Count == 1)
@@ -71,16 +71,16 @@ namespace HSL_Terrry
         {
             try
             {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "terry_po.txt";
+                string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt";
                 Uri serverUri = new Uri(uri);
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
                 {
                     return;
                 }
                 FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "terry_po.txt"));
-                reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098");
-                reqFTP.KeepAlive = false;
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt"));
+                reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
+                 reqFTP.KeepAlive = false;
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
                 reqFTP.UseBinary = true;
                 reqFTP.Proxy = null;
@@ -90,7 +90,7 @@ namespace HSL_Terrry
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
                 // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-                FileStream writeStream = new FileStream(@"E:\po\" + "terry_po.txt", FileMode.Create);
+                FileStream writeStream = new FileStream(@"E:\po\" + "Sewing open po text format details.txt", FileMode.Create);
 
 
                 int Length = 2048;
