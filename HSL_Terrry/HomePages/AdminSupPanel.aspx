@@ -5,7 +5,8 @@
     <head>
         <title></title>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
+        <link href="../Styles/css/materialize.min.css" rel="stylesheet" />
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
     </head>
     <body>
@@ -98,7 +99,8 @@
             <div class="col"></div>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<%--        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
+        <script src="../materialize.min.js"></script>
 
     </body>
     </html>
