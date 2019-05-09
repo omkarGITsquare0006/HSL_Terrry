@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="AdminSupPanel.aspx.cs" Inherits="HSL_Terrry.HomePages.AdminSupPanel" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title></title>
-        <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-<%--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
+        <link href="../content/bootstrap.min.css" rel="stylesheet" />
         <link href="../Styles/css/materialize.min.css" rel="stylesheet" />
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
     </head>
@@ -101,7 +101,6 @@
 
 <%--        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
         <script src="../materialize.min.js"></script>
-
     </body>
     </html>
 

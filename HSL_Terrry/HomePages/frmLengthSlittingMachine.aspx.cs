@@ -16,7 +16,7 @@ namespace HSL_Terrry.HomePages
             txtprodpcs.Attributes.Add("readonly", "readonly");
             txtprodwt.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
                 if (strID != null)
                 {
@@ -50,8 +50,8 @@ namespace HSL_Terrry.HomePages
             try
             {
                 txtPO_No.DataSource = CRUDApplication.Load_PONumber();
-                txtPO_No.DataTextField = "Prod_Order_no";
-                txtPO_No.DataValueField = "Prod_Order_no";
+                txtPO_No.DataTextField = "Prod_Order_no".ToString().Trim();
+                txtPO_No.DataValueField = "Prod_Order_no".ToString().Trim();
                 txtPO_No.DataBind();
                 ListItem itm2 = new ListItem();
                 itm2.Text = "--------Select PO Number--------";
