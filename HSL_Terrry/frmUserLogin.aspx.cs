@@ -21,7 +21,7 @@ namespace HSL_Terrry
         }
         protected void btn_signin(object sender, EventArgs e)
         {
-            Download();
+            //Download();
             ImportPONumber();
             DataTable dtLogin = CRUDApplication.CheckLoginCredential(username.Text.Trim(), pwd.Text.Trim());
             if (dtLogin.Rows.Count == 1)
@@ -71,14 +71,18 @@ namespace HSL_Terrry
         {
             try
             {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt";
+                string uri = "ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+                    //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt";
+                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
                 Uri serverUri = new Uri(uri);
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
                 {
                     return;
                 }
-                FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt"));
+                FtpWebRequest reqFTP; 
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"));
+                //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt"
+                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
                 reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
                  reqFTP.KeepAlive = false;
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -90,7 +94,7 @@ namespace HSL_Terrry
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
                 //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
                 // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-                FileStream writeStream = new FileStream(@"E:\po\" + "Sewing open po text format details.txt", FileMode.Create);
+                FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
 
 
                 int Length = 2048;
@@ -106,18 +110,18 @@ namespace HSL_Terrry
             }
             catch (WebException wEx)
             {
-
+                wEx.StackTrace.ToString();
             }
             catch (Exception ex)
             {
-
+                ex.StackTrace.ToString();
             }
         }
 
         protected void ImportPONumber()
         {
             //System.Diagnostics.Process.Start("D:\\D-Ione\\Himatsinka\\po\\PODownload.bat");
-            //Download();
+            Download();
             DataTable dt = CRUDApplication.InserPOfromtxt();
             if (dt.Rows.Count > 0)
             {

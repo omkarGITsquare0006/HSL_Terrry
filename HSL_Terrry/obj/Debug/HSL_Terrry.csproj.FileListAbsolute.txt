@@ -459,3 +459,4 @@ E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.csproj.CopyComplete
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.dll
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.pdb
+E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.csprojAssemblyReference.cache
