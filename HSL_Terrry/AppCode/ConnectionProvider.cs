@@ -26,8 +26,9 @@ using System.Web.UI.HtmlControls;
             conn.Open();
             return conn;
         }
-        catch (SqlException)
+        catch (SqlException e)
         {
+            Console.WriteLine("SQL Error is: " + e);
             return null;
         }
 

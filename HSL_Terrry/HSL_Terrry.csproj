@@ -142,6 +142,7 @@
     <Content Include="images\users.png" />
     <Content Include="jquery-ui.css" />
     <Content Include="jquery-ui.js" />
+    <Content Include="materialize.min.js" />
     <Content Include="moment.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -169,6 +170,7 @@
     <Content Include="HomePages\PoHandler.ashx" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -196,6 +198,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Styles\css\materialize.min.css" />
     <Content Include="Styles\css\simple-sidebar.css" />
     <Content Include="ValidationScript.js" />
     <Content Include="Web.config">

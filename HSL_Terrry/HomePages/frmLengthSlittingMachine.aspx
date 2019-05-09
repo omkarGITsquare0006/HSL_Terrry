@@ -8,7 +8,7 @@
     <html lang="en">
     <head>
         <title>HIMATSINGKA</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%--dfg--%>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -26,7 +26,7 @@
                     $("#op2").hide();
                     //alert('session is false');
                 }
-                //alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');
+<%--                alert('<%= "session is "+ HttpContext.Current.Session["RoleID"] %>');--%>
             });
         </script>
         <script type="text/javascript">
@@ -379,11 +379,6 @@
                 </div>
             </div>
 
-            <div class="myAlert-top alert alert-danger hide">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Warning!</strong><span id="errmsg"></span>
-            </div>
-
             <div class="container-fluid">
                 <div id="accordion">
 
@@ -680,63 +675,64 @@
             </div>
         </div>
 
+        <div class="myAlert-top alert alert-danger hide">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
 
+        <script type="text/javascript">
+            function Calculate() {
+                var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
+                var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
+                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+                var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
+                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
+                var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
+                prodpcs.value = Math.round((prodmtr * noofslit) / pcslen);
+                prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+            }
 
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Special charecters and Alphabets are not allowed");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                    return false;
+                }
+                return true;
+            }
 
+            function isDecimalKey(evt) {
+                var prodmtr = document.getElementById('<%=Textprodmtr.ClientID %>');
+                if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) {
+                    //alert(prodmtr.id.toString());
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Alphabets are not allowed");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 2000);
+                    return false;
+                }
+                var parts = evt.srcElement.value.split('.');
+                if (parts.length > 2) return false;
+                if (evt.keyCode == 46) return (parts.length == 1);
+                if (parts.length == 2 && parts[1].length >= 2) {
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Accept two decimal points only");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 2000);
+                    return false;
+                }
+            }
+        </script>
 
 
     </body>
-
-    <script type="text/javascript">
-        function Calculate() {
-            var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
-            var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
-            var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
-            var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
-            var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
-            var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
-            //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
-            prodpcs.value = Math.round((prodmtr * noofslit) / pcslen);
-            prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
-        }
-
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : event.keyCode
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                $(".myAlert-top").show();
-                $("#errmsg").text(" Special charecters and Alphabets are not allowed");
-                setTimeout(function () {
-                    $(".myAlert-top").hide();
-                }, 5000);
-                return false;
-            }
-            return true;
-        }
-
-        function isDecimalKey(evt) {
-            var prodmtr = document.getElementById('<%=Textprodmtr.ClientID %>');
-            if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) {
-                //alert(prodmtr.id.toString());
-                $(".myAlert-top").show();
-                $("#errmsg").text(" Alphabets are not allowed");
-                setTimeout(function () {
-                    $(".myAlert-top").hide();
-                }, 2000);
-                return false;
-            }
-            var parts = evt.srcElement.value.split('.');
-            if (parts.length > 2) return false;
-            if (evt.keyCode == 46) return (parts.length == 1);
-            if (parts.length == 2 && parts[1].length >= 2) {
-                $(".myAlert-top").show();
-                $("#errmsg").text(" Accept two decimal points only");
-                setTimeout(function () {
-                    $(".myAlert-top").hide();
-                }, 2000);
-                return false;
-            }
-        }
-    </script>
 
     </html>
 </asp:Content>
