@@ -107,7 +107,7 @@
                     <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
                     <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
                     <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
-                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
+                    <a onserverclick="Emm_Click" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">PP</a>
 <%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
                 </div>

@@ -87,7 +87,7 @@
                             <label for="txtitemno" class="col-form-label">Material Code</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="TextBox1" class="form-control" ReadOnly="true" placeholder="Material Code" runat="server" />
+                            <asp:TextBox ID="txtitemno" class="form-control" ReadOnly="true" placeholder="Material Code" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                             <label for="txtitemdesc" class="col-form-label">Material Description</label>
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
-                            <asp:TextBox ID="TextBox2" class="form-control" ReadOnly="true" placeholder="Material Description" runat="server" />
+                            <asp:TextBox ID="txtitemdesc" class="form-control" ReadOnly="true" placeholder="Material Description" runat="server" />
                             <%--                            </div>--%>
                         </div>
                     </div>
