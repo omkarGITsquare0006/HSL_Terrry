@@ -168,9 +168,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable AddNewrecordAcc(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable AddNewrecordAcc(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
+       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -186,21 +185,13 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
             cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
-            cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
-            cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.NVarChar).Value = prodpcs;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
-            cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
-            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.Int).Value = Prod_pcs;
+            cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = prodwt;
             cmdDistrict.Parameters.Add("@Bal_Pcs", SqlDbType.Int).Value = Bal_Pcs;
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
@@ -281,9 +272,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable UpdaterecordAcc(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable UpdaterecordAcc(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
+       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -299,21 +289,13 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
             cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
-            cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
-            cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.NVarChar).Value = prodpcs;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
-            cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
-            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.Int).Value = Prod_pcs;
+            cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = prodwt;
             cmdDistrict.Parameters.Add("@Bal_Pcs", SqlDbType.Int).Value = Bal_Pcs;
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;

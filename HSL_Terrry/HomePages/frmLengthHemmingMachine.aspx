@@ -45,25 +45,7 @@
 
             </div>
         </div>
-        <%--<div>
-        <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="PO_No" AutoGenerateColumns="false"
-                AllowSorting="true" CssClass="Gridview" HeaderStyle-BackColor="orange" ForeColor="white"
-                CellPadding="5" HeaderStyle-Font-Bold="true"
-                HeaderStyle-Height="30px" HeaderStyle-ForeColor="White" HeaderStyle-Font-Size="20px"
-                HeaderStyle-Width="100px" Style="text-align: center;">
-                <RowStyle ForeColor="Black" BackColor="#E5E4E4" HorizontalAlign="Center" Height="27px">
-                </RowStyle>
-                <Columns>
-                    <asp:TemplateField HeaderText="Po Number" visible="true">
-                        <HeaderStyle CssClass="small" Width="15%" />
-                        <ItemTemplate>
-                            <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("PO_No") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    </Columns>
-            </asp:GridView>
-            </div>--%>
-        <br />
+        
         <div class="row pr-0">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="row">
