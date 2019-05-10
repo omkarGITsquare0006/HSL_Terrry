@@ -320,9 +320,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable AddNewrecordLhm(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-        string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-        string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable AddNewrecordLhm(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, decimal Length,
+       string Width, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -338,17 +337,17 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
+            //cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
+            //cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
+            //cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
+            //cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
             cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
             cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
+            cmdDistrict.Parameters.Add("@Length", SqlDbType.Decimal).Value = Length;
             cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            //cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
@@ -377,9 +376,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable UpdaterecordLhm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable UpdaterecordLhm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -395,17 +393,17 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
+            //cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
+            //cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
+            // cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
+            //cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
-            cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
+            //cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
             cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
-            cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            //cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
+            //cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
+            //cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
@@ -662,9 +660,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable AddNewrecordEmm(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-        string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-        string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable AddNewrecordEmm(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty,
+        Int32 Pcs_In_Round, Int32 Prod_Rounds, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -680,17 +677,10 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
-            cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
-            cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
-            cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
+            cmdDistrict.Parameters.Add("@Pcs_In_Round", SqlDbType.NVarChar).Value = Pcs_In_Round;
+            cmdDistrict.Parameters.Add("@Prod_Rounds", SqlDbType.Int).Value = Prod_Rounds;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
@@ -719,9 +709,8 @@ public class CRUDApplication
 
     }
 
-    public static DataTable UpdaterecordEmm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No,
-       string Lot_No, Int32 Lot_Qty, Int32 Lot_Prod, Int32 Lot_blnc, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, string Length,
-       string Width, decimal Pcs_Wt, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    public static DataTable UpdaterecordEmm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty,
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -737,17 +726,8 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
             cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
-            cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
-            cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-            cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
-            cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
-            cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
-            cmdDistrict.Parameters.Add("@Pod_mtr", SqlDbType.Decimal).Value = Pod_mtr;
-            cmdDistrict.Parameters.Add("@Length", SqlDbType.NVarChar).Value = Length;
-            cmdDistrict.Parameters.Add("@Width", SqlDbType.NVarChar).Value = Width;
-            cmdDistrict.Parameters.Add("@Pcs_Wt", SqlDbType.Decimal).Value = Pcs_Wt;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
