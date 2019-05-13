@@ -71,8 +71,9 @@ namespace HSL_Terrry
         {
             try
             {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
-                    //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt";
+                string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt";
+                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+                //
                 //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
                 Uri serverUri = new Uri(uri);
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
@@ -80,9 +81,10 @@ namespace HSL_Terrry
                     return;
                 }
                 FtpWebRequest reqFTP; 
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"));
-                //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt"
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing open po text format details.txt"));
+                //
                 //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
+                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"
                 reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
                  reqFTP.KeepAlive = false;
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -111,10 +113,13 @@ namespace HSL_Terrry
             catch (WebException wEx)
             {
                 wEx.StackTrace.ToString();
+                MsgBox1.MessageBox.Show("Error is" + wEx);
             }
+
             catch (Exception ex)
             {
                 ex.StackTrace.ToString();
+                MsgBox1.MessageBox.Show("Error is" + ex);
             }
         }
 
