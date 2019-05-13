@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="HSLConnection-Web.config Connection String" description="HSLConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=PC-OM\OMPC;Initial Catalog=HSL_Terry_Test;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\D-ione\\Backups\\TERRY_LATEST\\HSL_Terrry\\HSL_Terrry\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HSLConnection']/@connectionString" />
+  <parameter name="HSLConnection-Web.config Connection String" description="HSLConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=RAKSHIT-PC;Database=HSL_Terry_Test;User Id=sa;Password=sa@123;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\D_ione\\Terry\\GitSol\\Git_Terry_Test\\HSL_Terry_Deploy\\HSL_Terrry\\HSL_Terrry\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='HSLConnection']/@connectionString" />
   </parameter>
 </parameters>

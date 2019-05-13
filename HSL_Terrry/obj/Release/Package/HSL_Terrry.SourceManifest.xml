@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sitemanifest>
-  <IisApp path="E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" />
-  <setAcl path="E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
-  <setAcl path="E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+  <IisApp path="E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" />
+  <setAcl path="E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
 </sitemanifest>
