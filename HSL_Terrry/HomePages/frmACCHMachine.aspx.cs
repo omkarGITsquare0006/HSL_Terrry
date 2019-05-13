@@ -83,7 +83,7 @@ namespace HSL_Terrry.HomePages
         //CALLING LOAD PO DETAIL METHOD FOR FETCHING PO DETAILS
         private void LoadPODetail()
         {
-            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.SelectedValue.Trim());
+            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberAcc(txtPO_No.SelectedValue.Trim());
             if (dtPODetails.Rows.Count > 0)
             {
                 txtdate.Text = DateTimeClass.CurrentDateTime();
