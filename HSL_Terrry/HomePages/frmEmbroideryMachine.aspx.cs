@@ -25,6 +25,8 @@ namespace HSL_Terrry.HomePages
                     ddShift.CssClass = "form-control dropdown-toggle disabled";
                     txtoperator.ReadOnly = true;
                     txtsupervisor.ReadOnly = true;
+                    //txtnoofrounds.ReadOnly = true;
+                    //txtpcsperround.ReadOnly = true;
                     ddMachineNo.Enabled = false;
                     ddMachineNo.CssClass = "form-control dropdown-toggle disabled";
                     txtnoofslits.ReadOnly = true;
@@ -130,7 +132,7 @@ namespace HSL_Terrry.HomePages
                 if (dt.Rows.Count > 0)
                 {
                     textID.Text = Convert.ToString(dt.Rows[0]["Result"]);
-                    MsgBox1.MessageBox.Show("Record " + textID.Text + " Created successfully ", "frmHome.aspx");
+                    MsgBox1.MessageBox.Show("Record abc" + textID.Text + " Created successfully ", "frmHome.aspx");
                     ddMachineNo.SelectedIndex = 0;
                     txtoperator.Text = "";
                     txtsupervisor.Text = "";
@@ -173,7 +175,7 @@ namespace HSL_Terrry.HomePages
             {
                 DataTable dt = CRUDApplication.UpdaterecordEmm(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
-                    txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()),
+                    txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtpcsperround.Text.Trim()), Convert.ToInt32(txtnoofrounds.Text.Trim()),
                     Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
                 if (dt.Rows.Count > 0)
@@ -243,9 +245,9 @@ namespace HSL_Terrry.HomePages
                     ddMachineNo.SelectedIndex = ddMachineNo.Items.IndexOf(ddMachineNo.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Machine_No"]).Trim()));
                     txttrollyno.Text = Convert.ToString(dtSupDetails.Rows[0]["Trolly_no"]);
                     txttrollyqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Trolly_Qty"]);
-                    txtnoofslits.Text = Convert.ToString(dtSupDetails.Rows[0]["No_Of_Slits"]);
-                    txtpcslength2.Text = Convert.ToString(dtSupDetails.Rows[0]["Length"]);
-                    txtpcswidth2.Text = Convert.ToString(dtSupDetails.Rows[0]["Width"]);
+                    //txtnoofslits.Text = Convert.ToString(dtSupDetails.Rows[0]["No_Of_Slits"]);
+                    //txtpcslength2.Text = Convert.ToString(dtSupDetails.Rows[0]["Length"]);
+                    //txtpcswidth2.Text = Convert.ToString(dtSupDetails.Rows[0]["Width"]);
                     TextrejQty.Text = Convert.ToString(dtSupDetails.Rows[0]["Rejected_Qty"]);
                     Textrejreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason_Rej"]);
                     txtprodwt.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Kg"]);
@@ -253,6 +255,8 @@ namespace HSL_Terrry.HomePages
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
                     txtstopreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason"]);
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
+                    txtpcsperround.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_In_Round"]);
+                    txtnoofrounds.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Rounds"]);
                 }
             }
             catch (Exception ex)
@@ -276,8 +280,8 @@ namespace HSL_Terrry.HomePages
             txtsupervisor.ReadOnly = true;
             txttrollyno.ReadOnly = edit;
             txttrollyqty.ReadOnly = edit;
-            txtpcslength2.ReadOnly = edit;
-            txtpcswidth2.ReadOnly = edit;
+            //txtpcslength2.ReadOnly = edit;
+            //txtpcswidth2.ReadOnly = edit;
             TextrejQty.ReadOnly = edit;
             Textrejreason.ReadOnly = edit;
             txtprodwt.ReadOnly = edit;
@@ -285,6 +289,8 @@ namespace HSL_Terrry.HomePages
             txtmachinestop.ReadOnly = edit;
             txtstopreason.ReadOnly = edit;
             txtremarks.ReadOnly = edit;
+            txtpcsperround.ReadOnly = edit;
+            txtnoofrounds.ReadOnly = edit;
         }
     }
 }
