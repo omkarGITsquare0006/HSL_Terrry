@@ -13,7 +13,7 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //txtprodwt.Attributes.Add("readonly", "readonly");
+            txtprodwt.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
             if (!IsPostBack)
             {
@@ -234,7 +234,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                DataTable dtSupDetails = CRUDApplication.GetOperatorByID(strId);
+                DataTable dtSupDetails = CRUDApplication.GetOperatorByIDAcc(strId);
                 if (dtSupDetails.Rows.Count > 0)
                 {
                     //txtPO_No.ReadOnly = true;
