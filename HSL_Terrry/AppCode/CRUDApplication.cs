@@ -710,7 +710,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordEmm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Pcs_In_Round, Int32 Prod_Rounds, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -728,6 +728,8 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
+            cmdDistrict.Parameters.Add("@Pcs_In_Round", SqlDbType.NVarChar).Value = Pcs_In_Round;
+            cmdDistrict.Parameters.Add("@Prod_Rounds", SqlDbType.Int).Value = Prod_Rounds;
             cmdDistrict.Parameters.Add("@Rejected_Qty", SqlDbType.Int).Value = Rejected_Qty;
             cmdDistrict.Parameters.Add("@Reason_Rej", SqlDbType.NVarChar).Value = Reason_Rej;
             cmdDistrict.Parameters.Add("@Prod_Kg", SqlDbType.Decimal).Value = Prod_Kg;
