@@ -114,12 +114,14 @@ namespace HSL_Terrry
             {
                 wEx.StackTrace.ToString();
                 MsgBox1.MessageBox.Show("Error is" + wEx);
+                return;
             }
 
             catch (Exception ex)
             {
                 ex.StackTrace.ToString();
                 MsgBox1.MessageBox.Show("Error is" + ex);
+                return ;
             }
         }
 
