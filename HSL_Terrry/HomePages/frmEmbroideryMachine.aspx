@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h5 class="mt-xl-3" >EMBROIDERY MACHINE REPORT</h5>
+                <h5 class="mt-xl-3">EMBROIDERY MACHINE REPORT</h5>
             </div>
         </div>
         <%--<div>

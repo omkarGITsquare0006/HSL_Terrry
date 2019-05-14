@@ -41,7 +41,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h3>LENGTH SLITTING REPORT</h3>
+                <h5 class="mt-xl-3">LENGTH SLITTING REPORT</h5>
             </div>
         </div>
         <%--<div>
@@ -148,7 +148,7 @@
                                     <%--                            </div>--%>
                                 </div>
 
-                                <div class="form-group col-md-3 p-2">
+                                <div class="form-group col-md-3 p-2" hidden>
                                     <%--                            <div class="col">--%>
                                     <label for="txtsize" class="col-form-label">Size(CMS)</label>
                                     <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>

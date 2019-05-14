@@ -15,7 +15,7 @@ namespace HSL_Terrry.HomePages
         {
             //txtprodwt.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
                 if (strID != null)
                 {

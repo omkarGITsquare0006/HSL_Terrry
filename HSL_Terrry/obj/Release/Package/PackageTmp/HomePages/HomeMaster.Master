@@ -5,10 +5,12 @@
 <html>
 <head runat="server">
     <title>Himatsingka | Terry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+    <link href="../Styles/css/footer.css" rel="stylesheet" />
     <script runat="server">
 
         void Anchor_Click(Object sender, EventArgs e)
@@ -103,13 +105,13 @@
                 <div class="list-group list-group-flush">
                     <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">Administration</a>
                     <a onserverclick="Anchor_Click" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
-                    <a onserverClick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
+                    <a onserverclick="Lhm_Click" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
                     <a onserverclick="Acch_Click" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
-                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
-                    <a href="#" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
+                    <a onserverclick="Mcc_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
+                    <a onserverclick="Mch_Click" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
                     <a onserverclick="Emm_Click" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">PP</a>
-<%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
+                    <%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
                 </div>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -155,6 +157,9 @@
                     <asp:ContentPlaceHolder ID="head" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
+            </div>
+            <div class="footer">
+                <p class="ml-1">Copyright © 2019<span class="float-right mr-1">Designed and Developed by <a href="https://www.d-ione.com/">D-Ione Team</a></span></p>
             </div>
 
         </div>
