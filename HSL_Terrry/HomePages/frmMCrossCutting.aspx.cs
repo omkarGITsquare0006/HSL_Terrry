@@ -13,7 +13,7 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //txtprodwt.Attributes.Add("readonly", "readonly");
+            txtprodwt.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
             if (!Page.IsPostBack)
             {
