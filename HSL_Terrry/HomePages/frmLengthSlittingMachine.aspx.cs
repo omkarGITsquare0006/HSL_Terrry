@@ -137,10 +137,6 @@ namespace HSL_Terrry.HomePages
                 txtprocessedqty.Text = Convert.ToString(dtPODetails.Rows[0]["Prod_pcs"]);
                 txtopenorderqty.Text = Convert.ToString(dtPODetails.Rows[0]["Po_blnc"]);
                 txttotalconfirm.Text = Convert.ToString(dtPODetails.Rows[0]["TotProd"]);
-                txtUdf1.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_1"]);
-                txtUdf2.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_2"]);
-                txtUdf3.Text = Convert.ToString(dtPODetails.Rows[0]["Udf_3"]);
-                txtstatus.Text = Convert.ToString(dtPODetails.Rows[0]["status"]);
                
                 // txtLotNo.DataSource = CRUDApplication.Load_LotNumber(txtPO_No.SelectedValue);
                 //txtLotNo.DataTextField = "Lot_No";
