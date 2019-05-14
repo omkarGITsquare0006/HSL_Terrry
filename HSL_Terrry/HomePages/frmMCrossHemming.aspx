@@ -39,7 +39,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h3 class="mt-xl-3">MANUAL CROSS HEMMING REPORT</h3>
+                <h5 class="mt-xl-3">MANUAL CROSS HEMMING REPORT</h5>
 
             </div>
         </div>

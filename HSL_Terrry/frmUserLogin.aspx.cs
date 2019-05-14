@@ -70,92 +70,33 @@ namespace HSL_Terrry
 
         }
 
-        private void Download()
-        {
-            try
-            {
-                string _ftpURL = "testsftp.com"; //Host URL or address of the SFTP server
-                string _UserName = "admin";     //User Name of the SFTP server
-                string _Password = "admin123";  //Password of the SFTP server
-                int _Port = 22;                 //Port No of the SFTP server (if any)
-                string _ftpDirectory = "Receipts"; //The directory in SFTP server where the files are present
-                string LocalDirectory = "D:\\FilePuller"; //Local directory where the files will be downloaded
-
-                //Sftp oSftp = new Sftp(_ftpURL, _UserName, _Password);
-                oSftp.Connect(_Port);
-                ArrayList FileList = oSftp.GetFileList(_ftpDirectory);
-                FileList.Remove(".");
-                FileList.Remove("..");          //Remove . from the file list
-                FileList.Remove("Processed");   //Remove folder name from the file list. If there is no folder name remove the code.
-
-                for (int i = 0; i < FileList.Count; i++)
-                {
-                    if (!File.Exists(LocalDirectory + "/" + FileList[i]))
-                    {
-                        oSftp.Get(_ftpDirectory + "/" + FileList[i], LocalDirectory + "/" + FileList[i]);
-                        Thread.Sleep(100);
-                    }
-                }
-                oSftp.Close();
-            }
-            catch (WebException wEx)
-            {
-                wEx.StackTrace.ToString();
-                MsgBox1.MessageBox.Show("Error is" + wEx);
-                return;
-            }
-
-            catch (Exception ex)
-            {
-                ex.StackTrace.ToString();
-                MsgBox1.MessageBox.Show("Error is" + ex);
-                return;
-            }
-        }
         //private void Download()
         //{
         //    try
         //    {
-        //        string uri = "sftp://" + "home637259329.1and1-data.host" + "/" + "dione2015" + "/" + "PO1.txt";
-        //        int Port = 22;
-        //        //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
-        //        //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"
-        //        //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
-        //        Uri serverUri = new Uri(uri);
-        //        if (serverUri.Scheme != Uri.UriSchemeFtp)
-        //        {
-        //            return;
-        //        }
-        //        FtpWebRequest reqFTP; 
-        //        reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("sftp://" + "home637259329.1and1-data.host" + "/" + "dione2015" + "/" + "PO1.txt"));
-        //        //
-        //        //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
-        //        //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"
-        //        //reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
-        //        reqFTP.Credentials = new NetworkCredential("u85741006", "Dione987#");
-        //        reqFTP.KeepAlive = false;
-        //        reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
-        //        reqFTP.UseBinary = true;
-        //        reqFTP.Proxy = null;
-        //        reqFTP.UsePassive = false;
-        //        FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
-        //        Stream responseStream = response.GetResponseStream();
-        //        //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
-        //        //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
-        //        // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-        //        FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
+        //        string _ftpURL = "testsftp.com"; //Host URL or address of the SFTP server
+        //        string _UserName = "admin";     //User Name of the SFTP server
+        //        string _Password = "admin123";  //Password of the SFTP server
+        //        int _Port = 22;                 //Port No of the SFTP server (if any)
+        //        string _ftpDirectory = "Receipts"; //The directory in SFTP server where the files are present
+        //        string LocalDirectory = "D:\\FilePuller"; //Local directory where the files will be downloaded
 
+        //        //Sftp oSftp = new Sftp(_ftpURL, _UserName, _Password);
+        //        Sftp.Connect(_Port);
+        //        ArrayList FileList = Sftp.GetFileList(_ftpDirectory);
+        //        FileList.Remove(".");
+        //        FileList.Remove("..");          //Remove . from the file list
+        //        FileList.Remove("Processed");   //Remove folder name from the file list. If there is no folder name remove the code.
 
-        //        int Length = 2048;
-        //        Byte[] buffer = new Byte[Length];
-        //        int bytesRead = responseStream.Read(buffer, 0, Length);
-        //        while (bytesRead > 0)
+        //        for (int i = 0; i < FileList.Count; i++)
         //        {
-        //            writeStream.Write(buffer, 0, bytesRead);
-        //            bytesRead = responseStream.Read(buffer, 0, Length);
+        //            if (!File.Exists(LocalDirectory + "/" + FileList[i]))
+        //            {
+        //                oSftp.Get(_ftpDirectory + "/" + FileList[i], LocalDirectory + "/" + FileList[i]);
+        //                Thread.Sleep(100);
+        //            }
         //        }
-        //        writeStream.Close();
-        //        response.Close();
+        //        oSftp.Close();
         //    }
         //    catch (WebException wEx)
         //    {
@@ -168,9 +109,69 @@ namespace HSL_Terrry
         //    {
         //        ex.StackTrace.ToString();
         //        MsgBox1.MessageBox.Show("Error is" + ex);
-        //        return ;
+        //        return;
         //    }
         //}
+        protected void Download()
+        {
+            try
+            {
+                string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt";
+                    //"sftp://" + "home637259329.1and1-data.host" + "/" + "dione2015" + "/" + "PO1.txt";
+                //int Port = 22;
+                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+                //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"
+                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
+                Uri serverUri = new Uri(uri);
+                if (serverUri.Scheme != Uri.UriSchemeFtp)
+                {
+                    return;
+                }
+                FtpWebRequest reqFTP;
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"));
+                //
+                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
+                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"
+                //reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
+                reqFTP.Credentials = new NetworkCredential("u85741006", "Dione987#");
+                reqFTP.KeepAlive = false;
+                reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+                reqFTP.UseBinary = true;
+                reqFTP.Proxy = null;
+                reqFTP.UsePassive = false;
+                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+                Stream responseStream = response.GetResponseStream();
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
+                // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
+                FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
+
+
+                int Length = 2048;
+                Byte[] buffer = new Byte[Length];
+                int bytesRead = responseStream.Read(buffer, 0, Length);
+                while (bytesRead > 0)
+                {
+                    writeStream.Write(buffer, 0, bytesRead);
+                    bytesRead = responseStream.Read(buffer, 0, Length);
+                }
+                writeStream.Close();
+                response.Close();
+            }
+            catch (Exception wEx)
+            {
+                wEx.StackTrace.ToString();
+                MsgBox1.MessageBox.Show("Error is" + wEx);
+                return;
+            }
+
+            //catch (Exception ex)
+            //{
+            //    ex.StackTrace.ToString();
+            //    MsgBox1.MessageBox.Show("Error is" + ex);
+            //    return;
+            //}
+        }
 
         protected void ImportPONumber()
         {
