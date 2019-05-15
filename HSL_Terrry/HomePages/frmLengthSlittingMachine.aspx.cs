@@ -49,7 +49,7 @@ namespace HSL_Terrry.HomePages
         {
             try
             {
-                txtPO_No.DataSource = CRUDApplication.Load_PONumber();
+                txtPO_No.DataSource = CRUDApplication.Load_PONumber("Lsm_status");
                 txtPO_No.DataTextField = "Prod_Order_no".ToString().Trim();
                 txtPO_No.DataValueField = "Prod_Order_no".ToString().Trim();
                 txtPO_No.DataBind();
