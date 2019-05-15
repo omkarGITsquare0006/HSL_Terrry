@@ -70,6 +70,49 @@ namespace HSL_Terrry
 
         }
 
+        private void Download()
+        {
+            try
+            {
+                string uri = "ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+                Uri serverUri = new Uri(uri);
+                if (serverUri.Scheme != Uri.UriSchemeFtp)
+                {
+                    return;
+                }
+                FtpWebRequest reqFTP;
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"));
+                reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098");
+                reqFTP.KeepAlive = false;
+                reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+                reqFTP.UseBinary = true;
+                reqFTP.Proxy = null;
+                reqFTP.UsePassive = false;
+                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+                Stream responseStream = response.GetResponseStream();
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
+                //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
+                // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
+                FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
+
+
+                int Length = 2048;
+                Byte[] buffer = new Byte[Length];
+                int bytesRead = responseStream.Read(buffer, 0, Length);
+                while (bytesRead > 0)
+                {
+                    writeStream.Write(buffer, 0, bytesRead);
+                    bytesRead = responseStream.Read(buffer, 0, Length);
+                }
+                writeStream.Close();
+                response.Close();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         //private void Download()
         //{
         //    try
@@ -112,66 +155,66 @@ namespace HSL_Terrry
         //        return;
         //    }
         //}
-        protected void Download()
-        {
-            try
-            {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt";
-                    //"sftp://" + "home637259329.1and1-data.host" + "/" + "dione2015" + "/" + "PO1.txt";
-                //int Port = 22;
-                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
-                //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"
-                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
-                Uri serverUri = new Uri(uri);
-                if (serverUri.Scheme != Uri.UriSchemeFtp)
-                {
-                    return;
-                }
-                FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"));
-                //
-                //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
-                //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"
-                //reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
-                reqFTP.Credentials = new NetworkCredential("u85741006", "Dione987#");
-                reqFTP.KeepAlive = false;
-                reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
-                reqFTP.UseBinary = true;
-                reqFTP.Proxy = null;
-                reqFTP.UsePassive = false;
-                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
-                Stream responseStream = response.GetResponseStream();
-                //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
-                //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
-                // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
-                FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
+        //protected void Download()
+        //{
+        //    try
+        //    {
+        //        string uri = "ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt";
+        //            //"sftp://" + "home637259329.1and1-data.host" + "/" + "dione2015" + "/" + "PO1.txt";
+        //        //int Port = 22;
+        //        //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+        //        //"ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"
+        //        //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
+        //        Uri serverUri = new Uri(uri);
+        //        if (serverUri.Scheme != Uri.UriSchemeFtp)
+        //        {
+        //            return;
+        //        }
+        //        FtpWebRequest reqFTP;
+        //        reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" + "Sewing_open_po_text_format_details.txt"));
+        //        //
+        //        //"SAPPP" + "/" + "ZDIONE" + "/" + "Terry_sewing" + "/" +
+        //        //"ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"
+        //        //reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098"); 
+        //        reqFTP.Credentials = new NetworkCredential("u85741006", "Dione987#");
+        //        reqFTP.KeepAlive = false;
+        //        reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
+        //        reqFTP.UseBinary = true;
+        //        reqFTP.Proxy = null;
+        //        reqFTP.UsePassive = false;
+        //        FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+        //        Stream responseStream = response.GetResponseStream();
+        //        //FileStream writeStream = new FileStream(@"D:\Shrishanth" + "\" + ""SetUP.EXE", FileMode.Create);  
+        //        //FileStream writeStream = new FileStream(@"D:\Shrishanth\", FileMode.OpenOrCreate, FileAccess.Write);
+        //        // FileStream writeStream = new FileStream(localDestnDir + "\" + file, FileMode.Create);  
+        //        FileStream writeStream = new FileStream(@"E:\po\" + "Terry_Sewing_PO.txt", FileMode.Create);
 
 
-                int Length = 2048;
-                Byte[] buffer = new Byte[Length];
-                int bytesRead = responseStream.Read(buffer, 0, Length);
-                while (bytesRead > 0)
-                {
-                    writeStream.Write(buffer, 0, bytesRead);
-                    bytesRead = responseStream.Read(buffer, 0, Length);
-                }
-                writeStream.Close();
-                response.Close();
-            }
-            catch (Exception wEx)
-            {
-                wEx.StackTrace.ToString();
-                MsgBox1.MessageBox.Show("Error is" + wEx);
-                return;
-            }
+        //        int Length = 2048;
+        //        Byte[] buffer = new Byte[Length];
+        //        int bytesRead = responseStream.Read(buffer, 0, Length);
+        //        while (bytesRead > 0)
+        //        {
+        //            writeStream.Write(buffer, 0, bytesRead);
+        //            bytesRead = responseStream.Read(buffer, 0, Length);
+        //        }
+        //        writeStream.Close();
+        //        response.Close();
+        //    }
+        //    catch (Exception wEx)
+        //    {
+        //        wEx.StackTrace.ToString();
+        //        MsgBox1.MessageBox.Show("Error is" + wEx);
+        //        return;
+        //    }
 
-            //catch (Exception ex)
-            //{
-            //    ex.StackTrace.ToString();
-            //    MsgBox1.MessageBox.Show("Error is" + ex);
-            //    return;
-            //}
-        }
+        //    //catch (Exception ex)
+        //    //{
+        //    //    ex.StackTrace.ToString();
+        //    //    MsgBox1.MessageBox.Show("Error is" + ex);
+        //    //    return;
+        //    //}
+        //}
 
         protected void ImportPONumber()
         {
