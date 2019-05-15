@@ -94,7 +94,7 @@
                                 <%--                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">--%>
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtcustno" class="col-form-label">Customer :</label>
+                                    <label for="txtcustno" class="col-form-label">Customer</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <asp:TextBox ID="txtcustno" class="form-control" ReadOnly="true" placeholder="Customer" runat="server" />
@@ -245,7 +245,7 @@
                                     <label for="txtpcswt" class="col-form-label">Per Pcs Weight(GMS)</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
+                                    <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Per Pcs Weight" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--                    </div>--%>
@@ -256,7 +256,7 @@
                                     <label for="txtpcsperkg" class="col-form-label">Pieces/KG</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Per Pcs Weight" runat="server" />
+                                    <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>

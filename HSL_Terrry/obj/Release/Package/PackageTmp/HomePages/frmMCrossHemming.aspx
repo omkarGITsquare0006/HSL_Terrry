@@ -114,7 +114,7 @@
                                 <%--                    <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">--%>
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtcustno" class="col-form-label">Customer :</label>
+                                    <label for="txtcustno" class="col-form-label">Customer</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <asp:TextBox ID="txtcustno" class="form-control" ReadOnly="true" placeholder="Customer" runat="server" />
@@ -265,7 +265,7 @@
                                     <label for="txtpcswt" class="col-form-label">Per Pcs Weight(GMS)</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
+                                    <asp:TextBox ID="txtpcswt" class="form-control" ReadOnly="true" placeholder="Per Pcs Weight" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--                    </div>--%>
@@ -276,7 +276,7 @@
                                     <label for="txtpcsperkg" class="col-form-label">Pieces/KG</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Per Pcs Weight" runat="server" />
+                                    <asp:TextBox ID="txtpcsperkg" class="form-control" ReadOnly="true" placeholder="Pieces/KG" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -325,18 +325,15 @@
                 </div>
             </div>
         </div>
-        <br />
-        <%--</div>--%>
-        <%--</div>--%>
-
+       
         <div class="container-fluid">
             <div id="accordion">
-                <div class="card border-warning">
+                <div class="card mt-1 border-warning">
                     <div class="card-header bg-warning" data-toggle="collapse" href="#collapseTwo">
                         <a class="card-link" data-toggle="collapse" href="#collapseTwo">Finished Goods Details
                         </a>
                     </div>
-                    <div id="collapseTwo" class="collapse">
+                    <div id="collapseTwo" class="collapse show">
                         <div class="card-body">
                             <%-- Card 1 Body --%>
                             <%-- Row1 --%>
@@ -360,7 +357,7 @@
                                     <label for="txtdate" class="col-form-label">Date</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtdate" class="form-control" placeholder="Date" runat="server" />
+                                    <asp:TextBox ID="txtdate" AutoComplete="Off" class="form-control" placeholder="Date" runat="server" />
                                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                     <asp:CalendarExtender ID="CalendarExtender1" BehaviorID="calendar1" OnClientDateSelectionChanged="dateselect" TargetControlID="txtdate" runat="server"></asp:CalendarExtender>
                                     <%--                            </div>--%>
@@ -390,7 +387,7 @@
                                     <label for="txtoperator" class="col-form-label">Operator</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtoperator" class="form-control" placeholder="Operator" runat="server" />
+                                    <asp:TextBox ID="txtoperator" AutoComplete="Off" class="form-control" placeholder="Operator" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -401,7 +398,7 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtsupervisor" class="form-control" placeholder="Supervisor" runat="server" />
+                                    <asp:TextBox ID="txtsupervisor" AutoComplete="Off" class="form-control" placeholder="Supervisor" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -430,7 +427,7 @@
                                     <label for="txttrollyno" class="col-form-label">Trolley No</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyno" class="form-control" placeholder="Trolley Number" runat="server" />
+                                    <asp:TextBox ID="txttrollyno" AutoComplete="Off" class="form-control" placeholder="Trolley Number" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -441,7 +438,7 @@
                                     <label for="txttrollyqty" class="col-form-label">Trolley Qty(Pcs)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyqty" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Trolley Quantity" runat="server" />
+                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Trolley Quantity" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -452,7 +449,7 @@
                                     <label for="txtprodpcs" class="col-form-label">Produced Pcs</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtprodpcs" class="form-control" oninput="return Calculate();" placeholder="Produced Pieces" runat="server" />
+                                    <asp:TextBox ID="txtprodpcs" AutoComplete="Off" class="form-control" TextMode="Number" oninput="return Calculate();" placeholder="Produced Pieces" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -467,7 +464,7 @@
                                     <label for="txtprodwt" class="col-form-label">Produced Weight(Kgs)</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtprodwt" class="form-control font-weight-bold" placeholder="Production(Mtr)" runat="server" />
+                                    <asp:TextBox ID="txtprodwt" AutoComplete="Off" class="form-control font-weight-bold" placeholder="Produced Weight" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -478,7 +475,7 @@
                                     <label for="txtrejQty" class="col-form-label">Rejected Qty(No's)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtrejQty" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Qty" runat="server" />
+                                    <asp:TextBox ID="txtrejQty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Qty" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -489,7 +486,7 @@
                                     <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtrejreason" class="form-control" placeholder="Reason" runat="server" />
+                                    <asp:TextBox ID="txtrejreason" AutoComplete="Off" class="form-control" placeholder="Reason" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -500,7 +497,7 @@
                                     <label for="txtmachinestop" class="col-form-label">M/C Stoppage(Min)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtmachinestop" class="form-control" placeholder="Machine Stoppage(Min)" runat="server" />
+                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" placeholder="Machine Stoppage(Min)" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -519,7 +516,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtstopreason" class="form-control" placeholder="Stoppage Reason" runat="server" />
+                                    <asp:TextBox ID="txtstopreason" AutoComplete="Off" class="form-control" placeholder="Stoppage Reason" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -536,7 +533,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtremarks" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
+                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
