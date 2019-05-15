@@ -12,17 +12,18 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Console.WriteLine("PO manage clicked!");
             if (!Page.IsPostBack)
             {
-                Load_PONumber();
+                Load_PONumber(ddlScreen.SelectedValue.ToString().Trim());
             }
         }
 
-        protected void Load_PONumber()
+        protected void Load_PONumber(String screenName)
         {
             try
             {
-                txtPO_No.DataSource = CRUDApplication.Load_PONumber();
+                txtPO_No.DataSource = CRUDApplication.Load_PONumber(screenName);
                 txtPO_No.DataTextField = "Prod_Order_no";
                 txtPO_No.DataValueField = "Prod_Order_no";
                 txtPO_No.DataBind();
@@ -81,7 +82,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                int dtLotClose = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text, txtpocloseremark.Text);
+                int dtLotClose = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text, txtpocloseremark.Text,ddlScreen.SelectedValue.Trim());
                 if (dtLotClose > 0)
                 {
                     MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ", "AdminSupPanel.aspx");
@@ -103,6 +104,11 @@ namespace HSL_Terrry.HomePages
                 MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
                 return;
             }
+        }
+
+        protected void ddlScreen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Load_PONumber(ddlScreen.SelectedValue.ToString().Trim());
         }
     }
 }

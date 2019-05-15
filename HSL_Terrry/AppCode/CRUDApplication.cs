@@ -78,7 +78,7 @@ public class CRUDApplication
     }
 
     //Closing PO No by supervisor or admin
-    public static int Close_PODetailsOnPONumber(string poNumber,string remarks)
+    public static int Close_PODetailsOnPONumber(string poNumber,string remarks,String screenNameCol)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -89,6 +89,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "ClosePo";
             cmdDistrict.Parameters.Add("@PoNo", SqlDbType.NVarChar).Value = poNumber;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = remarks;
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.NVarChar).Value = screenNameCol;
             int exc = cmdDistrict.ExecuteNonQuery();
             //SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             //DataTable dt = new DataTable();
@@ -917,7 +918,7 @@ public class CRUDApplication
                 connGetDistrict.Close();
         }
     }
-    public static DataTable Load_PONumber()
+    public static DataTable Load_PONumber(String ScreenStatus)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -927,7 +928,7 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoad";
-            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = "Lsm_status";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
