@@ -63,7 +63,7 @@
 
 
             <%-- Manage Users Working --%>
-            <div class="col-auto">
+            <div class="col-auto" id="usercard" runat="server">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="../images/users.png" style="width: 250px; height: 250px;">
@@ -80,7 +80,7 @@
             </div>
 
             <%-- Manage PO Working --%>
-            <div class="col-auto">
+            <div class="col-auto" id="pocard" runat="server">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="../images/orders.png" style="width: 250px; height: 250px;">

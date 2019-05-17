@@ -1,27 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageUsersList.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageUsersList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <!DOCTYPE html>
-    <html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>JavaScript - read JSON from URL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     </head>
 
     <body>
-        <br />
-        <br />
-        <br />
-        <div class="container" style="width: 100%">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="max_min_button" style="font-weight: 600; font-size: 28px; margin-top: -13px;">
-                    </div>
-                    
-                    <h2 class="panel-title">MASTER DATA</h2>
-                </div>
-            </div>
+        <div class="container-fluid">
+            <h2 class="panel-title">MASTER DATA</h2>
 
 
             <%-- <form id="formSupplierList" runat="server">--%>
@@ -44,21 +34,20 @@
         </div>
     </div>--%>
             <%-- <asp:Label ID="lblDateTime" runat="server" Style="float: right; font-size: 16px;"></asp:Label>--%>
-            <div class="container">
-                <div class="panel panel-primary" style="border-color: #fff;">
-                    &nbsp;&nbsp;
             <asp:GridView ID="BeamList" runat="server" DataKeyNames="Sup_ID" AutoGenerateColumns="false"
-                AllowSorting="true" CssClass="Gridview" HeaderStyle-BackColor="Orange" ForeColor="white"
+                AllowSorting="true" CssClass="table-responsive w-auto" HeaderStyle-BackColor="Orange" ForeColor="white"
                 CellPadding="5" HeaderStyle-Font-Bold="true" HeaderStyle-Height="35px" HeaderStyle-ForeColor="White"
-                HeaderStyle-Font-Size="18px" HeaderStyle-Width="20px" Style="text-align: center;"
+                HeaderStyle-Font-Size="18px" HeaderStyle-Width="100px" HorizontalAlign="Justify"
                 OnRowCommand="gvSupList_RowCommand" OnRowDataBound="gvSupList_RowDataBound" OnRowDeleted="gvSupList_RowDeleted"
                 OnRowDeleting="gvSupList_RowDeleting">
-                <RowStyle ForeColor="Black" BackColor="White" HorizontalAlign="Center" Height="27px"></RowStyle>
+                <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px" HorizontalAlign="Center"></HeaderStyle>
+
+                <RowStyle ForeColor="Black" CssClass="table-hover" BackColor="White" HorizontalAlign="Center" Height="27px"></RowStyle>
                 <Columns>
                     <asp:TemplateField HeaderText="User ID">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
-                            <asp:LinkButton ID="lnkSupID" runat="server" Text='<%#Eval("Sup_ID") %>' PostBackUrl='<%# String.Format("~/HomePages/frmManageUsers.aspx?Sup_Id={0}", Eval("Sup_Id"))%>'></asp:LinkButton>
+                            <asp:LinkButton ID="lnkSupID" runat="server" Width="120px" Text='<%#Eval("Sup_ID") %>' PostBackUrl='<%# String.Format("~/HomePages/frmManageUsers.aspx?Sup_Id={0}", Eval("Sup_Id"))%>'></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Name">
@@ -101,22 +90,20 @@
                 </Columns>
                 <AlternatingRowStyle BackColor="#E5E4E4" ForeColor="Black" />
             </asp:GridView>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-4">
-                    <br />
-                    <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
-                        Style="width: 100px; font-size: 16px; margin-left: 30%;" Text="Add New" />
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
+                <br />
+                <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
+                    Style="width: 100px; font-size: 16px; margin-left: 30%;" Text="Add New" />
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
             </div>
         </div>
 
