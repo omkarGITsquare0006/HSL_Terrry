@@ -74,14 +74,14 @@ namespace HSL_Terrry
         {
             try
             {
-                string uri = "ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt";
+                string uri = "ftp://" + "192.168.1.29" + "/" + "Terry" + "/" + "Terry_Sewing_PO.txt";
                 Uri serverUri = new Uri(uri);
                 if (serverUri.Scheme != Uri.UriSchemeFtp)
                 {
                     return;
                 }
                 FtpWebRequest reqFTP;
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "QA" + "/" + "Terry_Sewing_PO.txt"));
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + "192.168.1.29" + "/" + "Terry" + "/" + "Terry_Sewing_PO.txt"));
                 reqFTP.Credentials = new NetworkCredential("warping", "W@rp1ng@098");
                 reqFTP.KeepAlive = false;
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
