@@ -78,7 +78,7 @@ public class CRUDApplication
     }
 
     //Closing PO No by supervisor or admin
-    public static int Close_PODetailsOnPONumber(string poNumber,string remarks,String screenNameCol)
+    public static int Close_PODetailsOnPONumber(string poNumber, string remarks, String screenNameCol)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -114,7 +114,7 @@ public class CRUDApplication
     }
 
     public static DataTable AddNewrecord(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal Pod_mtr, decimal Length,
-       string Width,Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+       string Width, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Prod_pcs, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -218,7 +218,7 @@ public class CRUDApplication
     }
 
     public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg,  Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -236,7 +236,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
             //cmdDistrict.Parameters.Add("@Lot_No", SqlDbType.NVarChar).Value = Lot_No;
             //cmdDistrict.Parameters.Add("@Lot_Qty", SqlDbType.Int).Value = Lot_Qty;
-           // cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
+            // cmdDistrict.Parameters.Add("@Lot_Prod", SqlDbType.Int).Value = Lot_Prod;
             //cmdDistrict.Parameters.Add("@Lot_blnc", SqlDbType.Int).Value = Lot_blnc;
             cmdDistrict.Parameters.Add("@Trolly_no", SqlDbType.NVarChar).Value = Trolly_no;
             cmdDistrict.Parameters.Add("@Trolly_Qty", SqlDbType.Int).Value = Trolly_Qty;
@@ -478,11 +478,99 @@ public class CRUDApplication
             if (connGetDistrict.State == ConnectionState.Open)
                 connGetDistrict.Close();
         }
+    }
+
+    public static DataTable AddNewrecordPP(string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Noof_Pieces, Int32 Noof_PP, Int32 No_Of_Slits, decimal prodqty,
+        Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_PPM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "Insert";
+            //cmdDistrict.Parameters.Add("@ID", SqlDbType.Int).Value = Lot_Qty;
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = strPO_No;
+            cmdDistrict.Parameters.Add("@Date", SqlDbType.DateTime).Value = Date;
+            cmdDistrict.Parameters.Add("@Shift", SqlDbType.NVarChar).Value = Shift;
+            cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
+            cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
+            cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
+            cmdDistrict.Parameters.Add("@No_Of_Pcs_Pack", SqlDbType.NVarChar).Value = Noof_Pieces;
+            cmdDistrict.Parameters.Add("@No_Of_Poly_Pack", SqlDbType.Int).Value = Noof_PP;
+            cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
+            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.NVarChar).Value = prodqty;
+            cmdDistrict.Parameters.Add("@Bal_Pcs", SqlDbType.Int).Value = Bal_Pcs;
+            cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
+            cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
+            cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
+
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable UpdaterecordPP(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Noof_Pieces, Int32 Noof_PP, Int32 No_Of_Slits, decimal prodqty,
+        Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_Tbl_PPM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "Update";
+            cmdDistrict.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
+            cmdDistrict.Parameters.Add("@PO_No", SqlDbType.NVarChar).Value = strPO_No;
+            cmdDistrict.Parameters.Add("@Date", SqlDbType.DateTime).Value = Date;
+            cmdDistrict.Parameters.Add("@Shift", SqlDbType.NVarChar).Value = Shift;
+            cmdDistrict.Parameters.Add("@Operator", SqlDbType.NVarChar).Value = Operator;
+            cmdDistrict.Parameters.Add("@Supervisor", SqlDbType.NVarChar).Value = Supervisor;
+            cmdDistrict.Parameters.Add("@Machine_No", SqlDbType.NVarChar).Value = Machine_No;
+            cmdDistrict.Parameters.Add("@No_Of_Pcs_Pack", SqlDbType.NVarChar).Value = Noof_Pieces;
+            cmdDistrict.Parameters.Add("@No_Of_Poly_Pack", SqlDbType.Int).Value = Noof_PP;
+            cmdDistrict.Parameters.Add("@No_Of_Slits", SqlDbType.Int).Value = No_Of_Slits;
+            cmdDistrict.Parameters.Add("@Prod_pcs", SqlDbType.NVarChar).Value = prodqty;
+            cmdDistrict.Parameters.Add("@Bal_Pcs", SqlDbType.Int).Value = Bal_Pcs;
+            cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
+            cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
+            cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
+
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
 
     }
 
     public static DataTable UpdaterecordMch(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
-       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+   Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -1030,6 +1118,34 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable Load_PONumberPP()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoad";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = "Pp_status";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable Load_PONumberMcc()
     {
 
@@ -1394,6 +1510,34 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable Load_PODetailsOnPONumberPP(string PONumber)
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_PPM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PODetailLoad";
+            cmdDistrict.Parameters.Add("@PONo", SqlDbType.NVarChar).Value = PONumber;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable Load_PODetailsOnPONumberMcc(string PONumber)
     {
 
@@ -1614,6 +1758,33 @@ public class CRUDApplication
         }
     }
 
+    public static DataTable Load_PPMApproval()
+    {
+
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_DT_Tbl_PPM", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable Load_MCHApproval()
     {
 
@@ -1735,6 +1906,35 @@ public class CRUDApplication
         try
         {
             SqlCommand cmdSup = new SqlCommand("SP_DT_Tbl_MCH", connGetSup);
+            cmdSup.CommandType = CommandType.StoredProcedure;
+            cmdSup.CommandTimeout = 250;
+            cmdSup.Parameters.Add("@Flag", SqlDbType.Char).Value = "SelectBySupID";
+            cmdSup.Parameters.Add("@ID", SqlDbType.NChar).Value = strID;
+
+            SqlDataAdapter da = new SqlDataAdapter(cmdSup);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetSup.State == ConnectionState.Open)
+                connGetSup.Close();
+        }
+    }
+
+    public static DataTable GetOperatorByIDPP(string strID)
+    {
+
+        SqlConnection connGetSup = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdSup = new SqlCommand("SP_DT_Tbl_PPM", connGetSup);
             cmdSup.CommandType = CommandType.StoredProcedure;
             cmdSup.CommandTimeout = 250;
             cmdSup.Parameters.Add("@Flag", SqlDbType.Char).Value = "SelectBySupID";
