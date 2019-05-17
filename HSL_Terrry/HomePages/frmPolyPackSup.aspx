@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmMCrossCuttingSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmMCrossCuttingSup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmPolyPackSup.aspx.cs" Inherits="HSL_Terrry.HomePages.frmPolyPackSup" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!DOCTYPE html>
     <html>
@@ -41,14 +42,14 @@
         </script>--%>
 
         <%--Lot Manage--%>
-         <br />
+        <br />
         <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
                     <p>LENGTH SLITTING REPORT</p>
                 </div>
                 <div class="card-body">
-                    <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" 
+                    <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false"
                         AllowSorting="true" CssClass="table-responsive table-striped w-auto" ForeColor="white" HorizontalAlign="justify"
                         OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                         OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
@@ -60,19 +61,22 @@
                         <RowStyle ForeColor="Black" CssClass="table-hover" BackColor="#E5E4E4" HorizontalAlign="Center" Font-Size="Small"></RowStyle>
                         <Columns>
                             <asp:TemplateField HeaderText="Transaction #">
-                                <HeaderStyle CssClass="small"  /><%--Width="15%"--%>
+                                <HeaderStyle CssClass="small" />
+                                <%--Width="15%"--%>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmMCrossCutting.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
+                                    <asp:LinkButton ID="LinkID" runat="server" Text='<%#Eval("ID") %>' PostBackUrl='<%# String.Format("frmPolyPack.aspx?ID={0}", Eval("ID"))%>'></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Po Number">
-                                <HeaderStyle CssClass="small" Width="15%" /><%-- --%>
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <%-- --%>
                                 <ItemTemplate>
                                     <asp:Label ID="lblPONo" runat="server" Text='<%#Eval("Prod_Order_no") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField ItemStyle-Wrap="false" HeaderText="Date">
-                                <HeaderStyle CssClass="small" Width="18%" /><%--Width="18%"--%>
+                                <HeaderStyle CssClass="small" Width="18%" />
+                                <%--Width="18%"--%>
                                 <ItemTemplate>
                                     <asp:Label ID="lblDate" runat="server" Text='<%#Eval("Date") %>' />
                                 </ItemTemplate>
@@ -84,30 +88,35 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Machine #">
-                                <HeaderStyle CssClass="small" Width="15%" /><%--Width="15%"--%>
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <%--Width="15%"--%>
                                 <ItemTemplate>
                                     <asp:Label ID="lblMachineNo" runat="server" Text='<%#Eval("Machine_No") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Trolly #">
-                                <HeaderStyle CssClass="small" Width="15%" /><%--Width="15%"--%>
+                            <asp:TemplateField HeaderText="No Of Pieces in Pack">
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <%--Width="15%"--%>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("Trolly_No") %>' />
+                                    <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("No_Of_Pcs_Pack") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="No Of Poly Pack">
+                                <HeaderStyle CssClass="small" Width="15%" />
+                                <%--Width="15%"--%>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTrollyNo" runat="server" Text='<%#Eval("No_Of_Poly_Pack") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Confirmed Qty">
-                                <HeaderStyle CssClass="small" Width="12%" /><%--Width="12%"--%> 
+                                <HeaderStyle CssClass="small" Width="12%" />
+                                <%--Width="12%"--%>
                                 <ItemTemplate>
                                     <asp:Label ID="lblProd_pcs" runat="server" Text='<%#Eval("Prod_pcs") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Scrapped Qty">
-                                <HeaderStyle CssClass="small" Width="15%" /><%--Width="15%"--%> 
-                                <ItemTemplate>
-                                    <asp:Label ID="lblRejected_Qty" runat="server" Text='<%#Eval("Rejected_Qty") %>' />
-                                </ItemTemplate>
-                            </asp:TemplateField>
                             
+
                             <%--<asp:TemplateField HeaderText="Time-In">
                         <HeaderStyle CssClass="small" />
                         <ItemTemplate>
@@ -156,7 +165,7 @@
                 </div>
             </div>
         </div>
-       
+
 
     </body>
     </html>

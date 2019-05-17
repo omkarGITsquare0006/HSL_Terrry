@@ -133,6 +133,8 @@ namespace HSL_Terrry.HomePages
                     else
                         ddlDept.SelectedIndex = -1;
                     chkActive.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["Active"]);
+                    if (dtSupDetails.Rows[0]["RoleId"].ToString().Trim() != null)
+                        ddlRole.SelectedValue = Convert.ToString(dtSupDetails.Rows[0]["RoleId"]);
                    // chkAdmin.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["IsAdmin"]);
                 }
             }

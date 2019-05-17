@@ -11,7 +11,10 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["RoleID"].ToString().Equals("2"))
+            {
+                usercard.Visible = false;
+            }
         }
     }
 }

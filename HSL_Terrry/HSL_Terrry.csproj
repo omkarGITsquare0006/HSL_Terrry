@@ -124,6 +124,8 @@
     <Content Include="HomePages\frmMCrossCuttingSup.aspx" />
     <Content Include="HomePages\frmMCrossHemming.aspx" />
     <Content Include="HomePages\frmMCrossHemmingSup.aspx" />
+    <Content Include="HomePages\frmPolyPack.aspx" />
+    <Content Include="HomePages\frmPolyPackSup.aspx" />
     <Content Include="HomePages\frmPOManage.aspx" />
     <Content Include="HomePages\frmPOManageClose.aspx" />
     <Content Include="HomePages\jquery-1.10.2.js" />
@@ -347,6 +349,20 @@
     </Compile>
     <Compile Include="HomePages\frmMCrossHemmingSup.aspx.designer.cs">
       <DependentUpon>frmMCrossHemmingSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmPolyPack.aspx.cs">
+      <DependentUpon>frmPolyPack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmPolyPack.aspx.designer.cs">
+      <DependentUpon>frmPolyPack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmPolyPackSup.aspx.cs">
+      <DependentUpon>frmPolyPackSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmPolyPackSup.aspx.designer.cs">
+      <DependentUpon>frmPolyPackSup.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmPOManage.aspx.cs">
       <DependentUpon>frmPOManage.aspx</DependentUpon>

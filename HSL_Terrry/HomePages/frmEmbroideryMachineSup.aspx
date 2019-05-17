@@ -77,6 +77,12 @@
                                     <asp:Label ID="lblDate" runat="server" Text='<%#Eval("Date") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField ItemStyle-Wrap="false" HeaderText="Shift">
+                                <HeaderStyle CssClass="small" Width="18%" /><%--Width="18%"--%>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblshift" runat="server" Text='<%#Eval("Shift") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Machine #">
                                 <HeaderStyle CssClass="small" Width="15%" /><%--Width="15%"--%>
                                 <ItemTemplate>

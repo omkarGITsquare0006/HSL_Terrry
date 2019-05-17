@@ -10,24 +10,15 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class AdminSupPanel {
+    public partial class frmPolyPackSup {
         
         /// <summary>
-        /// usercard control.
+        /// gvBeamList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usercard;
-        
-        /// <summary>
-        /// pocard control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pocard;
+        protected global::System.Web.UI.WebControls.GridView gvBeamList;
     }
 }
