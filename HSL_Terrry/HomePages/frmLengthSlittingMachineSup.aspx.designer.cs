@@ -13,6 +13,15 @@ namespace HSL_Terrry.HomePages {
     public partial class frmLengthSlittingMachineSup {
         
         /// <summary>
+        /// txtPoSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPoSearch;
+        
+        /// <summary>
         /// gvBeamList control.
         /// </summary>
         /// <remarks>

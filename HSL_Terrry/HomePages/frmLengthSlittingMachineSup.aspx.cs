@@ -12,18 +12,18 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindLSMData();
+            BindLSMData(txtPoSearch.Text.Trim());
             if (!Page.IsPostBack)
             {
                 //Load_PONumber();
             }
         }
 
-        protected void BindLSMData()
+        protected void BindLSMData(String poNumber)
         {
             DataTable dtBeam = new DataTable();
 
-            dtBeam = CRUDApplication.Load_LSMApproval();
+            dtBeam = CRUDApplication.Load_LSMApproval(poNumber);
 
             if (dtBeam.Rows.Count > 0)
             {
@@ -181,6 +181,17 @@ namespace HSL_Terrry.HomePages
             //    MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
             //    return;
             //}
+        }
+
+        protected void txtPoSearch_TextChanged(object sender, EventArgs e)
+        {
+            BindLSMData(txtPoSearch.Text.Trim());
+        }
+
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvBeamList.PageIndex = e.NewPageIndex;
+            this.BindLSMData(txtPoSearch.Text.Trim());
         }
     }
 }

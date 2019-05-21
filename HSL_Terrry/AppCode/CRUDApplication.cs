@@ -1623,7 +1623,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_LSMApproval()
+    public static DataTable Load_LSMApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1633,6 +1633,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1650,7 +1654,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_LHMApproval()
+    public static DataTable Load_LHMApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1660,6 +1664,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1677,7 +1685,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_ACCApproval()
+    public static DataTable Load_ACCApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1687,6 +1695,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1704,7 +1716,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_EMMApproval()
+    public static DataTable Load_EMMApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1714,6 +1726,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1731,7 +1747,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_MCCApproval()
+    public static DataTable Load_MCCApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1741,6 +1757,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1758,7 +1778,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_PPMApproval()
+    public static DataTable Load_PPMApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1768,6 +1788,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1785,7 +1809,7 @@ public class CRUDApplication
         }
     }
 
-    public static DataTable Load_MCHApproval()
+    public static DataTable Load_MCHApproval(String poNumber)
     {
 
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
@@ -1795,6 +1819,10 @@ public class CRUDApplication
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
             cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GETDetails";
+            if (!poNumber.Equals(""))
+            {
+                cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = poNumber;
+            }
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);

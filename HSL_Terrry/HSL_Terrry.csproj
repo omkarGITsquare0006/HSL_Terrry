@@ -202,6 +202,7 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Styles\css\footer.css" />
     <Content Include="Styles\css\materialize.min.css" />
+    <Content Include="Styles\css\paging.css" />
     <Content Include="Styles\css\simple-sidebar.css" />
     <Content Include="ValidationScript.js" />
     <Content Include="Web.config">
