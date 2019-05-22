@@ -6,6 +6,7 @@
         <title>JavaScript - read JSON from URL</title>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+         <link href="../Styles/css/paging.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -47,12 +48,22 @@
                     <p>LENGTH SLITTING REPORT</p>
                 </div>
                 <div class="card-body">
+                    <span class="text-danger font-weight-lighter font-italic">Please hit the enter after enter PO!!</span>
+                    <%-- Filtering Gridview Using TextBox --%>
+                    <div class="form-inline mb-1">
+                        <%--                            <div class="col">--%>
+                        <label for="txtshift" class="col-form-label mr-sm-2">PO Number:</label>
+                        <asp:TextBox ID="txtPoSearch" class="form-control  mr-sm-2" AutoComplete="Off" AutoPostBack="true" OnTextChanged="txtPoSearch_TextChanged" placeholder="Material Description" runat="server" />
+                        <br />
+                    </div>
+                    <%-- Gridview --%>
                     <asp:GridView ID="gvBeamList" runat="server" DataKeyNames="ID" AutoGenerateColumns="false" 
-                        AllowSorting="true" CssClass="table-responsive table-striped w-auto" ForeColor="white" HorizontalAlign="justify"
+                        AllowSorting="true" CssClass="table-responsive table-striped w-auto pagination-ys" ForeColor="Black" HorizontalAlign="justify"
                         OnRowCancelingEdit="gvDetails_RowCancelingEdit" OnRowEditing="gvDetails_RowEditing"
                         OnRowUpdating="gvDetails_RowUpdating" CellPadding="5" HeaderStyle-Font-Bold="true"
                         HeaderStyle-Height="30px" HeaderStyle-ForeColor="Black" HeaderStyle-Font-Size="10px"
-                        HeaderStyle-Width="100px">
+                        HeaderStyle-Width="100px" AllowPaging="true"
+                        OnPageIndexChanging="OnPageIndexChanging" PageSize="20">
 
                         <HeaderStyle Font-Bold="True" Font-Size="20px" ForeColor="Black" Height="30px" Width="100px" HorizontalAlign="Center"></HeaderStyle>
 

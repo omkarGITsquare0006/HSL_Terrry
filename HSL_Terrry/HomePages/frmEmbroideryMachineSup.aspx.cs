@@ -12,17 +12,17 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindEMMData();
+            BindEMMData(txtPoSearch.Text.Trim());
             if (!Page.IsPostBack)
             {
             }
         }
 
-        protected void BindEMMData()
+        protected void BindEMMData(String poNumber)
         {
             DataTable dtBeam = new DataTable();
 
-            dtBeam = CRUDApplication.Load_EMMApproval();
+            dtBeam = CRUDApplication.Load_EMMApproval(poNumber);
 
             if (dtBeam.Rows.Count > 0)
             {
@@ -67,6 +67,17 @@ namespace HSL_Terrry.HomePages
         protected void btnClose_Click(object sender, EventArgs e)
         {
             
+        }
+
+        protected void txtPoSearch_TextChanged(object sender, EventArgs e)
+        {
+            BindEMMData(txtPoSearch.Text.Trim());
+        }
+
+        protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvBeamList.PageIndex = e.NewPageIndex;
+            this.BindEMMData(txtPoSearch.Text.Trim());
         }
     }
 }
