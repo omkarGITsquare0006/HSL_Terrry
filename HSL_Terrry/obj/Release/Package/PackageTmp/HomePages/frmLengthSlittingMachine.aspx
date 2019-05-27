@@ -156,7 +156,7 @@
                                     <asp:TextBox ID="txtproduct" class="form-control" ReadOnly="true" placeholder="Product" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
-                                
+
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
                                     <label for="txtnoofslits" class="col-form-label">No Of Slits</label>
