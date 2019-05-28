@@ -49,7 +49,7 @@ namespace HSL_Terrry.HomePages
             TextPoProd.Text = "";
             try
             {
-                LoadPODetail();
+                LoadPODetail(ddlScreen.SelectedValue.ToString().Trim());
             }
             catch (Exception ex)
             {
@@ -58,9 +58,33 @@ namespace HSL_Terrry.HomePages
             }
         }
 
-        private void LoadPODetail()
+        private void LoadPODetail(String screenType)
         {
-            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.SelectedValue.Trim());
+            DataTable dtPODetails = new DataTable();
+            switch (screenType)
+            {
+                case "Lsm_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumber(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Lhm_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberLhm(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Acchm_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberAcc(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Mcc_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberMcc(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Mch_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberMch(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Em_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberEmm(txtPO_No.SelectedValue.Trim());
+                    break;
+                case "Pp_status":
+                    dtPODetails = CRUDApplication.Load_PODetailsOnPONumberPP(txtPO_No.SelectedValue.Trim());
+                    break;
+            }
             if (dtPODetails.Rows.Count > 0)
             {
                 txtPOQty.Text = Convert.ToString(dtPODetails.Rows[0]["Order_Oty"]);
@@ -74,7 +98,6 @@ namespace HSL_Terrry.HomePages
                 MsgBox1.MessageBox.Show("No Record Found or Something is going wrong...!");
                 return;
             }
-
         }
 
         protected void btnClose_Click(object sender, EventArgs e)
@@ -82,7 +105,7 @@ namespace HSL_Terrry.HomePages
             try
             {
 
-                int dtLotClose = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text, txtpocloseremark.Text,ddlScreen.SelectedValue.Trim());
+                int dtLotClose = CRUDApplication.Close_PODetailsOnPONumber(txtPO_No.Text, txtpocloseremark.Text, ddlScreen.SelectedValue.Trim());
                 if (dtLotClose > 0)
                 {
                     MsgBox1.MessageBox.Show("po#" + txtPO_No.Text.Trim() + "closed successfully ", "AdminSupPanel.aspx");

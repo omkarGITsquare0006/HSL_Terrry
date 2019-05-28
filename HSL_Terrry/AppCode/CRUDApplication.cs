@@ -218,7 +218,7 @@ public class CRUDApplication
     }
 
     public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -253,8 +253,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -274,7 +273,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordAcc(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
-       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -301,7 +300,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
@@ -378,7 +377,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordLhm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -413,7 +412,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
@@ -525,7 +524,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordPP(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Noof_Pieces, Int32 Noof_PP, Int32 No_Of_Slits, decimal prodqty,
-        Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -549,7 +548,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
@@ -570,7 +569,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordMch(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
-   Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+   Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -597,7 +596,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
@@ -665,7 +664,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordMcc(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, string Trolly_no, Int32 Trolly_Qty, Int32 No_Of_Slits, decimal prodpcs,
-       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+       Int32 Rejected_Qty, string Reason_Rej, decimal prodwt, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -692,7 +691,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -761,7 +760,7 @@ public class CRUDApplication
     }
 
     public static DataTable UpdaterecordEmm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty,
-        Int32 Pcs_In_Round, Int32 Prod_Rounds, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks)
+        Int32 Pcs_In_Round, Int32 Prod_Rounds, Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -789,7 +788,7 @@ public class CRUDApplication
             cmdDistrict.Parameters.Add("@Break_time", SqlDbType.NVarChar).Value = Break_time;
             cmdDistrict.Parameters.Add("@Reason", SqlDbType.NVarChar).Value = Reason;
             cmdDistrict.Parameters.Add("@Remarks", SqlDbType.NVarChar).Value = Remarks;
-
+            cmdDistrict.Parameters.Add("@RemarksSup", SqlDbType.NVarChar).Value = updateBy;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();

@@ -384,7 +384,7 @@
                                     <label for="txtprodmtr" class="col-form-label">Production(Mtr)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="Textprodmtr" AutoComplete="Off" class="form-control" onkeypress="return isDecimalKey(event)" oninput="return Calculate();" placeholder="Production(Mtr)" runat="server" />
+                                    <asp:TextBox ID="Textprodmtr" AutoComplete="Off" class="form-control" onKeyUp="$(this).val($(this).val().replace(/[^\d\.]/ig, ''))" oninput="return Calculate();" placeholder="Production(Mtr)" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -489,6 +489,8 @@
 
         <script type="text/javascript">
             function Calculate() {
+                var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
+
                 var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
                 var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
                 var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
@@ -498,6 +500,15 @@
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodpcs.value = Math.round((prodmtr * noofslit) / pcslen);
                 prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+                if (prodpcs.value > oqty) {
+                    prodpcs.style.borderColor = "red";
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Produced quantity is exceeding order quantity!!");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                } else
+                    prodpcs.style.borderColor = "green";
             }
 
             function isNumberKey(evt) {
@@ -513,25 +524,26 @@
                 return true;
             }
 
-            function isDecimalKey(evt) {
+            function isDecimalKey() {
                 var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
-                var output = prodmtr.replace(new RegExp(/[^\d]/, 'g'), '');
-                    return output
-                //var parts = evt.srcElement.value.split('.');
-                //if (parts.length > 2) return false;
-                //if (evt.keyCode == 46) return (parts.length == 1);
-                //if (parts.length == 2 && parts[1].length >= 2) {
-                //    $(".myAlert-top").show();
-                //    $("#errmsg").text(" Accept two decimal points only");
-                //    setTimeout(function () {
-                //        $(".myAlert-top").hide();
-                //    }, 2000);
-                //    return false;
-                //}
+                var regex = new RegExp("^\d{1,5}\.?\d{0,2}$");
+                //Test your current value
+                if (!regex.test(prodmtr)) {
+                    alert("Please enter a valid numeric or decimal input");
+                    return false;
+                } else
+                    return true;
             }
         </script>
-
-
+        <%--<script>
+            var name = document.getElementById('<%=txttrollyno.ClientID %>').value;
+            $('form :input').change(function () {
+                var ch = $('form :input').value;
+                alert("form changed" + ch);
+                //if (name.value != name.defaultValue) alert("#name has changed");
+            });
+        </script>--%>
+        
     </body>
 
     </html>
