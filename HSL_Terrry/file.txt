@@ -1,0 +1,6 @@
+2019-05-27 17:01:14.6781|INFO|HSL_Terrry.frmUserLogin|Login page displayed
+2019-05-27 17:01:15.6468|INFO|HSL_Terrry.frmUserLogin|Login page displayed
+2019-05-27 17:05:39.6625|INFO|HSL_Terrry.frmUserLogin|Login page displayed
+2019-05-27 17:05:40.0622|INFO|HSL_Terrry.frmUserLogin|Login page displayed
+2019-05-27 17:06:28.3429|INFO|HSL_Terrry.frmUserLogin|Login page displayed
+2019-05-27 17:06:28.8032|INFO|HSL_Terrry.frmUserLogin|Login page displayed
