@@ -51,12 +51,12 @@
                     <p>LENGTH SLITTING REPORT</p>
                 </div>
                 <div class="card-body">
-                    <span class="text-danger font-weight-lighter font-italic">Please hit the enter after enter PO!!</span>
+                    <span class="text-danger font-weight-lighter font-italic">Please input PO hit Enter!!</span>
                     <%-- Filtering Gridview Using TextBox --%>
                     <div class="form-inline mb-1">
                         <%--                            <div class="col">--%>
                         <label for="txtshift" class="col-form-label mr-sm-2">PO Number:</label>
-                        <asp:TextBox ID="txtPoSearch" class="form-control  mr-sm-2" AutoComplete="Off" AutoPostBack="true" OnTextChanged="txtPoSearch_TextChanged" placeholder="Material Description" runat="server" />
+                        <asp:TextBox ID="txtPoSearch" class="form-control  mr-sm-2" AutoComplete="Off" AutoPostBack="true" OnTextChanged="txtPoSearch_TextChanged" placeholder="Enter PO" runat="server" />
                         <br />
                     </div>
                     <%-- Gridview --%>

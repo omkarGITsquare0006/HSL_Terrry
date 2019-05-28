@@ -549,17 +549,17 @@
                     <%--<div id="op1" class="col-3 pr-1">
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
-                    <div id="op2" class="col-3 pr-1">
+                    <div id="op2" class="col-md-3 mb-1 pr-5">
                         <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
                     </div>
                     <%--OnClientClick="javascript:return Validate();"--%>
-                    <div id="sup1" class="col-3 pr-1">
+                    <div id="sup1" class="col-md-3 mb-1 pr-5">
                         <asp:Button ID="btnUpdate" runat="server" Text="UPDATE" class="btn btn-outline-success btn-md btn-block" OnClick="btn_Update" />
                     </div>
                     <%--<div id="sup2" class="col-3 pr-1">
                             <asp:Button class="btn btn-outline-danger btn-block" runat="server" ID="btnClose" Text="Close"></asp:Button>
                         </div>--%>
-                    <div id="sup0" class="col-3 pr-1">
+                    <div id="sup0" class="col-md-3 mb-1 pr-5">
                         <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                     </div>
 
