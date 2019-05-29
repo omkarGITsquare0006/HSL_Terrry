@@ -12,6 +12,7 @@ using System.Net;
 using System.IO;
 using System.Collections;
 using System.Threading;
+using log4net;
 
 namespace HSL_Terrry
 {
@@ -19,7 +20,8 @@ namespace HSL_Terrry
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ILog logger = log4net.LogManager.GetLogger("ErrorLog");
+            logger.Info("logi page loaded");
         }
         protected void btn_signin(object sender, EventArgs e)
         {

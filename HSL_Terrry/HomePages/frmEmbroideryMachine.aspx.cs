@@ -1,4 +1,5 @@
 ﻿using HSL_Terrry.AppCode;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,6 +12,7 @@ namespace HSL_Terrry.HomePages
 {
     public partial class frmEmbroideryMachine : System.Web.UI.Page
     {
+        ILog logger = log4net.LogManager.GetLogger("[Embroidary Machine]");
         protected void Page_Load(object sender, EventArgs e)
         {
             txtprodpcs.Attributes.Add("readonly", "readonly");
@@ -180,9 +182,9 @@ namespace HSL_Terrry.HomePages
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim(), Session["UserDetail"].ToString());
                 if (dt.Rows.Count > 0)
                 {
-
-                    //divMsg.Visible = true;
-                    //LblMsg.Text = " User - " + txtSupID.Text.Trim() + " added successfully!";
+                    logger.Info(Session["UserDetail"].ToString() + ":Data updated for:[" + txtPO_No.SelectedValue.Trim() + "]Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
+                                            + txttrollyqty.Text + ",Pieces per round:" + txtpcsperround.Text + ",No of round:" + txtnoofrounds.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.Text +
+                                            ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ", "frmHome.aspx");
                     //txtPO_No.Text = "";
 
@@ -257,6 +259,9 @@ namespace HSL_Terrry.HomePages
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
                     txtpcsperround.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_In_Round"]);
                     txtnoofrounds.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Rounds"]);
+                    logger.Info(Session["UserDetail"].ToString() + ":Data fetched for[:" + txtPO_No.SelectedValue.Trim() + "] Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
+                        + txttrollyqty.Text + ",Pieces per round:" + txtpcsperround.Text + ",No of round:" + txtnoofrounds.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.Text +
+                        ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
                 }
             }
             catch (Exception ex)

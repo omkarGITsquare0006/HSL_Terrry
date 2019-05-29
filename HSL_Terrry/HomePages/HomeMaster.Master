@@ -11,6 +11,7 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
     <link href="../Styles/css/footer.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="../Assets/favicon.png"/>
     <script runat="server">
 
         void Anchor_Click(Object sender, EventArgs e)

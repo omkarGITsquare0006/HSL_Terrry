@@ -46,7 +46,7 @@
         <div class="container-fluid">
             <div class="card border-warning">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>LENGTH SLITTING REPORT</p>
+                    <p>MANUAL CROSS CUTTING</p>
                 </div>
                 <div class="card-body">
                     <span class="text-danger font-weight-lighter font-italic">Please input PO hit Enter!!</span>
