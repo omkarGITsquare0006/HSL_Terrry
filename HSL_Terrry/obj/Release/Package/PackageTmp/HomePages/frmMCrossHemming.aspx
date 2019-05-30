@@ -11,7 +11,7 @@
         <%--dfg--%>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-
+        <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -563,14 +563,31 @@
                 </div>
             </div>
         </div>
+        
+        <div class="myAlert-top alert alert-danger hide">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
+
         <%--</div>--%>
         <script type="text/javascript">
             function Calculate() {
-                var prodpcs = parseFloat(document.getElementById('<%=txtprodpcs.ClientID %>').value);
-                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
+                var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
+
+                var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
+                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value)/1000;
                 var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
-                prodweiht.value = (perpcsweight * prodpcs);
+                prodweiht.value = (perpcsweight * prodpcs.value);
+                if (prodpcs.value > oqty) {
+                    prodpcs.style.borderColor = "red";
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Produced quantity is exceeding order quantity!!");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                } else
+                    prodpcs.style.borderColor = "green";
             }
         </script>
     </body>

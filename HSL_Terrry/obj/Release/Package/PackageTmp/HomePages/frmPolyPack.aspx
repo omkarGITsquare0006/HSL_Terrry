@@ -12,7 +12,7 @@
         <%--dfg--%>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-
+        <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -525,15 +525,32 @@
                 </div>
             </div>
         </div>
+        
+        <div class="myAlert-top alert alert-danger hide">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
+
         <%--</div>--%>
 
         <script type="text/javascript">
             function Calculate() {
+                var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
+
                 var prodqty = document.getElementById('<%=txtprodqty.ClientID %>');
                 var noofpieces = parseFloat(document.getElementById('<%=txtnoofpieces.ClientID %>').value);
                 var noofpp = parseFloat(document.getElementById('<%=txtnoofpp.ClientID %>').value);
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodqty.value = (noofpieces * noofpp);
+                if (prodqty.value > oqty) {
+                    prodqty.style.borderColor = "red";
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Produced quantity is exceeding order quantity!!");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                } else
+                    prodqty.style.borderColor = "green";
             }
         </script>
     </body>

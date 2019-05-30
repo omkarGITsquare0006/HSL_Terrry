@@ -514,6 +514,8 @@
 
             <script type="text/javascript">
                 function Calculate() {
+                    var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
+
                     var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
                     var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
                     var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
@@ -521,8 +523,17 @@
                     var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
                     var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
                     //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
-                    prodpcs.value = Math.round((prodmtr * noofslit) / pcslen);
+                    prodpcs.value = Math.round((prodmtr) / pcslen);
                     prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+                    if (prodpcs.value > oqty) {
+                    prodpcs.style.borderColor = "red";
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Produced quantity is exceeding order quantity!!");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                } else
+                    prodpcs.style.borderColor = "green";
                 }
 
                 function isNumberKey(evt) {
