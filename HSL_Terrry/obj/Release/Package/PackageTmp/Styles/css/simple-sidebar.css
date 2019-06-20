@@ -8,6 +8,7 @@ body {
     overflow-x: hidden;
 }
 
+
 #sidebar-wrapper {
     min-height: 100vh;
     margin-left: -15rem;
@@ -15,10 +16,13 @@ body {
     -moz-transition: margin .25s ease-out;
     -o-transition: margin .25s ease-out;
     transition: margin .25s ease-out;
+    /*position:fixed;
+    z-index:inherit;*/
 }
 
     #sidebar-wrapper .sidebar-heading {
-        padding: 0.875rem 1.25rem;
+        /*padding: 0.875rem 1.25rem;*/
+        width:100%;
         font-size: 1.2rem;
     }
 
@@ -88,7 +92,7 @@ body {
 
 /* Style the back side */
 .flip-card-back {
-    background-color:orange;
+    background-color: orange;
     color: white;
     transform: rotateY(180deg);
 }

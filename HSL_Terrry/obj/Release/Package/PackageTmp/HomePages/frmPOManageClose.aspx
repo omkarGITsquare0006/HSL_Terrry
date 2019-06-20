@@ -6,14 +6,49 @@
         <title></title>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+        <link href="../Styles/css/confirm.css" rel="stylesheet" />
         <script type="text/javascript">
             function Selected() {
+                var poqty = parseFloat(document.getElementById('<%=txtPOQty.ClientID %>').value);
+                var prodqty = document.getElementById('<%=TextPoProd.ClientID %>');
+                console.log("log created");
                 var dropdown = document.getElementById('<%=txtPO_No.ClientID %>');
                 var strUser = dropdown.options[dropdown.selectedIndex].value;
                 if (strUser == -1) {
                     alert('Please select a PO');
                 } else {
-                    $('#myModal').modal();
+                    if (prodqty.value < poqty) {
+                        $.confirm({
+                            title: 'Do you want to close?',
+                            content: 'Produced quantity has not reached order quantity!',
+                            buttons: {
+                                cancel: function () {
+
+                                },
+                                somethingElse: {
+                                    text: 'I know! proceed to close.',
+                                    btnClass: 'btn-blue',
+                                    keys: ['enter', 'shift'],
+                                    action: function () {
+                                        $('#myModal').modal();
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        $.confirm({
+                            title: 'Do you want to close?',
+                            content: 'Please confirm to close PO.',
+                            buttons: {
+                                confirm: function () {
+                                    $('#myModal').modal();
+                                },
+                                cancel: function () {
+                                    
+                                }
+                            }
+                        });
+                    }
                 }
             }
         </script>
@@ -143,6 +178,12 @@
             </div>
         </div>
 
+        <div class="myAlert-top alert alert-danger hide">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
+
+        <script src="../Styles/css/confirm.js" type="text/javascript"></script>
     </body>
     </html>
 </asp:Content>
