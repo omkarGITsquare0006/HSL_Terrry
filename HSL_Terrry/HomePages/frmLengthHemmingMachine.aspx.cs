@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -42,33 +43,33 @@ namespace HSL_Terrry.HomePages
                 }
                 else
                 {
-                    Load_PONumber();
+                    //Load_PONumber();
                 }
             }
         }
 
-        protected void Load_PONumber()
-        {
-            try
-            {
-                txtPO_No.DataSource = CRUDApplication.Load_PONumberLhm();
-                txtPO_No.DataTextField = "Prod_Order_no".ToString().Trim();
-                txtPO_No.DataValueField = "Prod_Order_no".ToString().Trim();
-                txtPO_No.DataBind();
-                ListItem itm2 = new ListItem();
-                itm2.Text = "--------Select PO Number--------";
-                itm2.Value = "-1";
-                itm2.Selected = true;
-                txtPO_No.Items.Insert(0, itm2);
-                txtPO_No.SelectedIndex = 0;
+        //protected void Load_PONumber()
+        //{
+        //    try
+        //    {
+        //        txtPO_No.DataSource = CRUDApplication.Load_PONumberLhm();
+        //        txtPO_No.DataTextField = "Prod_Order_no".ToString().Trim();
+        //        txtPO_No.DataValueField = "Prod_Order_no".ToString().Trim();
+        //        txtPO_No.DataBind();
+        //        ListItem itm2 = new ListItem();
+        //        itm2.Text = "--------Select PO Number--------";
+        //        itm2.Value = "-1";
+        //        itm2.Selected = true;
+        //        txtPO_No.Items.Insert(0, itm2);
+        //        txtPO_No.SelectedIndex = 0;
 
-            }
-            catch (Exception ex)
-            {
-                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
-                return;
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
+        //        return;
+        //    }
+        //}
 
         //protected void Load_LotNo(string txtPO_No)
         //{
@@ -110,7 +111,7 @@ namespace HSL_Terrry.HomePages
         //CALLING LOAD PO DETAIL METHOD FOR FETCHING PO DETAILS
         private void LoadPODetail()
         {
-            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberLhm(txtPO_No.SelectedValue.Trim());
+            DataTable dtPODetails = CRUDApplication.Load_PODetailsOnPONumberLhm(txtPO_No.Text.Trim());
             if (dtPODetails.Rows.Count > 0)
             {
                 txtdate.Text = DateTimeClass.CurrentDateTime();
@@ -164,7 +165,7 @@ namespace HSL_Terrry.HomePages
             }
 
         }
-
+        
         //protected void ddLotNo_OnSelectedIndexChanged(object sender, EventArgs e)
         //{
         //    try
@@ -199,7 +200,7 @@ namespace HSL_Terrry.HomePages
             try
             {
                 string produced = txtprodpcs.Text.Trim();
-                DataTable dt = CRUDApplication.AddNewrecordLhm(txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.AddNewrecordLhm(txtPO_No.Text.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.Text.Trim()), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), Convert.ToDecimal(txtpcslength2.Text.Trim()), txtpcswidth2.Text.Trim(),
                      Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
@@ -251,18 +252,18 @@ namespace HSL_Terrry.HomePages
             try
             {
                 //txtprodpcs.Text = Convert.ToString((Convert.ToDecimal(Textprodmtr.Text.Trim()) / (Convert.ToDecimal(txtpcslength2.Text.Trim()) / 100)) * (Convert.ToInt32(txtnoofslits.Text.Trim()) + 1));
-                DataTable dt = CRUDApplication.UpdaterecordLhm(Convert.ToInt32(textID.Text.Trim()), txtPO_No.SelectedValue.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
+                DataTable dt = CRUDApplication.UpdaterecordLhm(Convert.ToInt32(textID.Text.Trim()), txtPO_No.Text.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.Text.Trim(), ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
                     txttrollyno.Text.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),
                     Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.Text.Trim(), Convert.ToDecimal(txtprodwt.Text.Trim()),
                     Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim(), Session["UserDetail"].ToString());
                 if (dt.Rows.Count > 0)
                 {
-                    logger.Info(Session["UserDetail"].ToString() + ":Data updated for:[" + txtPO_No.SelectedValue.Trim() + "]Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
+                    logger.Info(Session["UserDetail"].ToString() + ":Data updated for:[" + txtPO_No.Text.Trim() + "]Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
                                             + txttrollyqty.Text + ",Prod mtr:" + Textprodmtr.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.Text +
                                             ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ", "frmHome.aspx");
-                    MsgBox1.MessageBox.Show("Record " + txtPO_No.SelectedValue.Trim() + " Updated successfully ", "frmHome.aspx");
+                    MsgBox1.MessageBox.Show("Record " + txtPO_No.Text.Trim() + " Updated successfully ", "frmHome.aspx");
+                    MsgBox1.MessageBox.Show("Record " + txtPO_No.Text.Trim() + " Updated successfully ", "frmHome.aspx");
                     //txtPO_No.Text = "";
 
                     ddMachineNo.SelectedIndex = 0;
@@ -312,8 +313,7 @@ namespace HSL_Terrry.HomePages
                 {
                     //txtPO_No.ReadOnly = true;
                     ListItem itm2 = new ListItem();
-                    txtPO_No.Items.Insert(0, Convert.ToString(dtSupDetails.Rows[0]["Prod_Order_no"]));
-                    txtPO_No.SelectedIndex = 0;
+                    txtPO_No.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Order_no"]);
                     LoadPODetail();
 
                     //DETAIL DATA BINDING FROM DATATABLE TO TEXTBOXES
@@ -345,7 +345,7 @@ namespace HSL_Terrry.HomePages
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
                     txtstopreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason"]);
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
-                    logger.Info(Session["UserDetail"].ToString() + ":Data fetched for:[" + txtPO_No.SelectedValue.Trim() + "] Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
+                    logger.Info(Session["UserDetail"].ToString() + ":Data fetched for:[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
                         + txttrollyqty.Text + ",Prod mtr:" + Textprodmtr.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.Text +
                         ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
                 }
@@ -387,6 +387,23 @@ namespace HSL_Terrry.HomePages
             txtmachinestop.ReadOnly = edit;
             txtstopreason.ReadOnly = edit;
             txtremarks.ReadOnly = edit;
+        }
+
+        //PO Textbox Autocomplete
+        [WebMethod]
+        public static string[] GetPoNum(string term)
+        {
+            List<string> listPoNum = new List<string>();
+            //string[] listPoNum = null;
+            try
+            {
+                listPoNum = CRUDApplication.Load_PONumber_Auto("Lhm_status", term);
+            }
+            catch (Exception ex)
+            {
+                MsgBox1.MessageBox.Show("Error while Getting PO Number!!!");
+            }
+            return listPoNum.ToArray<string>();
         }
     }
 }

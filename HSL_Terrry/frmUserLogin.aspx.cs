@@ -34,6 +34,13 @@ namespace HSL_Terrry
                 Session["RoleID"] = dtLogin.Rows[0]["RoleId"];
                 Session["UserID"] = username.Text;
                 Session["Usernm"] = username.Text.Trim();
+                Session["LSMAccess"] = dtLogin.Rows[0]["LSMAccess"];
+                Session["LHMAccess"] = dtLogin.Rows[0]["LHMAccess"];
+                Session["ACCHAccess"] = dtLogin.Rows[0]["ACCHAccess"];
+                Session["MCCAccess"] = dtLogin.Rows[0]["MCCAccess"];
+                Session["MCHAccess"] = dtLogin.Rows[0]["MCHAccess"];
+                Session["EMAccess"] = dtLogin.Rows[0]["EMAccess"];
+                Session["PPAccess"] = dtLogin.Rows[0]["PPAccess"];
                 //Session["IsAdmin"] = dtLogin.Rows[0]["IsAdmin"];
                 if (HttpContext.Current.Session["Usernm"] != null)
                 {

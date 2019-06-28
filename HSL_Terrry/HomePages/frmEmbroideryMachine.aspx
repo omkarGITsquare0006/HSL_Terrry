@@ -14,6 +14,8 @@
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <script type="text/javascript" src="../ValidationScript.js"></script>
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../jquery-ui.css" />
+        <script src="../jquery-ui.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -41,7 +43,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h5 class="mt-xl-3">EMBROIDERY MACHINE REPORT</h5>
+                <h5 class="mt-xl-3">EMBROIDERY MACHINE ENTRY</h5>
             </div>
         </div>
         <%--<div>
@@ -69,10 +71,15 @@
             <%--                            </div>--%>
             <%--                            <div class="col">--%>
             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
-                AutoPostBack="true">
+            <asp:DropDownList ID="txtPO_No1" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                AutoPostBack="true" Visible="false">
             </asp:DropDownList>
-            <%--                            </div>--%>
+            <div class="row">
+                <asp:TextBox ID="txtPO_No" CssClass="form-control col-md-3 ml-2" runat="server"></asp:TextBox>
+                <button runat="server" id="btnGetdata" class="btn btn-primary ml-2" onserverclick="LoadPODetails_OnSelectedIndexChanged">
+                    <span id="loading" runat="server" class="spinner-border spinner-border-sm" hidden></span>Get Data
+                </button>
+            </div>
         </div>
         <%--</div>--%>
 
@@ -603,7 +610,30 @@
                 }
             }
         </script>
-
+        <script type="text/javascript">  
+            $(document).ready(function () {
+                $("#<%=txtPO_No.ClientID%>").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "frmEmbroideryMachine.aspx/GetPoNum",
+                            method: "post",
+                            contentType: "application/json;charset=utf-8",
+                            data: JSON.stringify({ term: request.term }),
+                            <%--data: "{'term':'" + $("#<%=txtPO.ClientID%>").val() + "'}",--%>
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log("data is : " + data)
+                                response(data.d);
+                            },
+                            error: function (err) {
+                                console.log(err.responseText + " " + term);
+                                alert(err);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
     </body>
 
     </html>

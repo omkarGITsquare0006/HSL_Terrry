@@ -72,7 +72,7 @@ using System.Web;
     }
 
     // Function to add new Supervisor
-    public static DataTable AddNewSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intAdmin)
+    public static DataTable AddNewSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intAdmin, bool lSMAccess, bool lHMAccess, bool aCCHAccess, bool mCCAccess, bool mCHAccess, bool eMAccess, bool pPAccess)
     {
 
         SqlConnection connGetSup = ConnectionProvider.GetConnection();
@@ -89,6 +89,13 @@ using System.Web;
             cmdSup.Parameters.Add("@EmailID", SqlDbType.VarChar).Value = strEmailId;
             cmdSup.Parameters.Add("@Active", SqlDbType.Bit).Value = intActive;
             cmdSup.Parameters.Add("@RoleId", SqlDbType.NChar).Value = intAdmin;
+            cmdSup.Parameters.Add("@LSMAccess", SqlDbType.NChar).Value = lSMAccess;
+            cmdSup.Parameters.Add("@LHMAccess", SqlDbType.NChar).Value = lHMAccess;
+            cmdSup.Parameters.Add("@ACCHAccess", SqlDbType.NChar).Value = aCCHAccess;
+            cmdSup.Parameters.Add("@MCCAccess", SqlDbType.NChar).Value = mCCAccess;
+            cmdSup.Parameters.Add("@MCHAccess", SqlDbType.NChar).Value = mCHAccess;
+            cmdSup.Parameters.Add("@EMAccess", SqlDbType.NChar).Value = eMAccess;
+            cmdSup.Parameters.Add("@PPAccess", SqlDbType.NChar).Value = pPAccess;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdSup);
             DataTable dt = new DataTable();
@@ -108,7 +115,7 @@ using System.Web;
     }
 
     // Function to Update Supervisor By ID
-    public static DataTable UpdateSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intRole)
+    public static DataTable UpdateSupervisor(string strSupID, string strSupName, string strPassword, string strDeptId, string strEmailId, Int16 intActive, string intRole, bool lSMAccess, bool lHMAccess, bool aCCHAccess, bool mCCAccess, bool mCHAccess, bool eMAccess, bool pPAccess)
     {
 
         SqlConnection connGetSup = ConnectionProvider.GetConnection();
@@ -125,6 +132,13 @@ using System.Web;
             cmdSup.Parameters.Add("@EmailID", SqlDbType.VarChar).Value = strEmailId;
             cmdSup.Parameters.Add("@Active", SqlDbType.Bit).Value = intActive;
             cmdSup.Parameters.Add("@RoleId", SqlDbType.NChar).Value = intRole;
+            cmdSup.Parameters.Add("@LSMAccess", SqlDbType.NChar).Value = lSMAccess;
+            cmdSup.Parameters.Add("@LHMAccess", SqlDbType.NChar).Value = lHMAccess;
+            cmdSup.Parameters.Add("@ACCHAccess", SqlDbType.NChar).Value = aCCHAccess;
+            cmdSup.Parameters.Add("@MCCAccess", SqlDbType.NChar).Value = mCCAccess;
+            cmdSup.Parameters.Add("@MCHAccess", SqlDbType.NChar).Value = mCHAccess;
+            cmdSup.Parameters.Add("@EMAccess", SqlDbType.NChar).Value = eMAccess;
+            cmdSup.Parameters.Add("@PPAccess", SqlDbType.NChar).Value = pPAccess;
 
             SqlDataAdapter da = new SqlDataAdapter(cmdSup);
             DataTable dt = new DataTable();

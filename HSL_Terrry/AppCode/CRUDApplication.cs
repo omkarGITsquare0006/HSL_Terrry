@@ -218,7 +218,7 @@ public class CRUDApplication
     }
 
     public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -376,8 +376,42 @@ public class CRUDApplication
 
     }
 
+    public static List<string> Load_PONumber_Auto(string ScreenStatus, string term)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            List<string> listCountryName = new List<string>();
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoadAuto";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
+            cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = term;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string po = Convert.ToString(row["Prod_Order_no"]);
+                listCountryName.Add(po);
+            }
+            return listCountryName;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable UpdaterecordLhm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try

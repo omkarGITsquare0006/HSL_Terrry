@@ -57,11 +57,23 @@ namespace HSL_Terrry.HomePages
                 if (Session["RoleID"].ToString().Equals("3"))
                 {
                     poAnch.Visible = false;
+                    doUserAccess();
                 }
                 //
 
             }
 
+        }
+
+        private void doUserAccess()
+        {
+            lsm.Visible = Session["LSMAccess"].Equals(true) ? true : false;
+            lhm.Visible = Session["LHMAccess"].Equals(true) ? true : false;
+            acch.Visible = Session["ACCHAccess"].Equals(true) ? true : false;
+            mcc.Visible = Session["MCCAccess"].Equals(true) ? true : false;
+            mch.Visible = Session["MCHAccess"].Equals(true) ? true : false;
+            em.Visible = Session["EMAccess"].Equals(true) ? true : false;
+            pp.Visible = Session["PPAccess"].Equals(true) ? true : false;
         }
 
         protected void btn_LogOut(object sender, EventArgs e)
