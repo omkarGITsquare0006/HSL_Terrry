@@ -394,7 +394,9 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtsupervisor" AutoComplete="Off" class="form-control" placeholder="Supervisor" runat="server" />
+                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                        <asp:ListItem Text="Select" Value=""></asp:ListItem>
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -406,8 +408,6 @@
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                                     <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
-                                        <asp:ListItem Text="Machine 1" Value="Machine 1"></asp:ListItem>
-                                        <asp:ListItem Text="Machine 2" Value="Machine 2"></asp:ListItem>
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
@@ -417,7 +417,8 @@
                                     <label for="txttrollyno" class="col-form-label">Trolley No</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyno" AutoComplete="Off" class="form-control" placeholder="Trolley Number" runat="server" />
+                                    <asp:DropDownList ID="txttrollyno" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -480,7 +481,8 @@
                                     <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="Textrejreason" AutoComplete="Off" class="form-control" placeholder="Reason" runat="server" />
+                                    <asp:DropDownList ID="Textrejreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 

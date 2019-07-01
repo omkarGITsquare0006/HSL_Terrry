@@ -10,60 +10,42 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class AdminSupPanel {
+    public partial class frmManageMachine {
         
         /// <summary>
-        /// usercard control.
+        /// ddlScreen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usercard;
+        protected global::System.Web.UI.WebControls.DropDownList ddlScreen;
         
         /// <summary>
-        /// pocard control.
+        /// txtMachineName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pocard;
+        protected global::System.Web.UI.WebControls.TextBox txtMachineName;
         
         /// <summary>
-        /// Div1 control.
+        /// txtMachineDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.WebControls.TextBox txtMachineDesc;
         
         /// <summary>
-        /// Div2 control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
-        
-        /// <summary>
-        /// Div3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
-        
-        /// <summary>
-        /// Div4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
     }
 }

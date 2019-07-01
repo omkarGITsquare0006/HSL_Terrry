@@ -289,7 +289,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsupervisor;
+        protected global::System.Web.UI.WebControls.DropDownList txtsupervisor;
         
         /// <summary>
         /// ddMachineNo control.
@@ -307,7 +307,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttrollyno;
+        protected global::System.Web.UI.WebControls.DropDownList txttrollyno;
         
         /// <summary>
         /// txttrollyqty control.
@@ -343,7 +343,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Textrejreason;
+        protected global::System.Web.UI.WebControls.DropDownList Textrejreason;
         
         /// <summary>
         /// txtprodpcs control.

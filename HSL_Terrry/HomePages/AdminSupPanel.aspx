@@ -63,35 +63,103 @@
 
 
             <%-- Manage Users Working --%>
-            <div class="col-auto" id="usercard" runat="server">
+            <div class="col-md-2" id="usercard" runat="server">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/users.png" style="width: 250px; height: 250px;">
+                        <img class="activator" src="../images/users.png" style="width: 100%; height: 150px;">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Manage Users<i class="close" aria-label="close"></i></span>
-                        <p><a href="frmManageUsersList.aspx">click for manage users</a></p>
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:large">Manage Users<i class="close" aria-label="close"></i></span>
+                        <p><a href="frmManageUsersList.aspx">click here</a></p>
                     </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4 font-weight-bold">Manage Users<i class="material-icons right close" aria-label="Close">x</i></span>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Manage Users<i class="material-icons right close" aria-label="Close">x</i></span>
                         <p>Here is information about supervisors and operators. You can manage users here.</p>
                     </div>
                 </div>
             </div>
 
             <%-- Manage PO Working --%>
-            <div class="col-auto" id="pocard" runat="server">
+            <div class="col-md-2" id="pocard" runat="server">
                 <div class="card">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/orders.png" style="width: 250px; height: 250px;">
+                        <img class="activator" src="../images/orders.png" style="width: 100%; height: 150px;">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Manage PO<i class="material-icons right"></i></span>
-                        <p><a href="frmPOManageClose.aspx">click for PO Manage(Close)</a></p>
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Manage PO<i class="material-icons right"></i></span>
+                        <p><a href="frmPOManageClose.aspx">click here</a></p>
                     </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4 font-weight-bold">Manage PO<i class="material-icons right close" aria-label="Close">x</i></span>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Manage PO<i class="material-icons right close" aria-label="Close">x</i></span>
                         <p>Here is information about product orders and productions. You can close PO's here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <%-- Manage Machines --%>
+            <div class="col-md-2" id="Div1" runat="server">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="../images/machine.png" style="width: 100%; height: 150px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Add Machine<i class="material-icons right"></i></span>
+                        <p><a href="frmManageMachine.aspx">click here</a></p>
+                    </div>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Add Machine<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>If you want to add machine for specific operetion go for here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <%-- Manage Trolley --%>
+            <div class="col-md-2" id="Div2" runat="server">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="../images/trolley.png" style="width: 100%; height: 150px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Add Trolley<i class="material-icons right"></i></span>
+                        <p><a href="frmManageTrolley.aspx">click here</a></p>
+                    </div>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Add Trolley<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>To add the new trolley go here.</p>
+                    </div>
+                </div>
+            </div>
+
+            <%-- Manage Reject --%>
+            <div class="col-md-2" id="Div3" runat="server">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="../images/reject.png" style="width: 100%; height: 150px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Rejections<i class="material-icons right"></i></span>
+                        <p><a href="frmManageRejection.aspx">click here</a></p>
+                    </div>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Rejections<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>To add specific reject reson with their unique code go here</p>
+                    </div>
+                </div>
+            </div>
+
+            <%-- Manage Stoppage --%>
+            <div class="col-md-2" id="Div4" runat="server">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="../images/stop.png" style="width: 100%; height: 150px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Stoppage<i class="material-icons right"></i></span>
+                        <p><a href="#">click here</a></p>
+                    </div>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Stoppage<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>To add specific stop reason with their unique code go here</p>
                     </div>
                 </div>
             </div>

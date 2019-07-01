@@ -406,7 +406,9 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtsupervisor" AutoComplete="Off" class="form-control" placeholder="Supervisor" runat="server" />
+                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                        <asp:ListItem Text="Select" Value=""></asp:ListItem>
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -422,8 +424,6 @@
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                                     <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
-                                        <asp:ListItem Text="Machine 1" Value="Machine 1"></asp:ListItem>
-                                        <asp:ListItem Text="Machine 2" Value="Machine 2"></asp:ListItem>
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
