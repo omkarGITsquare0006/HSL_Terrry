@@ -13,13 +13,40 @@ namespace HSL_Terrry.HomePages {
     public partial class frmMCrossHemming {
         
         /// <summary>
+        /// txtPO_No1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtPO_No1;
+        
+        /// <summary>
         /// txtPO_No control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtPO_No;
+        protected global::System.Web.UI.WebControls.TextBox txtPO_No;
+        
+        /// <summary>
+        /// btnGetdata control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGetdata;
+        
+        /// <summary>
+        /// loading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl loading;
         
         /// <summary>
         /// txtitemno control.
@@ -262,7 +289,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtsupervisor;
+        protected global::System.Web.UI.WebControls.DropDownList txtsupervisor;
         
         /// <summary>
         /// ddMachineNo control.
@@ -280,7 +307,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txttrollyno;
+        protected global::System.Web.UI.WebControls.DropDownList txttrollyno;
         
         /// <summary>
         /// txttrollyqty control.
@@ -325,7 +352,7 @@ namespace HSL_Terrry.HomePages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtrejreason;
+        protected global::System.Web.UI.WebControls.DropDownList txtrejreason;
         
         /// <summary>
         /// txtmachinestop control.

@@ -14,6 +14,8 @@
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <script type="text/javascript" src="../ValidationScript.js"></script>
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../jquery-ui.css" />
+        <script src="../jquery-ui.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -41,7 +43,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h5 class="mt-xl-3">LENGTH HEMMING REPORT</h5>
+                <h5 class="mt-xl-3">LENGTH HEMMING ENTRY</h5>
             </div>
         </div>
 
@@ -52,10 +54,15 @@
             <%--                            </div>--%>
             <%--                            <div class="col">--%>
             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
-                AutoPostBack="true">
+            <asp:DropDownList ID="txtPO_No1" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                AutoPostBack="true" Visible="false">
             </asp:DropDownList>
-            <%--                            </div>--%>
+            <div class="row">
+                <asp:TextBox ID="txtPO_No" CssClass="form-control col-md-3 ml-2" runat="server"></asp:TextBox>
+                <button runat="server" id="btnGetdata" class="btn btn-primary ml-2" onserverclick="LoadPODetails_OnSelectedIndexChanged">
+                    <span id="loading" runat="server" class="spinner-border spinner-border-sm" hidden></span>Get Data
+                </button>
+            </div>
         </div>
         <%--</div>--%>
 
@@ -305,7 +312,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container-fluid">
             <div id="accordion">
                 <div class="card mt-1 border-warning">
@@ -370,7 +377,9 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtsupervisor" AutoComplete="Off" class="form-control" placeholder="Supervisor" runat="server" />
+                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                        <asp:ListItem Text="Select" Value=""></asp:ListItem>
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -382,8 +391,6 @@
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                                     <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
-                                        <asp:ListItem Text="Machine 1" Value="Machine 1"></asp:ListItem>
-                                        <asp:ListItem Text="Machine 2" Value="Machine 2"></asp:ListItem>
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
@@ -393,7 +400,8 @@
                                     <label for="txttrollyno" class="col-form-label">Trolley No</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyno" AutoComplete="Off" class="form-control" placeholder="Trolley Number" runat="server" />
+                                    <asp:DropDownList ID="txttrollyno" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -429,7 +437,8 @@
                                     <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="Textrejreason" AutoComplete="Off" class="form-control" placeholder="Reason" runat="server" />
+                                    <asp:DropDownList ID="Textrejreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -508,24 +517,24 @@
         </div>
 
         <div class="myAlert-top alert alert-danger hide">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>Warning!</strong><span id="errmsg"></span>
-            </div>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong><span id="errmsg"></span>
+        </div>
 
-            <script type="text/javascript">
-                function Calculate() {
-                    var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
+        <script type="text/javascript">
+            function Calculate() {
+                var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
 
-                    var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
-                    var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
-                    var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
-                    var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
-                    var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
-                    var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
-                    //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
-                    prodpcs.value = Math.round((prodmtr) / pcslen);
-                    prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
-                    if (prodpcs.value > oqty) {
+                var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
+                var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
+                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+                var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
+                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
+                var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
+                prodpcs.value = Math.round((prodmtr) / pcslen);
+                prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+                if (prodpcs.value > oqty) {
                     prodpcs.style.borderColor = "red";
                     $(".myAlert-top").show();
                     $("#errmsg").text(" Produced quantity is exceeding order quantity!!");
@@ -534,45 +543,69 @@
                     }, 5000);
                 } else
                     prodpcs.style.borderColor = "green";
-                }
+            }
 
-                function isNumberKey(evt) {
-                    var charCode = (evt.which) ? evt.which : event.keyCode
-                    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                        $(".myAlert-top").show();
-                        $("#errmsg").text(" Special charecters and Alphabets are not allowed");
-                        setTimeout(function () {
-                            $(".myAlert-top").hide();
-                        }, 5000);
-                        return false;
-                    }
-                    return true;
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Special charecters and Alphabets are not allowed");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 5000);
+                    return false;
                 }
+                return true;
+            }
 
-                function isDecimalKey(evt) {
-                    var prodmtr = document.getElementById('<%=Textprodmtr.ClientID %>');
-                    //if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) {
-                    //    //alert(prodmtr.id.toString());
-                    //    $(".myAlert-top").show();
-                    //    $("#errmsg").text(" Alphabets are not allowed");
-                    //    setTimeout(function () {
-                    //        $(".myAlert-top").hide();
-                    //    }, 2000);
-                    //    return false;
-                    //}
-                    var parts = evt.srcElement.value.split('.');
-                    if (parts.length > 2) return false;
-                    if (evt.keyCode == 46) return (parts.length == 1);
-                    if (parts.length == 2 && parts[1].length >= 2) {
-                        $(".myAlert-top").show();
-                        $("#errmsg").text(" Accept two decimal points only");
-                        setTimeout(function () {
-                            $(".myAlert-top").hide();
-                        }, 2000);
-                        return false;
-                    }
+            function isDecimalKey(evt) {
+                var prodmtr = document.getElementById('<%=Textprodmtr.ClientID %>');
+                //if (!(evt.keyCode == 46 || (evt.keyCode >= 48 && evt.keyCode <= 57))) {
+                //    //alert(prodmtr.id.toString());
+                //    $(".myAlert-top").show();
+                //    $("#errmsg").text(" Alphabets are not allowed");
+                //    setTimeout(function () {
+                //        $(".myAlert-top").hide();
+                //    }, 2000);
+                //    return false;
+                //}
+                var parts = evt.srcElement.value.split('.');
+                if (parts.length > 2) return false;
+                if (evt.keyCode == 46) return (parts.length == 1);
+                if (parts.length == 2 && parts[1].length >= 2) {
+                    $(".myAlert-top").show();
+                    $("#errmsg").text(" Accept two decimal points only");
+                    setTimeout(function () {
+                        $(".myAlert-top").hide();
+                    }, 2000);
+                    return false;
                 }
-            </script>
+            }
+        </script>
+        <script type="text/javascript">  
+            $(document).ready(function () {
+                $("#<%=txtPO_No.ClientID%>").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "frmLengthHemmingMachine.aspx/GetPoNum",
+                            method: "post",
+                            contentType: "application/json;charset=utf-8",
+                            data: JSON.stringify({ term: request.term }),
+                            <%--data: "{'term':'" + $("#<%=txtPO.ClientID%>").val() + "'}",--%>
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log("data is : " + data)
+                                response(data.d);
+                            },
+                            error: function (err) {
+                                console.log(err.responseText + " " + term);
+                                alert(err);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
     </body>
 
     </html>

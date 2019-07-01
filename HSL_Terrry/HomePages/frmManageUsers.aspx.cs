@@ -72,6 +72,43 @@ namespace HSL_Terrry.HomePages
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            //Checking Screen Access Checkboxes
+            Boolean LSMAccess = false;
+            Boolean LHMAccess = false;
+            Boolean ACCHAccess = false;
+            Boolean MCCAccess = false;
+            Boolean MCHAccess = false;
+            Boolean EMAccess = false;
+            Boolean PPAccess = false;
+
+            if (chkLSM.Checked)
+            {
+                LSMAccess = true;
+            }
+            if (chkLHM.Checked)
+            {
+                LHMAccess = true;
+            }
+            if (chkACCH.Checked)
+            {
+                ACCHAccess = true;
+            }
+            if (chkMCC.Checked)
+            {
+                MCCAccess = true;
+            }
+            if (chkMCH.Checked)
+            {
+                MCHAccess = true;
+            }
+            if (chkEM.Checked)
+            {
+                EMAccess = true;
+            }
+            if (chkPP.Checked)
+            {
+                PPAccess = true;
+            }
             try
             {
                 lblErrMessage.Text = "";
@@ -82,10 +119,11 @@ namespace HSL_Terrry.HomePages
                     intActive = 1;
                 else
                     intActive = 0;
+                
                 intRole = ddlRole.SelectedItem.Value;
                 if (strSupID != null)
                 {
-                    DataTable dt = ClsSupervisorMasters.UpdateSupervisor(txtSupID.Text.Trim(), txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole);
+                    DataTable dt = ClsSupervisorMasters.UpdateSupervisor(txtSupID.Text.Trim(), txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole,LSMAccess,LHMAccess,ACCHAccess,MCCAccess,MCHAccess,EMAccess,PPAccess);
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
@@ -95,7 +133,7 @@ namespace HSL_Terrry.HomePages
                 else
                 {
 
-                    DataTable dt = ClsSupervisorMasters.AddNewSupervisor(txtSupID.Text, txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole);
+                    DataTable dt = ClsSupervisorMasters.AddNewSupervisor(txtSupID.Text, txtSupName.Text, txtPassword.Text, ddlDept.SelectedValue, txtEmailID.Text, intActive, intRole,LSMAccess,LHMAccess,ACCHAccess,MCCAccess,MCHAccess,EMAccess,PPAccess);
                     if (dt.Rows.Count > 0)
                     {
                         //divMsg.Visible = true;
@@ -135,7 +173,15 @@ namespace HSL_Terrry.HomePages
                     chkActive.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["Active"]);
                     if (dtSupDetails.Rows[0]["RoleId"].ToString().Trim() != null)
                         ddlRole.SelectedValue = Convert.ToString(dtSupDetails.Rows[0]["RoleId"]);
-                   // chkAdmin.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["IsAdmin"]);
+                    chkLSM.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["LSMAccess"]);
+                    chkLHM.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["LHMAccess"]);
+                    chkACCH.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["ACCHAccess"]);
+                    chkMCC.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["MCCAccess"]);
+                    chkMCH.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["MCHAccess"]);
+                    chkEM.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["EMAccess"]);
+                    chkPP.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["PPAccess"]);
+
+                    // chkAdmin.Checked = Convert.ToBoolean(dtSupDetails.Rows[0]["IsAdmin"]);
                 }
             }
             catch (Exception ex)

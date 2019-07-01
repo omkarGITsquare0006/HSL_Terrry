@@ -126,6 +126,9 @@
     <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineOPDetail.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
+    <Content Include="HomePages\frmManageMachine.aspx" />
+    <Content Include="HomePages\frmManageRejection.aspx" />
+    <Content Include="HomePages\frmManageTrolley.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmManageUsersList.aspx" />
     <Content Include="HomePages\frmMCrossCutting.aspx" />
@@ -142,6 +145,10 @@
     <Content Include="images\bg2.png" />
     <Content Include="images\bg22.png" />
     <Content Include="images\bg3.png" />
+    <Content Include="images\machine.png" />
+    <Content Include="images\reject.png" />
+    <Content Include="images\stop.png" />
+    <Content Include="images\trolley.png" />
     <Content Include="images\ui-icons_444444_256x240.png" />
     <Content Include="images\ui-icons_555555_256x240.png" />
     <Content Include="images\ui-icons_777620_256x240.png" />
@@ -321,6 +328,27 @@
     </Compile>
     <Compile Include="HomePages\frmLengthSlittingMachineSup.aspx.designer.cs">
       <DependentUpon>frmLengthSlittingMachineSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageMachine.aspx.cs">
+      <DependentUpon>frmManageMachine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageMachine.aspx.designer.cs">
+      <DependentUpon>frmManageMachine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageRejection.aspx.cs">
+      <DependentUpon>frmManageRejection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageRejection.aspx.designer.cs">
+      <DependentUpon>frmManageRejection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageTrolley.aspx.cs">
+      <DependentUpon>frmManageTrolley.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageTrolley.aspx.designer.cs">
+      <DependentUpon>frmManageTrolley.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmManageUsers.aspx.cs">
       <DependentUpon>frmManageUsers.aspx</DependentUpon>

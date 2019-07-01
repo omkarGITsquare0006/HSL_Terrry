@@ -18,6 +18,7 @@ using System.Collections;
 public class CRUDApplication
 {
     private static object Terry;
+
     private CRUDApplication()
     {
 
@@ -218,7 +219,7 @@ public class CRUDApplication
     }
 
     public static DataTable Updaterecord(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -376,8 +377,42 @@ public class CRUDApplication
 
     }
 
+    public static List<string> Load_PONumber_Auto(string ScreenStatus, string term)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            List<string> listCountryName = new List<string>();
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoadAuto";
+            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
+            cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = term;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                string po = Convert.ToString(row["Prod_Order_no"]);
+                listCountryName.Add(po);
+            }
+            return listCountryName;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
     public static DataTable UpdaterecordLhm(int ID, string strPO_No, DateTime Date, string Shift, string Operator, string Supervisor, string Machine_No, Int32 Prod_pcs, string Trolly_no, Int32 Trolly_Qty, decimal Pod_mtr,
-        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks,string updateBy)
+        Int32 Rejected_Qty, string Reason_Rej, decimal Prod_Kg, Int32 Bal_Pcs, string Break_time, string Reason, string Remarks, string updateBy)
     {
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
@@ -1005,17 +1040,16 @@ public class CRUDApplication
                 connGetDistrict.Close();
         }
     }
-    public static DataTable Load_PONumber(String ScreenStatus)
+    public static DataTable Load_Supervisor()
     {
-
         SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
         try
         {
             SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
-            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoad";
-            cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "SupLoad";
+            //cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -2202,6 +2236,62 @@ public class CRUDApplication
         {
             ErrorHandler.WriteError(ex.Message, "");
             return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static int AddMaster(string DataDisplay, string DatDesc, string Operation, string DataType)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "AddMachine";
+            cmdDistrict.Parameters.Add("@DataDisplay", SqlDbType.NVarChar).Value = DataDisplay;
+            cmdDistrict.Parameters.Add("@DataDesc", SqlDbType.NVarChar).Value = DatDesc;
+            cmdDistrict.Parameters.Add("@Operation", SqlDbType.NVarChar).Value = Operation;
+            cmdDistrict.Parameters.Add("@DataType", SqlDbType.NVarChar).Value = DataType;
+            int exc = cmdDistrict.ExecuteNonQuery();
+            return exc;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return 0;
+        }
+        finally
+        {
+            if (connGetDistrict.State == ConnectionState.Open)
+                connGetDistrict.Close();
+        }
+    }
+
+    public static DataTable Load_Master(string Operation, string DataType)
+    {
+        SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+        try
+        {
+            SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+            cmdDistrict.CommandType = CommandType.StoredProcedure;
+            cmdDistrict.CommandTimeout = 250;
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GetMachine";
+            cmdDistrict.Parameters.Add("@Operation", SqlDbType.Char).Value = Operation;
+            cmdDistrict.Parameters.Add("@DataType", SqlDbType.Char).Value = DataType;
+            SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            ErrorHandler.WriteError(ex.Message, "");
+            return null;
         }
         finally
         {
