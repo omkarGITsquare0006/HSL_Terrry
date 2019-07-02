@@ -186,7 +186,6 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="HomePages\HomeMaster.Master" />
     <Content Include="HomePages\PoHandler.ashx" />
-    <Content Include="HomePages\_PartialModal.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />

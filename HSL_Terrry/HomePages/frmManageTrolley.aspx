@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="form-row">
 
-                        <div class="form-group col-md-6 p-2">
+                        <div class="form-group col-md-5 p-2">
                             <%--                            <div class="col">--%>
                             <label for="txtPO_No" class="col-form-label">Select Screen</label>
                             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
@@ -38,9 +38,14 @@
                             </asp:DropDownList>
                         </div>
 
-                        <div class="form-group col-md-6 p-2">
+                        <div class="form-group col-md-5 p-2">
                             <label for="txtTrolleyNum" class="col-form-label">Trolley Number:</label>
                             <asp:TextBox ID="txtTrolleyNum" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+
+                        <div class="form-group col-md-2 p-2">
+                            <label for="btnView" class="col-form-label invisible">Machine Name:</label><br />
+                            <button type="button" id="btnView" class="btn btn-light p-0" data-toggle="modal" data-target="#exampleModal"><span class="small">view or manage trolley's</span></button>
                         </div>
 
                         <div class="form-group col p-2">
@@ -58,6 +63,51 @@
                         </div>
                     </div>
                     <br />
+                </div>
+            </div>
+        </div>
+
+        <%-- Modal --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <asp:ListView ID="ListView1" runat="server">
+                            <LayoutTemplate>
+                                <table class="table table-bordered table-striped">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Operation Name</th>
+                                        <th>Trolley Number</th>
+                                        <th>Tare Weight</th>
+                                        <th>Active Status</th>
+                                    </tr>
+                                    <tbody>
+                                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                    </tbody>
+                                </table>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td><asp:Label ID="id" runat="server" Text= <%# Eval("ID")%>></asp:Label></td>
+                                    <td><%# Eval("Operation")%></td>
+                                    <td><%# Eval("Data_Dispaly")%></td>
+                                    <td><%# Eval("Data_Desc")%></td>
+                                    <td><asp:CheckBox ID="chkActive" runat="server" Checked='<%#Convert.ToBoolean(Eval("Active"))%>' /></td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" runat="server" class="btn btn-primary" onserverclick="btnUpdate_click">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
