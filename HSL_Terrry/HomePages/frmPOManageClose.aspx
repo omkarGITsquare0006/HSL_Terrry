@@ -80,6 +80,7 @@
                                 <asp:ListItem Text="MCC-Manual Cross Cutting" Value="Mcc_status"></asp:ListItem>
                                 <asp:ListItem Text="MCH-Manual Cross Hemming" Value="Mch_status"></asp:ListItem>
                                 <asp:ListItem Text="EM-Embroidery Machine" Value="Em_status"></asp:ListItem>
+                                <asp:ListItem Text="PP-Poly Packing" Value="Pp_status"></asp:ListItem>
                             </asp:DropDownList>
                             <%--                            </div>--%>
                         </div>
