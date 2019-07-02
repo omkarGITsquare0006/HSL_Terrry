@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -19,8 +20,9 @@ namespace HSL_Terrry.HomePages
             txtprodpcs.Attributes.Add("readonly", "readonly");
             txtprodwt.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
-            loading.Attributes.Add("hidden","hidden");
+            loading.Attributes.Add("hidden", "hidden");
             string[] strID = Request.QueryString.GetValues("ID");
+            BindListView();
             if (!IsPostBack)
             {
                 Load_Master();
@@ -46,6 +48,37 @@ namespace HSL_Terrry.HomePages
             }
         }
 
+        private void BindListView()
+        {
+            SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+            try
+            {
+                SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+                cmdDistrict.CommandType = CommandType.StoredProcedure;
+                cmdDistrict.CommandTimeout = 250;
+                cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GetRej";
+                cmdDistrict.Parameters.Add("@Operation", SqlDbType.Char).Value = "LSM";
+                cmdDistrict.Parameters.Add("@DataType", SqlDbType.Char).Value = "Reject";
+                SqlDataReader rdr= cmdDistrict.ExecuteReader();
+                ListView1.DataSource = rdr;
+                ListView1.DataBind();
+                rdr.Close();
+
+                SqlCommand cmdDistrict1 = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+                cmdDistrict1.CommandType = CommandType.StoredProcedure;
+                cmdDistrict1.CommandTimeout = 250;
+                cmdDistrict1.Parameters.Add("@flag", SqlDbType.Char).Value = "GetRej";
+                cmdDistrict1.Parameters.Add("@Operation", SqlDbType.Char).Value = "LSM";
+                cmdDistrict1.Parameters.Add("@DataType", SqlDbType.Char).Value = "Stoppage";
+                ListView2.DataSource = cmdDistrict1.ExecuteReader();
+                ListView2.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ex.StackTrace.ToString();
+            }
+        }
+
         protected void Load_Master()
         {
             try
@@ -63,7 +96,7 @@ namespace HSL_Terrry.HomePages
                 txtsupervisor.SelectedIndex = 0;
 
                 //Loads Machines From Master Data
-                ddMachineNo.DataSource = CRUDApplication.Load_Master("LSM","Machine");
+                ddMachineNo.DataSource = CRUDApplication.Load_Master("LSM", "Machine");
                 ddMachineNo.DataTextField = "Data_Dispaly".ToString().Trim();
                 ddMachineNo.DataValueField = "Data_Dispaly".ToString().Trim();
                 ddMachineNo.DataBind();
@@ -306,7 +339,7 @@ namespace HSL_Terrry.HomePages
                     txtoperator.Text = Convert.ToString(dtSupDetails.Rows[0]["Operator"]);
                     txtsupervisor.SelectedIndex = txtsupervisor.Items.IndexOf(txtsupervisor.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Supervisor"])));
                     ddMachineNo.SelectedIndex = ddMachineNo.Items.IndexOf(ddMachineNo.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Machine_No"]).Trim()));
-                    
+
                     txttrollyno.SelectedIndex = txttrollyno.Items.IndexOf(txttrollyno.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Trolly_no"])));
                     txttrollyqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Trolly_Qty"]);
                     Textprodmtr.Text = Convert.ToString(dtSupDetails.Rows[0]["Pod_mtr"]);
