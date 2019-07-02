@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageMachine.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageMachine" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageStoppage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageStoppage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <!DOCTYPE html>
@@ -14,7 +13,7 @@
         <div class="container-fluid pr-0 pl-0">
             <div class="card border-warning mt-3">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p class="font-weight-bold">MANAGE MACHINE</p>
+                    <p class="font-weight-bold">MANAGE STOPPAGE REASONS</p>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -39,13 +38,13 @@
                         </div>
 
                         <div class="form-group col-md-6 p-2">
-                            <label for="txtMachineName" class="col-form-label">Machine Name:</label><a id="viewmachines" class="ml-4 small font-italic" onclick="ViewMach()">view & manage machines</a>
-                            <asp:TextBox ID="txtMachineName" CssClass="form-control" runat="server"></asp:TextBox>
+                            <label for="txtStopCode" class="col-form-label">Stoppage Code:</label>
+                            <asp:TextBox ID="txtStopCode" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
 
                         <div class="form-group col p-2">
-                            <label for="txtMachineDesc" class="col-form-label">Machine Description</label>
-                            <asp:TextBox ID="txtMachineDesc" class="form-control" placeholder="Machine Description" runat="server" />
+                            <label for="txtStopDesc" class="col-form-label">Stoppage Description</label>
+                            <asp:TextBox ID="txtStopDesc" class="form-control" placeholder="Reject Description" runat="server" />
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -61,11 +60,6 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">  
-            function ViewMach() {
-                alert();
-            }
-        </script>
 
     </body>
     </html>

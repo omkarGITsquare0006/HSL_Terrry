@@ -128,6 +128,7 @@
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
     <Content Include="HomePages\frmManageMachine.aspx" />
     <Content Include="HomePages\frmManageRejection.aspx" />
+    <Content Include="HomePages\frmManageStoppage.aspx" />
     <Content Include="HomePages\frmManageTrolley.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmManageUsersList.aspx" />
@@ -185,6 +186,7 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="HomePages\HomeMaster.Master" />
     <Content Include="HomePages\PoHandler.ashx" />
+    <Content Include="HomePages\_PartialModal.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
@@ -342,6 +344,13 @@
     </Compile>
     <Compile Include="HomePages\frmManageRejection.aspx.designer.cs">
       <DependentUpon>frmManageRejection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageStoppage.aspx.cs">
+      <DependentUpon>frmManageStoppage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageStoppage.aspx.designer.cs">
+      <DependentUpon>frmManageStoppage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmManageTrolley.aspx.cs">
       <DependentUpon>frmManageTrolley.aspx</DependentUpon>

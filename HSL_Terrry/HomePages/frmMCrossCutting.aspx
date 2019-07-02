@@ -522,7 +522,8 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtstopreason" AutoComplete="Off" class="form-control" placeholder="Stoppage Reason" runat="server" />
+                                    <asp:DropDownList ID="txtstopreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>

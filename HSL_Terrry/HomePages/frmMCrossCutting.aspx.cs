@@ -92,6 +92,18 @@ namespace HSL_Terrry.HomePages
                 rej.Selected = true;
                 txtrejreason.Items.Insert(0, rej);
                 txtrejreason.SelectedIndex = 0;
+
+                //Loads Stoppage Reasonss From Master Data
+                txtstopreason.DataSource = CRUDApplication.Load_Master("MCC", "Stoppage");
+                txtstopreason.DataTextField = "Data_Dispaly".ToString().Trim();
+                txtstopreason.DataValueField = "Data_Dispaly".ToString().Trim();
+                txtstopreason.DataBind();
+                ListItem stop = new ListItem();
+                stop.Text = "-----Select Stoppage Reason-----";
+                stop.Value = "-1";
+                stop.Selected = true;
+                txtstopreason.Items.Insert(0, stop);
+                txtstopreason.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -163,7 +175,7 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.SelectedValue), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtrejQty.Text.Trim()), txtrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim());
 
                 if (dt.Rows.Count > 0)
                 {
@@ -210,12 +222,12 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.SelectedValue), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtrejQty.Text.Trim()), txtrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim(), Session["UserDetail"].ToString());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString());
                 if (dt.Rows.Count > 0)
                 {
                     logger.Info(Session["UserDetail"].ToString() + ":Data updated for:[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.SelectedValue + ",Trolley Qty: "
                                                                 + txttrollyqty.Text + ",Prod mtr:" + txtprodpcs.Text + ",Reject Qty:" + txtrejQty.Text + ",Reject Reason:" + txtrejreason.SelectedValue +
-                                                                ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
+                                                                ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.SelectedValue + ",Remarks:" + txtremarks.Text);
                     MsgBox1.MessageBox.Show("Record " + txtPO_No.Text.Trim() + " Updated successfully ", "frmHome.aspx");
                     //txtPO_No.Text = "";
 
@@ -286,11 +298,11 @@ namespace HSL_Terrry.HomePages
                     txtopenorderqty.Text = Convert.ToString(dtSupDetails.Rows[0]["Bal_Pcs"]);
                     txttotalconfirm.Text = Convert.ToString(dtSupDetails.Rows[0]["TotProd"]);
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
-                    txtstopreason.Text = Convert.ToString(dtSupDetails.Rows[0]["Reason"]);
+                    txtstopreason.SelectedIndex = txtstopreason.Items.IndexOf(txtstopreason.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Reason"])));
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
                     logger.Info(Session["UserDetail"].ToString() + ":Data fetched for:[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.SelectedValue + ",Trolley Qty: "
                         + txttrollyqty.Text + ",Prod mtr:" + txtprodpcs.Text + ",Reject Qty:" + txtrejQty.Text + ",Reject Reason:" + txtrejreason.SelectedValue +
-                        ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.Text + ",Remarks:" + txtremarks.Text);
+                        ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.SelectedValue + ",Remarks:" + txtremarks.Text);
                 }
             }
             catch (Exception ex)
@@ -319,7 +331,6 @@ namespace HSL_Terrry.HomePages
             txtrejQty.ReadOnly = edit;
             //txtprodwt.ReadOnly = edit;
             txtmachinestop.ReadOnly = edit;
-            txtstopreason.ReadOnly = edit;
             txtremarks.ReadOnly = edit;
         }
 
