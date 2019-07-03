@@ -16,6 +16,8 @@
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
         <link rel="stylesheet" href="../jquery-ui.css" />
         <script src="../jquery-ui.js"></script>
+        <link rel="stylesheet" href="../Content/jquery-ui-timepicker-addon.css" />
+        <script src="../Scripts/jquery-ui-timepicker-addon.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -317,8 +319,8 @@
                                     <%--                            <div class="col">--%>
                                     <asp:TextBox ID="txtdate" AutoComplete="Off" class="form-control" placeholder="Date" runat="server" />
                                     <%--<asp:ScrkiptManager ID="ScriptManager1" runat="server"></asp:ScrkiptManager>--%>
-                                    <asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server"></asp:ToolkitScriptManager>
-                                    <asp:CalendarExtender ID="CalendarExtender1" BehaviorID="calendar1" OnClientDateSelectionChanged="dateselect" TargetControlID="txtdate" runat="server"></asp:CalendarExtender>
+                                    <%--<asp:ToolkitScriptManager ID="ToolkitScriptManager2" runat="server"></asp:ToolkitScriptManager>--%>
+                                    <%--<asp:CalendarExtender ID="CalendarExtender1" BehaviorID="calendar1" OnClientDateSelectionChanged="dateselect" TargetControlID="txtdate" runat="server"></asp:CalendarExtender>--%>
                                     <%--                            </div>--%>
                                 </div>
 
@@ -507,7 +509,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Code and Description</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -651,6 +653,16 @@
                 $("#stopid").click(function () {
                     $("#rejList").hide();
                     $("#stopList").show();
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                //var dt = new Date();
+                $('#<%=txtdate.ClientID%>').datetimepicker({
+                    showTimePicker: false,
+                    dateFormat: 'yy-mm-dd',
+                    timeFormat: 'hh:mm:ss'
                 });
             });
         </script>

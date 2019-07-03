@@ -63,12 +63,12 @@
 
 
             <%-- Manage Users Working --%>
-            <div class="col-md-2" id="usercard" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/users.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="usercard" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator" src="../images/users.png" style="width: 65%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:large">Manage Users<i class="close" aria-label="close"></i></span>
                         <p><a href="frmManageUsersList.aspx">click here</a></p>
                     </div>
@@ -80,12 +80,12 @@
             </div>
 
             <%-- Manage PO Working --%>
-            <div class="col-md-2" id="pocard" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/orders.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="pocard" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator" src="../images/orders.png" style="width: 50%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Manage PO<i class="material-icons right"></i></span>
                         <p><a href="frmPOManageClose.aspx">click here</a></p>
                     </div>
@@ -97,12 +97,12 @@
             </div>
 
             <%-- Manage Machines --%>
-            <div class="col-md-2" id="Div1" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/machine.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="Div1" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator" src="../images/machine.png" style="width: 65%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Add Machine<i class="material-icons right"></i></span>
                         <p><a href="frmManageMachine.aspx">click here</a></p>
                     </div>
@@ -114,12 +114,12 @@
             </div>
 
             <%-- Manage Trolley --%>
-            <div class="col-md-2" id="Div2" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/trolley.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="Div2" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator bg-white" src="../images/trolley.png" style="width: 65%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Add Trolley<i class="material-icons right"></i></span>
                         <p><a href="frmManageTrolley.aspx">click here</a></p>
                     </div>
@@ -131,12 +131,12 @@
             </div>
 
             <%-- Manage Reject --%>
-            <div class="col-md-2" id="Div3" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/reject.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="Div3" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light mx-auto text-center m-3">
+                        <img class="activator" src="../images/reject.png" style="width: 50%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Rejections<i class="material-icons right"></i></span>
                         <p><a href="frmManageRejection.aspx">click here</a></p>
                     </div>
@@ -148,12 +148,12 @@
             </div>
 
             <%-- Manage Stoppage --%>
-            <div class="col-md-2" id="Div4" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/stop.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="Div4" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator" src="../images/stop.png" style="width: 65%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Stoppage<i class="material-icons right"></i></span>
                         <p><a href="frmManageStoppage.aspx">click here</a></p>
                     </div>
@@ -164,12 +164,12 @@
                 </div>
             </div>
 
-            <div class="col-md-2" id="Div5" runat="server">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="../images/orders.png" style="width: 100%; height: 150px;">
+            <div class="col-md-3" id="Div5" runat="server">
+                <div class="card rounded">
+                    <div class="waves-effect waves-block waves-light text-center m-3">
+                        <img class="activator" src="../images/orders.png" style="width: 50%; height: auto;">
                     </div>
-                    <div class="card-content">
+                    <div class="card-content bg-warning">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">WIP<i class="material-icons right"></i></span>
                         <p><a href="frmWipReport.aspx">click here</a></p>
                     </div>
