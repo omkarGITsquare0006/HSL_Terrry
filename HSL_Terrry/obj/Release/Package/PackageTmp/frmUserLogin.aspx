@@ -5,12 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%--    <script src="Scripts/jquery-3.3.1.min.js"></script>--%>
     <%--    <script src="Scripts/bootstrap.min.js"></script>--%>
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/jquery.validate.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/png" href="Assets/favicon.png"/>
     <%--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>--%>
     <style>
         .imgBackground {

@@ -13,6 +13,8 @@
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../jquery-ui.css" />
+        <script src="../jquery-ui.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 if ('<%= HttpContext.Current.Session["RoleId"] %>' == "3") {
@@ -40,7 +42,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h5 class="mt-xl-3">AUTOMATIC CROSS CUTTING AND CROSS HEMMING REPORT</h5>
+                <h5 class="mt-xl-3">AUTOMATIC CROSS CUTTING AND CROSS HEMMING ENTRY</h5>
 
             </div>
         </div>
@@ -73,10 +75,15 @@
             <%--                            </div>--%>
             <%--                            <div class="col">--%>
             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
-                AutoPostBack="true">
+            <asp:DropDownList ID="txtPO_No1" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                AutoPostBack="true" Visible="false">
             </asp:DropDownList>
-            <%--                            </div>--%>
+            <div class="row">
+                <asp:TextBox ID="txtPO_No" CssClass="form-control col-md-3 ml-2" runat="server"></asp:TextBox>
+                <button runat="server" id="btnGetdata" class="btn btn-primary ml-2" onserverclick="LoadPODetails_OnSelectedIndexChanged">
+                    <span id="loading" runat="server" class="spinner-border spinner-border-sm" hidden></span>Get Data
+                </button>
+            </div>
         </div>
         <%--</div>--%>
 
@@ -401,7 +408,9 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtsupervisor" class="form-control" placeholder="Supervisor" runat="server" AutoComplete="Off" />
+                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                        <asp:ListItem Text="Select" Value=""></asp:ListItem>
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -417,8 +426,6 @@
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                                     <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="true" aria-haspopup="true" aria-expanded="false">
-                                        <asp:ListItem Text="Machine 1" Value="Machine 1"></asp:ListItem>
-                                        <asp:ListItem Text="Machine 2" Value="Machine 2"></asp:ListItem>
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
@@ -430,7 +437,8 @@
                                     <label for="txttrollyno" class="col-form-label">Trolley No</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyno" class="form-control" placeholder="Trolley Number" runat="server" AutoComplete="Off" />
+                                    <asp:DropDownList ID="txttrollyno" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -486,10 +494,11 @@
                                 <%--                                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-1">--%>
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span>
+                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="rejid" data-toggle="modal" data-target="#exampleModal">Code-Desc</a>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtrejreason" AutoComplete="Off" class="form-control" placeholder="Reason" runat="server" />
+                                    <asp:DropDownList ID="txtrejreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -514,12 +523,13 @@
                                 <%--                                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">--%>
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span>
+                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="stopid" data-toggle="modal" data-target="#exampleModal">Code-Desc</a>
                                     <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtstopreason" AutoComplete="Off" class="form-control" placeholder="Stoppage Reason" runat="server" />
+                                    <asp:DropDownList ID="txtstopreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -539,6 +549,18 @@
                                     <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
+
+                                <div class="form-group col-md-3 p-2">
+                                    <%--                            <div class="col">--%>
+                                    <label for="txtudf" class="col-form-label">Shortage</label>
+                                    <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
+                                    <%--                            </div>--%>
+                                    <%--                            <div class="col">--%>
+                                    <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
+                                    <asp:TextBox ID="txtudf" AutoComplete="Off" class="form-control" Rows="5" placeholder="Shortage" runat="server" />
+                                    <%--                            </div>--%>
+                                </div>
+
                                 <%--</div>--%>
                             </div>
                         </div>
@@ -567,7 +589,65 @@
             </div>
         </div>
 
-         <div class="myAlert-top alert alert-danger hide">
+        <%-- Modal --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="rejList">
+                            <asp:ListView ID="ListView1" runat="server">
+                                <LayoutTemplate>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Reject Code</th>
+                                            <th>Code Description</th>
+                                        </tr>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("Data_Dispaly")%></td>
+                                        <td><%# Eval("Data_Desc")%></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+                        <div id="stopList">
+                            <asp:ListView ID="ListView2" runat="server">
+                                <LayoutTemplate>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Stop Code</th>
+                                            <th>Code Description</th>
+                                        </tr>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("Data_Dispaly")%></td>
+                                        <td><%# Eval("Data_Desc")%></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="myAlert-top alert alert-danger hide">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Warning!</strong><span id="errmsg"></span>
         </div>
@@ -578,8 +658,11 @@
                 var oqty = parseFloat(document.getElementById('<%=txtopenorderqty.ClientID %>').value);
 
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
-                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value)/1000;
+                var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value) / 1000;
                 var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                var udf = document.getElementById('<%=txtudf.ClientID %>');
+                var trollyqty = document.getElementById('<%=txttrollyqty.ClientID %>');
+                udf.value = trollyqty.value - prodpcs.value;
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodweiht.value = (perpcsweight * prodpcs.value);
                 if (prodpcs.value > oqty) {
@@ -592,6 +675,44 @@
                 } else
                     prodpcs.style.borderColor = "green";
             }
+        </script>
+        <script type="text/javascript">  
+            $(document).ready(function () {
+                $("#<%=txtPO_No.ClientID%>").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "frmACCHMachine.aspx/GetPoNum",
+                            method: "post",
+                            contentType: "application/json;charset=utf-8",
+                            data: JSON.stringify({ term: request.term }),
+                            <%--data: "{'term':'" + $("#<%=txtPO.ClientID%>").val() + "'}",--%>
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log("data is : " + data)
+                                response(data.d);
+                            },
+                            error: function (err) {
+                                console.log(err.responseText + " " + term);
+                                alert(err);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $("#rejid").click(function () {
+                    $("#stopList").hide();
+                    $("#rejList").show();
+                });
+
+                $("#stopid").click(function () {
+                    $("#rejList").hide();
+                    $("#stopList").show();
+                });
+            });
         </script>
     </body>
     </html>

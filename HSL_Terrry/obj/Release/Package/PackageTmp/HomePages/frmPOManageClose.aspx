@@ -7,15 +7,17 @@
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
         <link href="../Styles/css/confirm.css" rel="stylesheet" />
+        <link rel="stylesheet" href="../jquery-ui.css" />
+        <script src="../jquery-ui.js"></script>
         <script type="text/javascript">
             function Selected() {
                 var poqty = parseFloat(document.getElementById('<%=txtPOQty.ClientID %>').value);
                 var prodqty = document.getElementById('<%=TextPoProd.ClientID %>');
-                console.log("log created");
                 var dropdown = document.getElementById('<%=txtPO_No.ClientID %>');
-                var strUser = dropdown.options[dropdown.selectedIndex].value;
-                if (strUser == -1) {
-                    alert('Please select a PO');
+                var strUser = dropdown.value;
+                console.log("po is : " + strUser);
+                if (strUser == "") {
+                    alert('Please Enter PO Numer');
                 } else {
                     if (prodqty.value < poqty) {
                         $.confirm({
@@ -44,7 +46,7 @@
                                     $('#myModal').modal();
                                 },
                                 cancel: function () {
-                                    
+
                                 }
                             }
                         });
@@ -55,10 +57,10 @@
     </head>
     <body>
         <%-- Card For PO Close --%>
-        <div class="container-fluid">
-            <div class="card border-warning mt-5">
+        <div class="container-fluid pr-0 pl-0">
+            <div class="card border-warning mt-3">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p>PO SHORT CLOSE</p>
+                    <p class="font-weight-bold">PO SHORT CLOSE</p>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -71,13 +73,14 @@
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
                             <asp:DropDownList ID="ddlScreen" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlScreen_SelectedIndexChanged">
-                                <asp:ListItem Text="Select screen" Value=""></asp:ListItem>
+                                <%--<asp:ListItem Text="Select screen" Value=""></asp:ListItem>--%>
                                 <asp:ListItem Text="LSM-Length Slitting Machine" Value="Lsm_status"></asp:ListItem>
                                 <asp:ListItem Text="LHM-Length Hemming Machine" Value="Lhm_status"></asp:ListItem>
                                 <asp:ListItem Text="ACCHM-Automatic Cross Cutting and Cross Hemming Machine" Value="Acchm_status"></asp:ListItem>
                                 <asp:ListItem Text="MCC-Manual Cross Cutting" Value="Mcc_status"></asp:ListItem>
                                 <asp:ListItem Text="MCH-Manual Cross Hemming" Value="Mch_status"></asp:ListItem>
                                 <asp:ListItem Text="EM-Embroidery Machine" Value="Em_status"></asp:ListItem>
+                                <asp:ListItem Text="PP-Poly Packing" Value="Pp_status"></asp:ListItem>
                             </asp:DropDownList>
                             <%--                            </div>--%>
                         </div>
@@ -89,9 +92,10 @@
                             <%--                            </div>--%>
                             <%--                            <div class="col">--%>
                             <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                            <asp:DropDownList ID="txtPO_No" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
-                                AutoPostBack="true">
+                            <asp:DropDownList ID="txtPO_No1" class="form-control" runat="server" OnSelectedIndexChanged="LoadPODetails_OnSelectedIndexChanged"
+                                AutoPostBack="true" Visible="false">
                             </asp:DropDownList>
+                            <asp:TextBox ID="txtPO_No" CssClass="form-control" AutoPostBack="true" OnTextChanged="LoadPODetails_OnSelectedIndexChanged" runat="server"></asp:TextBox>
                             <%--                            </div>--%>
                         </div>
 
@@ -145,7 +149,7 @@
                             <label for="btnClose" class="col-form-label invisible">Lot Balance</label>
                             <%--                            </div>--%>
                             <%-- OnClick="btnClose_Click"                           <div class="col">--%>
-                            <button type="button" class="btn btn-outline-danger btn-block" id="btnClose" onclick="return Selected();">Close</button>
+                            <button type="button" runat="server" class="btn btn-outline-danger btn-block" id="btnClose" onclick="return Selected();">Close</button>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -183,6 +187,33 @@
             <strong>Warning!</strong><span id="errmsg"></span>
         </div>
 
+        <script type="text/javascript">  
+            $(document).ready(function () {
+
+                $("#<%=txtPO_No.ClientID%>").autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "frmPOManageClose.aspx/GetPoNum",
+                            method: "post",
+                            contentType: "application/json;charset=utf-8",
+                            //data: JSON.stringify({ term: request.term }),
+                            data: "{'term':'" + $("#<%=txtPO_No.ClientID%>").val() + "','screen':'" + $("#<%=ddlScreen.ClientID %>").val() + "'}",
+                            dataType: 'json',
+                            success: function (data) {
+                                var ddlScreen = $("#<%=ddlScreen.ClientID %>");
+                                var selectedValue = ddlScreen.val();
+                                console.log("data is : " + selectedValue);
+                                response(data.d);
+                            },
+                            error: function (err) {
+                                console.log(err.responseText + " " + term);
+                                alert(err);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
         <script src="../Styles/css/confirm.js" type="text/javascript"></script>
     </body>
     </html>

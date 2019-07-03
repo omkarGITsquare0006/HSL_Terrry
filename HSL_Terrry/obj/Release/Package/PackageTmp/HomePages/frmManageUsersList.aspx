@@ -36,7 +36,7 @@
             <%-- <asp:Label ID="lblDateTime" runat="server" Style="float: right; font-size: 16px;"></asp:Label>--%>
             <asp:GridView ID="BeamList" runat="server" DataKeyNames="Sup_ID" AutoGenerateColumns="false"
                 AllowSorting="true" CssClass="table-responsive w-auto" HeaderStyle-BackColor="Orange" ForeColor="white"
-                CellPadding="5" HeaderStyle-Font-Bold="true" HeaderStyle-Height="35px" HeaderStyle-ForeColor="White"
+                CellPadding="5" HeaderStyle-Font-Bold="true" BorderWidth="0" HeaderStyle-Height="35px" HeaderStyle-ForeColor="White"
                 HeaderStyle-Font-Size="18px" HeaderStyle-Width="100px" HorizontalAlign="Justify"
                 OnRowCommand="gvSupList_RowCommand" OnRowDataBound="gvSupList_RowDataBound" OnRowDeleted="gvSupList_RowDeleted"
                 OnRowDeleting="gvSupList_RowDeleting">

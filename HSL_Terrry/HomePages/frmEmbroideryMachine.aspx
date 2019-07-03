@@ -478,7 +478,7 @@
 
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="rejid" data-toggle="modal" data-target="#exampleModal">Code Descriptions</a>
+                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="rejid" data-toggle="modal" data-target="#exampleModal">Code-Desc</a>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <asp:DropDownList ID="Textrejreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
@@ -497,7 +497,7 @@
 
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="stopid" data-toggle="modal" data-target="#exampleModal">Code Descriptions</a>
+                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="stopid" data-toggle="modal" data-target="#exampleModal">Code-Desc</a>
                                     <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>

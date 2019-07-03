@@ -92,7 +92,7 @@ namespace HSL_Terrry.HomePages
                 ddMachineNo.SelectedIndex = 0;
 
                 //Loads Stoppage Reasonss From Master Data
-                txtstopreason.DataSource = CRUDApplication.Load_Master("ALL", "Stoppage");
+                txtstopreason.DataSource = CRUDApplication.Load_Master("PP", "Stoppage");
                 txtstopreason.DataTextField = "Data_Dispaly".ToString().Trim();
                 txtstopreason.DataValueField = "Data_Dispaly".ToString().Trim();
                 txtstopreason.DataBind();
