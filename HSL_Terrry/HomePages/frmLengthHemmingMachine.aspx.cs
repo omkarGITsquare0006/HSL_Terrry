@@ -211,7 +211,7 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.SelectedValue), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()), Convert.ToDecimal(txtpcslength2.Text.Trim()), txtpcswidth2.Text.Trim(),
                      Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim(), Convert.ToInt32(txtudf.Text.Trim()));
 
                 if (dt.Rows.Count > 0)
                 {

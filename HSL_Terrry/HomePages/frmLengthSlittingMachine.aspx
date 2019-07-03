@@ -464,6 +464,17 @@
                                     <%--                            </div>--%>
                                 </div>
 
+                                <div class="form-group col-md-3 p-2">
+                                    <%--                            <div class="col">--%>
+                                    <label for="txtudf" class="col-form-label">Shortage</label>
+                                    <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
+                                    <%--                            </div>--%>
+                                    <%--                            <div class="col">--%>
+                                    <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
+                                    <asp:TextBox ID="txtudf" AutoComplete="Off" class="form-control" Rows="5" placeholder="Shortage" runat="server" />
+                                    <%--                            </div>--%>
+                                </div>
+
                             </div>
                         </div>
                         <%-- End of card 2 --%>
@@ -563,9 +574,13 @@
                 var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
                 var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
+                var udf = document.getElementById('<%=txtudf.ClientID %>');
+                var trollyqty = document.getElementById('<%=txttrollyqty.ClientID %>');
                 var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                //udf.value = trollyqty.value - prodpcs.value;
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodpcs.value = Math.round((prodmtr * noofslit) / pcslen);
+                udf.value = trollyqty.value - prodpcs.value;
                 prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
                 if (prodpcs.value > oqty) {
                     prodpcs.style.borderColor = "red";
