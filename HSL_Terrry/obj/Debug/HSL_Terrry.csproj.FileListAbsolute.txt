@@ -469,3 +469,9 @@ E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\bin
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\bin\ADODB.dll
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\bin\Microsoft.ReportViewer.WebForms.xml
 E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\bin\Microsoft.Build.Utilities.v3.5.xml
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.ReportViewer.Common.dll
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.ReportViewer.WebForms.dll
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.Build.Utilities.v3.5.dll
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\ADODB.dll
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.ReportViewer.WebForms.xml
+E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.Build.Utilities.v3.5.xml
