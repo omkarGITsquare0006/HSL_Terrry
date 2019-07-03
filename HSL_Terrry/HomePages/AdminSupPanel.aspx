@@ -164,6 +164,22 @@
                 </div>
             </div>
 
+            <div class="col-md-2" id="Div5" runat="server">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="../images/orders.png" style="width: 100%; height: 150px;">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">WIP<i class="material-icons right"></i></span>
+                        <p><a href="frmWipReport.aspx">click here</a></p>
+                    </div>
+                    <div class="card-reveal p-0">
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">WIP Report<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>To View the WIP Report go here</p>
+                    </div>
+                </div>
+            </div>
+
             <div class="col"></div>
         </div>
 

@@ -137,7 +137,7 @@ namespace HSL_Terrry.HomePages
                 DataTable dt = CRUDApplication.AddNewrecordPP(txtPO_No.Text.Trim(), Convert.ToDateTime(txtdate.Text.Trim()), ddShift.SelectedValue, txtoperator.Text.Trim(),
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToString(txtnoofpieces.Text.Trim()), Convert.ToInt32(txtnoofpp.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToDecimal(txtprodqty.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.Text.Trim(), txtremarks.Text.Trim(), Convert.ToInt32(txtudf.Text.Trim()));
 
                 if (dt.Rows.Count > 0)
                 {
