@@ -17,6 +17,7 @@ namespace HSL_Terrry.HomePages
         protected void Page_Load(object sender, EventArgs e)
         {
             txtprodpcs.Attributes.Add("readonly", "readonly");
+            txtudf.Attributes.Add("readonly", "readonly");
             txtprodwt.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
@@ -224,7 +225,7 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
                     txttrollyno.SelectedValue, Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToInt32(txtpcsperround.Text.Trim()), Convert.ToInt32(txtnoofrounds.Text.Trim()),
                     Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString(), Convert.ToInt32(txtudf.Text.Trim()));
                 if (dt.Rows.Count > 0)
                 {
                     logger.Info(Session["UserDetail"].ToString() + ":Data updated for:[" + txtPO_No.Text.Trim() + "]Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
@@ -297,6 +298,7 @@ namespace HSL_Terrry.HomePages
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
                     txtpcsperround.Text = Convert.ToString(dtSupDetails.Rows[0]["Pcs_In_Round"]);
                     txtnoofrounds.Text = Convert.ToString(dtSupDetails.Rows[0]["Prod_Rounds"]);
+                    txtudf.Text = Convert.ToString(dtSupDetails.Rows[0]["Udf_1"]);
                     logger.Info(Session["UserDetail"].ToString() + ":Data fetched for[:" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.SelectedValue + ",Trolley Qty: "
                         + txttrollyqty.Text + ",Pieces per round:" + txtpcsperround.Text + ",No of round:" + txtnoofrounds.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.SelectedValue +
                         ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.SelectedValue + ",Remarks:" + txtremarks.Text);

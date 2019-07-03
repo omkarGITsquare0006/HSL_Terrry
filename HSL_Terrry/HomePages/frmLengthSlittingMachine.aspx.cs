@@ -18,6 +18,7 @@ namespace HSL_Terrry.HomePages
         protected void Page_Load(object sender, EventArgs e)
         {
             txtprodpcs.Attributes.Add("readonly", "readonly");
+            txtudf.Attributes.Add("readonly", "readonly");
             txtprodwt.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
             loading.Attributes.Add("hidden", "hidden");
@@ -285,7 +286,7 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToInt32(txtprodpcs.Text.Trim()),
                     txttrollyno.SelectedValue.Trim(), Convert.ToInt32(txttrollyqty.Text.Trim()), Convert.ToDecimal(Textprodmtr.Text.Trim()),
                     Convert.ToInt32(TextrejQty.Text.Trim()), Textrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString(), Convert.ToInt32(txtudf.Text.Trim()));
 
                 if (dt.Rows.Count > 0)
                 {
@@ -353,6 +354,7 @@ namespace HSL_Terrry.HomePages
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
                     txtstopreason.SelectedIndex = txtstopreason.Items.IndexOf(txtstopreason.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Reason"])));
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
+                    txtudf.Text = Convert.ToString(dtSupDetails.Rows[0]["Udf_1"]);
                     logger.Info(Session["UserDetail"].ToString() + ":Data fetched for:[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.SelectedValue + ",Trolley Qty: "
                         + txttrollyqty.Text + ",Prod mtr:" + Textprodmtr.Text + ",Reject Qty:" + TextrejQty.Text + ",Reject Reason:" + Textrejreason.SelectedValue +
                         ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.SelectedValue + ",Remarks:" + txtremarks.Text);

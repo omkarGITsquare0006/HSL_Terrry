@@ -507,17 +507,6 @@
                                     <%--                            </div>--%>
                                 </div>
 
-                                <div class="form-group col-md-3 p-2">
-                                    <%--                            <div class="col">--%>
-                                    <label for="txtudf" class="col-form-label">Shortage</label>
-                                    <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
-                                    <%--                            </div>--%>
-                                    <%--                            <div class="col">--%>
-                                    <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtudf" AutoComplete="Off" class="form-control" Rows="5" placeholder="Shortage" runat="server" />
-                                    <%--                            </div>--%>
-                                </div>
-
                                 <%--</div>--%>
                             </div>
                         </div>

@@ -544,9 +544,12 @@
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
                 var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
                 var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                var udf = document.getElementById('<%=txtudf.ClientID %>');
+                var trollyqty = document.getElementById('<%=txttrollyqty.ClientID %>');
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodpcs.value = Math.round((prodmtr) / pcslen);
                 prodweiht.value = ((perpcsweight * prodpcs.value) / 1000);
+                udf.value = trollyqty.value - prodpcs.value;
                 if (prodpcs.value > oqty) {
                     prodpcs.style.borderColor = "red";
                     $(".myAlert-top").show();
