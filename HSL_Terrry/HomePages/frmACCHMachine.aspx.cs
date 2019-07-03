@@ -18,6 +18,7 @@ namespace HSL_Terrry.HomePages
         protected void Page_Load(object sender, EventArgs e)
         {
             txtprodwt.Attributes.Add("readonly", "readonly");
+            txtudf.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
             BindListView();
@@ -32,7 +33,6 @@ namespace HSL_Terrry.HomePages
                     txtoperator.ReadOnly = true;
                     ddMachineNo.Enabled = false;
                     ddMachineNo.CssClass = "form-control dropdown-toggle disabled";
-
                     Boolean edit = true;
                     LoadOprDetail(strID[0].ToString().Trim());
                     txtsupervisor.CssClass = "form-control dropdown-toggle disabled";
@@ -242,7 +242,7 @@ namespace HSL_Terrry.HomePages
                     txtsupervisor.SelectedValue, ddMachineNo.SelectedValue, Convert.ToString(txttrollyno.SelectedValue), Convert.ToInt32(txttrollyqty.Text.Trim()),
                     Convert.ToInt32(txtnoofslits.Text.Trim()), Convert.ToInt32(txtprodpcs.Text.Trim()),
                     Convert.ToInt32(txtrejQty.Text.Trim()), txtrejreason.SelectedValue, Convert.ToDecimal(txtprodwt.Text.Trim()),
-                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString());
+                    Convert.ToInt32(txtopenorderqty.Text.Trim()), txtmachinestop.Text.Trim(), txtstopreason.SelectedValue, txtremarks.Text.Trim(), Session["UserDetail"].ToString(), Convert.ToInt32(txtudf.Text.Trim()));
                 if (dt.Rows.Count > 0)
                 {
                     logger.Info(Session["UserDetail"].ToString() + ":Data updated for :[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.Text + ",Trolley Qty: "
@@ -307,6 +307,7 @@ namespace HSL_Terrry.HomePages
                     txtmachinestop.Text = Convert.ToString(dtSupDetails.Rows[0]["Break_time"]);
                     txtstopreason.SelectedIndex = txtstopreason.Items.IndexOf(txtstopreason.Items.FindByText(Convert.ToString(dtSupDetails.Rows[0]["Reason"])));
                     txtremarks.Text = Convert.ToString(dtSupDetails.Rows[0]["Remarks"]);
+                    txtudf.Text = Convert.ToString(dtSupDetails.Rows[0]["Udf_1"]);
                     logger.Info(Session["UserDetail"].ToString() + ":Data fetched for :[" + txtPO_No.Text.Trim() + "] Trolly Number: " + txttrollyno.SelectedValue + ",Trolley Qty: "
                         + txttrollyqty.Text + ",Produced Pcs :" + txtprodpcs.Text + ",Reject Qty:" + txtrejQty.Text + ",Reject Reason:" + txtrejreason.SelectedValue +
                         ",Machine stop:" + txtmachinestop.Text + ",Stop reason:" + txtstopreason.SelectedValue + ",Remarks:" + txtremarks.Text);

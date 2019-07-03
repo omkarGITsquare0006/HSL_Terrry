@@ -22,7 +22,7 @@
             <rsweb:reportviewer id="MyReportViewer" runat="server" showexportcontrols="true"
                 onload="ReportViewer_OnLoad" zoommode="PageWidth" asyncrendering="false" visible="false"
                 showparameterprompts="false" showfindcontrols="true" sizetoreportcontent="True"
-                showbackbutton="false" showpagenavigationcontrols="true" width="100%" height="100%">
+                showbackbutton="false" showpagenavigationcontrols="true" width="80%" height="100%">
                 </rsweb:reportviewer>
             </div>
       </body>

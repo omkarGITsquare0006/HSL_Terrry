@@ -652,6 +652,9 @@
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
                 var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value) / 1000;
                 var prodweiht = document.getElementById('<%=txtprodwt.ClientID %>');
+                var udf = document.getElementById('<%=txtudf.ClientID %>');
+                var trollyqty = document.getElementById('<%=txttrollyqty.ClientID %>');
+                udf.value = trollyqty.value - prodpcs.value;
                 //prodpcs.value = (prodmtr / (pcslen / 100)) * noofslit;
                 prodweiht.value = (perpcsweight * prodpcs.value);
                 if (prodpcs.value > oqty) {
