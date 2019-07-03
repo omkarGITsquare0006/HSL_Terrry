@@ -482,7 +482,7 @@
                                 <%--                                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 pr-0">--%>
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span>
+                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="stopid" data-toggle="modal" data-target="#exampleModal">Code Descriptions</a>
                                     <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
@@ -530,6 +530,43 @@
                         <asp:Button class="btn btn btn-outline-primary btn-block" runat="server" ID="btnEdit" Text="Edit" OnClick="btnEdit_Click"></asp:Button>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <%-- Modal --%>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="stopList">
+                            <asp:ListView ID="ListView2" runat="server">
+                                <LayoutTemplate>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Stop Code</th>
+                                            <th>Code Description</th>
+                                        </tr>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <tr>
+                                        <td><%# Eval("Data_Dispaly")%></td>
+                                        <td><%# Eval("Data_Desc")%></td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

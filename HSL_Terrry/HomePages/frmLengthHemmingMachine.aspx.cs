@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -20,6 +21,7 @@ namespace HSL_Terrry.HomePages
             txtprodwt.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
+            BindListView();
             if (!IsPostBack)
             {
                 Load_Master();
@@ -42,6 +44,37 @@ namespace HSL_Terrry.HomePages
                 {
                     txtoperator.Text = Session["UserDetail"].ToString();
                 }
+            }
+        }
+
+        private void BindListView()
+        {
+            SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+            try
+            {
+                SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+                cmdDistrict.CommandType = CommandType.StoredProcedure;
+                cmdDistrict.CommandTimeout = 250;
+                cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GetRej";
+                cmdDistrict.Parameters.Add("@Operation", SqlDbType.Char).Value = "LHM";
+                cmdDistrict.Parameters.Add("@DataType", SqlDbType.Char).Value = "Reject";
+                SqlDataReader rdr = cmdDistrict.ExecuteReader();
+                ListView1.DataSource = rdr;
+                ListView1.DataBind();
+                rdr.Close();
+
+                SqlCommand cmdDistrict1 = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+                cmdDistrict1.CommandType = CommandType.StoredProcedure;
+                cmdDistrict1.CommandTimeout = 250;
+                cmdDistrict1.Parameters.Add("@flag", SqlDbType.Char).Value = "GetRej";
+                cmdDistrict1.Parameters.Add("@Operation", SqlDbType.Char).Value = "LHM";
+                cmdDistrict1.Parameters.Add("@DataType", SqlDbType.Char).Value = "Stoppage";
+                ListView2.DataSource = cmdDistrict1.ExecuteReader();
+                ListView2.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ex.StackTrace.ToString();
             }
         }
 
@@ -72,7 +105,7 @@ namespace HSL_Terrry.HomePages
                 ddMachineNo.SelectedIndex = 0;
 
                 //Loads Trolley Numbers From Master Data
-                txttrollyno.DataSource = CRUDApplication.Load_Master("LHM", "Trolley");
+                txttrollyno.DataSource = CRUDApplication.Load_Master("ALL", "Trolley");
                 txttrollyno.DataTextField = "Data_Dispaly".ToString().Trim();
                 txttrollyno.DataValueField = "Data_Dispaly".ToString().Trim();
                 txttrollyno.DataBind();

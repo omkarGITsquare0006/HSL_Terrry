@@ -28,7 +28,7 @@ namespace HSL_Terrry.HomePages
                 cmdDistrict.CommandType = CommandType.StoredProcedure;
                 cmdDistrict.CommandTimeout = 250;
                 cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "GetMasters";
-                cmdDistrict.Parameters.Add("@Operation", SqlDbType.Char).Value = ddlScreen.SelectedValue;
+                cmdDistrict.Parameters.Add("@Operation", SqlDbType.Char).Value = "ALL";
                 cmdDistrict.Parameters.Add("@DataType", SqlDbType.Char).Value = "Trolley";
                 ListView1.DataSource = cmdDistrict.ExecuteReader();
                 ListView1.DataBind();
@@ -72,7 +72,7 @@ namespace HSL_Terrry.HomePages
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            int dtLotClose = CRUDApplication.AddMaster(txtTrolleyNum.Text, txtTrTareWt.Text, ddlScreen.SelectedValue, "Trolley");
+            int dtLotClose = CRUDApplication.AddMaster(txtTrolleyNum.Text, txtTrTareWt.Text, "ALL", "Trolley");
             if (dtLotClose > 0)
             {
                 MsgBox1.MessageBox.Show(txtTrolleyNum.Text.Trim() + " added successfully ", "AdminSupPanel.aspx");
