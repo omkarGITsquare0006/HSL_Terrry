@@ -39,8 +39,8 @@
                         </div>
 
                         <div class="form-group col-md-5 p-2">
-                            <label for="txtMachineName" class="col-form-label">Machine Name:</label>
-                            <asp:TextBox ID="txtMachineName" CssClass="form-control" runat="server"></asp:TextBox>
+                            <label for="txtMachineName" class="col-form-label">Machine Name:</label><span class="small text-danger font-italic">(upto 15 char)</span>
+                            <asp:TextBox ID="txtMachineName" CssClass="form-control" runat="server" MaxLength="15"></asp:TextBox>
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -49,8 +49,8 @@
                         </div>
 
                         <div class="form-group col p-2">
-                            <label for="txtMachineDesc" class="col-form-label">Machine Description</label>
-                            <asp:TextBox ID="txtMachineDesc" class="form-control" placeholder="Machine Description" runat="server" />
+                            <label for="txtMachineDesc" class="col-form-label">Machine Description:</label><span class="small text-danger font-italic">(upto 30 char)</span>
+                            <asp:TextBox ID="txtMachineDesc" class="form-control" placeholder="Machine Description" runat="server" MaxLength="30" />
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -58,7 +58,7 @@
                             <label for="btnClose" class="col-form-label invisible">Lot Balance</label>
                             <%--                            </div>--%>
                             <%-- OnClick="btnClose_Click"                           <div class="col">--%>
-                            <asp:Button runat="server" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
+                            <asp:Button runat="server" OnClientClick="return checkEmpty();" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -95,11 +95,13 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td><asp:Label ID="id" runat="server" Text= <%# Eval("ID")%>></asp:Label></td>
+                                    <td>
+                                        <asp:Label ID="id" runat="server" Text='<%# Eval("ID")%>'></asp:Label></td>
                                     <td><%# Eval("Operation")%></td>
                                     <td><%# Eval("Data_Dispaly")%></td>
                                     <td><%# Eval("Data_Desc")%></td>
-                                    <td><asp:CheckBox ID="chkActive" runat="server" Checked='<%#Convert.ToBoolean(Eval("Active"))%>' /></td>
+                                    <td>
+                                        <asp:CheckBox ID="chkActive" runat="server" Checked='<%#Convert.ToBoolean(Eval("Active"))%>' /></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>
@@ -112,12 +114,18 @@
             </div>
         </div>
 
-
-        <script type="text/javascript">  
-            function ViewMach() {
-                alert();
+        <script type="text/javascript">
+            function checkEmpty() {
+                var code = document.getElementById('<%=txtMachineName.ClientID %>').value;
+                var desc = document.getElementById('<%=txtMachineDesc.ClientID %>').value;
+                if (code == "" || desc == "") {
+                    alert("Fill all fields!");
+                    return false;
+                } else
+                    return true;
             }
         </script>
+
 
     </body>
     </html>

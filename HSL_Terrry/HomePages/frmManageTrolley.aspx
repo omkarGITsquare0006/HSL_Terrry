@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="form-row">
 
-                        <div class="form-group col-md-5 p-2">
+                        <div class="form-group col-md-5 p-2" hidden>
                             <%--                            <div class="col">--%>
                             <label for="txtPO_No" class="col-form-label">Select Screen</label>
                             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
@@ -38,9 +38,9 @@
                             </asp:DropDownList>
                         </div>
 
-                        <div class="form-group col-md-5 p-2">
-                            <label for="txtTrolleyNum" class="col-form-label">Trolley Number:</label>
-                            <asp:TextBox ID="txtTrolleyNum" CssClass="form-control" runat="server"></asp:TextBox>
+                        <div class="form-group col-md-4 p-2">
+                            <label for="txtTrolleyNum" class="col-form-label">Trolley Number:</label><span class="small text-danger font-italic">(upto 15 char)</span>
+                            <asp:TextBox ID="txtTrolleyNum" CssClass="form-control" runat="server" MaxLength="15"></asp:TextBox>
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -48,9 +48,9 @@
                             <button type="button" id="btnView" class="btn btn-light p-0" data-toggle="modal" data-target="#exampleModal"><span class="small">view or manage trolley's</span></button>
                         </div>
 
-                        <div class="form-group col p-2">
-                            <label for="txtTrTareWt" class="col-form-label">Tare Weight:</label>
-                            <asp:TextBox ID="txtTrTareWt" class="form-control" placeholder="Tare Weight" runat="server" />
+                        <div class="form-group col-md-4 p-2">
+                            <label for="txtTrTareWt" class="col-form-label">Tare Weight:</label><span class="small text-danger font-italic">(upto 10 char)</span>
+                            <asp:TextBox ID="txtTrTareWt" class="form-control" placeholder="Tare Weight" runat="server" MaxLength="10" />
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -58,7 +58,7 @@
                             <label for="btnClose" class="col-form-label invisible">Lot Balance</label>
                             <%--                            </div>--%>
                             <%-- OnClick="btnClose_Click"                           <div class="col">--%>
-                            <asp:Button runat="server" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
+                            <asp:Button runat="server" OnClientClick="return checkEmpty();" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -95,11 +95,13 @@
                             </LayoutTemplate>
                             <ItemTemplate>
                                 <tr>
-                                    <td><asp:Label ID="id" runat="server" Text= <%# Eval("ID")%>></asp:Label></td>
+                                    <td>
+                                        <asp:Label ID="id" runat="server" Text='<%# Eval("ID")%>'></asp:Label></td>
                                     <td><%# Eval("Operation")%></td>
                                     <td><%# Eval("Data_Dispaly")%></td>
                                     <td><%# Eval("Data_Desc")%></td>
-                                    <td><asp:CheckBox ID="chkActive" runat="server" Checked='<%#Convert.ToBoolean(Eval("Active"))%>' /></td>
+                                    <td>
+                                        <asp:CheckBox ID="chkActive" runat="server" Checked='<%#Convert.ToBoolean(Eval("Active"))%>' /></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>
@@ -111,6 +113,18 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function checkEmpty() {
+                var code = document.getElementById('<%=txtTrolleyNum.ClientID %>').value;
+                var desc = document.getElementById('<%=txtTrTareWt.ClientID %>').value;
+                if (code == "" || desc == "") {
+                    alert("Fill all fields!");
+                    return false;
+                } else
+                    return true;
+            }
+        </script>
 
     </body>
     </html>

@@ -3,6 +3,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -19,6 +20,7 @@ namespace HSL_Terrry.HomePages
             txtprodqty.Attributes.Add("readonly", "readonly");
             txtoperator.Attributes.Add("readonly", "readonly");
             string[] strID = Request.QueryString.GetValues("ID");
+            BindListView();
             if (!Page.IsPostBack)
             {
                 Load_Master();
@@ -40,6 +42,26 @@ namespace HSL_Terrry.HomePages
                 {
                     txtoperator.Text = Session["UserDetail"].ToString();
                 }
+            }
+        }
+
+        private void BindListView()
+        {
+            SqlConnection connGetDistrict = ConnectionProvider.GetConnection();
+            try
+            {
+                SqlCommand cmdDistrict1 = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
+                cmdDistrict1.CommandType = CommandType.StoredProcedure;
+                cmdDistrict1.CommandTimeout = 250;
+                cmdDistrict1.Parameters.Add("@flag", SqlDbType.Char).Value = "GetRej";
+                cmdDistrict1.Parameters.Add("@Operation", SqlDbType.Char).Value = "PP";
+                cmdDistrict1.Parameters.Add("@DataType", SqlDbType.Char).Value = "Stoppage";
+                ListView2.DataSource = cmdDistrict1.ExecuteReader();
+                ListView2.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ex.StackTrace.ToString();
             }
         }
 
@@ -70,7 +92,7 @@ namespace HSL_Terrry.HomePages
                 ddMachineNo.SelectedIndex = 0;
 
                 //Loads Stoppage Reasonss From Master Data
-                txtstopreason.DataSource = CRUDApplication.Load_Master("PP", "Stoppage");
+                txtstopreason.DataSource = CRUDApplication.Load_Master("ALL", "Stoppage");
                 txtstopreason.DataTextField = "Data_Dispaly".ToString().Trim();
                 txtstopreason.DataValueField = "Data_Dispaly".ToString().Trim();
                 txtstopreason.DataBind();

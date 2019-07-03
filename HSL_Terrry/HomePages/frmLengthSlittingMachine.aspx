@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <%--dfg--%>
         <script src="../Scripts/jquery-3.3.1.min.js"></script>
-        <script src="../Scripts/bootstrap.min.js"></script>
         <link href="../Content/bootstrap.min.css" rel="stylesheet" />
         <script type="text/javascript" src="../ValidationScript.js"></script>
         <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
@@ -409,7 +408,7 @@
 
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="rejid">Code Descriptions</a>
+                                    <label for="txtrejreason" class="col-form-label">Rejected Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="rejid" data-toggle="modal" data-target="#exampleModal">Code Descriptions</a>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <asp:DropDownList ID="Textrejreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
@@ -445,7 +444,7 @@
 
                                 <div class="form-group col-md-3 p-2">
                                     <%--                            <div class="col">--%>
-                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span>
+                                    <label for="txtstopreason" class="col-form-label">Stop Reason</label><span class="font-weight-bold text-danger">*</span><a class="ml-2 small text-primary" id="stopid" data-toggle="modal" data-target="#exampleModal">Code Descriptions</a>
                                     <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
@@ -514,44 +513,48 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <asp:ListView ID="ListView1" runat="server">
-                            <LayoutTemplate>
-                                <table class="table table-bordered table-striped">
+                        <div id="rejList">
+                            <asp:ListView ID="ListView1" runat="server">
+                                <LayoutTemplate>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Reject Code</th>
+                                            <th>Code Description</th>
+                                        </tr>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
                                     <tr>
-                                        <th>Reject Code</th>
-                                        <th>Reject Description</th>
+                                        <td><%# Eval("Data_Dispaly")%></td>
+                                        <td><%# Eval("Data_Desc")%></td>
                                     </tr>
-                                    <tbody>
-                                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                                    </tbody>
-                                </table>
-                            </LayoutTemplate>
-                            <ItemTemplate>
-                                <tr>
-                                    <td><%# Eval("Data_Dispaly")%></td>
-                                    <td><%# Eval("Data_Desc")%></td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:ListView>
-                        <asp:ListView ID="ListView2" runat="server">
-                            <LayoutTemplate>
-                                <table class="table table-bordered table-striped">
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
+                        <div id="stopList">
+                            <asp:ListView ID="ListView2" runat="server">
+                                <LayoutTemplate>
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>Stop Code</th>
+                                            <th>Code Description</th>
+                                        </tr>
+                                        <tbody>
+                                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                                        </tbody>
+                                    </table>
+                                </LayoutTemplate>
+                                <ItemTemplate>
                                     <tr>
-                                        <th>Reject Code</th>
-                                        <th>Reject Description</th>
+                                        <td><%# Eval("Data_Dispaly")%></td>
+                                        <td><%# Eval("Data_Desc")%></td>
                                     </tr>
-                                    <tbody>
-                                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                                    </tbody>
-                                </table>
-                            </LayoutTemplate>
-                            <ItemTemplate>
-                                <tr>
-                                    <td><%# Eval("Data_Dispaly")%></td>
-                                    <td><%# Eval("Data_Desc")%></td>
-                                </tr>
-                            </ItemTemplate>
-                        </asp:ListView>
+                                </ItemTemplate>
+                            </asp:ListView>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -641,10 +644,17 @@
         <script>
             $(document).ready(function () {
                 $("#rejid").click(function () {
-                    $("#exampleModal").modal("toggle");
+                    $("#stopList").hide();
+                    $("#rejList").show();
+                });
+
+                $("#stopid").click(function () {
+                    $("#rejList").hide();
+                    $("#stopList").show();
                 });
             });
         </script>
+
     </body>
 
     </html>

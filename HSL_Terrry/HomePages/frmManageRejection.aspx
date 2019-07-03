@@ -38,8 +38,8 @@
                         </div>
 
                         <div class="form-group col-md-5 p-2">
-                            <label for="txtRejCode" class="col-form-label">Reject Code:</label>
-                            <asp:TextBox ID="txtRejCode" CssClass="form-control" runat="server"></asp:TextBox>
+                            <label for="txtRejCode" class="col-form-label">Reject Code:</label><span class="small text-danger font-italic">(upto 10 char)</span>
+                            <asp:TextBox ID="txtRejCode" CssClass="form-control" runat="server" MaxLength="10"></asp:TextBox>
                         </div>
 
                          <div class="form-group col-md-2 p-2">
@@ -48,8 +48,8 @@
                         </div>
 
                         <div class="form-group col p-2">
-                            <label for="txtRejDesc" class="col-form-label">Reject Description</label>
-                            <asp:TextBox ID="txtRejDesc" class="form-control" placeholder="Reject Description" runat="server" />
+                            <label for="txtRejDesc" class="col-form-label">Reject Description:</label><span class="small text-danger font-italic">(upto 30 char)</span>
+                            <asp:TextBox ID="txtRejDesc" class="form-control" placeholder="Reject Description" runat="server" MaxLength="30" />
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -57,7 +57,7 @@
                             <label for="btnClose" class="col-form-label invisible">Lot Balance</label>
                             <%--                            </div>--%>
                             <%-- OnClick="btnClose_Click"                           <div class="col">--%>
-                            <asp:Button runat="server" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
+                            <asp:Button runat="server" OnClientClick="return checkEmpty();" class="btn btn-success btn-block" ID="btnAdd" Text="Add" OnClick="btnAdd_Click"></asp:Button>
                             <%--                            </div>--%>
                         </div>
                     </div>
@@ -110,6 +110,18 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function checkEmpty() {
+                var code = document.getElementById('<%=txtRejCode.ClientID %>').value;
+                var desc = document.getElementById('<%=txtRejDesc.ClientID %>').value;
+                if (code == "" || desc == "") {
+                    alert("Fill all fields!");
+                    return false;
+                } else
+                    return true;
+            }
+        </script>
 
     </body>
     </html>

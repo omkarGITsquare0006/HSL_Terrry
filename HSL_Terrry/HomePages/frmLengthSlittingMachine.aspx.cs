@@ -109,7 +109,7 @@ namespace HSL_Terrry.HomePages
                 ddMachineNo.SelectedIndex = 0;
 
                 //Loads Trolley Numbers From Master Data
-                txttrollyno.DataSource = CRUDApplication.Load_Master("LSM", "Trolley");
+                txttrollyno.DataSource = CRUDApplication.Load_Master("ALL", "Trolley");
                 txttrollyno.DataTextField = "Data_Dispaly".ToString().Trim();
                 txttrollyno.DataValueField = "Data_Dispaly".ToString().Trim();
                 txttrollyno.DataBind();
