@@ -155,7 +155,7 @@
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Stoppage<i class="material-icons right"></i></span>
-                        <p><a href="#">click here</a></p>
+                        <p><a href="frmManageStoppage.aspx">click here</a></p>
                     </div>
                     <div class="card-reveal p-0">
                         <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Stoppage<i class="material-icons right close" aria-label="Close">x</i></span>

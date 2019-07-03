@@ -130,6 +130,7 @@
     <Content Include="HomePages\frmLengthSlittingMachineSup.aspx" />
     <Content Include="HomePages\frmManageMachine.aspx" />
     <Content Include="HomePages\frmManageRejection.aspx" />
+    <Content Include="HomePages\frmManageStoppage.aspx" />
     <Content Include="HomePages\frmManageTrolley.aspx" />
     <Content Include="HomePages\frmManageUsers.aspx" />
     <Content Include="HomePages\frmManageUsersList.aspx" />
@@ -345,6 +346,13 @@
     </Compile>
     <Compile Include="HomePages\frmManageRejection.aspx.designer.cs">
       <DependentUpon>frmManageRejection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\frmManageStoppage.aspx.cs">
+      <DependentUpon>frmManageStoppage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\frmManageStoppage.aspx.designer.cs">
+      <DependentUpon>frmManageStoppage.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmManageTrolley.aspx.cs">
       <DependentUpon>frmManageTrolley.aspx</DependentUpon>

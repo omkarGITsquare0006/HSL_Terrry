@@ -10,7 +10,7 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class frmManageTrolley {
+    public partial class frmManageStoppage {
         
         /// <summary>
         /// ddlScreen control.
@@ -22,22 +22,22 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.DropDownList ddlScreen;
         
         /// <summary>
-        /// txtTrolleyNum control.
+        /// txtStopCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrolleyNum;
+        protected global::System.Web.UI.WebControls.TextBox txtStopCode;
         
         /// <summary>
-        /// txtTrTareWt control.
+        /// txtStopDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrTareWt;
+        protected global::System.Web.UI.WebControls.TextBox txtStopDesc;
         
         /// <summary>
         /// btnAdd control.

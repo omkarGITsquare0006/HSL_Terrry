@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageTrolley.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageTrolley" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/HomePages/HomeMaster.Master" AutoEventWireup="true" CodeBehind="frmManageStoppage.aspx.cs" Inherits="HSL_Terrry.HomePages.frmManageStoppage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
@@ -14,7 +14,7 @@
         <div class="container-fluid pr-0 pl-0">
             <div class="card border-warning mt-3">
                 <div class="card-header bg-warning" style="height: 50px;">
-                    <p class="font-weight-bold">MANAGE TROLLEY</p>
+                    <p class="font-weight-bold">MANAGE STOPPAGE REASONS</p>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -39,18 +39,18 @@
                         </div>
 
                         <div class="form-group col-md-5 p-2">
-                            <label for="txtTrolleyNum" class="col-form-label">Trolley Number:</label>
-                            <asp:TextBox ID="txtTrolleyNum" CssClass="form-control" runat="server"></asp:TextBox>
+                            <label for="txtStopCode" class="col-form-label">Stoppage Code:</label>
+                            <asp:TextBox ID="txtStopCode" CssClass="form-control" runat="server"></asp:TextBox>
                         </div>
 
                         <div class="form-group col-md-2 p-2">
                             <label for="btnView" class="col-form-label invisible">Machine Name:</label><br />
-                            <button type="button" id="btnView" class="btn btn-light p-0" data-toggle="modal" data-target="#exampleModal"><span class="small">view or manage trolley's</span></button>
+                            <button type="button" id="btnView" class="btn btn-light p-0" data-toggle="modal" data-target="#exampleModal"><span class="small">view or manage stoppages</span></button>
                         </div>
 
                         <div class="form-group col p-2">
-                            <label for="txtTrTareWt" class="col-form-label">Tare Weight:</label>
-                            <asp:TextBox ID="txtTrTareWt" class="form-control" placeholder="Tare Weight" runat="server" />
+                            <label for="txtStopDesc" class="col-form-label">Stoppage Description</label>
+                            <asp:TextBox ID="txtStopDesc" class="form-control" placeholder="Reject Description" runat="server" />
                         </div>
 
                         <div class="form-group col-md-2 p-2">
@@ -84,8 +84,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Operation Name</th>
-                                        <th>Trolley Number</th>
-                                        <th>Tare Weight</th>
+                                        <th>Stoppage Code</th>
+                                        <th>Code Description</th>
                                         <th>Active Status</th>
                                     </tr>
                                     <tbody>
