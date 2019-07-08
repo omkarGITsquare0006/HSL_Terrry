@@ -178,7 +178,7 @@
                         <p>To View the WIP Report go here</p>
                     </div>
                 </div>
-            </div>--%>
+            </div>
 
             <div class="col"></div>
         </div>
