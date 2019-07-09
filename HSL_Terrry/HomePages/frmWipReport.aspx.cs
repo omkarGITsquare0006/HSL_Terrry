@@ -14,7 +14,7 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GenerateExcel();
+            //GenerateExcel();
         }
         public void GenerateExcel()
         {
