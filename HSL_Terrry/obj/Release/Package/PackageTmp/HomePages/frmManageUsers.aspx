@@ -88,30 +88,30 @@
                 </div>
             </div>
             <br />
-            <div class="row container border-dark border pr-0" id="screenAccessDiv">
+            <div class="row ml-xl-5 mr-xl-5 pr-0" id="screenAccessDiv">
                 <div class="col-2">
                     <asp:Label ID="Label2" CssClass="font-weight-bold" runat="server" Text="Assign Screen Access:"></asp:Label>
                 </div>
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkLSM" runat="server" Text="LSM" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkLHM" runat="server" Text="LHM" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkACCH" runat="server" Text="ACCH" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkMCC" runat="server" Text="MCC" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkMCH" runat="server" Text="MCH" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkEM" runat="server" Text="EM" />
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <asp:CheckBox ID="chkPP" runat="server" Text="PP" />
                     </div>
                 </div>
@@ -128,7 +128,6 @@
         <div class="col-md-1">
         </div>
         <div class="col-md-3">
-        </div>
         </div>
         <br />
         <div class="row">
@@ -150,12 +149,19 @@
 
 
         <script type="text/javascript">
-            $("#<%=ddlRole.ClientID%>").change(function () {
+            $(document).ready(function () {
                 if (($("#<%=ddlRole.ClientID%>").val() == '1') || ($("#<%=ddlRole.ClientID%>").val() == '2')) {
                     $("#screenAccessDiv").hide();
                 } else {
                     $("#screenAccessDiv").show();
                 }
+                $("#<%=ddlRole.ClientID%>").change(function () {
+                    if (($("#<%=ddlRole.ClientID%>").val() == '1') || ($("#<%=ddlRole.ClientID%>").val() == '2')) {
+                        $("#screenAccessDiv").hide();
+                    } else {
+                        $("#screenAccessDiv").show();
+                    }
+                });
             });
         </script>
     </body>
