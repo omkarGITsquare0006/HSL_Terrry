@@ -14,8 +14,47 @@ namespace HSL_Terrry.HomePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //GenerateExcel();
+            if (!IsPostBack)
+            {
+                try
+                {
+                    //Loads Supervisor From Master Data
+                    ddSupervisor.DataSource = CRUDApplication.Load_Supervisor();
+                    ddSupervisor.DataTextField = "Sup_Name".ToString().Trim();
+                    ddSupervisor.DataValueField = "Sup_Name".ToString().Trim();
+                    ddSupervisor.DataBind();
+                    ListItem itm2 = new ListItem();
+                    itm2.Text = "Select Supervisor";
+                    itm2.Value = "";
+                    itm2.Selected = true;
+                    ddSupervisor.Items.Insert(0, itm2);
+                    ddSupervisor.SelectedIndex = 0;
+
+                    //Loads Supervisor From Master Data
+                    ddOperator.DataSource = CRUDApplication.Load_Operator();
+                    ddOperator.DataTextField = "Sup_Name".ToString().Trim();
+                    ddOperator.DataValueField = "Sup_Name".ToString().Trim();
+                    ddOperator.DataBind();
+                    ListItem itm3 = new ListItem();
+                    itm3.Text = "Select Operator";
+                    itm3.Value = "";
+                    itm3.Selected = true;
+                    ddOperator.Items.Insert(0, itm3);
+                    ddOperator.SelectedIndex = 0;
+                }
+                catch (Exception ex)
+                {
+                    MsgBox1.MessageBox.Show("Error while Getting Machine Name!!!");
+                    return;
+                }
+            }
         }
+
+        protected void btnGetReport_OnClick(object sender, EventArgs e)
+        {
+            GenerateExcel();
+        }
+
         public void GenerateExcel()
         {
             try
@@ -40,27 +79,49 @@ namespace HSL_Terrry.HomePages
                 MyReportViewer.ProcessingMode = ProcessingMode.Remote;
                 //IReportServerCredentials irsc = new CustomReportCredentials("appdev", "Olie*908");
                 //MyReportViewer.ServerReport.ReportServerCredentials = irsc;
-                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://RAKSHIT-PC/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://PC-OM/ReportServer");
 
                 //MyReportViewer.ServerReport.ReportPath = "/Russell Daily Data/Report_Russell Daily Data";
-                MyReportViewer.ServerReport.ReportPath = "/Terry_Test/WIP REPORT";
+                MyReportViewer.ServerReport.ReportPath = "/Terry_Test/Terry-Production Report";
                 MyReportViewer.ServerReport.Refresh();
 
                 //Res2005.ParameterValue[] reportParameterCollection = new Res2005.ParameterValue[1];
-                //Microsoft.Reporting.WebForms.ReportParameter[] reportParameterCollection = new Microsoft.Reporting.WebForms.ReportParameter[0];
+                ReportParameter[] reportParameterCollection = new ReportParameter[6];
+                reportParameterCollection[0] = new ReportParameter();
+                //reportParameterCollection[0] = new ReportParameter("fromdate", "2019-06-27");
+                //reportParameterCollection[1] = new ReportParameter("todate", "2019-07-04");
+                //reportParameterCollection[2] = new ReportParameter("shift","");
+                //reportParameterCollection[3] = new ReportParameter("operator","");
+                //reportParameterCollection[4] = new ReportParameter("supervisor","");
+                //reportParameterCollection[5] = new ReportParameter("process","");
 
-                //reportParameterCollection[0] = new Microsoft.Reporting.WebForms.ReportParameter();
-                //reportParameterCollection[0].Name = "fromDate";
-                //reportParameterCollection[0].Values.Add(txtFromDate.Text);
+                reportParameterCollection[0].Name = "fromdate";
+                reportParameterCollection[0].Values.Add(txtfromdate.Text);
 
-                //reportParameterCollection[1] = new Microsoft.Reporting.WebForms.ReportParameter();
-                //reportParameterCollection[1].Name = "toDate";
-                //reportParameterCollection[1].Values.Add(txtToDate.Text);
-                //this.MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
+                reportParameterCollection[1] = new Microsoft.Reporting.WebForms.ReportParameter();
+                reportParameterCollection[1].Name = "todate";
+                reportParameterCollection[1].Values.Add(txttodate.Text);
+
+                reportParameterCollection[2] = new Microsoft.Reporting.WebForms.ReportParameter();
+                reportParameterCollection[2].Name = "shift";
+                reportParameterCollection[2].Values.Add(ddShift.SelectedValue.ToString());
+
+                reportParameterCollection[3] = new Microsoft.Reporting.WebForms.ReportParameter();
+                reportParameterCollection[3].Name = "operator";
+                reportParameterCollection[3].Values.Add(ddOperator.SelectedValue.ToString());
+
+                reportParameterCollection[4] = new Microsoft.Reporting.WebForms.ReportParameter();
+                reportParameterCollection[4].Name = "supervisor";
+                reportParameterCollection[4].Values.Add(ddSupervisor.SelectedValue.ToString());
+
+                reportParameterCollection[5] = new Microsoft.Reporting.WebForms.ReportParameter();
+                reportParameterCollection[5].Name = "process";
+                reportParameterCollection[5].Values.Add(ddProcess.SelectedValue.ToString());
+                MyReportViewer.ServerReport.SetParameters(reportParameterCollection);
 
 
 
-                this.MyReportViewer.ServerReport.Refresh();
+                MyReportViewer.ServerReport.Refresh();
 
 
             }

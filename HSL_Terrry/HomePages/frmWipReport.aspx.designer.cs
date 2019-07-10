@@ -40,31 +40,31 @@ namespace HSL_Terrry.HomePages {
         protected global::System.Web.UI.WebControls.DropDownList ddShift;
         
         /// <summary>
-        /// txtProcess control.
+        /// ddProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProcess;
+        protected global::System.Web.UI.WebControls.DropDownList ddProcess;
         
         /// <summary>
-        /// txtSupervisor control.
+        /// ddSupervisor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupervisor;
+        protected global::System.Web.UI.WebControls.DropDownList ddSupervisor;
         
         /// <summary>
-        /// txtOperator control.
+        /// ddOperator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOperator;
+        protected global::System.Web.UI.WebControls.DropDownList ddOperator;
         
         /// <summary>
         /// btnGetReport control.
