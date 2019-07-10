@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3" id="Div5" runat="server">
+            <%--<div class="col-md-3" id="Div5" runat="server">
                 <div class="card rounded">
                     <div class="waves-effect waves-block waves-light text-center m-3">
                         <img class="activator" src="../images/orders.png" style="width: 50%; height: auto;">
