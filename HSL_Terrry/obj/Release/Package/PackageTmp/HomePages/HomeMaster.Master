@@ -118,13 +118,13 @@
                 <%--<div class="sidebar-heading">Start Bootstrap </div>--%>
                 <div class="list-group list-group-flush">
                     <a href="AdminSupPanel.aspx" runat="server" id="poAnch" class="list-group-item list-group-item-action bg-light">Administration</a>
-                    <a onserverclick="Anchor_Click" id="lsm" runat="server" class="list-group-item list-group-item-action bg-light">LSM</a>
-                    <a onserverclick="Lhm_Click" id="lhm" runat="server" class="list-group-item list-group-item-action bg-light">LHM</a>
-                    <a onserverclick="Acch_Click" id="acch" runat="server" class="list-group-item list-group-item-action bg-light">ACCHM</a>
-                    <a onserverclick="Mcc_Click" id="mcc" runat="server" class="list-group-item list-group-item-action bg-light">MCC</a>
-                    <a onserverclick="Mch_Click" id="mch" runat="server" class="list-group-item list-group-item-action bg-light">MCH</a>
-                    <a onserverclick="Emm_Click" id="em" runat="server" class="list-group-item list-group-item-action bg-light">EM</a>
-                    <a onserverclick="Pp_Click" id="pp" runat="server" class="list-group-item list-group-item-action bg-light">PP</a>
+                    <a onserverclick="Anchor_Click" id="lsm" runat="server" class="list-group-item list-group-item-action bg-light">Length Cutting</a>
+                    <a onserverclick="Lhm_Click" id="lhm" runat="server" class="list-group-item list-group-item-action bg-light">Length Hemming</a>
+                    <a onserverclick="Acch_Click" id="acch" runat="server" class="list-group-item list-group-item-action bg-light">Cross Cutting-Hemming</a>
+                    <a onserverclick="Mcc_Click" id="mcc" runat="server" class="list-group-item list-group-item-action bg-light">Manual Cross Cutting</a>
+                    <a onserverclick="Mch_Click" id="mch" runat="server" class="list-group-item list-group-item-action bg-light">Manual Cross Hemming</a>
+                    <a onserverclick="Emm_Click" id="em" runat="server" class="list-group-item list-group-item-action bg-light">Embroidery Machine</a>
+                    <a onserverclick="Pp_Click" id="pp" runat="server" class="list-group-item list-group-item-action bg-light">Poly Packing</a>
                     <%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
                 </div>
             </div>

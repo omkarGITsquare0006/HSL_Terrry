@@ -22,7 +22,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-left">
-                <h3>WIP REPORT</h3>
+                <h3>PRODUCTION REPORT</h3>
             </div>
         </div>
         <%-- Added by Omkar --%>
@@ -39,7 +39,7 @@
                 <div class="form-group col-md-2 p-2">
                     <label for="ddShift" class="col-form-label">Shift</label>
                     <asp:DropDownList ID="ddShift" class="form-control" runat="server" AutoPostBack="false">
-                        <asp:ListItem Text="Select Shift" Value=""></asp:ListItem>
+                        <asp:ListItem Text="-Select Shift-" Value=""></asp:ListItem>
                         <asp:ListItem Text="1st Shift" Value="1st Shift"></asp:ListItem>
                         <asp:ListItem Text="2nd Shift" Value="2nd Shift"></asp:ListItem>
                         <asp:ListItem Text="3rd Shift" Value="3rd Shift"></asp:ListItem>
@@ -48,12 +48,12 @@
                 <div class="form-group col-md-2 p-2">
                     <label for="ddProcess" class="col-form-label">Process</label>
                     <asp:DropDownList ID="ddProcess" class="form-control" runat="server" AutoPostBack="false">
-                        <asp:ListItem Text="Select Process" Value=""></asp:ListItem>
-                        <asp:ListItem Text="Length Slitting" Value="LSM"></asp:ListItem>
+                        <asp:ListItem Text="-Select Process-" Value=""></asp:ListItem>
+                        <asp:ListItem Text="Length Cutting" Value="LSM"></asp:ListItem>
                         <asp:ListItem Text="Length Hemming" Value="LHM"></asp:ListItem>
-                        <asp:ListItem Text="Auto Cross Cutting and Hemming" Value="ACCH"></asp:ListItem>
-                        <asp:ListItem Text="Manual Cutting" Value="MCC"></asp:ListItem>
-                        <asp:ListItem Text="Manual Hemming" Value="MCH"></asp:ListItem>
+                        <asp:ListItem Text="Cross Cutting and Hemming" Value="ACCH"></asp:ListItem>
+                        <asp:ListItem Text="Manual Cross Cutting" Value="MCC"></asp:ListItem>
+                        <asp:ListItem Text="Manual Cross Hemming" Value="MCH"></asp:ListItem>
                         <asp:ListItem Text="Embroidary Machine" Value="EMM"></asp:ListItem>
                         <asp:ListItem Text="Poly Packing" Value="PPM"></asp:ListItem>
                     </asp:DropDownList>
@@ -109,12 +109,12 @@
                     //console.log("else called");
                     return true;
                 }
-                fDate = new Date(fDate);
-                tDate = new Date(tDate);
-                if (fDate > tDate) {
-                    alert("FROM date should be less than TO date");
-                    return false;
-                }
+                //fDate = new Date(fDate);
+                //tDate = new Date(tDate);
+                //if (fDate > tDate) {
+                //    alert("FROM date should be less than TO date");
+                //    return false;
+                //}
             }
         </script>
     </body>

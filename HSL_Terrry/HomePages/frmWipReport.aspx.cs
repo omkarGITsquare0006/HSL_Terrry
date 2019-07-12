@@ -24,7 +24,7 @@ namespace HSL_Terrry.HomePages
                     ddSupervisor.DataValueField = "Sup_Name".ToString().Trim();
                     ddSupervisor.DataBind();
                     ListItem itm2 = new ListItem();
-                    itm2.Text = "Select Supervisor";
+                    itm2.Text = "-Select Supervisor-";
                     itm2.Value = "";
                     itm2.Selected = true;
                     ddSupervisor.Items.Insert(0, itm2);
@@ -36,7 +36,7 @@ namespace HSL_Terrry.HomePages
                     ddOperator.DataValueField = "Sup_Name".ToString().Trim();
                     ddOperator.DataBind();
                     ListItem itm3 = new ListItem();
-                    itm3.Text = "Select Operator";
+                    itm3.Text = "-Select Operator-";
                     itm3.Value = "";
                     itm3.Selected = true;
                     ddOperator.Items.Insert(0, itm3);
@@ -79,7 +79,7 @@ namespace HSL_Terrry.HomePages
                 MyReportViewer.ProcessingMode = ProcessingMode.Remote;
                 //IReportServerCredentials irsc = new CustomReportCredentials("appdev", "Olie*908");
                 //MyReportViewer.ServerReport.ReportServerCredentials = irsc;
-                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://PC-OM/ReportServer");
+                MyReportViewer.ServerReport.ReportServerUrl = new Uri("http://192.168.4.4/ReportServer");
 
                 //MyReportViewer.ServerReport.ReportPath = "/Russell Daily Data/Report_Russell Daily Data";
                 MyReportViewer.ServerReport.ReportPath = "/Terry_Test/Terry-Production Report";

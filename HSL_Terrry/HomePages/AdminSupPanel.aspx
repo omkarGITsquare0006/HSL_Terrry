@@ -170,12 +170,12 @@
                         <img class="activator" src="../images/orders.png" style="width: 50%; height: auto;">
                     </div>
                     <div class="card-content bg-warning">
-                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">WIP<i class="material-icons right"></i></span>
+                        <span class="card-title activator grey-text text-darken-4" style="font-size:larger">Prod-Report<i class="material-icons right"></i></span>
                         <p><a href="frmWipReport.aspx">click here</a></p>
                     </div>
                     <div class="card-reveal p-0">
-                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">WIP Report<i class="material-icons right close" aria-label="Close">x</i></span>
-                        <p>To View the WIP Report go here</p>
+                        <span class="card-title grey-text text-darken-4 font-weight-bold" style="font-size:large">Prod-Report<i class="material-icons right close" aria-label="Close">x</i></span>
+                        <p>To View the Production Report go here</p>
                     </div>
                 </div>
             </div>

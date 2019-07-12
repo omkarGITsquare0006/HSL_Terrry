@@ -449,7 +449,7 @@
                                     <label for="txttrollyqty" class="col-form-label">Trolley Qty(Pcs)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Trolley Quantity" runat="server" />
+                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" onkeyup="hasPendingChanges()" placeholder="Trolley Quantity" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -460,7 +460,7 @@
                                     <label for="txtprodpcs" class="col-form-label">Produced Pcs</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtprodpcs" AutoComplete="Off" class="form-control" TextMode="Number" oninput="return Calculate();" placeholder="Produced Pieces" runat="server" />
+                                    <asp:TextBox ID="txtprodpcs" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" TextMode="Number" oninput="return Calculate();" placeholder="Produced Pieces" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -486,7 +486,7 @@
                                     <label for="txtrejQty" class="col-form-label">Rejected Qty(No's)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtrejQty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Qty" runat="server" />
+                                    <asp:TextBox ID="txtrejQty" AutoComplete="Off" TextMode="Number" class="form-control" onkeyup="hasPendingChanges()" placeholder="Qty" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -509,7 +509,7 @@
                                     <label for="txtmachinestop" class="col-form-label">M/C Stoppage(Min)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" placeholder="Machine Stoppage(Min)" runat="server" />
+                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" placeholder="Machine Stoppage(Min)" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -546,7 +546,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
+                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -700,7 +700,32 @@
                 });
             });
         </script>
+        <script type="text/javascript">
+        var changesSaved = true;
 
+        function onSaveButtonClick()
+        {
+            changesSaved = true;
+        }
+
+        function hasPendingChanges()
+        {
+            changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
+            changesSaved = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
+            changesSaved = document.getElementById('<%=txtrejQty.ClientID %>').value.length == 0;
+            changesSaved = document.getElementById('trollyqty').value.length == 0;
+            changesSaved = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
+            document.getElementById('btnSubmit').disabled = changesSaved;
+        }
+
+        window.onbeforeunload = function ()
+        {
+            if (!changesSaved)
+            {
+                return "You haven't saved your changes";
+            }
+        };
+    </script>
         <script>
             $(document).ready(function () {
                 $("#rejid").click(function () {

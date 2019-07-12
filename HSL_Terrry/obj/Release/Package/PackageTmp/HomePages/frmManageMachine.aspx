@@ -82,7 +82,7 @@
                             <LayoutTemplate>
                                 <table class="table table-bordered table-striped">
                                     <tr>
-                                        <th>Operation Name</th>
+                                        <th>ID</th>
                                         <th>Operation Name</th>
                                         <th>Machine Name</th>
                                         <th>Machine Description</th>
