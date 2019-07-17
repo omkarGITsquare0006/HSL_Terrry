@@ -76,7 +76,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body table-responsive modal-dialog-scrollable" style="max-height:400px;">
                         <asp:ListView ID="ListView1" runat="server">
                             <LayoutTemplate>
                                 <table class="table table-bordered table-striped">
