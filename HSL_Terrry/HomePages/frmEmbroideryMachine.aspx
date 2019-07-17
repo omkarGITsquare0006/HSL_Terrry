@@ -41,6 +41,13 @@
                 calendarBehavior1.get_element().value = d.format("yyyy-MM-dd") + " " + now.format("HH:mm:ss")
             }
         </script>
+        <style type="text/css">
+            .ui-autocomplete {
+                max-height: 320px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -774,7 +781,6 @@
             $(document).ready(function () {
                 //var dt = new Date();
                 $('#<%=txtdate.ClientID%>').datetimepicker({
-                    showTimePicker: false,
                     dateFormat: 'yy-mm-dd',
                     timeFormat: 'hh:mm:ss'
                 });

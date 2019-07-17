@@ -41,6 +41,13 @@
                 calendarBehavior1.get_element().value = d.format("yyyy-MM-dd") + " " + now.format("HH:mm:ss")
             }
         </script>
+        <style type="text/css">
+            .ui-autocomplete {
+                max-height: 320px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -660,59 +667,50 @@
             $(document).ready(function () {
                 //var dt = new Date();
                 $('#<%=txtdate.ClientID%>').datetimepicker({
-                    showTimePicker: false,
+                    defaultTime: false,
                     dateFormat: 'yy-mm-dd',
                     timeFormat: 'hh:mm:ss'
                 });
             });
         </script>
         <script type="text/javascript">
-        var changesSaved = true;
+            var changesSaved = true;
 
-        function onSaveButtonClick()
-        {
-            changesSaved = true;
-        }
+            function onSaveButtonClick() {
+                changesSaved = true;
+            }
 
-        function hasPendingChanges()
-        {
-            changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
+            function hasPendingChanges() {
+                changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
             changesSaved1 = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
             changesSaved2 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
             changesSaved3 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
             changesSaved4 = document.getElementById('<%=Textprodmtr.ClientID %>').value.length == 0;
             changesSaved5 = document.getElementById('<%=TextrejQty.ClientID %>').value.length == 0;
-            document.getElementById('btnSubmit').disabled = changesSaved;
-        }
+                document.getElementById('btnSubmit').disabled = changesSaved;
+            }
 
-        window.onbeforeunload = function ()
-        {
-            if (!changesSaved)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved1)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved2)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved3)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved4)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved5)
-            {
-                return "You haven't saved your changes";
-            }
-        };
-    </script>
+            window.onbeforeunload = function () {
+                if (!changesSaved) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved1) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved2) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved3) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved4) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved5) {
+                    return "You haven't saved your changes";
+                }
+            };
+        </script>
     </body>
 
     </html>

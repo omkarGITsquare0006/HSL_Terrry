@@ -27,7 +27,12 @@ namespace HSL_Terrry.HomePages
                 Load_Master();
                 if (strID != null)
                 {
-                    txtdate.ReadOnly = true;
+                    txtdate.Enabled = false;
+                    txtdate.CssClass = "form-control dropdown-toggle disabled";
+                    txtsupervisor.Enabled = false;
+                    txtsupervisor.CssClass = "form-control dropdown-toggle disabled";
+                    txttrollyno.Enabled = false;
+                    txttrollyno.CssClass = "form-control dropdown-toggle disabled";
                     ddShift.Enabled = false;
                     ddShift.CssClass = "form-control dropdown-toggle disabled";
                     txtoperator.ReadOnly = true;
@@ -36,7 +41,6 @@ namespace HSL_Terrry.HomePages
 
                     Boolean edit = true;
                     LoadOprDetail(strID[0].ToString().Trim());
-                    txtsupervisor.CssClass = "form-control dropdown-toggle disabled";
                     makeReadOnlyFields(edit);
                 }
                 else
