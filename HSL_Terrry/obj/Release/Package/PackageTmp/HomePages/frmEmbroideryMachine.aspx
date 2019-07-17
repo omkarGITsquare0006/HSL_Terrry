@@ -427,7 +427,7 @@
                                     <label for="txttrollyqty" class="col-form-label">Trolley Qty(Pcs)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Trolley Quantity" runat="server" />
+                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" onkeyup="hasPendingChanges()" placeholder="Trolley Quantity" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -436,7 +436,7 @@
                                     <label for="txtpcsperround" class="col-form-label">Pcs/Round</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtpcsperround" AutoComplete="Off" class="form-control" TextMode="Number" oninput="return Calculate();" placeholder="Pcs per Round" runat="server" />
+                                    <asp:TextBox ID="txtpcsperround" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" TextMode="Number" oninput="return Calculate();" placeholder="Pcs per Round" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -445,7 +445,7 @@
                                     <label for="txtnoofrounds" class="col-form-label">No of Rounds</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtnoofrounds" AutoComplete="Off" class="form-control" TextMode="Number" oninput="return Calculate();" placeholder="No of Rounds" runat="server" />
+                                    <asp:TextBox ID="txtnoofrounds" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" TextMode="Number" oninput="return Calculate();" placeholder="No of Rounds" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -463,7 +463,7 @@
                                     <label for="txtrejQty" class="col-form-label">Rejected Qty(No's)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="TextrejQty" AutoComplete="Off" TextMode="Number" class="form-control" placeholder="Qty" runat="server" />
+                                    <asp:TextBox ID="TextrejQty" AutoComplete="Off" TextMode="Number" class="form-control" onkeyup="hasPendingChanges()" placeholder="Qty" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -491,7 +491,7 @@
                                     <label for="txtmachinestop" class="col-form-label">M/C Stoppage(Min)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" placeholder="Machine Stoppage(Min)" runat="server" />
+                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" placeholder="Machine Stoppage(Min)" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -514,7 +514,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
+                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -708,6 +708,53 @@
                 });
             });
         </script>
+        <script type="text/javascript">
+        var changesSaved = true;
+
+        function onSaveButtonClick()
+        {
+            changesSaved = true;
+        }
+
+        function hasPendingChanges()
+        {
+            changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
+            changesSaved1 = document.getElementById('<%=txtnoofrounds.ClientID %>').value.length == 0;
+            changesSaved2 = document.getElementById('<%=txtpcsperround.ClientID %>').value.length == 0;
+            changesSaved3 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved4 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
+            changesSaved5 = document.getElementById('<%=TextrejQty.ClientID %>').value.length == 0;
+            document.getElementById('btnSubmit').disabled = changesSaved;
+        }
+
+        window.onbeforeunload = function ()
+        {
+            if (!changesSaved)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved1)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved2)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved3)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved4)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved5)
+            {
+                return "You haven't saved your changes";
+            }
+        };
+    </script>
 
         <script>
             $(document).ready(function () {

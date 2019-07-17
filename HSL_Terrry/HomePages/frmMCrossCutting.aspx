@@ -443,7 +443,7 @@
                                     <label for="txttrollyqty" class="col-form-label">Trolley Qty(Pcs)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" onkeyup="hasPendingChanges()" class="form-control" placeholder="Trolley Quantity" runat="server" />
+                                    <asp:TextBox ID="txttrollyqty" AutoComplete="Off" TextMode="Number" class="form-control" onkeyup="hasPendingChanges()" placeholder="Trolley Quantity" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -727,17 +727,33 @@
 
         function hasPendingChanges()
         {
-            changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtrejQty.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved1 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved2 = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
+            changesSaved3 = document.getElementById('<%=txtrejQty.ClientID %>').value.length == 0;
+            changesSaved4 = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
             changesSaved = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
             document.getElementById('btnSubmit').disabled = changesSaved;
         }
 
         window.onbeforeunload = function ()
         {
-            if (!changesSaved)
+            if (!changesSaved1)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved2)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved3)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved4)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved)
             {
                 return "You haven't saved your changes";
             }

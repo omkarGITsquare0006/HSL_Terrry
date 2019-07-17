@@ -406,7 +406,7 @@
                                     <label for="txtsupervisor" class="col-form-label">Supervisor</label>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    <asp:DropDownList ID="txtsupervisor" class="form-control dropdown-toggle" onkeyup="hasPendingChanges()" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
                                         <asp:ListItem Text="Select" Value=""></asp:ListItem>
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
@@ -423,7 +423,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    <asp:DropDownList ID="ddMachineNo" class="form-control dropdown-toggle" onkeyup="hasPendingChanges()" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
@@ -468,7 +468,7 @@
                                     <label for="txtmachinestop" class="col-form-label">M/C Stoppage(Min)</label><span class="font-weight-bold text-danger">*</span>
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
-                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" placeholder="Machine Stoppage(Min)" runat="server" />
+                                    <asp:TextBox ID="txtmachinestop" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" placeholder="Machine Stoppage(Min)" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
                                 <%--</div>--%>
@@ -487,7 +487,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:DropDownList ID="txtstopreason" class="form-control dropdown-toggle" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
+                                    <asp:DropDownList ID="txtstopreason" class="form-control dropdown-toggle" onkeyup="hasPendingChanges()" runat="server" AutoPostBack="false" aria-haspopup="true" aria-expanded="false">
                                     </asp:DropDownList>
                                     <%--                            </div>--%>
                                 </div>
@@ -503,7 +503,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
+                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -644,12 +644,37 @@
         function hasPendingChanges()
         {
             changesSaved = document.getElementById('<%=txtnoofpieces.ClientID %>').value.length == 0;
+            changesSaved1 = document.getElementById('<%=txtsupervisor.ClientID %>').value.length == 0;
+            changesSaved2 = document.getElementById('<%=txtnoofpp.ClientID %>').value.length == 0;
+            changesSaved3 = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
+            changesSaved4 = document.getElementById('<%=txtstopreason.ClientID %>').value.length == 0;
+            changesSaved5 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
             document.getElementById('btnSubmit').disabled = changesSaved;
         }
 
         window.onbeforeunload = function ()
         {
             if (!changesSaved)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved1)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved2)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved3)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved4)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved5)
             {
                 return "You haven't saved your changes";
             }

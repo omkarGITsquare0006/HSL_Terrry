@@ -719,16 +719,37 @@
         function hasPendingChanges()
         {
             changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtnoofrounds.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtpcsperround.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
+            changesSaved1 = document.getElementById('<%=txtnoofrounds.ClientID %>').value.length == 0;
+            changesSaved2 = document.getElementById('<%=txtpcsperround.ClientID %>').value.length == 0;
+            changesSaved3 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved4 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
+            changesSaved5 = document.getElementById('<%=TextrejQty.ClientID %>').value.length == 0;
             document.getElementById('btnSubmit').disabled = changesSaved;
         }
 
         window.onbeforeunload = function ()
         {
             if (!changesSaved)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved1)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved2)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved3)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved4)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved5)
             {
                 return "You haven't saved your changes";
             }

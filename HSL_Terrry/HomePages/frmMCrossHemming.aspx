@@ -544,7 +544,7 @@
                                     <%--                            </div>--%>
                                     <%--                            <div class="col">--%>
                                     <%--                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">--%>
-                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" Rows="5" placeholder="Remarks" runat="server" />
+                                    <asp:TextBox ID="txtremarks" AutoComplete="Off" class="form-control" onkeyup="hasPendingChanges()" Rows="5" placeholder="Remarks" runat="server" />
                                     <%--                            </div>--%>
                                 </div>
 
@@ -733,15 +733,32 @@
         function hasPendingChanges()
         {
             changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txtrejQty.ClientID %>').value.length == 0;
-            changesSaved = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved1 = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
+            changesSaved2 = document.getElementById('<%=txtrejQty.ClientID %>').value.length == 0;
+            changesSaved3 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
+            changesSaved5 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
             document.getElementById('btnSubmit').disabled = changesSaved;
         }
 
         window.onbeforeunload = function ()
         {
             if (!changesSaved)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved1)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved2)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved3)
+            {
+                return "You haven't saved your changes";
+            }
+            else if (!changesSaved5)
             {
                 return "You haven't saved your changes";
             }
