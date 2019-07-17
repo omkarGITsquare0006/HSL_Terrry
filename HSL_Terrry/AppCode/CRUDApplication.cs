@@ -391,7 +391,7 @@ public class CRUDApplication
             SqlCommand cmdDistrict = new SqlCommand("SP_GetPutSQLStatementHSL", connGetDistrict);
             cmdDistrict.CommandType = CommandType.StoredProcedure;
             cmdDistrict.CommandTimeout = 250;
-            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoadAuto";
+            cmdDistrict.Parameters.Add("@flag", SqlDbType.Char).Value = "PONumLoadAutoE";
             cmdDistrict.Parameters.Add("@ColumName1", SqlDbType.Char).Value = ScreenStatus;
             cmdDistrict.Parameters.Add("@TempPO", SqlDbType.Char).Value = term;
             SqlDataAdapter da = new SqlDataAdapter(cmdDistrict);
