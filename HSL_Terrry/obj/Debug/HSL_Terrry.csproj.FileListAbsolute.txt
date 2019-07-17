@@ -475,4 +475,3 @@ E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.Build.Utiliti
 E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\ADODB.dll
 E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.ReportViewer.WebForms.xml
 E:\D-ione\Backups\TERRY_LATEST\HSL_Terrry\HSL_Terrry\bin\Microsoft.Build.Utilities.v3.5.xml
-E:\D_ione\Terry\GitSol\Git_Terry_Test\HSL_Terry_Deploy\HSL_Terrry\HSL_Terrry\obj\Debug\HSL_Terrry.csprojAssemblyReference.cache
