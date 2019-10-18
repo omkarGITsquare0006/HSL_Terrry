@@ -54,6 +54,13 @@
                 }
             }
         </script>
+        <style type="text/css">
+            .ui-autocomplete {
+                max-height: 320px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <%-- Card For PO Close --%>

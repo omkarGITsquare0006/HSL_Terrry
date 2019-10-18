@@ -45,7 +45,7 @@
                 <div class="row">
                     <div class="container-fluid col-md-6 mx-auto">
                         <div class="mt-5 bg-warning rounded-right">
-                            <img src="Assets/logo.png" class="rounded img-fluid mt-1 mb-1" alt="Cinque Terre" />
+                            <img src="Assets/logo.png" class="rounded img-fluid mt-0 mb-0" alt="Cinque Terre" />
                             <label class="h2 align-middle text-white">OCTANE</label>
                         </div>
                         <div class="card">

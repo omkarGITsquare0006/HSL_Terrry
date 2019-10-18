@@ -379,7 +379,7 @@ namespace HSL_Terrry.HomePages
             //string[] listPoNum = null;
             try
             {
-                listPoNum = CRUDApplication.Load_PONumber_Auto("Em_status", term);
+                listPoNum = CRUDApplication.Load_PONumber_Autoe("Em_status", term);
             }
             catch (Exception ex)
             {

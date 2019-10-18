@@ -11,11 +11,13 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Styles/css/simple-sidebar.css" rel="stylesheet" />
     <link href="../Styles/css/footer.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/png" href="../Assets/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="../Assets/favicon.png" />
     <script runat="server">
 
         void Anchor_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -26,10 +28,18 @@
             {
                 Response.Redirect("frmLengthSlittingMachineSup.aspx");
             }
+            //}
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
+
         }
         //LHM CLICK EVENT
         void Lhm_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -40,9 +50,16 @@
             {
                 Response.Redirect("frmLengthHemmingMachineSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
         void Acch_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -53,9 +70,16 @@
             {
                 Response.Redirect("frmACCHMachineSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
         void Emm_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -66,9 +90,16 @@
             {
                 Response.Redirect("frmEmbroideryMachineSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
         void Mcc_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -79,9 +110,16 @@
             {
                 Response.Redirect("frmMCrossCuttingSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
         void Mch_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -92,9 +130,16 @@
             {
                 Response.Redirect("frmMCrossHemmingSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
         void Pp_Click(Object sender, EventArgs e)
         {
+            //try
+            //{
             String username = String.Empty;
             username = Session["RoleID"].ToString();
             if (username.Equals("3"))
@@ -105,7 +150,34 @@
             {
                 Response.Redirect("frmPolyPackSup.aspx");
             }
+            //    }
+            //catch
+            //{
+            //    Response.Redirect("~/frmUserLogin.aspx");
+            //}
         }
+
+        //void Rep_Click(Object sender, EventArgs e)
+        //{
+        //    //try
+        //    //{
+        //    String username = String.Empty;
+        //    username = Session["RoleID"].ToString();
+        //    if (username.Equals("3"))
+        //    {
+        //        Response.Redirect("frmPolyPack.aspx");
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("frmPolyPackSup.aspx");
+        //    }
+        //    //    }
+        //    //catch
+        //    //{
+        //    //    Response.Redirect("~/frmUserLogin.aspx");
+        //    //}
+        //}
+
     </script>
 
 </head>
@@ -125,6 +197,14 @@
                     <a onserverclick="Mch_Click" id="mch" runat="server" class="list-group-item list-group-item-action bg-light">Manual Cross Hemming</a>
                     <a onserverclick="Emm_Click" id="em" runat="server" class="list-group-item list-group-item-action bg-light">Embroidery Machine</a>
                     <a onserverclick="Pp_Click" id="pp" runat="server" class="list-group-item list-group-item-action bg-light">Poly Packing</a>
+                    <asp: Button Id="aa" class="dropdown-btn " style="float:left; margin-left:4px;">Reports</asp:>
+                    <div class="dropdown-container">
+                        <a href="WipReport.aspx" id="A1" runat="server" class="list-group-item list-group-item-action bg-light">WIP Report</a>
+                        <a href="DailyReport.aspx" id="A2" runat="server" class="list-group-item list-group-item-action bg-light">Daily Report</a>
+                        <a href="HourlyReport.aspx" id="A3" runat="server" class="list-group-item list-group-item-action bg-light">Hourly Report</a>
+                    </div>
+                   <%-- <a href="WipReport.aspx" id="Rep" runat="server" class="list-group-item list-group-item-action bg-light">WIP Report</a>
+                    <a href="DailyReport.aspx" id="DRep" runat="server" class="list-group-item list-group-item-action bg-light">Daily Report</a>--%>
                     <%--                    onserverclick="Emm_Click" onserverclick="Mch_Click" onserverclick="Mcc_Click" onserverclick="Acch_Click" onserverclick="Lhm_Click" --%>
                 </div>
             </div>
@@ -170,11 +250,14 @@
                     --%>
                     <asp:ContentPlaceHolder ID="head" runat="server">
                     </asp:ContentPlaceHolder>
+                    <%--<div class="footer">
+                <p class="ml-1">Copyright © 2019<span class="float-right mr-1 font-weight-light">Designed and Developed by <a href="https://www.d-ione.com/">@D-Ione Team</a></span></p>
+            </div>--%>
                 </div>
             </div>
-            <div class="footer">
+            <%--<div class="footer">
                 <p class="ml-1">Copyright © 2019<span class="float-right mr-1 font-weight-light">Designed and Developed by <a href="https://www.d-ione.com/">@D-Ione Team</a></span></p>
-            </div>
+            </div>--%>
 
         </div>
     </form>
@@ -194,6 +277,22 @@
                 return false; // prevent default browser refresh on "#" link
             });
         });
+    </script>
+    <script type="text/javascript">
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
     </script>
 </body>
 </html>

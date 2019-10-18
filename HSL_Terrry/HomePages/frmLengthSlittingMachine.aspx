@@ -494,7 +494,7 @@
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
                     <div id="op2" class="col-md-3 mb-1 pr-5">
-                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClientClick="onSaveButtonClick()" OnClick="Btn_submit" />
                     </div>
                     <%--OnClientClick="javascript:return Validate();"--%>
                     <div id="sup1" class="col-md-3 mb-1 pr-5">
@@ -580,7 +580,7 @@
 
                 var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
                 var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
-                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 0;
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
                 var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
                 var udf = document.getElementById('<%=txtudf.ClientID %>');
@@ -678,6 +678,11 @@
 
             function onSaveButtonClick() {
                 changesSaved = true;
+                changesSaved1 = true;
+                changesSaved2 = true;
+                changesSaved3 = true;
+                changesSaved4 = true;
+                changesSaved5 = true;
             }
 
             function hasPendingChanges() {

@@ -40,6 +40,13 @@
                 calendarBehavior1.get_element().value = d.format("yyyy-MM-dd") + " " + now.format("HH:mm:ss")
             }
         </script>
+        <style type="text/css">
+            .ui-autocomplete {
+                max-height: 320px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -70,7 +77,7 @@
         <%--            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">--%>
 
 
-        <div class="form-group col p-2">
+        <div class="form-group col-md-6 p-2">
             <%--                            <div class="col">--%>
             <label for="txtPO_No" class="col-form-label">PO No:</label><span class="font-weight-bold text-danger">*</span>
             <%--                                <asp:Label ID="Label1" class="col-form-label" runat="server" Text="PO No.:" />--%>
@@ -639,6 +646,11 @@
         function onSaveButtonClick()
         {
             changesSaved = true;
+            changesSaved1 = true;
+            changesSaved2 = true;
+            changesSaved3 = true;
+            changesSaved4 = true;
+            changesSaved5 = true;
         }
 
         function hasPendingChanges()

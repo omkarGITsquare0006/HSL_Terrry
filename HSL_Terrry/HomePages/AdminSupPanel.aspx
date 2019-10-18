@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3" id="Div5" runat="server">
+            <%--<div class="col-md-3" id="Div5" runat="server">
                 <div class="card rounded">
                     <div class="waves-effect waves-block waves-light text-center m-3">
                         <img class="activator" src="../images/orders.png" style="width: 50%; height: auto;">
@@ -178,12 +178,12 @@
                         <p>To View the Production Report go here</p>
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="col"></div>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="../materialize.min.js"></script>
     </body>
     </html>

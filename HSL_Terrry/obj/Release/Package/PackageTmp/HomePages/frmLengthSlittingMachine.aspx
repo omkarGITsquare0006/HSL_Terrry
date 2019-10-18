@@ -41,6 +41,13 @@
                 calendarBehavior1.get_element().value = d.format("yyyy-MM-dd") + " " + now.format("HH:mm:ss")
             }
         </script>
+        <style type="text/css">
+            .ui-autocomplete {
+                max-height: 320px;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -487,7 +494,7 @@
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
                     <div id="op2" class="col-md-3 mb-1 pr-5">
-                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClientClick="onSaveButtonClick()" OnClick="Btn_submit" />
                     </div>
                     <%--OnClientClick="javascript:return Validate();"--%>
                     <div id="sup1" class="col-md-3 mb-1 pr-5">
@@ -573,7 +580,7 @@
 
                 var prodmtr = parseFloat(document.getElementById('<%=Textprodmtr.ClientID %>').value);
                 var pcslen = parseFloat(document.getElementById('<%=txtpcslength2.ClientID %>').value / 100);
-                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 1;
+                var noofslit = parseFloat(document.getElementById('<%=txtnoofslits.ClientID %>').value) + 0;
                 var prodpcs = document.getElementById('<%=txtprodpcs.ClientID %>');
                 var perpcsweight = parseFloat(document.getElementById('<%=txtpcswt.ClientID %>').value);
                 var udf = document.getElementById('<%=txtudf.ClientID %>');
@@ -660,59 +667,55 @@
             $(document).ready(function () {
                 //var dt = new Date();
                 $('#<%=txtdate.ClientID%>').datetimepicker({
-                    showTimePicker: false,
+                    defaultTime: false,
                     dateFormat: 'yy-mm-dd',
                     timeFormat: 'hh:mm:ss'
                 });
             });
         </script>
         <script type="text/javascript">
-        var changesSaved = true;
+            var changesSaved = true;
 
-        function onSaveButtonClick()
-        {
-            changesSaved = true;
-        }
+            function onSaveButtonClick() {
+                changesSaved = true;
+                changesSaved1 = true;
+                changesSaved2 = true;
+                changesSaved3 = true;
+                changesSaved4 = true;
+                changesSaved5 = true;
+            }
 
-        function hasPendingChanges()
-        {
-            changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
+            function hasPendingChanges() {
+                changesSaved = document.getElementById('<%=txtmachinestop.ClientID %>').value.length == 0;
             changesSaved1 = document.getElementById('<%=txtprodpcs.ClientID %>').value.length == 0;
             changesSaved2 = document.getElementById('<%=txttrollyqty.ClientID %>').value.length == 0;
             changesSaved3 = document.getElementById('<%=txtremarks.ClientID %>').value.length == 0;
             changesSaved4 = document.getElementById('<%=Textprodmtr.ClientID %>').value.length == 0;
             changesSaved5 = document.getElementById('<%=TextrejQty.ClientID %>').value.length == 0;
-            document.getElementById('btnSubmit').disabled = changesSaved;
-        }
+                document.getElementById('btnSubmit').disabled = changesSaved;
+            }
 
-        window.onbeforeunload = function ()
-        {
-            if (!changesSaved)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved1)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved2)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved3)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved4)
-            {
-                return "You haven't saved your changes";
-            }
-            else if (!changesSaved5)
-            {
-                return "You haven't saved your changes";
-            }
-        };
-    </script>
+            window.onbeforeunload = function () {
+                if (!changesSaved) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved1) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved2) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved3) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved4) {
+                    return "You haven't saved your changes";
+                }
+                else if (!changesSaved5) {
+                    return "You haven't saved your changes";
+                }
+            };
+        </script>
     </body>
 
     </html>

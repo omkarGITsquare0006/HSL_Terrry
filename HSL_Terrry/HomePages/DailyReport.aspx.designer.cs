@@ -10,60 +10,69 @@
 namespace HSL_Terrry.HomePages {
     
     
-    public partial class AdminSupPanel {
+    public partial class DailyReport {
         
         /// <summary>
-        /// usercard control.
+        /// txtfromdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl usercard;
+        protected global::System.Web.UI.WebControls.TextBox txtfromdate;
         
         /// <summary>
-        /// pocard control.
+        /// txttodate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pocard;
+        protected global::System.Web.UI.WebControls.TextBox txttodate;
         
         /// <summary>
-        /// Div1 control.
+        /// ddShift control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.WebControls.DropDownList ddShift;
         
         /// <summary>
-        /// Div2 control.
+        /// ddProcess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+        protected global::System.Web.UI.WebControls.DropDownList ddProcess;
         
         /// <summary>
-        /// Div3 control.
+        /// ddSupervisor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
+        protected global::System.Web.UI.WebControls.DropDownList ddSupervisor;
         
         /// <summary>
-        /// Div4 control.
+        /// btnGetReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
+        protected global::System.Web.UI.WebControls.Button btnGetReport;
+        
+        /// <summary>
+        /// MyReportViewer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer MyReportViewer;
     }
 }

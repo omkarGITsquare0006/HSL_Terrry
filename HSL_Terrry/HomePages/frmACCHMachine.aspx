@@ -579,7 +579,7 @@
                             <asp:Button ID="btnSave" runat="server" Text="SAVE" class="btn btn-outline-warning btn-md btn-block" />
                         </div>--%>
                     <div id="op2" class="col-md-3 mb-1 pr-5">
-                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClick="Btn_submit" />
+                        <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" class="btn btn-outline-warning btn-md btn-block" OnClientClick="onSaveButtonClick()" OnClick="Btn_submit" />
                     </div>
                     <%--OnClientClick="javascript:return Validate();"--%>
                     <div id="sup1" class="col-md-3 mb-1 pr-5">
@@ -713,6 +713,10 @@
         function onSaveButtonClick()
         {
             changesSaved = true;
+            changesSaved1 = true;
+            changesSaved2 = true;
+            changesSaved3 = true;
+            changesSaved4 = true;
         }
 
         function hasPendingChanges()

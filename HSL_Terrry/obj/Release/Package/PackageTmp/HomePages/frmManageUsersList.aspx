@@ -98,7 +98,7 @@
             </div>
             <div class="col-md-4">
                 <br />
-                <asp:Button ID="btnAdd" runat="server" class="btn btn-success" OnClick="btnAdd_Click"
+                <asp:Button ID="btnAdd" runat="server" class="btn btn-success mb-xl-5" OnClick="btnAdd_Click"
                     Style="width: 100px; font-size: 16px; margin-left: 30%;" Text="Add New" />
             </div>
             <div class="col-md-2">
