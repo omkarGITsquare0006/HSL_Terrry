@@ -52,6 +52,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -101,12 +104,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\account.png" />
+    <Content Include="Assets\favicon.png" />
     <Content Include="Assets\logo.png" />
     <Content Include="Assets\office.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -146,12 +145,14 @@
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="frmUserLogin.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="HomePages\DailyReport.aspx" />
     <Content Include="HomePages\frmACCHMachine.aspx" />
     <Content Include="HomePages\AdminSupPanel.aspx" />
     <Content Include="HomePages\frmACCHMachineSup.aspx" />
     <Content Include="HomePages\frmEmbroideryMachine.aspx" />
     <Content Include="HomePages\frmEmbroideryMachineSup.aspx" />
     <Content Include="HomePages\frmHome.aspx" />
+    <Content Include="HomePages\HourlyReport.aspx" />
     <Content Include="HomePages\frmLengthHemmingMachine.aspx" />
     <Content Include="HomePages\frmLengthHemmingMachineSup.aspx" />
     <Content Include="HomePages\frmLengthSlittingMachine.aspx" />
@@ -175,6 +176,7 @@
     <Content Include="HomePages\jquery-1.10.2.js" />
     <Content Include="HomePages\jquery-ui.css" />
     <Content Include="HomePages\jquery-ui.js" />
+    <Content Include="HomePages\WipReport.aspx" />
     <Content Include="images\bg2.png" />
     <Content Include="images\bg22.png" />
     <Content Include="images\bg3.png" />
@@ -336,6 +338,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HomePages\DailyReport.aspx.cs">
+      <DependentUpon>DailyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\DailyReport.aspx.designer.cs">
+      <DependentUpon>DailyReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HomePages\frmACCHMachine.aspx.cs">
       <DependentUpon>frmACCHMachine.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -377,6 +386,13 @@
     </Compile>
     <Compile Include="HomePages\frmHome.aspx.designer.cs">
       <DependentUpon>frmHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\HourlyReport.aspx.cs">
+      <DependentUpon>HourlyReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\HourlyReport.aspx.designer.cs">
+      <DependentUpon>HourlyReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomePages\frmLengthHemmingMachine.aspx.cs">
       <DependentUpon>frmLengthHemmingMachine.aspx</DependentUpon>
@@ -527,6 +543,13 @@
     </Compile>
     <Compile Include="HomePages\PoHandler.ashx.cs">
       <DependentUpon>PoHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePages\WipReport.aspx.cs">
+      <DependentUpon>WipReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePages\WipReport.aspx.designer.cs">
+      <DependentUpon>WipReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
